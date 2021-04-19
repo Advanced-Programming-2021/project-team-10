@@ -57,10 +57,10 @@ public class RegisterMenu {
         return "invalid command";
     }
 
-    private static String getInfoFromMatcher(String command, String username2) {
+    private static String getInfoFromMatcher(String command, String username) {
         Matcher matcher;
         String info = null;
-        matcher = Regex.getMatcher(command, username2);
+        matcher = Regex.getMatcher(command, username);
         if (matcher.find()) {
             info = matcher.group(1);
         }
