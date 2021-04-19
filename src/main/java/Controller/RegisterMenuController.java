@@ -5,6 +5,7 @@ import Controller.Enums.Error;
 import Controller.Enums.MenusMassages.Register;
 import Model.LoginUser;
 import Model.User;
+import Model.UserInfoType;
 import Viewer.RegisterMenuDisplay;
 
 import java.util.regex.Matcher;

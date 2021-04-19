@@ -2,7 +2,7 @@ package Viewer;
 
 import Controller.ImportScanner;
 import Controller.RegisterMenuController;
-import Controller.UserInfoType;
+import Model.UserInfoType;
 import Model.LoginUser;
 import Model.User;
 
@@ -26,7 +26,7 @@ public class RegisterMenu {
             String nickname = null;
             String password = null;
 
-            if ((matcher = Regex.getMatcher(command, Regex.username)).matches()) {
+            if ( Regex.getMatcher(command, Regex.username).matches()) {
                 username = getInfoFromMatcher(command, Regex.username);
             }
             if (Regex.getMatcher(command, Regex.nickname).matches()) {

@@ -1,7 +1,5 @@
 package Model;
 
-import Controller.UserInfoType;
-
 import java.util.ArrayList;
 
 public class User {
