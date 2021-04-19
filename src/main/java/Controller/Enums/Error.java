@@ -11,7 +11,7 @@ public enum Error {
 
     private final String errorMessage;
 
-    private Error(String errorMessage) {
+    Error(String errorMessage) {
         this.errorMessage = errorMessage;
     }
 
