@@ -57,4 +57,8 @@ public class RegisterMenuController {
         MENU_DISPLAY.display(Register.CURRENT_MENU);
     }
 
+    public static void invalidCommand() {
+        MENU_DISPLAY.display(Error.INVALID_COMMAND);
+    }
+
 }

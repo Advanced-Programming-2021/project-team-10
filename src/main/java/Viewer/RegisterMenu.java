@@ -38,6 +38,7 @@ public class RegisterMenu {
             }
 
             if (username == null || nickname == null || password == null) {
+                RegisterMenuController.invalidCommand();
                 return;
             }
 
@@ -50,8 +51,10 @@ public class RegisterMenu {
                 User user = User.getUserByUserInfo(username, UserInfoType.USERNAME);
                 LoginUser.setUser(user);
                 RegisterMenuController.login(password, user);
+                return;
             }
         }
+        RegisterMenuController.invalidCommand();
     }
 
     private static String getInfoFromMatcher(String command, String username) {
