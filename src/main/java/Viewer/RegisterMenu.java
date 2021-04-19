@@ -15,14 +15,12 @@ public class RegisterMenu {
     }
 
 
-    private static String recognizeCommand(String command) {
+    private static void recognizeCommand(String command) {
         Matcher matcher;
         if ((matcher = Regex.getMatcher(command, Regex.menuEnter)).matches()) {
-            return RegisterMenuController.enterMenu(matcher);
-        } else if (command.equals("menu exit")) {
-            return "exit";
+            RegisterMenuController.enterMenu(matcher);
         } else if (command.equals("menu show-current")) {
-            return "Login Menu";
+            RegisterMenuController.showCurrentMenu();
         } else if (Regex.getMatcher(command, Regex.createUser).matches()) {
             String username = null;
             String nickname = null;
@@ -40,10 +38,10 @@ public class RegisterMenu {
             }
 
             if (username == null || nickname == null || password == null) {
-                return "invalid command";
+                return;
             }
 
-            return RegisterMenuController.createUser(username, nickname, password);
+            RegisterMenuController.createUser(username, nickname, password);
 
         } else if (command.contains("user login")) {
             if (command.matches(Regex.username) && command.matches(Regex.password)) {
@@ -51,10 +49,9 @@ public class RegisterMenu {
                 String password = getInfoFromMatcher(command, Regex.password);
                 User user = User.getUserByUserInfo(username, UserInfoType.USERNAME);
                 LoginUser.setUser(user);
-                return RegisterMenuController.login(password, user);
+                RegisterMenuController.login(password, user);
             }
         }
-        return "invalid command";
     }
 
     private static String getInfoFromMatcher(String command, String username) {
@@ -76,14 +73,12 @@ public class RegisterMenu {
 
     public void run() {
         String command;
-        String outPut;
         while (true) {
             command = ImportScanner.getInput();
-            outPut = recognizeCommand(command);
-            if (outPut != null) {
-                if (outPut.equals("exit")) break;
-                else System.out.println(outPut);
+            if (command.equals("menu exit")) {
+                break;
             }
+            recognizeCommand(command);
         }
     }
 }
