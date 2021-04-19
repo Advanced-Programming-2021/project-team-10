@@ -23,18 +23,20 @@ public class User {
 
     public static User getUserByUserInfo(String info, UserInfoType userInfoType) {
         switch (userInfoType) {
-            case USERNAME -> {
+            case USERNAME: {
                 for (User user : ALL_USERS) {
                     if (user.getUsername().equals(info)) {
                         return user;
                     }
                 }
+                break;
             }
-            case NICKNAME -> {
+            case NICKNAME: {
                 for (User user : ALL_USERS) {
                     if (user.getNickname().equals(info))
                         return user;
                 }
+                break;
             }
         }
         return null;

@@ -2,9 +2,8 @@ package Viewer;
 
 import Controller.ImportScanner;
 import Controller.RegisterMenuController;
-import Model.UserInfoType;
-import Model.LoginUser;
 import Model.User;
+import Model.UserInfoType;
 
 import java.util.regex.Matcher;
 
@@ -19,6 +18,7 @@ public class RegisterMenu {
         Matcher matcher;
         if ((matcher = Regex.getMatcher(command, Regex.menuEnter)).matches()) {
             RegisterMenuController.enterMenu(matcher);
+            return;
         } else if (command.equals("menu show-current")) {
             RegisterMenuController.showCurrentMenu();
         } else if (Regex.getMatcher(command, Regex.createUser).matches()) {
@@ -26,7 +26,7 @@ public class RegisterMenu {
             String nickname = null;
             String password = null;
 
-            if ( Regex.getMatcher(command, Regex.username).matches()) {
+            if (Regex.getMatcher(command, Regex.username).matches()) {
                 username = getInfoFromMatcher(command, Regex.username);
             }
             if (Regex.getMatcher(command, Regex.nickname).matches()) {
@@ -37,24 +37,28 @@ public class RegisterMenu {
                 password = getInfoFromMatcher(command, Regex.password);
             }
 
-            if (username == null || nickname == null || password == null) {
-                RegisterMenuController.invalidCommand();
-                return;
-            }
+            if (newUserInfoNotFound(username, nickname, password)) return;
 
             RegisterMenuController.createUser(username, nickname, password);
-
+            return;
         } else if (command.contains("user login")) {
             if (command.matches(Regex.username) && command.matches(Regex.password)) {
                 String username = getInfoFromMatcher(command, Regex.username);
                 String password = getInfoFromMatcher(command, Regex.password);
                 User user = User.getUserByUserInfo(username, UserInfoType.USERNAME);
-                LoginUser.setUser(user);
                 RegisterMenuController.login(password, user);
                 return;
             }
         }
         RegisterMenuController.invalidCommand();
+    }
+
+    private static boolean newUserInfoNotFound(String username, String nickname, String password) {
+        if (username == null || nickname == null || password == null) {
+            RegisterMenuController.invalidCommand();
+            return true;
+        }
+        return false;
     }
 
     private static String getInfoFromMatcher(String command, String username) {

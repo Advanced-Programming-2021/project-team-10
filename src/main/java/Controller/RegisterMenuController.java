@@ -41,13 +41,13 @@ public class RegisterMenuController {
         }
         new User(username, nickname, password);
         MENU_DISPLAY.display(Register.SUCCESSFULLY_USER_CREATE);
-
     }
 
     public static void login(String password, User user) {
         if (null != user) {
             if (user.isPasswordMatch(password)) {
                 MENU_DISPLAY.display(Register.SUCCESSFULLY_LOGIN);
+                LoginUser.setUser(user);
                 return;
             }
         }
