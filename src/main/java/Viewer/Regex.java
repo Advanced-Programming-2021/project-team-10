@@ -15,4 +15,13 @@ public final class Regex {
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(input);
     }
+
+    public static boolean doubleFlagUsing(String command, String word) {
+        int counter = 0;
+        Matcher matcher = getMatcher(command, word);
+        while (matcher.find()) {
+            counter++;
+        }
+        return counter != 1;
+    }
 }

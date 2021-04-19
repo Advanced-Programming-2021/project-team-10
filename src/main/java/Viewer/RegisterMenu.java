@@ -22,24 +22,7 @@ public class RegisterMenu {
         } else if (command.equals("menu show-current")) {
             RegisterMenuController.showCurrentMenu();
         } else if (Regex.getMatcher(command, Regex.createUser).matches()) {
-            String username = null;
-            String nickname = null;
-            String password = null;
-
-            if (Regex.getMatcher(command, Regex.username).matches()) {
-                username = getInfoFromMatcher(command, Regex.username);
-            }
-            if (Regex.getMatcher(command, Regex.nickname).matches()) {
-                nickname = getInfoFromMatcher(command, Regex.nickname);
-            }
-
-            if (Regex.getMatcher(command, Regex.password).matches()) {
-                password = getInfoFromMatcher(command, Regex.password);
-            }
-
-            if (newUserInfoNotFound(username, nickname, password)) return;
-
-            RegisterMenuController.createUser(username, nickname, password);
+            findUserDate(command);
             return;
         } else if (command.contains("user login")) {
             if (command.matches(Regex.username) && command.matches(Regex.password)) {
@@ -51,6 +34,34 @@ public class RegisterMenu {
             }
         }
         RegisterMenuController.invalidCommand();
+    }
+
+    private static void findUserDate(String command) {
+        String username = null;
+        String nickname = null;
+        String password = null;
+
+        if (Regex.getMatcher(command, Regex.username).matches()) {
+            username = getInfoFromMatcher(command, Regex.username);
+        }
+
+        if (Regex.getMatcher(command, Regex.nickname).matches()) {
+            nickname = getInfoFromMatcher(command, Regex.nickname);
+        }
+
+        if (Regex.getMatcher(command, Regex.password).matches()) {
+            password = getInfoFromMatcher(command, Regex.password);
+        }
+
+        if (Regex.doubleFlagUsing(command, "--nickname") ||
+                Regex.doubleFlagUsing(command, "--username") ||
+                Regex.doubleFlagUsing(command, "--password")) {
+            return;
+        }
+
+        if (newUserInfoNotFound(username, nickname, password)) return;
+
+        RegisterMenuController.createUser(username, nickname, password);
     }
 
     private static boolean newUserInfoNotFound(String username, String nickname, String password) {
@@ -88,4 +99,5 @@ public class RegisterMenu {
             recognizeCommand(command);
         }
     }
+
 }
