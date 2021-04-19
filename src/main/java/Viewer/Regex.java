@@ -6,9 +6,9 @@ import java.util.regex.Pattern;
 public final class Regex {
     public static String menuEnter = "menu enter (.+)";
     public static String createUser = "user create --[npu].+";
-    public static String username = ".+(?<= )--username (\\S+).*$";
-    public static String nickname = ".+(?<= )--nickname (\\S+).*$";
-    public static String password = ".+(?<= )--password (\\S+).*$";
+    public static String username = ".+(?<= )--username (\\S+)(?= --nickname.*| --password.*|$).*$";
+    public static String nickname = ".+(?<= )--nickname (\\S+)(?= --username.*| --password.*|$).*$";
+    public static String password = ".+(?<= )--password (\\S+)(?= --nickname.*| --username.*|$).*$";
 
 
     public static Matcher getMatcher(String input, String regex) {
