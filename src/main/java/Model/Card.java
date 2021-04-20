@@ -1,9 +1,15 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Card {
     protected static List<Card> allCards;
+
+    static {
+        allCards = new ArrayList<>();
+    }
+
     protected String name;
     protected String number;
     protected int price;
