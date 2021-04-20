@@ -3,15 +3,22 @@ package Model;
 import java.util.List;
 
 public abstract class Card {
-    protected String name = null;
-    protected String number = null;
+    protected static List<Card> allCards;
+    protected String name;
+    protected String number;
     protected int price;
-    protected String description = null;
-    protected static List<Card> allCards = null;
+    protected String description;
 
-    public static Card getCardByName(String name){
+    {
+        name = null;
+        number = null;
+        description = null;
+        allCards = null;
+    }
+
+    public static Card getCardByName(String name) {
         for (Card card : allCards) {
-            if(card.name.equals(name)) {
+            if (card.name.equals(name)) {
                 return card;
             }
         }
