@@ -8,7 +8,9 @@ public enum Error {
     INVALID_ENTER_MENU("please login first"),
     INVALID_NICKNAME("user with nickname %s already exists"),
     INVALID_USERNAME("user with username %s already exists"),
-    INVALID_LOGOUT("no user is logged in now");
+    INVALID_LOGOUT("no user is logged in now"),
+    INVALID_PASSWORD("current password is invalid"),
+    INVALID_NEW_PASSWORD("please enter a new password");
 
     private final String errorMessage;
 

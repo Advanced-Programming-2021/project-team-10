@@ -9,6 +9,11 @@ public final class Regex {
     public static String username = ".+(?<= )--username (\\S+)(?= --nickname.*| --password.*|$).*$";
     public static String nickname = ".+(?<= )--nickname (\\S+)(?= --username.*| --password.*|$).*$";
     public static String password = ".+(?<= )--password (\\S+)(?= --nickname.*| --username.*|$).*$";
+    public static String profileChange = "profile change (.*)";
+    public static String changeNickname = "profile change --nickname (.*)";
+    public static String changePassword = "(?<= |^)--password(?= --current.*| --new.*|$).*$";
+    public static String currentPassword = "(?<= |^)--current (\\S+)(?= --password| --new.*|$).*$";
+    public static String newPassword = "(?<= |^)--new (\\S+)(?= --password| --current.*|$).*$";
 
 
     public static Matcher getMatcher(String input, String regex) {

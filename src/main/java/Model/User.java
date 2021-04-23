@@ -56,7 +56,7 @@ public class User {
         return ALL_USERS;
     }
 
-    private void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -72,7 +72,7 @@ public class User {
         return nickname;
     }
 
-    private void setNickname(String nickname) {
+    public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 
