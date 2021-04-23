@@ -1,5 +1,6 @@
 package Viewer;
 
+import Controller.Enums.MenusMassages.Register;
 import Controller.ImportScanner;
 import Controller.RegisterMenuController;
 import Model.User;
@@ -9,6 +10,7 @@ import java.util.regex.Matcher;
 
 public class RegisterMenu {
     private static RegisterMenu registerMenu;
+    private static final RegisterMenuDisplay MENU_DISPLAY = RegisterMenuDisplay.getInstance();
 
     private RegisterMenu() {
     }
@@ -18,22 +20,23 @@ public class RegisterMenu {
         Matcher matcher;
         if ((matcher = Regex.getMatcher(command, Regex.menuEnter)).matches()) {
             RegisterMenuController.enterMenu(matcher);
-            return;
         } else if (command.equals("menu show-current")) {
             RegisterMenuController.showCurrentMenu();
         } else if (Regex.getMatcher(command, Regex.createUser).matches()) {
             findUserDate(command);
-            return;
         } else if (command.contains("user login")) {
             if (command.matches(Regex.username) && command.matches(Regex.password)) {
                 String username = getInfoFromMatcher(command, Regex.username);
                 String password = getInfoFromMatcher(command, Regex.password);
                 User user = User.getUserByUserInfo(username, UserInfoType.USERNAME);
                 RegisterMenuController.login(password, user);
-                return;
             }
+        } else if (command.equals("user logout")) {
+            RegisterMenuController.logout();
         }
-        RegisterMenuController.invalidCommand();
+        else {
+            RegisterMenuController.invalidCommand();
+        }
     }
 
     private static void findUserDate(String command) {
@@ -72,10 +75,10 @@ public class RegisterMenu {
         return false;
     }
 
-    private static String getInfoFromMatcher(String command, String username) {
+    private static String getInfoFromMatcher(String command, String regexInfo) {
         Matcher matcher;
         String info = null;
-        matcher = Regex.getMatcher(command, username);
+        matcher = Regex.getMatcher(command, regexInfo);
         if (matcher.find()) {
             info = matcher.group(1);
         }
@@ -98,6 +101,7 @@ public class RegisterMenu {
             }
             recognizeCommand(command);
         }
+        MENU_DISPLAY.display(Register.SUCCESSFULLY_EXIT_MENU);
     }
 
 }

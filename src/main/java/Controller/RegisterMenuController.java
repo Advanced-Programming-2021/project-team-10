@@ -39,7 +39,7 @@ public class RegisterMenuController {
             MENU_DISPLAY.display(Error.INVALID_NICKNAME, nickname);
             return;
         }
-        new User(username, nickname, password);
+        new User(username, nickname, password, 0);
         MENU_DISPLAY.display(Register.SUCCESSFULLY_USER_CREATE);
     }
 
@@ -52,6 +52,16 @@ public class RegisterMenuController {
             }
         }
         MENU_DISPLAY.display(Error.INVALID_USER_OR_PASS);
+    }
+
+    public static void logout() {
+        if (LoginUser.getUser() == null) {
+            MENU_DISPLAY.display(Error.INVALID_LOGOUT);
+        }
+        else {
+            LoginUser.setUser(null);
+            MENU_DISPLAY.display(Register.SUCCESSFULLY_LOGOUT);
+        }
     }
 
     public static void showCurrentMenu() {

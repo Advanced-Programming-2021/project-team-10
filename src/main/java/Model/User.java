@@ -13,11 +13,13 @@ public class User {
     private String username;
     private String nickname;
     private String password;
+    private int score;
 
-    public User(String username, String nickname, String password) {
+    public User(String username, String nickname, String password, int score) {
         setUsername(username);
         setNickname(nickname);
         setPassword(password);
+        setScore(score);
         ALL_USERS.add(this);
     }
 
@@ -42,12 +44,23 @@ public class User {
         return null;
     }
 
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public static ArrayList<User> getAllUsers() {
+        return ALL_USERS;
+    }
 
     private void setPassword(String password) {
         this.password = password;
     }
 
-    private String getUsername() {
+    public String getUsername() {
         return username;
     }
 
@@ -55,7 +68,7 @@ public class User {
         this.username = username;
     }
 
-    private String getNickname() {
+    public String getNickname() {
         return nickname;
     }
 

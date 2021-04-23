@@ -1,6 +1,11 @@
 package Controller;
 
+import Controller.Enums.MenusMassages.Main;
+import Controller.Enums.MenusMassages.Register;
+import Controller.Enums.MenusMassages.Scoreboard;
+import Viewer.MainMenu;
 import Viewer.RegisterMenu;
+import Viewer.ScoreboardMenu;
 
 import java.util.ArrayList;
 
@@ -12,6 +17,11 @@ public class MenuHandler {
             {
                 add("Register menu");
                 add("Main menu");
+                add("Duel menu");
+                add("Deck menu");
+                add("Scoreboard menu");
+                add("Profile menu");
+                add("Shop menu");
             }
         };
     }
@@ -19,10 +29,18 @@ public class MenuHandler {
     public static void changeMenu(Menu menu) {
         if (menu == Menu.REGISTER_MENU) {
             RegisterMenu registerMenu = RegisterMenu.getInstance();
+            System.out.println(Register.SUCCESSFULLY_ENTER_MENU.getMassage());
             registerMenu.run();
         }
-        if (menu == Menu.MAIN_MENU) {
-
+        else if (menu == Menu.MAIN_MENU) {
+            MainMenu mainMenu = MainMenu.getInstance();
+            System.out.println(Main.SUCCESSFULLY_ENTER_MENU.getMainMessage());
+            mainMenu.run();
+        }
+        else if (menu == Menu.SCORE_BOARD_MENU) {
+            ScoreboardMenu scoreboardMenu = ScoreboardMenu.getInstance();
+            System.out.println(Scoreboard.SUCCESSFULLY_ENTER_MENU.getMassage());
+            scoreboardMenu.run();
         }
     }
 

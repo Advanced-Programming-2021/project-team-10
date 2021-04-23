@@ -1,10 +1,44 @@
 package Viewer;
 
+import Controller.Enums.MenusMassages.Main;
+import Controller.ImportScanner;
+import Controller.MainMenuController;
+
+import java.util.regex.Matcher;
+
 public class MainMenu {
-    private MainMenu() {
+    private static MainMenu MAIN_MENU = new MainMenu();
+    private static final MainMenuDisplay MENU_DISPLAY = MainMenuDisplay.getInstance();
+
+    public static MainMenu getInstance() {
+        if (MAIN_MENU == null) {
+            MAIN_MENU = new MainMenu();
+        }
+        return MAIN_MENU;
     }
 
-    private void run() {
-        System.out.println("enter main menu successfully ");
+    private static void recognizeCommand(String command) {
+        Matcher matcher;
+        if ((matcher = Regex.getMatcher(command, Regex.menuEnter)).matches()) {
+            MainMenuController.enterMenu(matcher);
+        }
+        else if (command.equals("menu show-current")) {
+            MainMenuController.showCurrentMenu();
+        }
+        else {
+            MainMenuController.invalidCommand();
+        }
+    }
+
+    public void run() {
+        String command;
+        while (true) {
+            command = ImportScanner.getInput();
+            if (command.equals("menu exit")) {
+                break;
+            }
+            recognizeCommand(command);
+        }
+        MENU_DISPLAY.display(Main.SUCCESSFULLY_EXIT_MENU);
     }
 }

@@ -7,7 +7,8 @@ public enum Error {
     INVALID_USER_OR_PASS("Username and password didn’t match!"),
     INVALID_ENTER_MENU("please login first"),
     INVALID_NICKNAME("user with nickname %s already exists"),
-    INVALID_USERNAME("user with username %s already exists");
+    INVALID_USERNAME("user with username %s already exists"),
+    INVALID_LOGOUT("no user is logged in now");
 
     private final String errorMessage;
 
