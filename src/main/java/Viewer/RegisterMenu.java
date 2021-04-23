@@ -56,15 +56,21 @@ public class RegisterMenu {
             password = getInfoFromMatcher(command, Regex.password);
         }
 
-        if (Regex.doubleFlagUsing(command, "--nickname") ||
-                Regex.doubleFlagUsing(command, "--username") ||
-                Regex.doubleFlagUsing(command, "--password")) {
-            return;
-        }
+        if (checkForDoubleFlagUse(command)) return;
 
         if (newUserInfoNotFound(username, nickname, password)) return;
 
         RegisterMenuController.createUser(username, nickname, password);
+    }
+
+    private static boolean checkForDoubleFlagUse(String command) {
+        if (Regex.doubleFlagUsing(command, "--nickname") ||
+                Regex.doubleFlagUsing(command, "--username") ||
+                Regex.doubleFlagUsing(command, "--password")) {
+            RegisterMenuController.invalidCommand();
+            return true;
+        }
+        return false;
     }
 
     private static boolean newUserInfoNotFound(String username, String nickname, String password) {
