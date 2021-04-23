@@ -78,10 +78,10 @@ public class RegisterMenu {
         return false;
     }
 
-    private static String getInfoFromMatcher(String command, String username) {
+    private static String getInfoFromMatcher(String command, String regexInfo) {
         Matcher matcher;
         String info = null;
-        matcher = Regex.getMatcher(command, username);
+        matcher = Regex.getMatcher(command, regexInfo);
         if (matcher.find()) {
             info = matcher.group(1);
         }

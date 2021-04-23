@@ -21,7 +21,7 @@ public class MenuHandler {
             RegisterMenu registerMenu = RegisterMenu.getInstance();
             registerMenu.run();
         }
-        if (menu == Menu.MAIN_MENU) {
+        else if (menu == Menu.MAIN_MENU) {
 
         }
     }
