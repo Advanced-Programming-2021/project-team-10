@@ -8,5 +8,4 @@ public enum Menu {
     USER_PROFILE_MENU,
     START_DUEL,
     SHOP_MENU,
-    EXIT
 }

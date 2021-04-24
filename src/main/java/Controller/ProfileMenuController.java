@@ -7,7 +7,7 @@ import Model.User;
 import Model.UserInfoType;
 import Viewer.ProfileMenuDisplay;
 
-public class ProfileMenuControler {
+public class ProfileMenuController {
     public static void showCurrentMenu() {
         ProfileMenuDisplay.display(Profile.CURRENT_MENU);
     }

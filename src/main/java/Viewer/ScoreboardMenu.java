@@ -2,7 +2,7 @@ package Viewer;
 
 import Controller.Enums.MenusMassages.Scoreboard;
 import Controller.ImportScanner;
-import Controller.ScoreboardMenuControler;
+import Controller.ScoreboardMenuController;
 
 public class ScoreboardMenu {
     private static ScoreboardMenu scoreboardMenu;
@@ -28,13 +28,13 @@ public class ScoreboardMenu {
 
     private void recognizeCommand(String command) {
         if (command.equals("menu show-current")) {
-            ScoreboardMenuControler.showCurrentMenu();
+            ScoreboardMenuController.showCurrentMenu();
         }
         else if (command.equals("scoreboard show")) {
-            ScoreboardMenuControler.showScoreboard();
+            ScoreboardMenuController.showScoreboard();
         }
         else {
-            ScoreboardMenuControler.invalidCommand();
+            ScoreboardMenuController.invalidCommand();
         }
     }
 }

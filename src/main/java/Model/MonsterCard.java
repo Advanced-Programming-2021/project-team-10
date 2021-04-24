@@ -21,7 +21,8 @@ public class MonsterCard extends Card {
     protected MonsterRace race;
     protected MonsterAttribute attribute;
 
-    public MonsterCard(String name, String level, String attribute, String race, String type, String attack, String defence, String description, String price) {
+    public MonsterCard(String name, String level, String attribute, String race, String type,
+                       String attack, String defence, String description, String price) {
         super(name, description, price);
         setAttack(Integer.parseInt(attack));
         setDefence(Integer.parseInt(defence));

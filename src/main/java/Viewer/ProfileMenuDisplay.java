@@ -2,7 +2,7 @@ package Viewer;
 
 import Controller.Enums.Error;
 import Controller.Enums.MenusMassages.Profile;
-import Controller.Enums.MenusMassages.Register;
+
 
 public class ProfileMenuDisplay {
     public static void display(Enum message) {

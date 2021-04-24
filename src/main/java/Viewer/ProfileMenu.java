@@ -2,7 +2,7 @@ package Viewer;
 
 import Controller.Enums.MenusMassages.Profile;
 import Controller.ImportScanner;
-import Controller.ProfileMenuControler;
+import Controller.ProfileMenuController;
 
 import java.util.regex.Matcher;
 
@@ -34,19 +34,19 @@ public class ProfileMenu {
             Matcher matcher1, matcher2;
             if ((matcher = Regex.getMatcher(command, Regex.changeNickname)).matches()) {
                 String newNickname = matcher.group(1);
-                ProfileMenuControler.changeNickname(newNickname);
+                ProfileMenuController.changeNickname(newNickname);
             }
             else if (Regex.getMatcher(command, Regex.changePassword).matches() && (matcher1 = Regex.getMatcher(command, Regex.currentPassword)).matches() && (matcher2 = Regex.getMatcher(command, Regex.newPassword)).matches()) {
                 String currentPassword = matcher1.group(1);
                 String newPassword = matcher2.group(1);
-                ProfileMenuControler.changePassword(currentPassword, newPassword);
+                ProfileMenuController.changePassword(currentPassword, newPassword);
             }
         }
         else if (command.equals("menu show-current")) {
-            ProfileMenuControler.showCurrentMenu();
+            ProfileMenuController.showCurrentMenu();
         }
         else {
-            ProfileMenuControler.invalidCommand();
+            ProfileMenuController.invalidCommand();
         }
     }
 }

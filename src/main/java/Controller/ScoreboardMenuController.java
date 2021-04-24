@@ -8,7 +8,7 @@ import Viewer.ScoreboardMenuDisplay;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class ScoreboardMenuControler {
+public class ScoreboardMenuController {
     public static void invalidCommand() {
         ScoreboardMenuDisplay.display(Error.INVALID_COMMAND);
     }

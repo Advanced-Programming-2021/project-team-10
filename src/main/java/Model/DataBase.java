@@ -1,10 +1,9 @@
 package Model;
 
 import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.FileReader;
-import java.io.IOException;
+
 
 public class DataBase {
     private static DataBase instance;
@@ -22,14 +21,14 @@ public class DataBase {
             String[] lineInArray;
             while ((lineInArray = reader.readNext()) != null) {
                 new MagicCard(lineInArray[0], lineInArray[1],
-                              lineInArray[2], lineInArray[3],
-                              lineInArray[4], lineInArray[5]);
+                        lineInArray[2], lineInArray[3],
+                        lineInArray[4], lineInArray[5]);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        try(CSVReader reader = new CSVReader(new FileReader("Monster.csv"))) {
+        try (CSVReader reader = new CSVReader(new FileReader("Monster.csv"))) {
             String[] infoRow;
             reader.readNext(); // dummy read to skip the title row
             while ((infoRow = reader.readNext()) != null) {

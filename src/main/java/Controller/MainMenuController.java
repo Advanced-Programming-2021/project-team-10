@@ -6,7 +6,7 @@ import Viewer.MainMenuDisplay;
 
 import java.util.regex.Matcher;
 
-public class MainMenuControler {
+public class MainMenuController {
     public static void showCurrentMenu() {
         MainMenuDisplay.display(Main.CURRENT_MENU);
     }

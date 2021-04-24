@@ -1,12 +1,12 @@
 package Model;
 
-import Model.MagicEnum.MagicFamily;
+import Model.MagicEnum.MagicAttribute;
 import Model.MagicEnum.MagicSpeed;
 import Model.MagicEnum.MagicType;
 
 import java.util.ArrayList;
 
-import static Model.MagicEnum.MagicFamily.setFamily;
+import static Model.MagicEnum.MagicAttribute.setFamily;
 
 public class MagicCard extends Card {
     private static ArrayList<MagicCard> magicCards;
@@ -16,7 +16,7 @@ public class MagicCard extends Card {
     }
 
     private MagicSpeed magicSpeed;
-    private MagicFamily magicFamily;
+    private MagicAttribute magicFamily;
     private MagicType typeOfMagic;
     private ArrayList<EffectOfMagic> effectsOfMagic;
 
@@ -54,7 +54,7 @@ public class MagicCard extends Card {
         this.typeOfMagic = MagicType.setType(typeOfMagic);
     }
 
-    public MagicFamily getMagicFamily() {
+    public MagicAttribute getMagicFamily() {
         return magicFamily;
     }
 

@@ -2,7 +2,7 @@ package Viewer;
 
 import Controller.Enums.MenusMassages.Main;
 import Controller.ImportScanner;
-import Controller.MainMenuControler;
+import Controller.MainMenuController;
 
 import java.util.regex.Matcher;
 
@@ -19,13 +19,13 @@ public class MainMenu {
     private static void recognizeCommand(String command) {
         Matcher matcher;
         if ((matcher = Regex.getMatcher(command, Regex.menuEnter)).matches()) {
-            MainMenuControler.enterMenu(matcher);
+            MainMenuController.enterMenu(matcher);
         }
         else if (command.equals("menu show-current")) {
-            MainMenuControler.showCurrentMenu();
+            MainMenuController.showCurrentMenu();
         }
         else {
-            MainMenuControler.invalidCommand();
+            MainMenuController.invalidCommand();
         }
     }
 

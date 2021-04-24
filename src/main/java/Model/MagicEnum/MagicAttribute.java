@@ -1,6 +1,6 @@
 package Model.MagicEnum;
 
-public enum MagicFamily {
+public enum MagicAttribute {
     RITUAL(),
     QUICK_PLAY(),
     FIELD(),
@@ -10,10 +10,10 @@ public enum MagicFamily {
     ANTI_TRAP(),
     NORMAL();
 
-    MagicFamily() {
+    MagicAttribute() {
     }
 
-    public static MagicFamily setFamily(String familyType) {
+    public static MagicAttribute setFamily(String familyType) {
         switch (familyType) {
             case "Ritual": {
                 return RITUAL;
