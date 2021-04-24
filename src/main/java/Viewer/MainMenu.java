@@ -2,12 +2,12 @@ package Viewer;
 
 import Controller.Enums.MenusMassages.Main;
 import Controller.ImportScanner;
-import Controller.MainMenuController;
+//import Controller.MainMenuController;
 
 import java.util.regex.Matcher;
 
 public class MainMenu {
-    private static MainMenu MAIN_MENU = new MainMenu();
+/*    private static MainMenu MAIN_MENU = new MainMenu();
     private static final MainMenuDisplay MENU_DISPLAY = MainMenuDisplay.getInstance();
 
     public static MainMenu getInstance() {
@@ -28,7 +28,7 @@ public class MainMenu {
         else {
             MainMenuController.invalidCommand();
         }
-    }
+    }*/
 
     public void run() {
         String command;
@@ -37,8 +37,8 @@ public class MainMenu {
             if (command.equals("menu exit")) {
                 break;
             }
-            recognizeCommand(command);
+            //recognizeCommand(command);
         }
-        MENU_DISPLAY.display(Main.SUCCESSFULLY_EXIT_MENU);
+       // MENU_DISPLAY.display(Main.SUCCESSFULLY_EXIT_MENU);
     }
 }

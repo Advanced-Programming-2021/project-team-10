@@ -1,9 +1,9 @@
 package Controller;
 
 import Controller.Enums.MenusMassages.Main;
-import Controller.Enums.MenusMassages.Profile;
+//import Controller.Enums.MenusMassages.Profile;
 import Controller.Enums.MenusMassages.Register;
-import Controller.Enums.MenusMassages.Scoreboard;
+//import Controller.Enums.MenusMassages.Scoreboard;
 import Viewer.*;
 
 import java.util.ArrayList;
@@ -32,19 +32,19 @@ public class MenuHandler {
             registerMenu.run();
         }
         else if (menu == Menu.MAIN_MENU) {
-            MainMenu mainMenu = MainMenu.getInstance();
+           // MainMenu mainMenu = MainMenu.getInstance();
             System.out.println(Main.SUCCESSFULLY_ENTER_MENU.getMainMessage());
-            mainMenu.run();
+          //  mainMenu.run();
         }
         else if (menu == Menu.SCORE_BOARD_MENU) {
-            ScoreboardMenu scoreboardMenu = ScoreboardMenu.getInstance();
+          /*  ScoreboardMenu scoreboardMenu = ScoreboardMenu.getInstance();
             ScoreboardMenuDisplay.display(Scoreboard.SUCCESSFULLY_ENTER_MENU);
-            scoreboardMenu.run();
+            scoreboardMenu.run();*/
         }
         else if (menu == Menu.USER_PROFILE_MENU) {
-            ProfileMenu profileMenu = ProfileMenu.getInstance();
+       /*     ProfileMenu profileMenu = ProfileMenu.getInstance();
             ProfileMenuDisplay.display(Profile.SUCCESSFULLY_ENTER_MENU);
-            profileMenu.run();
+            profileMenu.run();*/
         }
     }
 
