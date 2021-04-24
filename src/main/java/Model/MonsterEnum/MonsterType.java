@@ -6,15 +6,15 @@ public enum MonsterType {
     RITUAL;
 
     public static MonsterType assignType(String type) {
-        switch (type)  {
+        switch (type) {
             case "Normal": {
-                return MonsterType.NORMAL;
+                return NORMAL;
             }
             case "Effect": {
-                return MonsterType.EFFECT;
+                return EFFECT;
             }
             case "RITUAL": {
-                return MonsterType.RITUAL;
+                return RITUAL;
             }
             default: {
                 return null;

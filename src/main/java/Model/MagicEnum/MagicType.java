@@ -12,10 +12,10 @@ public enum MagicType {
 
         switch (typeOfMagic) {
             case "Spell": {
-                return MagicType.SPELL;
+                return SPELL;
             }
             case "Trap": {
-                return MagicType.TRAP;
+                return TRAP;
             }
             default:
                 return null;

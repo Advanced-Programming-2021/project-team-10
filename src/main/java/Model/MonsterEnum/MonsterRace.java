@@ -20,56 +20,55 @@ public enum MonsterRace {
     public static MonsterRace assignRace(String race) {
         switch (race) {
             case "Beast-Warrior": {
-                return MonsterRace.BEAST_WARRIOR;
+                return BEAST_WARRIOR;
             }
             case "Warrior": {
-                return MonsterRace.WARRIOR;
+                return WARRIOR;
             }
             case "Aqua": {
-                return MonsterRace.AQUA;
+                return AQUA;
             }
             case "Fiend": {
-                return MonsterRace.FIEND;
+                return FIEND;
             }
             case "Beast": {
-                return MonsterRace.BEAST;
+                return BEAST;
             }
             case "Pyro": {
-                return MonsterRace.PYRO;
+                return PYRO;
             }
             case "Spellcaster": {
-                return MonsterRace.SPELLCASTER;
+                return SPELLCASTER;
             }
             case "Thunder": {
-                return MonsterRace.THUNDER;
+                return THUNDER;
             }
             case "Dragon": {
-                return MonsterRace.DRAGON;
+                return DRAGON;
             }
             case "Machine": {
-                return MonsterRace.MACHINE;
+                return MACHINE;
             }
             case "Rock": {
-                return MonsterRace.ROCK;
+                return ROCK;
             }
             case "Insect": {
-                return MonsterRace.INSECT;
+                return INSECT;
             }
             case "Cyberse": {
-                return MonsterRace.CYBERSE;
+                return CYBERSE;
             }
             case "Fairy": {
-                return MonsterRace.FAIRY;
+                return FAIRY;
             }
             case "Sea Serpent": {
-                return MonsterRace.SEA_SERPENT;
+                return SEA_SERPENT;
             }
             default: {
                 return null;
             }
         }
     }
-
 
 
 }

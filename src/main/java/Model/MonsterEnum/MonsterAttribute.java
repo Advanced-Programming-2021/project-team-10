@@ -1,5 +1,6 @@
 package Model.MonsterEnum;
 
+
 public enum MonsterAttribute {
     DARK,
     EARTH,
@@ -11,22 +12,22 @@ public enum MonsterAttribute {
     public static MonsterAttribute assignAttribute(String attribute) {
         switch (attribute) {
             case "DARK": {
-                return MonsterAttribute.DARK;
+                return DARK;
             }
             case "EARTH": {
-                return MonsterAttribute.EARTH;
+                return EARTH;
             }
             case "FIRE": {
-                return MonsterAttribute.FIRE;
+                return FIRE;
             }
             case "LIGHT": {
-                return MonsterAttribute.LIGHT;
+                return LIGHT;
             }
             case "WATER": {
-                return MonsterAttribute.WATER;
+                return WATER;
             }
             case "WIND": {
-                return MonsterAttribute.WIND;
+                return WIND;
             }
             default: {
                 return null;
@@ -34,3 +35,5 @@ public enum MonsterAttribute {
         }
     }
 }
+
+

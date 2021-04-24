@@ -7,7 +7,7 @@ import Model.MonsterEnum.MonsterType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MonsterCard extends Card{
+public class MonsterCard extends Card {
     protected static List<MonsterCard> monsterCards;
 
     static {
@@ -44,51 +44,51 @@ public class MonsterCard extends Card{
                 '}';
     }
 
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public void setDefence(int defence) {
-        this.defence = defence;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public void setType(MonsterType type) {
-        this.type = type;
-    }
-
-    public void setRace(MonsterRace race) {
-        this.race = race;
-    }
-
-    public void setAttribute(MonsterAttribute attribute) {
-        this.attribute = attribute;
-    }
-
     public int getAttack() {
         return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
     }
 
     public int getDefence() {
         return defence;
     }
 
+    public void setDefence(int defence) {
+        this.defence = defence;
+    }
+
     public int getLevel() {
         return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public MonsterType getType() {
         return type;
     }
 
+    public void setType(MonsterType type) {
+        this.type = type;
+    }
+
     public MonsterRace getRace() {
         return race;
     }
 
+    public void setRace(MonsterRace race) {
+        this.race = race;
+    }
+
     public MonsterAttribute getAttribute() {
         return attribute;
+    }
+
+    public void setAttribute(MonsterAttribute attribute) {
+        this.attribute = attribute;
     }
 }
