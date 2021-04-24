@@ -22,10 +22,22 @@ public class DataBase {
             String[] lineInArray;
             while ((lineInArray = reader.readNext()) != null) {
                 new MagicCard(lineInArray[0], lineInArray[1],
-                        lineInArray[2], lineInArray[3],
-                        lineInArray[4], Integer.parseInt(lineInArray[5]));
+                              lineInArray[2], lineInArray[3],
+                              lineInArray[4], lineInArray[5]);
             }
-        } catch (IOException | CsvValidationException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try(CSVReader reader = new CSVReader(new FileReader("Monster.csv"))) {
+            String[] infoRow;
+            reader.readNext(); // dummy read to skip the title row
+            while ((infoRow = reader.readNext()) != null) {
+                new MonsterCard(infoRow[0], infoRow[1], infoRow[2],
+                        infoRow[3], infoRow[4], infoRow[5],
+                        infoRow[6], infoRow[7], infoRow[8]);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

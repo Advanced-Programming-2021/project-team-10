@@ -1,12 +1,12 @@
 package Model;
 
-import Model.CardEnum.MagicFamily;
-import Model.CardEnum.MagicSpeed;
-import Model.CardEnum.MagicType;
+import Model.MagicEnum.MagicFamily;
+import Model.MagicEnum.MagicSpeed;
+import Model.MagicEnum.MagicType;
 
 import java.util.ArrayList;
 
-import static Model.CardEnum.MagicFamily.setFamily;
+import static Model.MagicEnum.MagicFamily.setFamily;
 
 public class MagicCard extends Card {
     private static ArrayList<MagicCard> magicCards;
@@ -24,14 +24,22 @@ public class MagicCard extends Card {
         effectsOfMagic = new ArrayList<>();
     }
 
-    public MagicCard(String name, String typeOfMagic, String magicFamily, String description, String speed, int price) {
-        setName(name);
+    public MagicCard(String name, String typeOfMagic, String magicFamily, String description, String speed, String price) {
+        super(name, description, price);
         setTypeOfMagic(typeOfMagic);
         setMagicFamily(magicFamily);
         setMagicSpeed(speed);
-        setPrice(price);
-        setDescription(description);
         magicCards.add(this);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "magicSpeed=" + magicSpeed +
+                ", magicFamily=" + magicFamily +
+                ", typeOfMagic=" + typeOfMagic +
+                ", effectsOfMagic=" + effectsOfMagic +
+                '}';
     }
 
     public void setMagicSpeed(String magicSpeed) {
@@ -44,18 +52,6 @@ public class MagicCard extends Card {
 
     private void setTypeOfMagic(String typeOfMagic) {
         this.typeOfMagic = MagicType.setType(typeOfMagic);
-    }
-
-    private void setName(String name) {
-        this.name = name;
-    }
-
-    private void setPrice(int price) {
-        this.price = price;
-    }
-
-    private void setDescription(String description) {
-        this.description = description;
     }
 
     public MagicFamily getMagicFamily() {

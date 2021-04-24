@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="change jupiter version">
-      <change afterPath="$PROJECT_DIR$/Monster.csv" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="add Monster.csv">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterEnum/MonsterAttribute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterEnum/MonsterRace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/MonsterEnum/MonsterType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monster.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Monster.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardEnum/MagicFamily.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MagicEnum/MagicFamily.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardEnum/MagicSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MagicEnum/MagicSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CardEnum/MagicType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MagicEnum/MagicType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MagicCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +104,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="G:/semister 2/java Yu_gi_oh project/yu-gi-oh-Project" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -146,7 +169,7 @@
       <workItem from="1619218518367" duration="2750000" />
       <workItem from="1619237459302" duration="7979000" />
       <workItem from="1619276688699" duration="1353000" />
-      <workItem from="1619246059081" duration="698000" />
+      <workItem from="1619246059081" duration="12140000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
@@ -302,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619237677120</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="add Monster.csv">
+      <created>1619246780691</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1619246780691</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +357,8 @@
     <MESSAGE value="end of task 1" />
     <MESSAGE value="end of task 1 and edit card abstract class" />
     <MESSAGE value="change jupiter version" />
-    <option name="LAST_COMMIT_MESSAGE" value="change jupiter version" />
+    <MESSAGE value="add Monster.csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Monster.csv" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

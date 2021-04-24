@@ -1,3 +1,4 @@
+import Model.Card;
 import Model.DataBase;
 import Viewer.RegisterMenu;
 

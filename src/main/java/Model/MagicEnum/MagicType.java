@@ -1,4 +1,4 @@
-package Model.CardEnum;
+package Model.MagicEnum;
 
 public enum MagicType {
     SPELL(),
