@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Card.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DataBase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/MagicCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/MagicCard.class" afterDir="false" />
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="adding mainmenu">
       <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Profile.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Scoreboard.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ProfileMenuControler.java" afterDir="false" />
