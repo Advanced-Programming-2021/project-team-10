@@ -8,11 +8,42 @@
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Card.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DataBase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/MagicCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/MagicCard.class" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="adding mainmenu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Scoreboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ProfileMenuControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ScoreboardMenuControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Viewer/ProfileMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Viewer/ProfileMenuDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Viewer/ScoreboardMenuDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainMenuControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainMenuControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MenuHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Viewer/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/ScoreboardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Viewer/ScoreboardMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Viewer/RegisterMenuTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Viewer/RegisterMenuTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -20,6 +51,7 @@
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Enum" />
         <option value="Class" />
         <option value="Enum" />
       </list>
@@ -56,6 +88,8 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/Viewer" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -84,11 +118,11 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="untitled" />
+      <module name="project-team-10" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
