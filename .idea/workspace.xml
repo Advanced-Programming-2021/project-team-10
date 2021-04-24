@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="change jupiter version">
-      <change afterPath="$PROJECT_DIR$/SpellTrap.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/CardEnum/MagicFamily.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/CardEnum/MagicSpeed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/CardEnum/MagicType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/DataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/EffectOfMagic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/MagicCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monster.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,19 +92,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="G:/semister 2/java Yu_gi_oh project/yu-gi-oh-Project" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -168,6 +146,7 @@
       <workItem from="1619218518367" duration="2750000" />
       <workItem from="1619237459302" duration="7979000" />
       <workItem from="1619276688699" duration="1353000" />
+      <workItem from="1619246059081" duration="698000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
