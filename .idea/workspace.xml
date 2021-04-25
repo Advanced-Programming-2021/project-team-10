@@ -4,78 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="fix some bugs in main menu and change accessibleness of some contents">
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="clean">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/GraveYard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/MagicHouse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/MonsterHouse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/userProp/Deck_Demo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Enums/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/Error.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Enums/MenusMassages/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/Scoreboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ImportScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/ProfileMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegisterMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/RegisterMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ScoreboardMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/ScoreboardMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/EffectOfMagic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/EffectOfMagic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/LoginUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/LoginUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MagicEnum/MagicAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEnum/Magic/MagicAttribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MagicEnum/MagicSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEnum/Magic/MagicSpeed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MagicEnum/MagicType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEnum/Magic/MagicType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MonsterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MonsterEnum/MonsterAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEnum/Monster/MonsterAttribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MonsterEnum/MonsterRace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEnum/Monster/MonsterRace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MonsterEnum/MonsterType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEnum/Monster/MonsterType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/UserInfoType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/UserInfoType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/MainMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/MainMenuDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/ProfileMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/ProfileMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/ProfileMenuDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/RegisterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/RegisterMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/RegisterMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/RegisterMenuDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/ScoreboardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/ScoreboardMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Viewer/ScoreboardMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/ScoreboardMenuDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Profile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Scoreboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Scoreboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ImportScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ImportScanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuHandler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/RegisterMenuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Card.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DataBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/EffectOfMagic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/LoginUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/MagicCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/MagicEnum/MagicSpeed.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/MagicEnum/MagicType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/MonsterCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/MonsterEnum/MonsterAttribute.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/MonsterEnum/MonsterRace.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/MonsterEnum/MonsterType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/User$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/UserInfoType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/MainMenuDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/MainMenuDisplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenuDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenuDisplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/RegisterMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/RegisterMenuDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/RegisterMenuDisplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenuDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenuDisplay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +35,8 @@
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -113,6 +50,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="1rJuVdeiVFuEczDxOSgLXXwjCQe" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -238,7 +178,7 @@
       <workItem from="1619276688699" duration="1353000" />
       <workItem from="1619303927490" duration="4621000" />
       <workItem from="1619316111069" duration="112000" />
-      <workItem from="1619326345905" duration="945000" />
+      <workItem from="1619326345905" duration="2134000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
@@ -415,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619312049679</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="clean">
+      <created>1619327375448</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1619327375448</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,14 +383,17 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="register menu and user model is defined" />
-    <MESSAGE value="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better" />
+    <MESSAGE value="register menu and user model is defined login class user is
+     added to remove the connection of menus remove their fields the enum menu is
+      defined to make transformation from menus easier and better" />
     <MESSAGE value="end of task 1" />
     <MESSAGE value="end of task 1 and edit card abstract class" />
     <MESSAGE value="change jupiter version" />
     <MESSAGE value="set magic and monsters card and enum" />
     <MESSAGE value="fix some of warnings" />
     <MESSAGE value="fix some bugs in main menu and change accessibleness of some contents" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix some bugs in main menu and change accessibleness of some contents" />
+    <MESSAGE value="clean" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

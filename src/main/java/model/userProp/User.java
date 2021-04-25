@@ -14,6 +14,8 @@ public class User {
     private String nickname;
     private String password;
     private int score;
+    private ArrayList<Deck_Demo> allDecks;
+    private Deck_Demo activeDeck;
 
     public User(String username, String nickname, String password, int score) {
         setUsername(username);
@@ -21,6 +23,8 @@ public class User {
         setPassword(password);
         setScore(score);
         ALL_USERS.add(this);
+        allDecks = new ArrayList<>();
+        activeDeck = null;
     }
 
     public static User getUserByUserInfo(String info, UserInfoType userInfoType) {
@@ -44,16 +48,16 @@ public class User {
         return null;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public static ArrayList<User> getAllUsers() {
+        return ALL_USERS;
     }
 
     public int getScore() {
         return score;
     }
 
-    public static ArrayList<User> getAllUsers() {
-        return ALL_USERS;
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public void setPassword(String password) {
@@ -78,6 +82,10 @@ public class User {
 
     public boolean isPasswordMatch(String password) {
         return password.equals(this.password);
+    }
+
+    public Deck_Demo getActiveDeck() {
+        return activeDeck;
     }
 }
 
