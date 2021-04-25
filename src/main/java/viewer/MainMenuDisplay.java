@@ -1,0 +1,19 @@
+package viewer;
+
+import controller.enums.Error;
+import controller.enums.MenusMassages.Main;
+
+public class MainMenuDisplay {
+    public static void display(Enum message) {
+        if (message instanceof Main) {
+            System.out.println(((Main) message).getMainMessage());
+        }
+        else if (message instanceof Error) {
+            Error output = (Error) message;
+            System.out.println(output.getMassage());
+        }
+        else {
+            System.out.println("invalid enum type");
+        }
+    }
+}

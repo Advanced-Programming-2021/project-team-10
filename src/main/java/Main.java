@@ -1,5 +1,5 @@
-import Model.DataBase;
-import Viewer.RegisterMenu;
+import model.DataBase;
+import viewer.RegisterMenu;
 
 public class Main {
     public static void main(String[] args) {
