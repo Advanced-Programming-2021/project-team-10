@@ -3,6 +3,7 @@ package Viewer;
 import Controller.Enums.MenusMassages.Main;
 import Controller.ImportScanner;
 import Controller.MainMenuController;
+import Model.LoginUser;
 
 import java.util.regex.Matcher;
 
@@ -20,11 +21,9 @@ public class MainMenu {
         Matcher matcher;
         if ((matcher = Regex.getMatcher(command, Regex.menuEnter)).matches()) {
             MainMenuController.enterMenu(matcher);
-        }
-        else if (command.equals("menu show-current")) {
+        } else if (command.equals("menu show-current")) {
             MainMenuController.showCurrentMenu();
-        }
-        else {
+        } else {
             MainMenuController.invalidCommand();
         }
     }
@@ -34,10 +33,15 @@ public class MainMenu {
         while (true) {
             command = ImportScanner.getInput();
             if (command.equals("menu exit")) {
+                MainMenuDisplay.display(Main.SUCCESSFULLY_EXIT_MENU);
+                break;
+            } else if (command.equals("user logout")) {
+                LoginUser.setUser(null);
+                MainMenuDisplay.display(Main.SUCCESSFULLY_LOGOUT);
                 break;
             }
             recognizeCommand(command);
         }
-        MainMenuDisplay.display(Main.SUCCESSFULLY_EXIT_MENU);
+
     }
 }

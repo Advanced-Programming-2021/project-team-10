@@ -26,7 +26,7 @@ public class ScoreboardMenu {
         return scoreboardMenu;
     }
 
-    private void recognizeCommand(String command) {
+    private static void recognizeCommand(String command) {
         if (command.equals("menu show-current")) {
             ScoreboardMenuController.showCurrentMenu();
         }
