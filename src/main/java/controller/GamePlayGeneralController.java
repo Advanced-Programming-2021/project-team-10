@@ -32,7 +32,7 @@ public class GamePlayGeneralController {
             mapDisplay.append("\tc");
         }
         mapDisplay.append("\n").append(opponentPlayer.
-                getDeck().getCardsOfDeck().size()).append("\n");
+                getDeck().getMainDeck().size()).append("\n");
         int[] cardOrientation = {4, 2, 1, 3, 5};
         for (int i : cardOrientation) {
 

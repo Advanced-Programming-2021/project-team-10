@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="game models and general structure">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/cardvisibility/MagicHouseVisibilityState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/cardvisibility/MonsterHouseVisibilityState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/GamePlayGeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/GamePlayGeneralController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/Change.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Change.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/GraveYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/GraveYard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/MagicHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/MagicHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/MonsterHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/MonsterHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/gamestage/GameMainStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/gamestage/GameMainStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/gamestage/GameSideStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/gamestage/GameSideStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +170,7 @@
       <workItem from="1619386883453" duration="3686000" />
       <workItem from="1619421313911" duration="1706000" />
       <workItem from="1619483777349" duration="10693000" />
+      <workItem from="1619551139463" duration="581000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
@@ -386,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619500541760</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="game models and general structure">
+      <created>1619551361013</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1619551361013</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

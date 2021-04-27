@@ -5,13 +5,10 @@ import model.cards.cardsProp.Card;
 import java.util.ArrayList;
 
 public class Deck {
-    private ArrayList<Card> cardsOfDeck;
+    private ArrayList<Card> mainDeck;
 
-    public Deck getCopy() {
-        return null;
-    }
 
-    public ArrayList<Card> getCardsOfDeck() {
-        return cardsOfDeck;
+    public ArrayList<Card> getMainDeck() {
+        return mainDeck;
     }
 }
