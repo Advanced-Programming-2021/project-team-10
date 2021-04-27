@@ -33,6 +33,9 @@ public class MonsterCard extends Card {
         monsterCards.add(this);
     }
 
+    public MonsterCard(){
+    }
+
     @Override
     public String toString() {
         return super.toString() +
@@ -91,5 +94,25 @@ public class MonsterCard extends Card {
 
     public void setAttribute(MonsterAttribute attribute) {
         this.attribute = attribute;
+    }
+
+    @Override
+    public Card getCopy() {
+        MonsterCard copy = new MonsterCard();
+
+        // duplicate block:
+        copy.name = this.name;
+        copy.description = this.description;
+        copy.price = this.price;
+        //
+
+        copy.attack = this.attack;
+        copy.defence = this.defence;
+        copy.type = this.type;
+        copy.attribute = this.attribute;
+        copy.level = this.level;
+        copy.race = this.race;
+
+        return copy;
     }
 }

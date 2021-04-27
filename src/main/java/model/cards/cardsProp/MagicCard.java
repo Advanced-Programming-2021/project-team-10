@@ -33,6 +33,10 @@ public class MagicCard extends Card {
         magicCards.add(this);
     }
 
+    public MagicCard(){
+        super();
+    }
+
     @Override
     public String toString() {
         return super.toString() +
@@ -65,5 +69,22 @@ public class MagicCard extends Card {
 
     public MagicSpeed getMagicSpeed() {
         return magicSpeed;
+    }
+
+    @Override
+    public Card getCopy() {
+        MagicCard copy = new MagicCard();
+
+        // duplicate block:
+        copy.name = this.name;
+        copy.description = this.description;
+        copy.price = this.price;
+        //
+
+        copy.typeOfMagic = this.typeOfMagic;
+        copy.magicSpeed = this.magicSpeed;
+        copy.magicFamily = this.magicFamily;
+
+        return copy;
     }
 }
