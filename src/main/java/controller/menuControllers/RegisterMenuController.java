@@ -3,7 +3,7 @@ package controller.menuControllers;
 
 import controller.enums.Error;
 import controller.enums.MenusMassages.Register;
-import controller.Menu;
+import controller.enums.Menu;
 import controller.MenuHandler;
 import model.userProp.LoginUser;
 import model.userProp.User;

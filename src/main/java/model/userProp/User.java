@@ -14,8 +14,8 @@ public class User {
     private String nickname;
     private String password;
     private int score;
-    private ArrayList<Deck_Demo> allDecks;
-    private Deck_Demo activeDeck;
+    private ArrayList<Deck> allDecks;
+    private Deck activeDeck;
 
     public User(String username, String nickname, String password, int score) {
         setUsername(username);
@@ -84,7 +84,7 @@ public class User {
         return password.equals(this.password);
     }
 
-    public Deck_Demo getActiveDeck() {
+    public Deck getActiveDeck() {
         return activeDeck;
     }
 }

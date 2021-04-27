@@ -5,14 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="clean">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/GraveYard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/MagicHouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/MonsterHouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/userProp/Deck_Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ClearScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/DrawPhase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/GamePlayGeneralController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/PlayerEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Change.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/gamestage/GameMainStage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/gamestage/GameSideStage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/GamePlayDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monster.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvFile/Monster.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpellTrap.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvFile/SpellTrap.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/RegisterMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/RegisterMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/GraveYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/GraveYard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/Deck_Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +49,8 @@
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -52,6 +66,7 @@
     </file-type-list>
   </component>
   <component name="ProblemsViewState">
+    <option name="proportion" value="0.6115204" />
     <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="1rJuVdeiVFuEczDxOSgLXXwjCQe" />
@@ -89,6 +104,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\semister 2\java Yu_gi_oh project\yu-gi-oh-Project\csvFile" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Viewer" />
     </key>
@@ -111,13 +129,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -178,7 +198,11 @@
       <workItem from="1619276688699" duration="1353000" />
       <workItem from="1619303927490" duration="4621000" />
       <workItem from="1619316111069" duration="112000" />
-      <workItem from="1619326345905" duration="2134000" />
+      <workItem from="1619326345905" duration="3622000" />
+      <workItem from="1619371072376" duration="4000" />
+      <workItem from="1619386883453" duration="3686000" />
+      <workItem from="1619421313911" duration="1706000" />
+      <workItem from="1619483777349" duration="8860000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
@@ -362,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619327375448</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="clean">
+      <created>1619328708612</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1619328708612</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,9 +414,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="register menu and user model is defined" />
-    <MESSAGE value="register menu and user model is defined login class user is
-     added to remove the connection of menus remove their fields the enum menu is
-      defined to make transformation from menus easier and better" />
+    <MESSAGE value="register menu and user model is defined login class user is      added to remove the connection of menus remove their fields the enum menu is       defined to make transformation from menus easier and better" />
     <MESSAGE value="end of task 1" />
     <MESSAGE value="end of task 1 and edit card abstract class" />
     <MESSAGE value="change jupiter version" />

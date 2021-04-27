@@ -2,7 +2,7 @@ package controller.menuControllers;
 
 import controller.enums.Error;
 import controller.enums.MenusMassages.Main;
-import controller.Menu;
+import controller.enums.Menu;
 import controller.MenuHandler;
 import viewer.MainMenuDisplay;
 

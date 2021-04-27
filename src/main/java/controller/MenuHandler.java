@@ -1,5 +1,6 @@
 package controller;
 
+import controller.enums.Menu;
 import controller.enums.MenusMassages.Main;
 import controller.enums.MenusMassages.Profile;
 import controller.enums.MenusMassages.Register;
