@@ -17,7 +17,11 @@ public class User {
     private ArrayList<Deck> allDecks;
     private Deck activeDeck;
 
-    public User(String username, String nickname, String password, int score) {
+    {
+        score = 0;
+    }
+
+    public User(String username, String nickname, String password) {
         setUsername(username);
         setNickname(nickname);
         setPassword(password);

@@ -18,13 +18,13 @@ public class Player {
     {
         playerLifePoint = 8000;
         graveYard = new GraveYard();
-        magicHouse = new MagicHouse[5];
+        magicHouse = new MagicHouse[6];
         monsterHouse = new MonsterHouse[5];
         playerHand = new ArrayList<>();
         deck = user.getActiveDeck().getCopy();
     }
 
-    protected Player(User user) {
+    public Player(User user) {
         setUser(user);
     }
 
@@ -50,6 +50,14 @@ public class Player {
 
     public Deck getDeck() {
         return deck;
+    }
+
+    public MagicHouse getMagicHouse(int i) {
+        return this.magicHouse[i - 1];
+    }
+
+    public MonsterHouse getMonsterHouse(int i) {
+        return monsterHouse[i - 1];
     }
 
     private void changePlayerLifePoint(Change change, int amount) {

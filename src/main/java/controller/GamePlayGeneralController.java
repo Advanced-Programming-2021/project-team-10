@@ -25,6 +25,12 @@ public class GamePlayGeneralController {
         StringBuilder mapDisplay = new StringBuilder();
         Player opponentPlayer = game.getOpponentPlayer();
         Player currentPlayer = game.getCurrentPlayer();
+        drawOpponentPlayerBoard(mapDisplay, opponentPlayer);
+        mapDisplay.append("\n\n--------------------------");
+        drawCurrentPlayerBoard(mapDisplay, currentPlayer);
+    }
+
+    private void drawOpponentPlayerBoard(StringBuilder mapDisplay, Player opponentPlayer) {
         mapDisplay.append(opponentPlayer.getUser().getNickname()).append(" : ").
                 append(opponentPlayer.getPlayerLifePoint()).append("\n\t");
 
@@ -35,8 +41,41 @@ public class GamePlayGeneralController {
                 getDeck().getMainDeck().size()).append("\n");
         int[] cardOrientation = {4, 2, 1, 3, 5};
         for (int i : cardOrientation) {
-
+            mapDisplay.append("\t").append(opponentPlayer.getMagicHouse(i).getState().stateToString());
         }
+        mapDisplay.append("\n");
+        for (int i : cardOrientation) {
+            mapDisplay.append("\t").append(opponentPlayer.getMonsterHouse(i).getState().stateToString());
+        }
+        mapDisplay.append("\n").append(opponentPlayer.getGraveYard().getDestroyedCards().size()).
+                append("\t\t\t\t\t").
+                append(opponentPlayer.getMagicHouse(6));
+    }
+
+    private void drawCurrentPlayerBoard(StringBuilder mapDisplay, Player currentPlayer) {
+        mapDisplay.append("\n").append(currentPlayer.getGraveYard().getDestroyedCards().size()).
+                append("\t\t\t\t\t").
+                append(currentPlayer.getMagicHouse(6)).append("\n");
+        int[] cardOrientation = {5, 3, 1, 2, 4};
+        for (int i : cardOrientation) {
+            mapDisplay.append("\t").append(currentPlayer.getMonsterHouse(i).getState().stateToString());
+        }
+        mapDisplay.append("\n");
+        for (int i : cardOrientation) {
+            mapDisplay.append("\t").append(currentPlayer.getMagicHouse(i).getState().stateToString());
+        }
+        mapDisplay.append("\n");
+        mapDisplay.append("\n").append(currentPlayer.
+                getDeck().getMainDeck().size()).append("\n");
+
+        mapDisplay.append("\n");
+        for (Card ignored : currentPlayer.getPlayerHand()) {
+            mapDisplay.append("\tc");
+        }
+        mapDisplay.append("\n");
+        mapDisplay.append(currentPlayer.getUser().getNickname()).append(" : ").
+                append(currentPlayer.getPlayerLifePoint());
+        //TODO debug map drawer later
     }
 
     public void showGraveYard(PlayerEnum currentPlayer) {

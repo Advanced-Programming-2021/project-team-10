@@ -5,6 +5,7 @@ import controller.GamePlayGeneralController;
 import controller.ImportScanner;
 import controller.enums.PlayerEnum;
 import model.gameprop.Game;
+import model.gameprop.Player;
 import model.gameprop.gamestage.GameSideStage;
 
 public class GamePlay {

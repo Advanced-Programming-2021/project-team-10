@@ -15,16 +15,31 @@ public class Game {
         gameSideStage = GameSideStage.NONE;
     }
 
+    public Game() {
+    }
+
     public Player getCurrentPlayer() {
         return currentPlayer;
+    }
+
+    private void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
     }
 
     public Player getOpponentPlayer() {
         return opponentPlayer;
     }
 
+    private void setOpponentPlayer(Player opponentPlayer) {
+        this.opponentPlayer = opponentPlayer;
+    }
+
     public GameMainStage getGameMainStage() {
         return gameMainStage;
+    }
+
+    public void setGameMainStage(GameMainStage gameMainStage) {
+        this.gameMainStage = gameMainStage;
     }
 
     public GameSideStage getGameSideStage() {
@@ -33,9 +48,5 @@ public class Game {
 
     public void setGameSideStage(GameSideStage gameSideStage) {
         this.gameSideStage = gameSideStage;
-    }
-
-    public void setGameMainStage(GameMainStage gameMainStage) {
-        this.gameMainStage = gameMainStage;
     }
 }

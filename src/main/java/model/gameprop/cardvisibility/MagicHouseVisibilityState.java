@@ -11,7 +11,7 @@ public enum MagicHouseVisibilityState {
         this.stateOfCard = stateOfCard;
     }
 
-    public String getStateOfCard() {
+    public String stateToString() {
         return stateOfCard;
     }
 }

@@ -15,4 +15,8 @@ public enum MonsterHouseVisibilityState {
     public String getStateOfCard() {
         return stateOfCard;
     }
+
+    public String stateToString() {
+        return stateOfCard;
+    }
 }

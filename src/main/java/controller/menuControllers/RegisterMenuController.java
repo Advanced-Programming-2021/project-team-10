@@ -41,7 +41,7 @@ public class RegisterMenuController {
             MENU_DISPLAY.display(Error.INVALID_NICKNAME, nickname);
             return;
         }
-        new User(username, nickname, password, 0);
+        new User(username, nickname, password);
         MENU_DISPLAY.display(Register.SUCCESSFULLY_USER_CREATE);
     }
 

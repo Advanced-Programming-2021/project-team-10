@@ -16,7 +16,12 @@ public class MagicHouse {
         this.magicCard = magicCard;
     }
 
+    public MagicHouseVisibilityState getState() {
+        return state;
+    }
+
     public void setState(MagicHouseVisibilityState state) {
         this.state = state;
     }
+
 }
