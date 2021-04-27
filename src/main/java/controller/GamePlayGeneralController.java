@@ -2,9 +2,9 @@ package controller;
 
 import controller.enums.PlayerEnum;
 import model.cards.cardsProp.Card;
-import model.gameProp.Game;
-import model.gameProp.GraveYard;
-import model.gameProp.Player;
+import model.gameprop.Game;
+import model.gameprop.GraveYard;
+import model.gameprop.Player;
 import viewer.GamePlayDisplay;
 
 public class GamePlayGeneralController {

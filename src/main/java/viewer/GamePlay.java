@@ -4,8 +4,8 @@ import controller.ClearScreen;
 import controller.GamePlayGeneralController;
 import controller.ImportScanner;
 import controller.enums.PlayerEnum;
-import model.gameProp.Game;
-import model.gameProp.gamestage.GameSideStage;
+import model.gameprop.Game;
+import model.gameprop.gamestage.GameSideStage;
 
 public class GamePlay {
 

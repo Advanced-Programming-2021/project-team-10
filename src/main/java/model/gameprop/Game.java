@@ -1,7 +1,7 @@
-package model.gameProp;
+package model.gameprop;
 
-import model.gameProp.gamestage.GameMainStage;
-import model.gameProp.gamestage.GameSideStage;
+import model.gameprop.gamestage.GameMainStage;
+import model.gameprop.gamestage.GameSideStage;
 
 public class Game {
     private Player currentPlayer;

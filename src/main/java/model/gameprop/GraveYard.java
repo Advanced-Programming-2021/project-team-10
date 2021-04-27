@@ -1,4 +1,4 @@
-package model.gameProp;
+package model.gameprop;
 
 import model.cards.cardsProp.Card;
 

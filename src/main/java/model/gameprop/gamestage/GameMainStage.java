@@ -1,4 +1,4 @@
-package model.gameProp.gamestage;
+package model.gameprop.gamestage;
 
 public enum GameMainStage {
     DRAW_PHASE,

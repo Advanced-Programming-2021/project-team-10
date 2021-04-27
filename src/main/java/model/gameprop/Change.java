@@ -1,4 +1,4 @@
-package model.gameProp;
+package model.gameprop;
 
 public enum Change {
     INCREASE,
