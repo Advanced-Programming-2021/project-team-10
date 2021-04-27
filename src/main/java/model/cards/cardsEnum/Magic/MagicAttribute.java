@@ -13,8 +13,8 @@ public enum MagicAttribute {
     MagicAttribute() {
     }
 
-    public static MagicAttribute setFamily(String familyType) {
-        switch (familyType) {
+    public static MagicAttribute setAttribute(String attribute) {
+        switch (attribute) {
             case "Ritual": {
                 return RITUAL;
             }

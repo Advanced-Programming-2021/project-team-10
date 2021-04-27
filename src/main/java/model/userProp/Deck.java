@@ -21,8 +21,10 @@ public class Deck {
     public Deck(String name, User owner) {
         setName(name);
         setOwner(owner);
-        // adding to users decks
+        owner.getAllDecks().add(this);
     }
+
+
 
     public void setOwner(User owner) {
         this.owner = owner;
@@ -36,7 +38,7 @@ public class Deck {
         return mainDeck;
     }
 
-    public Deck getCopy(){
+    public Deck getCopy(){ // Somehow "Prototype pattern" is implemented
         Deck copy = new Deck(this.name, this.owner);
         copy.isDeckActivated = this.isDeckActivated;
 
@@ -49,5 +51,34 @@ public class Deck {
         }
 
         return copy;
+    }
+
+    public void setDeckActivated(boolean deckActivated) {
+        this.isDeckActivated = deckActivated;
+        this.owner.setActiveDeck(this);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void deleteCardFromMainDeck(Card card) {
+        this.mainDeck.remove(card);
+    }
+
+    public void deleteCardFromSideDeck(Card card) {
+        this.sideDeck.remove(card);
+    }
+
+    public void addCardToMainDeck(Card card) {
+        this.mainDeck.add(card);
+    }
+
+    public void addCardToSideDeck(Card card) {
+        this.sideDeck.add(card);
+    }
+
+    public void deleteDeckFromOwner() {
+        this.owner.getAllDecks().remove(this);
     }
 }

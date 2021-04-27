@@ -7,7 +7,6 @@ import model.cards.cardsEffect.EffectOfMagic;
 
 import java.util.ArrayList;
 
-import static model.cards.cardsEnum.Magic.MagicAttribute.setFamily;
 
 public class MagicCard extends Card {
     private static ArrayList<MagicCard> magicCards;
@@ -17,7 +16,7 @@ public class MagicCard extends Card {
     }
 
     private MagicSpeed magicSpeed;
-    private MagicAttribute magicFamily;
+    private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
     private ArrayList<EffectOfMagic> effectsOfMagic;
 
@@ -25,11 +24,11 @@ public class MagicCard extends Card {
         effectsOfMagic = new ArrayList<>();
     }
 
-    public MagicCard(String name, String typeOfMagic, String magicFamily, String description, String speed, String price) {
+    public MagicCard(String name, String typeOfMagic, String magicAttribute, String description, String speed, String price) {
         super(name, description, price);
-        setTypeOfMagic(typeOfMagic);
-        setMagicFamily(magicFamily);
-        setMagicSpeed(speed);
+        setTypeOfMagic(MagicType.setType(typeOfMagic));
+        setMagicAttribute(MagicAttribute.setAttribute(magicAttribute));
+        setMagicSpeed(MagicSpeed.setSpeed(speed));
         magicCards.add(this);
     }
 
@@ -41,26 +40,26 @@ public class MagicCard extends Card {
     public String toString() {
         return super.toString() +
                 "magicSpeed=" + magicSpeed +
-                ", magicFamily=" + magicFamily +
+                ", magicFamily=" + magicAttribute +
                 ", typeOfMagic=" + typeOfMagic +
                 ", effectsOfMagic=" + effectsOfMagic +
                 '}';
     }
 
-    public void setMagicSpeed(String magicSpeed) {
-        this.magicSpeed = MagicSpeed.setSpeed(magicSpeed);
+    public void setMagicSpeed(MagicSpeed magicSpeed) {
+        this.magicSpeed = magicSpeed;
     }
 
-    private void setMagicFamily(String magicFamily) {
-        this.magicFamily = setFamily(magicFamily);
+    private void setMagicAttribute(MagicAttribute magicAttribute) {
+        this.magicAttribute = magicAttribute;
     }
 
-    private void setTypeOfMagic(String typeOfMagic) {
-        this.typeOfMagic = MagicType.setType(typeOfMagic);
+    private void setTypeOfMagic(MagicType typeOfMagic) {
+        this.typeOfMagic = typeOfMagic;
     }
 
-    public MagicAttribute getMagicFamily() {
-        return magicFamily;
+    public MagicAttribute getMagicAttribute() {
+        return magicAttribute;
     }
 
     public MagicType getTypeOfMagic() {
@@ -75,15 +74,15 @@ public class MagicCard extends Card {
     public Card getCopy() {
         MagicCard copy = new MagicCard();
 
-        // duplicate block:
+        // semi duplicate block:
         copy.name = this.name;
         copy.description = this.description;
         copy.price = this.price;
         //
 
-        copy.typeOfMagic = this.typeOfMagic;
-        copy.magicSpeed = this.magicSpeed;
-        copy.magicFamily = this.magicFamily;
+        copy.setMagicSpeed(this.magicSpeed);
+        copy.setMagicSpeed(this.magicSpeed);
+        copy.setMagicAttribute(this.magicAttribute);
 
         return copy;
     }

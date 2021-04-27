@@ -97,21 +97,22 @@ public class MonsterCard extends Card {
     }
 
     @Override
-    public Card getCopy() {
+    public Card getCopy() { // "Prototype pattern" wasn't approachable!
+                            // cause -> class fields' types didn't match to constructor types!
         MonsterCard copy = new MonsterCard();
 
-        // duplicate block:
+        // semi duplicate block:
         copy.name = this.name;
         copy.description = this.description;
         copy.price = this.price;
         //
 
-        copy.attack = this.attack;
-        copy.defence = this.defence;
-        copy.type = this.type;
-        copy.attribute = this.attribute;
-        copy.level = this.level;
-        copy.race = this.race;
+        copy.setAttack(this.attack);
+        copy.setDefence(this.defence);
+        copy.setType(this.type);
+        copy.setAttribute(this.attribute);
+        copy.setLevel(this.level);
+        copy.setRace(this.race);
 
         return copy;
     }
