@@ -19,7 +19,7 @@ public class DataBase {
     }
 
     public void restoreDate() {
-        try (CSVReader reader = new CSVReader(new FileReader("SpellTrap.csv"))) {
+        try (CSVReader reader = new CSVReader(new FileReader("csvFile\\SpellTrap.csv"))) {
             String[] lineInArray;
             while ((lineInArray = reader.readNext()) != null) {
                 new MagicCard(lineInArray[0], lineInArray[1],
@@ -30,7 +30,7 @@ public class DataBase {
             e.printStackTrace();
         }
 
-        try (CSVReader reader = new CSVReader(new FileReader("Monster.csv"))) {
+        try (CSVReader reader = new CSVReader(new FileReader("csvFile\\Monster.csv"))) {
             String[] infoRow;
             reader.readNext(); // dummy read to skip the title row
             while ((infoRow = reader.readNext()) != null) {

@@ -4,29 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="clean">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ClearScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/DrawPhase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/GamePlayGeneralController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/PlayerEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Change.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/gamestage/GameMainStage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/gamestage/GameSideStage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/GamePlayDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monster.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvFile/Monster.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpellTrap.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvFile/SpellTrap.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/RegisterMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/RegisterMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/GraveYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/GraveYard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameProp/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameProp/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/Deck_Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="game models and general structure">
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +185,7 @@
       <workItem from="1619371072376" duration="4000" />
       <workItem from="1619386883453" duration="3686000" />
       <workItem from="1619421313911" duration="1706000" />
-      <workItem from="1619483777349" duration="8860000" />
+      <workItem from="1619483777349" duration="9171000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
@@ -393,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619328708612</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="game models and general structure">
+      <created>1619500368832</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1619500368832</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +412,8 @@
     <MESSAGE value="fix some of warnings" />
     <MESSAGE value="fix some bugs in main menu and change accessibleness of some contents" />
     <MESSAGE value="clean" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean" />
+    <MESSAGE value="game models and general structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="game models and general structure" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
