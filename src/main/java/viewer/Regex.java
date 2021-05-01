@@ -16,6 +16,55 @@ public final class Regex {
     public static String newPassword = ".+(?<= |^)--new (\\S+)(?= --password| --current.*|$).*$";
     public static String showGraveYard = "show graveyard(?: --opponent)?$";
 
+    // DeckMenu Commands:
+    public static String createDeck = "deck create (?<deckName>.+)";
+    public static String deleteDeck = "deck delete (?<deckName>.+)";
+    public static String activateDeck = "deck set-active (?<deckName>.+)";
+
+        // adding card commands:
+        public static String[] addCardToMainDeck = new String[]{
+            "^deck add-card --card (?<cardName>.+) --deck (?<deckName>.+)$",
+            "^deck add-card --deck (?<deckName>.+) --card (?<cardName>.+)$"
+        };
+        public static String[] addCardToSideDeck = new String[] {
+            // --side at end:
+            "^deck add-card --card (?<cardName>.+) --deck (?<deckName>.+?) --side$",
+            "^deck add-card --deck (?<deckName>.+?) --card (?<cardName>.+) --side$",
+            // --side at middle:
+            "^deck add-card --deck (?<deckName>.+) --side --card (?<cardName>.+)$",
+            "^deck add-card --card (?<cardName>.+) --side --deck (?<deckName>.+)$",
+            // --side at first:
+            "^deck add-card --side --deck (?<deckName>.+) --card (?<cardName>.+)$",
+            "^deck add-card --side --card (?<cardName>.+) --deck (?<deckName>.+)$"
+        };
+
+        // removing cards from deck commands:
+        public static String[] removeCardFromMainDeck = new String[] {
+            "^deck rm-card --card (?<cardName>.+) --deck (?<deckName>.+)$",
+            "^deck rm-card --deck (?<deckName>.+) --card (?<cardName>.+)$",
+        };
+        public static String[] removeCardFromSideDeck = new String[] {
+            // --side at end:
+            "^deck rm-card --card (?<cardName>.+) --deck (?<deckName>.+?) --side$",
+            "^deck rm-card --deck (?<deckName>.+?) --card (?<cardName>.+) --side$",
+            // --side at middle:
+            "^deck rm-card --deck (?<deckName>.+) --side --card (?<cardName>.+)$",
+            "^deck rm-card --card (?<cardName>.+) --side --deck (?<deckName>.+)$",
+            // --side at first:
+            "^deck rm-card --side --deck (?<deckName>.+) --card (?<cardName>.+)$",
+            "^deck rm-card --side --card (?<cardName>.+) --deck (?<deckName>.+)$"
+        };
+        // show Deck (main/side):
+        public static String showOneMainDeck = "^deck show --deck-name (?<deckName>.+)$";
+        public static String[] showOneSideDeck = new String[] {
+            "^deck show --deck-name (?<deckName>.+) --side$",
+            "^deck show --side --deck-name (?<deckName>.+)$"
+        };
+
+    public static String showAllCards = "^deck show --cards$";
+    // <- end of DeckMenu commands;
+
+
     public static Matcher getMatcher(String input, String regex) {
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(input);

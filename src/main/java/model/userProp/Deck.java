@@ -5,6 +5,7 @@ import model.cards.cardsProp.Card;
 import java.util.ArrayList;
 
 public class Deck {
+    private boolean isValid;
     private String name;
     private User owner;
     private ArrayList<Card> mainDeck;
@@ -16,6 +17,7 @@ public class Deck {
         mainDeck = new ArrayList<>();
         sideDeck = new ArrayList<>();
         isDeckActivated = false;
+        isValid = false;
     }
 
     public Deck(String name, User owner) {
@@ -38,6 +40,17 @@ public class Deck {
         return mainDeck;
     }
 
+    public ArrayList<Card> getSideDeck() {
+        return sideDeck;
+    }
+
+    public String getValidity() {
+        if (isValid) {
+            return "valid";
+        }
+        return "invalid";
+    }
+
     public Deck getCopy(){ // Somehow "Prototype pattern" is implemented
         Deck copy = new Deck(this.name, this.owner);
         copy.isDeckActivated = this.isDeckActivated;
@@ -55,18 +68,17 @@ public class Deck {
 
     public void setDeckActivated(boolean deckActivated) {
         this.isDeckActivated = deckActivated;
-        this.owner.setActiveDeck(this);
     }
 
     public String getName() {
         return name;
     }
 
-    public void deleteCardFromMainDeck(Card card) {
+    public void removeCardFromMainDeck(Card card) {
         this.mainDeck.remove(card);
     }
 
-    public void deleteCardFromSideDeck(Card card) {
+    public void removeCardFromSideDeck(Card card) {
         this.sideDeck.remove(card);
     }
 
@@ -80,5 +92,27 @@ public class Deck {
 
     public void deleteDeckFromOwner() {
         this.owner.getAllDecks().remove(this);
+    }
+
+    public int numOfCardOccurrence(String cardName, String where) {
+        int mainDeckCounter = 0;
+        int sideDeckCounter = 0;
+        if (where.equals("main deck") || where.equals("both decks")) {
+            for (Card card : mainDeck) { // mainDeck count:
+                if (card.getName().equals(cardName)) {
+                    mainDeckCounter++;
+                }
+            }
+        }
+
+        if (where.equals("side deck") || where.equals("both decks")) {
+            for (Card card : sideDeck) { // sideDeck count:
+                if (card.getName().equals(cardName)) {
+                    sideDeckCounter++;
+                }
+            }
+        }
+
+        return mainDeckCounter + sideDeckCounter; // in "single deck" situations, one of the counters would automatically be zero.
     }
 }

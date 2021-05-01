@@ -106,6 +106,7 @@ public class User {
 
     public void setActiveDeck(Deck activeDeck) {
         this.activeDeck = activeDeck;
+        activeDeck.setDeckActivated(true);
     }
 
 

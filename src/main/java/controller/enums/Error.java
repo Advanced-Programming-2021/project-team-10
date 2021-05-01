@@ -16,9 +16,11 @@ public enum Error {
     REPETITIOUS_DECK_NAME("deck with name %s already exists"),
     NOT_FOUND_DECK_NAME("deck with name %s does not exist"),
     NOT_FOUND_CARD_NAME_IN_COLLECTION("card with name %s does not exist"),
-    FULL_DECK("<main/side> deck is full"),
+    FULL_MAIN_DECK("main deck is full"),
+    FULL_SIDE_DECK("side deck is full"),
     NUMBER_LIMITATION_PASSED("there are already three cards with name %s in deck %s"),
-    NOT_FOUND_CARD_NAME_IN_DECK("card with name %s does not exist in <main/side> deck");
+    NOT_FOUND_CARD_NAME_IN_MAIN_DECK("card with name %s does not exist in main deck"),
+    NOT_FOUND_CARD_NAME_IN_SIDE_DECK("card with name %s does not exist in side deck");
     //
 
 

@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes">
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes&#10;-add &quot;DeckMenu&quot; errors to &quot;Error&quot; ENUM">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/DeckMessages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/Error.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DeckController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/DeckMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/DeckMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/DeckMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/DeckMenuDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/MainMenuControler.class" beforeDir="false" />
     </list>
@@ -31,8 +40,8 @@
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -111,17 +120,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="G:/semister 2/java Yu_gi_oh project/yu-gi-oh-Project" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -184,6 +182,8 @@
       <workItem from="1619421313911" duration="1706000" />
       <workItem from="1619483777349" duration="10693000" />
       <workItem from="1619551139463" duration="581000" />
+      <workItem from="1619855555842" duration="22516000" />
+      <workItem from="1619892862050" duration="3305000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
@@ -409,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619544790577</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes&#10;-add &quot;DeckMenu&quot; errors to &quot;Error&quot; ENUM">
+      <created>1619545766295</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1619545766295</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +448,8 @@
     <MESSAGE value="game models and general structure" />
     <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class" />
     <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes" />
+    <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes&#10;-add &quot;DeckMenu&quot; errors to &quot;Error&quot; ENUM" />
+    <option name="LAST_COMMIT_MESSAGE" value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes&#10;-add &quot;DeckMenu&quot; errors to &quot;Error&quot; ENUM" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
