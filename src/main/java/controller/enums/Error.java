@@ -15,12 +15,17 @@ public enum Error {
     // DeckMenu errors:
     REPETITIOUS_DECK_NAME("deck with name %s already exists"),
     NOT_FOUND_DECK_NAME("deck with name %s does not exist"),
-    NOT_FOUND_CARD_NAME_IN_COLLECTION("card with name %s does not exist"),
+    NOT_FOUND_CARD_NAME_IN_COLLECTION("card with name %s does not exist in your collection or totally doesn't exist"),
     FULL_MAIN_DECK("main deck is full"),
     FULL_SIDE_DECK("side deck is full"),
     NUMBER_LIMITATION_PASSED("there are already three cards with name %s in deck %s"),
     NOT_FOUND_CARD_NAME_IN_MAIN_DECK("card with name %s does not exist in main deck"),
-    NOT_FOUND_CARD_NAME_IN_SIDE_DECK("card with name %s does not exist in side deck");
+    NOT_FOUND_CARD_NAME_IN_SIDE_DECK("card with name %s does not exist in side deck"),
+    //
+
+    //ShopMenu errors:
+    INVALID_CARD_NAME_IN_SHOP("there is no card with name %s"),
+    NOT_ENOUGH_MONEY("not enough money");
     //
 
 

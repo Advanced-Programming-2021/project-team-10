@@ -5,13 +5,12 @@ import controller.enums.MenusMassages.DeckMessages;
 import model.cards.cardsProp.Card;
 import model.userProp.Deck;
 import model.userProp.LoginUser;
-import org.apache.commons.logging.Log;
-import viewer.DeckMenu;
+import model.userProp.User;
 import viewer.DeckMenuDisplay;
 
 import java.util.*;
 
-public class DeckController {
+public class DeckMenuController {
     public static void showCurrent() {
         DeckMenuDisplay.display(DeckMessages.CURRENT_MENU);
     }
@@ -48,8 +47,43 @@ public class DeckController {
     public static void showAllDecks() {
         ArrayList<Deck> decks = LoginUser.getUser().getAllDecks();
         Deck activeDeck = LoginUser.getUser().getActiveDeck();
-        Deck[] sortedDecks = DeckController.deckNameAlphabetSorter(decks);
+        Deck[] sortedDecks = DeckMenuController.deckNameAlphabetSorter(decks);
         DeckMenuDisplay.showAllDecks(sortedDecks, activeDeck);
+    }
+
+    public static void showOneMainDeck(String deckName) {
+        Deck deck = LoginUser.getUser().getDeckByName(deckName);
+        if (deck == null) {
+            DeckMenuDisplay.display(Error.NOT_FOUND_DECK_NAME, deckName);
+        } else {
+            Card[] sortedMainDeck = DeckMenuController.cardNameAlphabetSorter(deck.getMainDeck()) ;
+            DeckMenuDisplay.showOneMainDeck(sortedMainDeck, deckName);
+        }
+    }
+
+    public static void showOneSideDeck(String deckName) {
+        Deck deck = LoginUser.getUser().getDeckByName(deckName);
+        if (deck == null) {
+            DeckMenuDisplay.display(Error.NOT_FOUND_DECK_NAME, deckName);
+        } else {
+            Card[] sortedSideDeck = DeckMenuController.cardNameAlphabetSorter(deck.getSideDeck());
+            DeckMenuDisplay.showOneSideDeck(sortedSideDeck, deckName);
+        }
+    }
+
+    public static void showAllCardsOfUser() {
+        User user = LoginUser.getUser();
+        ArrayList<Card> unionOfDecksAndCollection;
+        unionOfDecksAndCollection = new ArrayList<>();
+
+        unionOfDecksAndCollection.addAll(user.getUserCardCollection());
+        for (Deck deck : user.getAllDecks()) {
+            unionOfDecksAndCollection.addAll(deck.getMainDeck());
+            unionOfDecksAndCollection.addAll(deck.getSideDeck());
+        }
+
+        Card[] sortedCards = DeckMenuController.cardNameAlphabetSorter(unionOfDecksAndCollection);
+        DeckMenuDisplay.printAllCards(sortedCards);
     }
 
     public static Deck[] deckNameAlphabetSorter(ArrayList<Deck> decks) {
@@ -60,18 +94,19 @@ public class DeckController {
         return sortedDecks;
     }
 
-    public static void showOneMainDeck(String deckName) {
+    public static Card[] cardNameAlphabetSorter(ArrayList<Card> cards) {
+        Card[] sortedCards = cards.toArray(new Card[0]);
+        Comparator<Card> cardNameSorter = Comparator.comparing(Card::getName);
 
-    }
-
-    public static void showOneSideDeck(String deckName) {
-
+        Arrays.sort(sortedCards, cardNameSorter);
+        return sortedCards;
     }
 
     public static void addCardToMainDeck(String cardName, String deckName) {
-        Deck selectedDeck = LoginUser.getUser().getDeckByName(deckName);
+        User user = LoginUser.getUser();
+        Deck selectedDeck = user.getDeckByName(deckName);
         Card selectedCard = Card.getCardByName(cardName);
-        if (selectedCard == null) {
+        if (selectedCard == null || !user.isCardInUserCardCollection(selectedCard)) {
             DeckMenuDisplay.display(Error.NOT_FOUND_CARD_NAME_IN_COLLECTION, cardName);
         } else if (selectedDeck == null) {
             DeckMenuDisplay.display(Error.NOT_FOUND_DECK_NAME, deckName);
@@ -81,14 +116,16 @@ public class DeckController {
             DeckMenuDisplay.display(Error.NUMBER_LIMITATION_PASSED, cardName, deckName);
         } else {
             selectedDeck.addCardToMainDeck(selectedCard);
+            user.getUserCardCollection().remove(selectedCard);
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_ADD_CARD_TO_DECK);
         }
     }
 
     public static void addCardToSideDeck(String cardName, String deckName) {
-        Deck selectedDeck = LoginUser.getUser().getDeckByName(deckName);
+        User user = LoginUser.getUser();
+        Deck selectedDeck = user.getDeckByName(deckName);
         Card selectedCard = Card.getCardByName(cardName);
-        if (selectedCard == null) {
+        if (selectedCard == null || !user.isCardInUserCardCollection(selectedCard)) {
             DeckMenuDisplay.display(Error.NOT_FOUND_CARD_NAME_IN_COLLECTION, cardName);
         } else if (selectedDeck == null) {
             DeckMenuDisplay.display(Error.NOT_FOUND_DECK_NAME, deckName);
@@ -98,6 +135,7 @@ public class DeckController {
             DeckMenuDisplay.display(Error.NUMBER_LIMITATION_PASSED, cardName, deckName);
         } else {
             selectedDeck.addCardToSideDeck(selectedCard);
+            user.getUserCardCollection().remove(selectedCard);
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_ADD_CARD_TO_DECK);
         }
     }
@@ -111,6 +149,7 @@ public class DeckController {
             DeckMenuDisplay.display(Error.NOT_FOUND_CARD_NAME_IN_MAIN_DECK, cardName, deckName);
         } else {
             selectedDeck.removeCardFromMainDeck(selectedCard);
+            LoginUser.getUser().getUserCardCollection().add(selectedCard);
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_REMOVE_CARD_FROM_DECK);
         }
     }
@@ -124,6 +163,7 @@ public class DeckController {
             DeckMenuDisplay.display(Error.NOT_FOUND_CARD_NAME_IN_SIDE_DECK, cardName, deckName);
         } else {
             selectedDeck.removeCardFromSideDeck(selectedCard);
+            LoginUser.getUser().getUserCardCollection().add(selectedCard);
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_REMOVE_CARD_FROM_DECK);
         }
     }

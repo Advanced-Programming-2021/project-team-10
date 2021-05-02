@@ -65,8 +65,14 @@ public final class Regex {
             "^deck show --side --deck-name (?<deckName>.+)$"
         };
 
-    public static String showAllCards = "^deck show --cards$";
+    public static String showAllCardsDeckMenu = "^deck show --cards$";
     // <- end of DeckMenu commands;
+
+
+    //ShopMenu commands:
+    public static String buyCard = "^shop buy (?<cardName>.+)";
+    public static String showAllShop = "shop show --all";
+    // <- end of ShopMenu commands;
 
 
     public static Matcher getMatcher(String input, String regex) {

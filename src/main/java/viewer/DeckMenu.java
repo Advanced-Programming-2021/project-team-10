@@ -3,11 +3,7 @@ package viewer;
 
 import controller.ImportScanner;
 import controller.enums.MenusMassages.DeckMessages;
-import controller.enums.MenusMassages.Profile;
-import controller.menuControllers.DeckController;
-import model.userProp.Deck;
-import model.userProp.LoginUser;
-import org.apache.commons.logging.Log;
+import controller.menuControllers.DeckMenuController;
 
 import java.util.regex.Matcher;
 
@@ -17,7 +13,7 @@ public class DeckMenu {
     private DeckMenu() {
     }
 
-    public static DeckMenu getinstance() {
+    public static DeckMenu getInstance() {
         if (deckMenu == null) {
             deckMenu = new DeckMenu();
         }
@@ -30,31 +26,37 @@ public class DeckMenu {
         Matcher matcher;
         if (command.equals("menu show-current")) {
             haveRecognizedCommand = true;
-            DeckController.showCurrent();
+            DeckMenuController.showCurrent();
         } else if ((matcher = Regex.getMatcher(command, Regex.createDeck)).matches()) {
             haveRecognizedCommand = true;
-            DeckController.createDeck(matcher.group("deckName"));
+            DeckMenuController.createDeck(matcher.group("deckName"));
         } else if ((matcher = Regex.getMatcher(command, Regex.deleteDeck)).matches()) {
             haveRecognizedCommand = true;
-            DeckController.deleteDeck(matcher.group("deckName"));
+            DeckMenuController.deleteDeck(matcher.group("deckName"));
         } else if ((matcher = Regex.getMatcher(command, Regex.activateDeck)).matches()) {
             haveRecognizedCommand = true;
-            DeckController.activateDeck(matcher.group("deckName"));
+            DeckMenuController.activateDeck(matcher.group("deckName"));
         } else if (command.equals("deck show --all")) {
             haveRecognizedCommand = true;
-            DeckController.showAllDecks();
-        } else if ((matcher = Regex.getMatcher(command, Regex.showOneMainDeck)).matches()) {
+            DeckMenuController.showAllDecks();
+        } else if (command.equals("deck show --cards")){
             haveRecognizedCommand = true;
-            String deckName = matcher.group("deckName");
-            DeckController.showOneMainDeck(deckName);
+            DeckMenuController.showAllCardsOfUser();
         } else {
             for (int i = 0; i < 2; i++) {
                 if ((matcher = Regex.getMatcher(command, Regex.showOneSideDeck[i])).matches()) {
                     haveRecognizedCommand = true;
                     String deckName = matcher.group("deckName");
-                    DeckController.showOneSideDeck(deckName);
+                    DeckMenuController.showOneSideDeck(deckName);
                     break;
                 }
+            }
+        }
+        if (!haveRecognizedCommand) {
+            if ((matcher = Regex.getMatcher(command, Regex.showOneMainDeck)).matches()) {
+                haveRecognizedCommand = true;
+                String deckName = matcher.group("deckName");
+                DeckMenuController.showOneMainDeck(deckName);
             }
         }
         if (!haveRecognizedCommand) {
@@ -63,7 +65,7 @@ public class DeckMenu {
                     haveRecognizedCommand = true;
                     String cardName = matcher.group("cardName");
                     String deckName = matcher.group("deckName");
-                    DeckController.addCardToSideDeck(cardName, deckName);
+                    DeckMenuController.addCardToSideDeck(cardName, deckName);
                     break;
                 }
             }
@@ -74,7 +76,7 @@ public class DeckMenu {
                     haveRecognizedCommand = true;
                     String cardName = matcher.group("cardName");
                     String deckName = matcher.group("deckName");
-                    DeckController.addCardToMainDeck(cardName, deckName);
+                    DeckMenuController.addCardToMainDeck(cardName, deckName);
                     break;
                 }
             }
@@ -85,7 +87,7 @@ public class DeckMenu {
                     haveRecognizedCommand = true;
                     String cardName = matcher.group("cardName");
                     String deckName = matcher.group("deckName");
-                    DeckController.removeCardFromSideDeck(cardName, deckName);
+                    DeckMenuController.removeCardFromSideDeck(cardName, deckName);
                     break;
                 }
             }
@@ -96,13 +98,13 @@ public class DeckMenu {
                     haveRecognizedCommand = true;
                     String cardName = matcher.group("cardName");
                     String deckName = matcher.group("deckName");
-                    DeckController.removeCardFromMainDeck(cardName, deckName);
+                    DeckMenuController.removeCardFromMainDeck(cardName, deckName);
                     break;
                 }
             }
         }
         if (!haveRecognizedCommand) {
-            DeckController.invalidCommand();
+            DeckMenuController.invalidCommand();
         }
 
 

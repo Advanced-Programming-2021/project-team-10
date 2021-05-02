@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 public class MagicCard extends Card {
-    private static ArrayList<MagicCard> magicCards;
+    private static final ArrayList<MagicCard> magicCards;
 
     static {
         magicCards = new ArrayList<>();
@@ -18,7 +18,7 @@ public class MagicCard extends Card {
     private MagicSpeed magicSpeed;
     private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
-    private ArrayList<EffectOfMagic> effectsOfMagic;
+    private final ArrayList<EffectOfMagic> effectsOfMagic;
 
     {
         effectsOfMagic = new ArrayList<>();
