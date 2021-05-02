@@ -15,6 +15,10 @@ public final class Regex {
     public static String currentPassword = ".+(?<= |^)--current (\\S+)(?= --password| --new.*|$).*$";
     public static String newPassword = ".+(?<= |^)--new (\\S+)(?= --password| --current.*|$).*$";
     public static String showGraveYard = "show graveyard(?: --opponent)?$";
+    public static String duel = "duel (.+)";
+    public static String secondPlayer = ".+(?<= |^)--second-player (\\S+)(?= --new| --rounds.*|$).*$";
+    public static String rounds = ".+(?<= |^)--rounds (\\S+)(?= --new| --second-player.*|$).*$";
+    public static String duelNew = ".+(?<= |^)--new(?= --second-player.*| --rounds.*|$).*$";
 
     // DeckMenu Commands:
     public static String createDeck = "deck create (?<deckName>.+)";

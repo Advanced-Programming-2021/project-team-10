@@ -48,6 +48,11 @@ public class MenuHandler {
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_ENTER_MENU);
             deckMenu.run();
         }
+        else if (menu == Menu.START_DUEL) {
+            DuelMenu duelMenu = DuelMenu.getInstance();
+            DuelMenuDisplay.display(Duel.SUCCESSFULLY_ENTER_MENU);
+            duelMenu.run();
+        }
     }
 
     public static boolean isMenuExist(String menuName) {

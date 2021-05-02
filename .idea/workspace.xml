@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="deck">
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuHandler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="game models and general structure">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/Duel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DuelMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/DuelMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/DuelMenuDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +76,8 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/Viewer" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/Main.java" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -102,11 +109,11 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="untitled" />
+      <module name="project-team-10" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
