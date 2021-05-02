@@ -25,19 +25,26 @@ public class DeckMenu {
     }
 
     private static void recognizeCommand(String command) {
+        command = command.trim();
         boolean haveRecognizedCommand = false;
         Matcher matcher;
         if (command.equals("menu show-current")) {
+            haveRecognizedCommand = true;
             DeckController.showCurrent();
         } else if ((matcher = Regex.getMatcher(command, Regex.createDeck)).matches()) {
+            haveRecognizedCommand = true;
             DeckController.createDeck(matcher.group("deckName"));
         } else if ((matcher = Regex.getMatcher(command, Regex.deleteDeck)).matches()) {
+            haveRecognizedCommand = true;
             DeckController.deleteDeck(matcher.group("deckName"));
         } else if ((matcher = Regex.getMatcher(command, Regex.activateDeck)).matches()) {
+            haveRecognizedCommand = true;
             DeckController.activateDeck(matcher.group("deckName"));
         } else if (command.equals("deck show --all")) {
+            haveRecognizedCommand = true;
             DeckController.showAllDecks();
         } else if ((matcher = Regex.getMatcher(command, Regex.showOneMainDeck)).matches()) {
+            haveRecognizedCommand = true;
             String deckName = matcher.group("deckName");
             DeckController.showOneMainDeck(deckName);
         } else {
@@ -46,17 +53,6 @@ public class DeckMenu {
                     haveRecognizedCommand = true;
                     String deckName = matcher.group("deckName");
                     DeckController.showOneSideDeck(deckName);
-                    break;
-                }
-            }
-        }
-        if (!haveRecognizedCommand) {
-            for (int i = 0; i < 2; i++) {
-                if ((matcher = Regex.getMatcher(command, Regex.addCardToMainDeck[i])).matches()) {
-                    haveRecognizedCommand = true;
-                    String cardName = matcher.group("cardName");
-                    String deckName = matcher.group("deckName");
-                    DeckController.addCardToMainDeck(cardName, deckName);
                     break;
                 }
             }
@@ -74,11 +70,11 @@ public class DeckMenu {
         }
         if (!haveRecognizedCommand) {
             for (int i = 0; i < 2; i++) {
-                if ((matcher = Regex.getMatcher(command, Regex.removeCardFromMainDeck[i])).matches()) {
+                if ((matcher = Regex.getMatcher(command, Regex.addCardToMainDeck[i])).matches()) {
                     haveRecognizedCommand = true;
                     String cardName = matcher.group("cardName");
                     String deckName = matcher.group("deckName");
-                    DeckController.removeCardFromMainDeck(cardName, deckName);
+                    DeckController.addCardToMainDeck(cardName, deckName);
                     break;
                 }
             }
@@ -94,7 +90,21 @@ public class DeckMenu {
                 }
             }
         }
-        System.out.println("invalid command");
+        if (!haveRecognizedCommand) {
+            for (int i = 0; i < 2; i++) {
+                if ((matcher = Regex.getMatcher(command, Regex.removeCardFromMainDeck[i])).matches()) {
+                    haveRecognizedCommand = true;
+                    String cardName = matcher.group("cardName");
+                    String deckName = matcher.group("deckName");
+                    DeckController.removeCardFromMainDeck(cardName, deckName);
+                    break;
+                }
+            }
+        }
+        if (!haveRecognizedCommand) {
+            DeckController.invalidCommand();
+        }
+
 
     }
 

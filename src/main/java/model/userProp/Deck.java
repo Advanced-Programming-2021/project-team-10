@@ -27,6 +27,9 @@ public class Deck {
     }
 
 
+    public boolean getIsActivated() {
+        return this.isDeckActivated;
+    }
 
     public void setOwner(User owner) {
         this.owner = owner;
@@ -92,6 +95,9 @@ public class Deck {
 
     public void deleteDeckFromOwner() {
         this.owner.getAllDecks().remove(this);
+        if (isDeckActivated) {
+            this.owner.setActiveDeck(null);
+        }
     }
 
     public int numOfCardOccurrence(String cardName, String where) {
@@ -115,4 +121,6 @@ public class Deck {
 
         return mainDeckCounter + sideDeckCounter; // in "single deck" situations, one of the counters would automatically be zero.
     }
+
+
 }

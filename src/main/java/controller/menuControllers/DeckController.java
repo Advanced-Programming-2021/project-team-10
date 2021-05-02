@@ -9,6 +9,8 @@ import org.apache.commons.logging.Log;
 import viewer.DeckMenu;
 import viewer.DeckMenuDisplay;
 
+import java.util.*;
+
 public class DeckController {
     public static void showCurrent() {
         DeckMenuDisplay.display(DeckMessages.CURRENT_MENU);
@@ -28,7 +30,7 @@ public class DeckController {
             DeckMenuDisplay.display(Error.NOT_FOUND_DECK_NAME, name);
         } else {
             Deck selectedDeck = LoginUser.getUser().getDeckByName(name);
-            LoginUser.getUser().getAllDecks().remove(selectedDeck);
+            selectedDeck.deleteDeckFromOwner();
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_DELETE_DECK);
         }
     }
@@ -44,7 +46,18 @@ public class DeckController {
     }
 
     public static void showAllDecks() {
-        DeckMenuDisplay.showAllDecks();
+        ArrayList<Deck> decks = LoginUser.getUser().getAllDecks();
+        Deck activeDeck = LoginUser.getUser().getActiveDeck();
+        Deck[] sortedDecks = DeckController.deckNameAlphabetSorter(decks);
+        DeckMenuDisplay.showAllDecks(sortedDecks, activeDeck);
+    }
+
+    public static Deck[] deckNameAlphabetSorter(ArrayList<Deck> decks) {
+        Deck[] sortedDecks =  decks.toArray(new Deck[0]);
+        Comparator<Deck> deckNameSorter = Comparator.comparing(Deck::getName);
+
+        Arrays.sort(sortedDecks, deckNameSorter);
+        return sortedDecks;
     }
 
     public static void showOneMainDeck(String deckName) {
@@ -113,5 +126,9 @@ public class DeckController {
             selectedDeck.removeCardFromSideDeck(selectedCard);
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_REMOVE_CARD_FROM_DECK);
         }
+    }
+
+    public static void invalidCommand() {
+        DeckMenuDisplay.display(Error.INVALID_COMMAND);
     }
 }

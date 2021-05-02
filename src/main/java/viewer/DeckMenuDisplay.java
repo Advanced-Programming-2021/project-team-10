@@ -8,25 +8,29 @@ import model.userProp.User;
 
 public class DeckMenuDisplay {
 
-    public static void showAllDecks() {
-        User user = LoginUser.getUser();
+    public static void showAllDecks(Deck[] decks, Deck activeDeck) {
+
         System.out.println("Decks:");
         System.out.println("Active deck:");
-        if (user.getActiveDeck() != null) {
-            Deck active = user.getActiveDeck();
-            System.out.println(active.getName() + ": main deck " + active.getMainDeck().size() + ", side deck " + active.getSideDeck().size() + ", " + active.getValidity());
+        if (activeDeck != null) {
+            printMainAndSideDecksNums(activeDeck);
         }
         System.out.println("Other decks:");
-        if (user.getAllDecks().size() > 0) {
-            for (Deck deck : user.getAllDecks()) {
-                String name = deck.getName();
-                int numMainDeck = deck.getMainDeck().size();
-                int numSideDeck = deck.getSideDeck().size();
-                String validity = deck.getValidity();
-                System.out.println(name + ": main deck " + numMainDeck + ", side deck " + numSideDeck + ", " + validity);
+        if (decks.length > 0) {
+            for (Deck deck : decks) {
+                if (deck != activeDeck) printMainAndSideDecksNums(deck);
             }
         }
     }
+
+    private static void printMainAndSideDecksNums(Deck deck) {
+        String name = deck.getName();
+        int numMainDeck = deck.getMainDeck().size();
+        int numSideDeck = deck.getSideDeck().size();
+        String validity = deck.getValidity();
+        System.out.println(name + ": main deck " + numMainDeck + ", side deck " + numSideDeck + ", " + validity);
+    }
+
     public static void display(Enum message) {
         if (message instanceof DeckMessages) {
             System.out.println(((DeckMessages) message).getMessage());
