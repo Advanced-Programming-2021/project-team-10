@@ -8,7 +8,7 @@ import model.gameprop.Game;
 import model.gameprop.Player;
 import model.gameprop.gamestage.GameSideStage;
 
-public class GamePlay {
+public class  GamePlay {
 
     private Game game;
     private GamePlayGeneralController generalController;

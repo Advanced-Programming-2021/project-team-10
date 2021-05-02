@@ -12,9 +12,6 @@ public class Deck {
     private ArrayList<Card> sideDeck;
     private boolean isDeckActivated;
 
-    public Deck getCopy() {
-        return null;
-    }
 
     {
         mainDeck = new ArrayList<>();

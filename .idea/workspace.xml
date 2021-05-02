@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes&#10;-add &quot;DeckMenu&quot; errors to &quot;Error&quot; ENUM">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/DeckMessages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/Error.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/DeckMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/DeckMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/DeckMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/DeckMenuDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MainMenuControler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +67,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/Viewer" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/Main.java" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
