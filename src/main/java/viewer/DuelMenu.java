@@ -33,13 +33,11 @@ public class DuelMenu {
         Matcher matcher = Regex.getMatcher(command, Regex.duel), matcherNew = Regex.getMatcher(command, Regex.duelNew), matcherRound = Regex.getMatcher(command, Regex.rounds), matcherSecondPlayer = Regex.getMatcher(command, Regex.secondPlayer);
         if (command.equals("menu show-current")) {
             DuelMenuController.showCurrentMenu();
-        }
-        else if (matcher.matches() && matcherNew.matches() && matcherRound.matches() && matcherSecondPlayer.matches()) {
+        } else if (matcher.matches() && matcherNew.matches() && matcherRound.matches() && matcherSecondPlayer.matches()) {
             String secondPlayer = matcherSecondPlayer.group(1);
             String rounds = matcherRound.group(1);
             DuelMenuController.makeNewDuel(rounds, secondPlayer);
-        }
-        else {
+        } else {
             DuelMenuController.invalidCommand();
         }
     }

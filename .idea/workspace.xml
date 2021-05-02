@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="DuelMenu added" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="DuelMenu added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/Duel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/Duel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DuelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DuelMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/DuelMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/DuelMenuDisplay.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -417,7 +424,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۳۵" />
       <updated>1619951179505</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL‎۰۰۰۳۶" summary="DuelMenu added">
+      <created>1619951562582</created>
+      <option name="number" value="LOCAL‎۰۰۰۳۶" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۳۶" />
+      <updated>1619951562583</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

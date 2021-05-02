@@ -7,11 +7,9 @@ public class DuelMenuDisplay {
     public static void display(Enum message) {
         if (message instanceof Duel) {
             System.out.println(((Duel) message).getMessage());
-        }
-        else if (message instanceof Error) {
+        } else if (message instanceof Error) {
             System.out.println(((Error) message).getMassage());
-        }
-        else {
+        } else {
             System.out.println("invalid enum type");
         }
     }
@@ -20,12 +18,10 @@ public class DuelMenuDisplay {
         if (message instanceof Duel) {
             System.out.printf(((Duel) message).getMessage(), username);
             System.out.println();
-        }
-        else if (message instanceof Error) {
+        } else if (message instanceof Error) {
             System.out.printf(((Error) message).getMassage(), username);
             System.out.println();
-        }
-        else {
+        } else {
             System.out.println("invalid enum type");
         }
     }
