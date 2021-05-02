@@ -20,8 +20,7 @@ public class ProfileMenuController {
         User user = User.getUserByUserInfo(newNickname, UserInfoType.NICKNAME);
         if (user != null) {
             ProfileMenuDisplay.display(Error.INVALID_NICKNAME, newNickname);
-        }
-        else {
+        } else {
             user = LoginUser.getUser();
             user.setNickname(newNickname);
             ProfileMenuDisplay.display(Profile.SUCCESSFULLY_CHANGE_NICKNAME);
@@ -32,11 +31,9 @@ public class ProfileMenuController {
         User user = LoginUser.getUser();
         if (!user.isPasswordMatch(currentPassword)) {
             ProfileMenuDisplay.display(Error.INVALID_PASSWORD);
-        }
-        else if (currentPassword.equals(newPassword)) {
+        } else if (currentPassword.equals(newPassword)) {
             ProfileMenuDisplay.display(Error.INVALID_NEW_PASSWORD);
-        }
-        else {
+        } else {
             user.setPassword(newPassword);
             ProfileMenuDisplay.display(Profile.SUCCESSFULLY_CHANGE_PASSWORD);
         }

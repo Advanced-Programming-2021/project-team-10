@@ -28,8 +28,7 @@ public class ScoreboardMenuController {
                     rank = counter;
                 }
                 ScoreboardMenuDisplay.toString(user.getNickname(), user.getScore(), rank);
-            }
-            else {
+            } else {
                 ScoreboardMenuDisplay.toString(user.getNickname(), user.getScore(), 1);
             }
             tempUser = user;

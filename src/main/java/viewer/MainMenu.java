@@ -8,13 +8,13 @@ import model.userProp.LoginUser;
 import java.util.regex.Matcher;
 
 public class MainMenu {
-    private static MainMenu MAIN_MENU;
+    private static MainMenu mainMenu;
 
     public static MainMenu getInstance() {
-        if (MAIN_MENU == null) {
-            MAIN_MENU = new MainMenu();
+        if (mainMenu == null) {
+            mainMenu = new MainMenu();
         }
-        return MAIN_MENU;
+        return mainMenu;
     }
 
     private static void recognizeCommand(String command) {

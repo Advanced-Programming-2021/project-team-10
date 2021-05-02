@@ -8,11 +8,9 @@ public class ProfileMenuDisplay {
     public static void display(Enum message) {
         if (message instanceof Profile) {
             System.out.println(((Profile) message).getMessage());
-        }
-        else if (message instanceof Error) {
+        } else if (message instanceof Error) {
             System.out.println(((Error) message).getMassage());
-        }
-        else {
+        } else {
             System.out.println("invalid enum type");
         }
     }

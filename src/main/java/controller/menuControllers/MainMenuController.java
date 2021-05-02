@@ -21,23 +21,17 @@ public class MainMenuController {
         String menuName = matcher.group(1);
         if (menuName.equals("Duel menu")) {
             MenuHandler.changeMenu(Menu.START_DUEL);
-        }
-        else if (menuName.equals("Deck menu")) {
+        } else if (menuName.equals("Deck menu")) {
             MenuHandler.changeMenu(Menu.DECK_MENU);
-        }
-        else if (menuName.equals("Scoreboard menu")) {
+        } else if (menuName.equals("Scoreboard menu")) {
             MenuHandler.changeMenu(Menu.SCORE_BOARD_MENU);
-        }
-        else if (menuName.equals("Profile menu")) {
+        } else if (menuName.equals("Profile menu")) {
             MenuHandler.changeMenu(Menu.USER_PROFILE_MENU);
-        }
-        else if (menuName.equals("Shop menu")) {
+        } else if (menuName.equals("Shop menu")) {
             MenuHandler.changeMenu(Menu.SHOP_MENU);
-        }
-        else if (MenuHandler.isMenuExist(menuName)) {
+        } else if (MenuHandler.isMenuExist(menuName)) {
             MainMenuDisplay.display(Error.INVALID_NAVIGATION);
-        }
-        else {
+        } else {
             invalidCommand();
         }
     }
