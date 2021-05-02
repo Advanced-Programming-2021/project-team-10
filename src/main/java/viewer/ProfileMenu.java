@@ -29,8 +29,7 @@ public class ProfileMenu {
                 String currentPassword = matcher1.group(1);
                 String newPassword = matcher2.group(1);
                 ProfileMenuController.changePassword(currentPassword, newPassword);
-            }
-            else {
+            } else {
                 ProfileMenuController.invalidCommand();
             }
         } else if (command.equals("menu show-current")) {

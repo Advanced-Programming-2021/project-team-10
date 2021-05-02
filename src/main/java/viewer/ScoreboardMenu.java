@@ -29,11 +29,9 @@ public class ScoreboardMenu {
     private static void recognizeCommand(String command) {
         if (command.equals("menu show-current")) {
             ScoreboardMenuController.showCurrentMenu();
-        }
-        else if (command.equals("scoreboard show")) {
+        } else if (command.equals("scoreboard show")) {
             ScoreboardMenuController.showScoreboard();
-        }
-        else {
+        } else {
             ScoreboardMenuController.invalidCommand();
         }
     }
