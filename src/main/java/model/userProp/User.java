@@ -14,8 +14,13 @@ public class User {
     private String nickname;
     private String password;
     private int score;
-    private ArrayList<Deck> allDecks;
     private Deck activeDeck;
+    private ArrayList<Deck> allDecks;
+
+    {
+        allDecks = new ArrayList<>();
+        activeDeck = null;
+    }
 
     {
         score = 0;
@@ -27,8 +32,6 @@ public class User {
         setPassword(password);
         setScore(score);
         ALL_USERS.add(this);
-        allDecks = new ArrayList<>();
-        activeDeck = null;
     }
 
     public static User getUserByUserInfo(String info, UserInfoType userInfoType) {
@@ -54,6 +57,15 @@ public class User {
 
     public static ArrayList<User> getAllUsers() {
         return ALL_USERS;
+    }
+
+    public Deck getDeckByName(String name) {
+        for (Deck deck : allDecks) {
+            if (deck.getName().equals(name)) {
+                return deck;
+            }
+        }
+        return null;
     }
 
     public int getScore() {
@@ -91,5 +103,16 @@ public class User {
     public Deck getActiveDeck() {
         return activeDeck;
     }
+
+    public ArrayList<Deck> getAllDecks() {
+        return allDecks;
+    }
+
+    public void setActiveDeck(Deck activeDeck) {
+        this.activeDeck = activeDeck;
+        activeDeck.setDeckActivated(true);
+    }
+
+
 }
 

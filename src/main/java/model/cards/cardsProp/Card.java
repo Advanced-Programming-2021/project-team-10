@@ -22,6 +22,9 @@ public abstract class Card {
         cards.add(this);
     }
 
+    public Card(){
+    }
+
     public static Card getCardByName(String name) {
         for (Card card : cards) {
             if (card.name.equals(name)) {
@@ -82,4 +85,5 @@ public abstract class Card {
         this.description = description;
     }
 
+    public abstract Card getCopy(); // semi duplicate code in overrides; cause -> Card is abstract and not constructable!
 }

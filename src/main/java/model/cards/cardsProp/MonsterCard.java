@@ -33,6 +33,9 @@ public class MonsterCard extends Card {
         monsterCards.add(this);
     }
 
+    public MonsterCard(){
+    }
+
     @Override
     public String toString() {
         return super.toString() +
@@ -91,5 +94,26 @@ public class MonsterCard extends Card {
 
     public void setAttribute(MonsterAttribute attribute) {
         this.attribute = attribute;
+    }
+
+    @Override
+    public Card getCopy() { // "Prototype pattern" wasn't approachable!
+                            // cause -> class fields' types didn't match to constructor types!
+        MonsterCard copy = new MonsterCard();
+
+        // semi duplicate block:
+        copy.name = this.name;
+        copy.description = this.description;
+        copy.price = this.price;
+        //
+
+        copy.setAttack(this.attack);
+        copy.setDefence(this.defence);
+        copy.setType(this.type);
+        copy.setAttribute(this.attribute);
+        copy.setLevel(this.level);
+        copy.setRace(this.race);
+
+        return copy;
     }
 }

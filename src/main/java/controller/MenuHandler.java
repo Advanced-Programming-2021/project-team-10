@@ -1,10 +1,7 @@
 package controller;
 
 import controller.enums.Menu;
-import controller.enums.MenusMassages.Main;
-import controller.enums.MenusMassages.Profile;
-import controller.enums.MenusMassages.Register;
-import controller.enums.MenusMassages.Scoreboard;
+import controller.enums.MenusMassages.*;
 import viewer.*;
 
 import java.util.ArrayList;
@@ -46,6 +43,10 @@ public class MenuHandler {
             ProfileMenu profileMenu = ProfileMenu.getInstance();
             ProfileMenuDisplay.display(Profile.SUCCESSFULLY_ENTER_MENU);
             profileMenu.run();
+        } else if (menu == Menu.DECK_MENU) {
+            DeckMenu deckMenu = DeckMenu.getinstance();
+            DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_ENTER_MENU);
+            deckMenu.run();
         }
     }
 
