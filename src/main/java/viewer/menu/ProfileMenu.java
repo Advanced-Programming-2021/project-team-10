@@ -1,8 +1,10 @@
-package viewer;
+package viewer.menu;
 
 import controller.enums.MenusMassages.Profile;
 import controller.ImportScanner;
 import controller.menuControllers.ProfileMenuController;
+import viewer.Regex;
+import viewer.display.ProfileMenuDisplay;
 
 import java.util.regex.Matcher;
 

@@ -3,7 +3,7 @@ package controller.menuControllers;
 import controller.enums.Error;
 import controller.enums.MenusMassages.Scoreboard;
 import model.userProp.User;
-import viewer.ScoreboardMenuDisplay;
+import viewer.display.ScoreboardMenuDisplay;
 
 import java.util.ArrayList;
 import java.util.Comparator;

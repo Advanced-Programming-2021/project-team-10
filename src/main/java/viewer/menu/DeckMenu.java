@@ -1,13 +1,11 @@
-package viewer;
+package viewer.menu;
 
 
 import controller.ImportScanner;
 import controller.enums.MenusMassages.DeckMessages;
-import controller.enums.MenusMassages.Profile;
 import controller.menuControllers.DeckController;
-import model.userProp.Deck;
-import model.userProp.LoginUser;
-import org.apache.commons.logging.Log;
+import viewer.Regex;
+import viewer.display.DeckMenuDisplay;
 
 import java.util.regex.Matcher;
 

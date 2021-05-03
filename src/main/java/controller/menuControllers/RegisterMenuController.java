@@ -8,7 +8,7 @@ import controller.MenuHandler;
 import model.userProp.LoginUser;
 import model.userProp.User;
 import model.userProp.UserInfoType;
-import viewer.RegisterMenuDisplay;
+import viewer.display.RegisterMenuDisplay;
 
 import java.util.regex.Matcher;
 

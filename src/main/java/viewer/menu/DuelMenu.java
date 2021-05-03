@@ -1,9 +1,10 @@
-package viewer;
+package viewer.menu;
 
 import controller.ImportScanner;
 import controller.enums.MenusMassages.Duel;
 import controller.menuControllers.DuelMenuController;
-import controller.menuControllers.ProfileMenuController;
+import viewer.Regex;
+import viewer.display.DuelMenuDisplay;
 
 import java.util.regex.Matcher;
 

@@ -1,8 +1,9 @@
-package viewer;
+package viewer.menu;
 
 import controller.enums.MenusMassages.Scoreboard;
 import controller.ImportScanner;
 import controller.menuControllers.ScoreboardMenuController;
+import viewer.display.ScoreboardMenuDisplay;
 
 public class ScoreboardMenu {
     private static ScoreboardMenu scoreboardMenu;

@@ -1,4 +1,4 @@
-package viewer;
+package viewer.display;
 
 public class GamePlayDisplay {
     public void displayInfo(String message) {

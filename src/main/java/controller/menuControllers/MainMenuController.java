@@ -4,7 +4,7 @@ import controller.enums.Error;
 import controller.enums.MenusMassages.Main;
 import controller.enums.Menu;
 import controller.MenuHandler;
-import viewer.MainMenuDisplay;
+import viewer.display.MainMenuDisplay;
 
 import java.util.regex.Matcher;
 

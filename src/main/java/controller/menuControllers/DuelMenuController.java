@@ -5,7 +5,7 @@ import controller.enums.MenusMassages.Duel;
 import model.userProp.LoginUser;
 import model.userProp.User;
 import model.userProp.UserInfoType;
-import viewer.DuelMenuDisplay;
+import viewer.display.DuelMenuDisplay;
 
 public class DuelMenuController {
     public static void invalidCommand() {

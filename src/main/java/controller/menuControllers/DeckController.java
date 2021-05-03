@@ -5,9 +5,7 @@ import controller.enums.MenusMassages.DeckMessages;
 import model.cards.cardsProp.Card;
 import model.userProp.Deck;
 import model.userProp.LoginUser;
-import org.apache.commons.logging.Log;
-import viewer.DeckMenu;
-import viewer.DeckMenuDisplay;
+import viewer.display.DeckMenuDisplay;
 
 public class DeckController {
     public static void showCurrent() {

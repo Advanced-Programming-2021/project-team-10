@@ -5,7 +5,7 @@ import model.cards.cardsProp.Card;
 import model.gameprop.Game;
 import model.gameprop.GraveYard;
 import model.gameprop.Player;
-import viewer.GamePlayDisplay;
+import viewer.display.GamePlayDisplay;
 
 public class GamePlayGeneralController {
 
