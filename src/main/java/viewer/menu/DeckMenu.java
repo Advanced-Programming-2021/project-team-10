@@ -1,9 +1,11 @@
-package viewer;
+package viewer.menu;
 
 
 import controller.ImportScanner;
 import controller.enums.MenusMassages.DeckMessages;
 import controller.menuControllers.DeckMenuController;
+import viewer.Regex;
+import viewer.display.DeckMenuDisplay;
 
 import java.util.regex.Matcher;
 

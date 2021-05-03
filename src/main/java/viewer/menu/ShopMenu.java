@@ -1,10 +1,10 @@
-package viewer;
+package viewer.menu;
 
 import controller.ImportScanner;
-import controller.enums.MenusMassages.DeckMessages;
 import controller.enums.MenusMassages.ShopMessages;
 import controller.menuControllers.ShopMenuController;
-import model.cards.cardsProp.Card;
+import viewer.Regex;
+import viewer.display.ShopMenuDisplay;
 
 import java.util.regex.Matcher;
 

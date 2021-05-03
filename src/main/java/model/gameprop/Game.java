@@ -4,8 +4,8 @@ import model.gameprop.gamestage.GameMainStage;
 import model.gameprop.gamestage.GameSideStage;
 
 public class Game {
-    private Player currentPlayer;
-    private Player opponentPlayer;
+    private Player firstPlayer;
+    private Player secondPlayer;
     private GameSideStage gameSideStage;
     private GameMainStage gameMainStage;
 
@@ -18,20 +18,20 @@ public class Game {
     public Game() {
     }
 
-    public Player getCurrentPlayer() {
-        return currentPlayer;
+    public Player getFirstPlayer() {
+        return firstPlayer;
     }
 
-    private void setCurrentPlayer(Player currentPlayer) {
-        this.currentPlayer = currentPlayer;
+    private void setFirstPlayer(Player firstPlayer) {
+        this.firstPlayer = firstPlayer;
     }
 
-    public Player getOpponentPlayer() {
-        return opponentPlayer;
+    public Player getSecondPlayer() {
+        return secondPlayer;
     }
 
-    private void setOpponentPlayer(Player opponentPlayer) {
-        this.opponentPlayer = opponentPlayer;
+    private void setSecondPlayer(Player secondPlayer) {
+        this.secondPlayer = secondPlayer;
     }
 
     public GameMainStage getGameMainStage() {

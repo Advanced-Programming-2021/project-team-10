@@ -23,8 +23,8 @@ public class GamePlayGeneralController {
 
     public void showGameBoard() {
         StringBuilder mapDisplay = new StringBuilder();
-        Player opponentPlayer = game.getOpponentPlayer();
-        Player currentPlayer = game.getCurrentPlayer();
+        Player opponentPlayer = game.getSecondPlayer();
+        Player currentPlayer = game.getFirstPlayer();
         drawOpponentPlayerBoard(mapDisplay, opponentPlayer);
         mapDisplay.append("\n\n--------------------------");
         drawCurrentPlayerBoard(mapDisplay, currentPlayer);
@@ -82,9 +82,9 @@ public class GamePlayGeneralController {
         StringBuilder graveYardDisplay = new StringBuilder();
         GraveYard graveYard;
         if (currentPlayer == PlayerEnum.FRIEND) {
-            graveYard = game.getCurrentPlayer().getGraveYard();
+            graveYard = game.getFirstPlayer().getGraveYard();
         } else {
-            graveYard = game.getOpponentPlayer().getGraveYard();
+            graveYard = game.getSecondPlayer().getGraveYard();
         }
 
         if (graveYard.getDestroyedCards().size() == 0) {

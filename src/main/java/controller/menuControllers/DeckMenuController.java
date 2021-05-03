@@ -6,7 +6,7 @@ import model.cards.cardsProp.Card;
 import model.userProp.Deck;
 import model.userProp.LoginUser;
 import model.userProp.User;
-import viewer.DeckMenuDisplay;
+import viewer.display.DeckMenuDisplay;
 
 import java.util.*;
 

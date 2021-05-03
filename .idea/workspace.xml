@@ -5,32 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="-bug fixes in Deck section&#10;-add &quot;show --all&quot; to DeckMenu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/MenusMassages/ShopMessages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/ShopMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/ShopMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/ShopMenuDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFile/SpellTrap.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvFile/SpellTrap.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/Error.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DeckMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DuelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DuelMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userProp/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/DeckMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/DeckMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/DeckMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/DeckMenuDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/GamePlayGeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/GamePlayGeneralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/menu/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/menu/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuHandler$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/MenuHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/MainMenuDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/MainMenuDisplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenuDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenuDisplay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/MainMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/MainMenuDisplay.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ProfileMenuDisplay.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/Regex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenuDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenuDisplay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/RegisterMenuDisplay.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Viewer/ScoreboardMenuDisplay.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,17 +119,6 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="untitled" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

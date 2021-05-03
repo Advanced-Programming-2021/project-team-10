@@ -1,4 +1,4 @@
-package viewer;
+package viewer.display;
 
 import controller.enums.Error;
 import controller.enums.MenusMassages.ShopMessages;
