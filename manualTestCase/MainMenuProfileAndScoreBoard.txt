@@ -21,7 +21,12 @@ menu show-current
 scorebaord show
 scoreboard show
 menu enter Profile menu
-menu exit
+profile change --current donton --new koko
+profile change --current donton --new koko --password
+profile change --current donton --new koko --password
+profile change --current don ton --new koko --password
+profile change --current koko --password --new shom koko
+profile change --current koko --password --new chom
 menu enter Profile menu
 profile change --nickname pari pari var be pari
 profile change --nickname arash the king of the sea

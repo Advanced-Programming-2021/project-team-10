@@ -37,10 +37,10 @@ public class MonsterCard extends Card {
     }
 
     @Override
-    public String showCard() {
+    public String getCardDetail() {
         return "Name: " + name +
                 "\nLevel: " + level +
-                "\nType: " + race +
+                "\nType: " + race.toString() +
                 "\nATK: " + attack +
                 "\nDEF: " + defence +
                 "\nDescription: " + description;

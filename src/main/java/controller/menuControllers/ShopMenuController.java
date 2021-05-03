@@ -48,7 +48,16 @@ public class ShopMenuController {
         return sortedCards;
     }
 
-    public static void invalidCommand(){
+    public static void showCard(String cardName) {
+        Card card = Card.getCardByName(cardName);
+        if (card == null) {
+            ShopMenuDisplay.display(Error.INVALID_CARD_NAME);
+        } else {
+            ShopMenuDisplay.printCardDetail(card);
+        }
+    }
+
+    public static void invalidCommand() {
         ShopMenuDisplay.display(Error.INVALID_COMMAND);
     }
 }

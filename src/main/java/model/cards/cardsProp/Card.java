@@ -56,7 +56,7 @@ public abstract class Card {
         return cards;
     }
 
-    public abstract String showCard();
+    public abstract String getCardDetail();
 
     public String getName() {
         return name;

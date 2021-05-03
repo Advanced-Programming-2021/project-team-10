@@ -8,11 +8,9 @@ public class ShopMenuDisplay {
     public static void display(Enum message) {
         if (message instanceof ShopMessages) {
             System.out.println(((ShopMessages) message).getMessage());
-        }
-        else if (message instanceof Error) {
+        } else if (message instanceof Error) {
             System.out.println(((Error) message).getMassage());
-        }
-        else {
+        } else {
             System.out.println("invalid enum type");
         }
     }
@@ -27,6 +25,10 @@ public class ShopMenuDisplay {
         } else {
             System.out.println("invalid type of enum");
         }
+    }
+
+    public static void printCardDetail(Card card){
+        System.out.println( card.getCardDetail());
     }
 
     public static void printAllCards(Card[] cards) {

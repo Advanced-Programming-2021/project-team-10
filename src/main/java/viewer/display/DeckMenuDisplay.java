@@ -3,8 +3,8 @@ package viewer.display;
 import controller.enums.Error;
 import controller.enums.MenusMassages.DeckMessages;
 import model.cards.cardsProp.Card;
-import model.cards.cardsProp.MonsterCard;
 import model.cards.cardsProp.MagicCard;
+import model.cards.cardsProp.MonsterCard;
 import model.userProp.Deck;
 
 public class DeckMenuDisplay {
@@ -72,20 +72,22 @@ public class DeckMenuDisplay {
         String name = deck.getName();
         int numMainDeck = deck.getMainDeck().size();
         int numSideDeck = deck.getSideDeck().size();
-        String validity = (deck.getValidity())?"valid":"invalid";
+        String validity = (deck.getValidity()) ? "valid" : "invalid";
         System.out.println(name + ": main deck " + numMainDeck + ", side deck " + numSideDeck + ", " + validity);
     }
 
     public static void display(Enum message) {
         if (message instanceof DeckMessages) {
             System.out.println(((DeckMessages) message).getMessage());
-        }
-        else if (message instanceof Error) {
+        } else if (message instanceof Error) {
             System.out.println(((Error) message).getMassage());
-        }
-        else {
+        } else {
             System.out.println("invalid enum type");
         }
+    }
+
+    public static void printCardDetail(Card card){
+        System.out.println( card.getCardDetail());
     }
 
     public static void display(Enum message, String field) {

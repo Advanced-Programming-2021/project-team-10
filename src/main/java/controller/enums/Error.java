@@ -25,8 +25,11 @@ public enum Error {
 
     //ShopMenu errors:
     INVALID_CARD_NAME_IN_SHOP("there is no card with name %s"),
-    NOT_ENOUGH_MONEY("not enough money");
+    NOT_ENOUGH_MONEY("not enough money"),
     //
+
+    //Show card error
+    INVALID_CARD_NAME("there is no card with this name");
 
 
     private final String errorMessage;

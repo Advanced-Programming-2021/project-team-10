@@ -2,6 +2,7 @@ package viewer.menu;
 
 import controller.ImportScanner;
 import controller.enums.MenusMassages.ShopMessages;
+import controller.menuControllers.DeckMenuController;
 import controller.menuControllers.ShopMenuController;
 import viewer.Regex;
 import viewer.display.ShopMenuDisplay;
@@ -11,7 +12,7 @@ import java.util.regex.Matcher;
 public class ShopMenu {
     private static ShopMenu shopMenu;
 
-    private ShopMenu(){
+    private ShopMenu() {
     }
 
     public static ShopMenu getInstance() {
@@ -21,7 +22,7 @@ public class ShopMenu {
         return shopMenu;
     }
 
-    public static void recognizeCommand(String command){
+    public static void recognizeCommand(String command) {
         command = command.trim();
         Matcher matcher;
         if ((matcher = Regex.getMatcher(command, Regex.buyCard)).matches()) {
@@ -29,12 +30,14 @@ public class ShopMenu {
             ShopMenuController.buyCard(cardName);
         } else if (Regex.getMatcher(command, Regex.showAllShop).matches()) {
             ShopMenuController.showAllCards();
+        } else if ((matcher = Regex.getMatcher(command, Regex.showCard)).matches()) {
+            ShopMenuController.showCard(matcher.group("cardName"));
         } else {
             ShopMenuController.invalidCommand();
         }
     }
 
-    public void run(){
+    public void run() {
         String command;
         while (true) {
             command = ImportScanner.getInput();

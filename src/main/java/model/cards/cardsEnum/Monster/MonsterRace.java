@@ -1,21 +1,26 @@
 package model.cards.cardsEnum.Monster;
 
 public enum MonsterRace {
-    BEAST_WARRIOR,
-    WARRIOR,
-    AQUA,
-    FIEND,
-    BEAST,
-    PYRO,
-    SPELLCASTER,
-    THUNDER,
-    DRAGON,
-    MACHINE,
-    ROCK,
-    INSECT,
-    CYBERSE,
-    FAIRY,
-    SEA_SERPENT;
+    BEAST_WARRIOR("Beast / Warrior"),
+    WARRIOR("Warrior"),
+    AQUA("Aqua"),
+    FIEND("Fiend"),
+    BEAST("Beast"),
+    PYRO("Pyro"),
+    SPELLCASTER("SpellCaster"),
+    THUNDER("Thunder"),
+    DRAGON("Dragon"),
+    MACHINE("Machine"),
+    ROCK("Rock"),
+    INSECT("Insect"),
+    CYBERSE("Cyberse"),
+    FAIRY("Fairy"),
+    SEA_SERPENT("Sea / Serpent");
+    String MonsterRaceToString;
+
+    MonsterRace(String monsterRaceToString) {
+        this.MonsterRaceToString = monsterRaceToString;
+    }
 
     public static MonsterRace assignRace(String race) {
         switch (race) {
@@ -70,5 +75,8 @@ public enum MonsterRace {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return MonsterRaceToString;
+    }
 }

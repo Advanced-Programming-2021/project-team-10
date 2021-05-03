@@ -8,7 +8,9 @@ import model.userProp.LoginUser;
 import model.userProp.User;
 import viewer.display.DeckMenuDisplay;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class DeckMenuController {
     public static void showCurrent() {
@@ -56,7 +58,7 @@ public class DeckMenuController {
         if (deck == null) {
             DeckMenuDisplay.display(Error.NOT_FOUND_DECK_NAME, deckName);
         } else {
-            Card[] sortedMainDeck = DeckMenuController.cardNameAlphabetSorter(deck.getMainDeck()) ;
+            Card[] sortedMainDeck = DeckMenuController.cardNameAlphabetSorter(deck.getMainDeck());
             DeckMenuDisplay.showOneMainDeck(sortedMainDeck, deckName);
         }
     }
@@ -74,9 +76,8 @@ public class DeckMenuController {
     public static void showAllCardsOfUser() {
         User user = LoginUser.getUser();
         ArrayList<Card> unionOfDecksAndCollection;
-        unionOfDecksAndCollection = new ArrayList<>();
 
-        unionOfDecksAndCollection.addAll(user.getUserCardCollection());
+        unionOfDecksAndCollection = new ArrayList<>(user.getUserCardCollection());
         for (Deck deck : user.getAllDecks()) {
             unionOfDecksAndCollection.addAll(deck.getMainDeck());
             unionOfDecksAndCollection.addAll(deck.getSideDeck());
@@ -87,7 +88,7 @@ public class DeckMenuController {
     }
 
     public static Deck[] deckNameAlphabetSorter(ArrayList<Deck> decks) {
-        Deck[] sortedDecks =  decks.toArray(new Deck[0]);
+        Deck[] sortedDecks = decks.toArray(new Deck[0]);
         Comparator<Deck> deckNameSorter = Comparator.comparing(Deck::getName);
 
         Arrays.sort(sortedDecks, deckNameSorter);
@@ -165,6 +166,15 @@ public class DeckMenuController {
             selectedDeck.removeCardFromSideDeck(selectedCard);
             LoginUser.getUser().getUserCardCollection().add(selectedCard);
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_REMOVE_CARD_FROM_DECK);
+        }
+    }
+
+    public static void showCard(String cardName) {
+        Card card = Card.getCardByName(cardName);
+        if (card == null) {
+            DeckMenuDisplay.display(Error.INVALID_CARD_NAME);
+        } else {
+            DeckMenuDisplay.printCardDetail(card);
         }
     }
 

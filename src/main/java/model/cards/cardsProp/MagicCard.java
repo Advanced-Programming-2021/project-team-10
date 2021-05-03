@@ -37,7 +37,7 @@ public class MagicCard extends Card {
     }
 
     @Override
-    public String showCard() {
+    public String getCardDetail() {
         return
                 "Name: " + name +
                         "\n" + typeOfMagic.toString() +

@@ -29,6 +29,8 @@ public class DeckMenu {
         if (command.equals("menu show-current")) {
             haveRecognizedCommand = true;
             DeckMenuController.showCurrent();
+        } else if ((matcher = Regex.getMatcher(command,Regex.showCard)).matches()) {
+            DeckMenuController.showCard(matcher.group("cardName"));
         } else if ((matcher = Regex.getMatcher(command, Regex.createDeck)).matches()) {
             haveRecognizedCommand = true;
             DeckMenuController.createDeck(matcher.group("deckName"));
@@ -41,7 +43,7 @@ public class DeckMenu {
         } else if (command.equals("deck show --all")) {
             haveRecognizedCommand = true;
             DeckMenuController.showAllDecks();
-        } else if (command.equals("deck show --cards")){
+        } else if (command.equals("deck show --cards")) {
             haveRecognizedCommand = true;
             DeckMenuController.showAllCardsOfUser();
         } else {
