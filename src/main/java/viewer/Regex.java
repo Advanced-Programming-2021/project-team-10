@@ -33,10 +33,10 @@ public final class Regex {
         public static String[] addCardToSideDeck = new String[] {
             // --side at end:
             "^deck add-card --card (?<cardName>.+) --deck (?<deckName>.+?) --side$",
-            "^deck add-card --deck (?<deckName>.+?) --card (?<cardName>.+) --side$",
+            "^deck add-card --deck (?<deckName>.+) --card (?<cardName>.+?) --side$",
             // --side at middle:
-            "^deck add-card --deck (?<deckName>.+) --side --card (?<cardName>.+)$",
-            "^deck add-card --card (?<cardName>.+) --side --deck (?<deckName>.+)$",
+            "^deck add-card --deck (?<deckName>.+?) --side --card (?<cardName>.+)$",
+            "^deck add-card --card (?<cardName>.+?) --side --deck (?<deckName>.+)$",
             // --side at first:
             "^deck add-card --side --deck (?<deckName>.+) --card (?<cardName>.+)$",
             "^deck add-card --side --card (?<cardName>.+) --deck (?<deckName>.+)$"
@@ -50,10 +50,10 @@ public final class Regex {
         public static String[] removeCardFromSideDeck = new String[] {
             // --side at end:
             "^deck rm-card --card (?<cardName>.+) --deck (?<deckName>.+?) --side$",
-            "^deck rm-card --deck (?<deckName>.+?) --card (?<cardName>.+) --side$",
+            "^deck rm-card --deck (?<deckName>.+) --card (?<cardName>.+?) --side$",
             // --side at middle:
-            "^deck rm-card --deck (?<deckName>.+) --side --card (?<cardName>.+)$",
-            "^deck rm-card --card (?<cardName>.+) --side --deck (?<deckName>.+)$",
+            "^deck rm-card --deck (?<deckName>.+?) --side --card (?<cardName>.+)$",
+            "^deck rm-card --card (?<cardName>.+?) --side --deck (?<deckName>.+)$",
             // --side at first:
             "^deck rm-card --side --deck (?<deckName>.+) --card (?<cardName>.+)$",
             "^deck rm-card --side --card (?<cardName>.+) --deck (?<deckName>.+)$"
@@ -61,12 +61,18 @@ public final class Regex {
         // show Deck (main/side):
         public static String showOneMainDeck = "^deck show --deck-name (?<deckName>.+)$";
         public static String[] showOneSideDeck = new String[] {
-            "^deck show --deck-name (?<deckName>.+) --side$",
+            "^deck show --deck-name (?<deckName>.+?) --side$",
             "^deck show --side --deck-name (?<deckName>.+)$"
         };
 
-    public static String showAllCards = "^deck show --cards$";
+    public static String showAllCardsDeckMenu = "^deck show --cards$";
     // <- end of DeckMenu commands;
+
+
+    //ShopMenu commands:
+    public static String buyCard = "^shop buy (?<cardName>.+)";
+    public static String showAllShop = "shop show --all";
+    // <- end of ShopMenu commands;
 
 
     public static Matcher getMatcher(String input, String regex) {

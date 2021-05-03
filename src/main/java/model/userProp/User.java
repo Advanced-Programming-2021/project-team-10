@@ -1,5 +1,7 @@
 package model.userProp;
 
+import model.cards.cardsProp.Card;
+
 import java.util.ArrayList;
 
 public class User {
@@ -14,15 +16,19 @@ public class User {
     private String nickname;
     private String password;
     private int score;
+    private int balance;
     private Deck activeDeck;
     private ArrayList<Deck> allDecks;
+    private ArrayList<Card> userCardCollection;
 
     {
         allDecks = new ArrayList<>();
+        userCardCollection = new ArrayList<>();
         activeDeck = null;
     }
 
     {
+        balance = 100000;
         score = 0;
     }
 
@@ -96,6 +102,14 @@ public class User {
         this.nickname = nickname;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
     public boolean isPasswordMatch(String password) {
         return password.equals(this.password);
     }
@@ -109,10 +123,17 @@ public class User {
     }
 
     public void setActiveDeck(Deck activeDeck) {
+        if (this.activeDeck != null) this.activeDeck.setDeckActivated(false);
         this.activeDeck = activeDeck;
-        activeDeck.setDeckActivated(true);
+        if (activeDeck != null ) activeDeck.setDeckActivated(true);
     }
 
+    public ArrayList<Card> getUserCardCollection() {
+        return userCardCollection;
+    }
 
+    public boolean isCardInUserCardCollection(Card card) {
+        return userCardCollection.contains(card);
+    }
 }
 

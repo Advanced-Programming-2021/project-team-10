@@ -85,5 +85,9 @@ public abstract class Card {
         this.description = description;
     }
 
+    public static List<Card> getCards() {
+        return cards;
+    }
+
     public abstract Card getCopy(); // semi duplicate code in overrides; cause -> Card is abstract and not constructable!
 }

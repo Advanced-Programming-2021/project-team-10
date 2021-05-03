@@ -48,11 +48,14 @@ public class MenuHandler {
             ProfileMenuDisplay.display(Profile.SUCCESSFULLY_ENTER_MENU);
             profileMenu.run();
         } else if (menu == Menu.DECK_MENU) {
-            DeckMenu deckMenu = DeckMenu.getinstance();
+            DeckMenu deckMenu = DeckMenu.getInstance();
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_ENTER_MENU);
             deckMenu.run();
-        }
-        else if (menu == Menu.START_DUEL) {
+        } else if (menu == Menu.SHOP_MENU) {
+            ShopMenu shopMenu = ShopMenu.getInstance();
+            ShopMenuDisplay.display(ShopMessages.SUCCESSFULLY_ENTER_MENU);
+            shopMenu.run();
+        } else if (menu == Menu.START_DUEL) {
             DuelMenu duelMenu = DuelMenu.getInstance();
             DuelMenuDisplay.display(Duel.SUCCESSFULLY_ENTER_MENU);
             duelMenu.run();

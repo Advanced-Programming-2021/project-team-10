@@ -5,10 +5,9 @@ import model.cards.cardsProp.Card;
 import java.util.ArrayList;
 
 public class Deck {
-    private boolean isValid;
     private String name;
     private User owner;
-    private ArrayList<Card> mainDeck;
+    private final ArrayList<Card> mainDeck;
     private ArrayList<Card> sideDeck;
     private boolean isDeckActivated;
 
@@ -17,7 +16,6 @@ public class Deck {
         mainDeck = new ArrayList<>();
         sideDeck = new ArrayList<>();
         isDeckActivated = false;
-        isValid = false;
     }
 
     public Deck(String name, User owner) {
@@ -27,6 +25,9 @@ public class Deck {
     }
 
 
+    public boolean getIsActivated() {
+        return this.isDeckActivated;
+    }
 
     public void setOwner(User owner) {
         this.owner = owner;
@@ -44,11 +45,8 @@ public class Deck {
         return sideDeck;
     }
 
-    public String getValidity() {
-        if (isValid) {
-            return "valid";
-        }
-        return "invalid";
+    public boolean getValidity() {
+        return (mainDeck.size() >= 40);
     }
 
     public Deck getCopy(){ // Somehow "Prototype pattern" is implemented
@@ -92,6 +90,9 @@ public class Deck {
 
     public void deleteDeckFromOwner() {
         this.owner.getAllDecks().remove(this);
+        if (isDeckActivated) {
+            this.owner.setActiveDeck(null);
+        }
     }
 
     public int numOfCardOccurrence(String cardName, String where) {
@@ -115,4 +116,6 @@ public class Deck {
 
         return mainDeckCounter + sideDeckCounter; // in "single deck" situations, one of the counters would automatically be zero.
     }
+
+
 }

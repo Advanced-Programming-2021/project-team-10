@@ -23,9 +23,9 @@ public class DuelMenuController {
             DuelMenuDisplay.display(Duel.NO_ACTIVE_DECK, LoginUser.getUser().getUsername());
         } else if (User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME).getActiveDeck() == null) {
             DuelMenuDisplay.display(Duel.NO_ACTIVE_DECK, secondPlayer);
-        } else if (LoginUser.getUser().getActiveDeck().getValidity().equals("invalid")) {
+        } else if (!LoginUser.getUser().getActiveDeck().getValidity()) {
             DuelMenuDisplay.display(Duel.INVALID_ACTIVE_DECK, LoginUser.getUser().getUsername());
-        } else if (User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME).getActiveDeck().getValidity().equals("invalid")) {
+        } else if (!User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME).getActiveDeck().getValidity()) {
             DuelMenuDisplay.display(Duel.INVALID_ACTIVE_DECK, secondPlayer);
         } else if (!rounds.equals("1") && !rounds.equals("3")) {
             DuelMenuDisplay.display(Duel.INVALID_NUMBER_OF_ROUNDS);
