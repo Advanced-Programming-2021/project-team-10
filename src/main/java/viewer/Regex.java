@@ -6,11 +6,11 @@ import java.util.regex.Pattern;
 public final class Regex {
     public static String menuEnter = "menu enter (.+)";
     public static String createUser = "user create --[npu].+";
-    public static String username = ".+(?<= )--username (\\S+)(?= --nickname.*| --password.*|$).*$";
-    public static String nickname = ".+(?<= )--nickname (\\S+)(?= --username.*| --password.*|$).*$";
+    public static String username = ".+(?<= )--username ([^-]+)(?= --nickname.*| --password.*|$).*$";
+    public static String nickname = ".+(?<= )--nickname ([^-]+)(?= --username.*| --password.*|$).*$";
     public static String password = ".+(?<= )--password (\\S+)(?= --nickname.*| --username.*|$).*$";
-    public static String profileChange = "profile Change (.*)";
-    public static String changeNickname = "profile Change --nickname (.*)";
+    public static String profileChange = "profile change (.*)";
+    public static String changeNickname = "profile change --nickname (.*)";
     public static String changePassword = ".+(?<= |^)--password(?= --current.*| --new.*|$).*$";
     public static String currentPassword = ".+(?<= |^)--current (\\S+)(?= --password| --new.*|$).*$";
     public static String newPassword = ".+(?<= |^)--new (\\S+)(?= --password| --current.*|$).*$";

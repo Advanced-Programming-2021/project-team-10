@@ -33,19 +33,18 @@ public class MonsterCard extends Card {
         monsterCards.add(this);
     }
 
-    public MonsterCard(){
+    public MonsterCard() {
     }
 
     @Override
-    public String toString() {
-        return super.toString() +
-                ", attack=" + attack +
-                ", defence=" + defence +
-                ", level=" + level +
-                ", type=" + type +
-                ", race=" + race +
-                ", attribute=" + attribute +
-                '}';
+    public String showCard() {
+        return "Name: " + name +
+                "\nLevel: " + level +
+                "\nType: " + race +
+                "\nATK: " + attack +
+                "\nDEF: " + defence +
+                "\nDescription: " + description;
+
     }
 
     public int getAttack() {
@@ -98,7 +97,7 @@ public class MonsterCard extends Card {
 
     @Override
     public Card getCopy() { // "Prototype pattern" wasn't approachable!
-                            // cause -> class fields' types didn't match to constructor types!
+        // cause -> class fields' types didn't match to constructor types!
         MonsterCard copy = new MonsterCard();
 
         // semi duplicate block:

@@ -1,11 +1,13 @@
 package model.cards.cardsEnum.Magic;
 
 public enum MagicType {
-    SPELL(),
-    TRAP();
+    SPELL("Spell"),
+    TRAP("Trap");
 
+    String typeToString;
 
-    MagicType() {
+    MagicType(String typeToString) {
+        this.typeToString = typeToString;
     }
 
     public static MagicType setType(String typeOfMagic) {
@@ -21,5 +23,10 @@ public enum MagicType {
                 return null;
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return typeToString;
     }
 }

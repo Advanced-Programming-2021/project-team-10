@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Card {
-    protected static  List<Card> cards;
+    protected static List<Card> cards;
 
     static {
         cards = new ArrayList<>();
@@ -22,7 +22,7 @@ public abstract class Card {
         cards.add(this);
     }
 
-    public Card(){
+    public Card() {
     }
 
     public static Card getCardByName(String name) {
@@ -52,14 +52,11 @@ public abstract class Card {
         return null; // No such card exists.
     }
 
-    @Override
-    public String toString() {
-        return "Card{" +
-                "name='" + name + '\'' +
-                ", number='" + number + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'';
+    public static List<Card> getCards() {
+        return cards;
     }
+
+    public abstract String showCard();
 
     public String getName() {
         return name;
@@ -83,10 +80,6 @@ public abstract class Card {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public static List<Card> getCards() {
-        return cards;
     }
 
     public abstract Card getCopy(); // semi duplicate code in overrides; cause -> Card is abstract and not constructable!

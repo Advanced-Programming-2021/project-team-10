@@ -1,9 +1,9 @@
 package model.cards.cardsProp;
 
+import model.cards.cardsEffect.EffectOfMagic;
 import model.cards.cardsEnum.Magic.MagicAttribute;
 import model.cards.cardsEnum.Magic.MagicSpeed;
 import model.cards.cardsEnum.Magic.MagicType;
-import model.cards.cardsEffect.EffectOfMagic;
 
 import java.util.ArrayList;
 
@@ -15,10 +15,10 @@ public class MagicCard extends Card {
         magicCards = new ArrayList<>();
     }
 
+    private final ArrayList<EffectOfMagic> effectsOfMagic;
     private MagicSpeed magicSpeed;
     private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
-    private final ArrayList<EffectOfMagic> effectsOfMagic;
 
     {
         effectsOfMagic = new ArrayList<>();
@@ -32,42 +32,41 @@ public class MagicCard extends Card {
         magicCards.add(this);
     }
 
-    public MagicCard(){
+    public MagicCard() {
         super();
     }
 
     @Override
-    public String toString() {
-        return super.toString() +
-                "magicSpeed=" + magicSpeed +
-                ", magicFamily=" + magicAttribute +
-                ", typeOfMagic=" + typeOfMagic +
-                ", effectsOfMagic=" + effectsOfMagic +
-                '}';
-    }
-
-    public void setMagicSpeed(MagicSpeed magicSpeed) {
-        this.magicSpeed = magicSpeed;
-    }
-
-    private void setMagicAttribute(MagicAttribute magicAttribute) {
-        this.magicAttribute = magicAttribute;
-    }
-
-    private void setTypeOfMagic(MagicType typeOfMagic) {
-        this.typeOfMagic = typeOfMagic;
+    public String showCard() {
+        return
+                "Name: " + name +
+                        "\n" + typeOfMagic.toString() +
+                        "\nType: " + magicAttribute +
+                        "\nDescription: " + description;
     }
 
     public MagicAttribute getMagicAttribute() {
         return magicAttribute;
     }
 
+    private void setMagicAttribute(MagicAttribute magicAttribute) {
+        this.magicAttribute = magicAttribute;
+    }
+
     public MagicType getTypeOfMagic() {
         return typeOfMagic;
     }
 
+    private void setTypeOfMagic(MagicType typeOfMagic) {
+        this.typeOfMagic = typeOfMagic;
+    }
+
     public MagicSpeed getMagicSpeed() {
         return magicSpeed;
+    }
+
+    public void setMagicSpeed(MagicSpeed magicSpeed) {
+        this.magicSpeed = magicSpeed;
     }
 
     @Override

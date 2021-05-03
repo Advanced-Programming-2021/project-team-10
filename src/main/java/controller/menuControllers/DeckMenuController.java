@@ -94,7 +94,7 @@ public class DeckMenuController {
         return sortedDecks;
     }
 
-    public static Card[] cardNameAlphabetSorter(ArrayList<Card> cards) {
+    private static Card[] cardNameAlphabetSorter(ArrayList<Card> cards) {
         Card[] sortedCards = cards.toArray(new Card[0]);
         Comparator<Card> cardNameSorter = Comparator.comparing(Card::getName);
 
