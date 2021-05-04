@@ -3,6 +3,7 @@ package controller.menucontrollers;
 import controller.enums.Error;
 import controller.enums.MenusMassages.Duel;
 import controller.enums.PlayerOrientation;
+import model.gameprop.Game;
 import model.gameprop.Player;
 import model.userProp.LoginUser;
 import model.userProp.User;
@@ -39,17 +40,17 @@ public class DuelMenuController {
         } else {
             Player loggedInPlayer = new Player(LoginUser.getUser());
             Player opponentPlayer = new Player(User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME));
-            InProgressGameDetail game = new InProgressGameDetail();
+            Game game = new Game();
             PlayerOrientation firstPlayer = RockPaperScissorGame.run();
             switch (firstPlayer) {
                 case PLAYER_ONE: {
-                    game.setPlayerOne(loggedInPlayer);
-                    game.setPlayerTwo(opponentPlayer);
+                    game.setFirstPlayer(loggedInPlayer);
+                    game.setSecondPlayer(opponentPlayer);
                     break;
                 }
                 case PLAYER_TWO: {
-                    game.setPlayerOne(opponentPlayer);
-                    game.setPlayerTwo(loggedInPlayer);
+                    game.setFirstPlayer(opponentPlayer);
+                    game.setSecondPlayer(loggedInPlayer);
                 }
             }
         }

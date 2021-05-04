@@ -9,10 +9,17 @@ public class Game {
     private GameSideStage gameSideStage;
     private GameMainStage gameMainStage;
 
-
     {
         gameMainStage = GameMainStage.DRAW_PHASE;
         gameSideStage = GameSideStage.NONE;
+    }
+
+    public void setFirstPlayer(Player firstPlayer) {
+        this.firstPlayer = firstPlayer;
+    }
+
+    public void setSecondPlayer(Player secondPlayer) {
+        this.secondPlayer = secondPlayer;
     }
 
     public Game() {
