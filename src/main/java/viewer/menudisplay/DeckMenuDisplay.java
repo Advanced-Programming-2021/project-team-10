@@ -76,41 +76,37 @@ public class DeckMenuDisplay {
         System.out.println(name + ": main deck " + numMainDeck + ", side deck " + numSideDeck + ", " + validity);
     }
 
-    public static void display(Enum message) {
-        if (message instanceof DeckMessages) {
-            System.out.println(((DeckMessages) message).getMessage());
-        } else if (message instanceof Error) {
-            System.out.println(((Error) message).getMassage());
-        } else {
-            System.out.println("invalid enum type");
-        }
+    public static void display(DeckMessages message) {
+        System.out.println(message.getMessage());
     }
 
-    public static void printCardDetail(Card card){
-        System.out.println( card.getCardDetail());
+    public static void display(Error message) {
+        System.out.println(message.getMassage());
     }
 
-    public static void display(Enum message, String field) {
-        if (message instanceof DeckMessages) {
-            System.out.printf(((DeckMessages) message).getMessage(), field);
-            System.out.println();
-        } else if (message instanceof Error) {
-            System.out.printf(((Error) message).getMassage(), field);
-            System.out.println();
-        } else {
-            System.out.println("invalid type of enum");
-        }
+
+    public static void printCardDetail(Card card) {
+        System.out.println(card.getCardDetail());
     }
 
-    public static void display(Enum message, String field1, String field2) {
-        if (message instanceof DeckMessages) {
-            System.out.printf(((DeckMessages) message).getMessage(), field1, field2);
-            System.out.println();
-        } else if (message instanceof Error) {
-            System.out.printf(((Error) message).getMassage(), field1, field2);
-            System.out.println();
-        } else {
-            System.out.println("invalid type of enum");
-        }
+    public static void display(DeckMessages message, String field) {
+        System.out.printf(message.getMessage(), field);
+        System.out.println();
+
+    }
+
+    public static void display(Error message, String field) {
+        System.out.printf(message.getMassage(), field);
+        System.out.println();
+    }
+
+    public static void display(DeckMessages message, String field1, String field2) {
+        System.out.printf(message.getMessage(), field1, field2);
+        System.out.println();
+    }
+
+    public static void display(Error message, String field1, String field2) {
+        System.out.printf(message.getMassage(), field1, field2);
+        System.out.println();
     }
 }
