@@ -6,7 +6,7 @@ import model.gameprop.BoardProp.GraveYard;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.Game;
 import model.gameprop.Player;
-import viewer.menudisplay.GamePlayDisplay;
+import viewer.game.GameDisplay;
 
 public class GeneralCommands {
 
@@ -31,7 +31,7 @@ public class GeneralCommands {
             }
             graveYardDisplay.deleteCharAt(graveYardDisplay.length() - 1);
         }
-        GamePlayDisplay.displayInfo(graveYardDisplay.toString());
+        GameDisplay.display(graveYardDisplay.toString());
     }
 
     public static void selectCard(Game game, SideOfFeature side, MagicHouse house) {

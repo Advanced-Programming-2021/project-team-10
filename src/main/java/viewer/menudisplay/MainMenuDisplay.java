@@ -4,14 +4,11 @@ import controller.enums.Error;
 import controller.enums.MenusMassages.Main;
 
 public class MainMenuDisplay {
-    public static void display(Enum message) {
-        if (message instanceof Main) {
-            System.out.println(((Main) message).getMainMessage());
-        } else if (message instanceof Error) {
-            Error output = (Error) message;
-            System.out.println(output.getMassage());
-        } else {
-            System.out.println("invalid enum type");
-        }
+    public static void display(Main message) {
+        System.out.println(message.getMainMessage());
+    }
+
+    public static void display(Error message) {
+        System.out.println(message.getMassage());
     }
 }

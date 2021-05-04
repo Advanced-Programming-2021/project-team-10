@@ -16,31 +16,22 @@ public class RegisterMenuDisplay {
         return display;
     }
 
-    public void display(Enum massage) {
-
-        if (massage instanceof Register) {
-            Register outPut = (Register) massage;
-            System.out.println(outPut.getMassage());
-        } else if (massage instanceof Error) {
-            Error outPut = (Error) massage;
-            System.out.println(outPut.getMassage());
-        } else {
-            System.out.println("invalid type of enum");
-        }
-
+    public void display(Register message) {
+        System.out.println(message.getMassage());
     }
 
-    public void display(Enum massage, String name) {
-        if (massage instanceof Register) {
-            Register outPut = (Register) massage;
-            System.out.printf(outPut.getMassage(), name);
-            System.out.println();
-        } else if (massage instanceof Error) {
-            Error outPut = (Error) massage;
-            System.out.printf(outPut.getMassage(), name);
-            System.out.println();
-        } else {
-            System.out.println("invalid type of enum");
-        }
+    public void display(Error message) {
+        System.out.println(message.getMassage());
+    }
+
+    public void display(Register message, String name) {
+        System.out.printf(message.getMassage(), name);
+        System.out.println();
+    }
+
+    public void display(Error message, String name) {
+        System.out.printf(message.getMassage(), name);
+        System.out.println();
+
     }
 }

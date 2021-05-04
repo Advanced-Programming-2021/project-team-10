@@ -5,26 +5,22 @@ import controller.enums.MenusMassages.ShopMessages;
 import model.cards.cardsProp.Card;
 
 public class ShopMenuDisplay {
-    public static void display(Enum message) {
-        if (message instanceof ShopMessages) {
-            System.out.println(((ShopMessages) message).getMessage());
-        } else if (message instanceof Error) {
-            System.out.println(((Error) message).getMassage());
-        } else {
-            System.out.println("invalid enum type");
-        }
+    public static void display(ShopMessages message) {
+            System.out.println(message.getMessage());
     }
 
-    public static void display(Enum message, String field) {
-        if (message instanceof ShopMessages) {
-            System.out.printf(((ShopMessages) message).getMessage(), field);
+    public static void display(Error message) {
+            System.out.println(message.getMassage());
+    }
+
+    public static void display(ShopMessages message, String field) {
+            System.out.printf(message.getMessage(), field);
             System.out.println();
-        } else if (message instanceof Error) {
-            System.out.printf(((Error) message).getMassage(), field);
+    }
+
+    public static void display(Error message, String field) {
+            System.out.printf(message.getMassage(), field);
             System.out.println();
-        } else {
-            System.out.println("invalid type of enum");
-        }
     }
 
     public static void printCardDetail(Card card){
