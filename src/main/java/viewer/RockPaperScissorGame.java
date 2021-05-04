@@ -2,13 +2,13 @@ package viewer;
 
 import controller.ImportScanner;
 import controller.RockPaperScissorController;
-import controller.enums.PlayerOrientation;
-import controller.enums.rockpaperscissor.GameError;
+import controller.enums.GameEnums.PlayerTurn;
+import controller.enums.rockpaperscissor.PaperRockScissorError;
 import controller.enums.rockpaperscissor.GameMessages;
 import viewer.display.RockPaperScissorDisplay;
 
 public class RockPaperScissorGame {
-    public static PlayerOrientation run() {
+    public static PlayerTurn run() {
         String playerOneChoice;
         String playerTwoChoice;
         while (true) {
@@ -25,12 +25,12 @@ public class RockPaperScissorGame {
                 continue;
             }
 
-            PlayerOrientation firstPlayer = RockPaperScissorController.
+            PlayerTurn firstPlayer = RockPaperScissorController.
                     recognizeGameWinner(playerOneChoice, playerTwoChoice);
-            if (firstPlayer.equals(PlayerOrientation.PLAYER_ONE)) {
+            if (firstPlayer.equals(PlayerTurn.PLAYER_ONE)) {
                 RockPaperScissorDisplay.display(GameMessages.PLAYER_ONE_WIN_MESSAGE);
                 return firstPlayer;
-            } else if (firstPlayer.equals(PlayerOrientation.PLAYER_TWO)) {
+            } else if (firstPlayer.equals(PlayerTurn.PLAYER_TWO)) {
                 RockPaperScissorDisplay.display(GameMessages.PLAYER_TWO_WIN_MESSAGE);
                 return firstPlayer;
             }
@@ -40,7 +40,7 @@ public class RockPaperScissorGame {
 
     private static boolean chooseWrongTool(String weapon) {
         if (!weapon.equals("paper") && !weapon.equals("rock") && !weapon.equals("scissor")) {
-            RockPaperScissorDisplay.display(GameError.WRONG_WEAPON_CHOOSE);
+            RockPaperScissorDisplay.display(PaperRockScissorError.WRONG_WEAPON_CHOOSE);
             return true;
         }
         return false;

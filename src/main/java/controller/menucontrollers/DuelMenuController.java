@@ -2,7 +2,7 @@ package controller.menucontrollers;
 
 import controller.enums.Error;
 import controller.enums.MenusMassages.Duel;
-import controller.enums.PlayerOrientation;
+import controller.enums.GameEnums.PlayerTurn;
 import model.gameprop.Game;
 import model.gameprop.Player;
 import model.userProp.LoginUser;
@@ -42,7 +42,7 @@ public class DuelMenuController {
             Player loggedInPlayer = new Player(LoginUser.getUser());
             Player opponentPlayer = new Player(User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME));
             Game game = new Game();
-            PlayerOrientation firstPlayer = RockPaperScissorGame.run();
+            PlayerTurn firstPlayer = RockPaperScissorGame.run();
             switch (firstPlayer) {
                 case PLAYER_ONE: {
                     game.setFirstPlayer(loggedInPlayer);

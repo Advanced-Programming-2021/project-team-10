@@ -4,9 +4,26 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="entery of the game">
-      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="edit register menu login messages">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/GameEnums/GameError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/HeadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/GameDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RockPaperScissorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RockPaperScissorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/PlayerEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/GameEnums/PlayerOfGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/PlayerOrientation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/GameEnums/PlayerTurn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/rockpaperscissor/GameError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/rockpaperscissor/PaperRockScissorError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/DrawPhaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/phaseControllers/DrawPhaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GamePlayGeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/DuelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/DuelMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/PlayerBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/PlayerBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/RockPaperScissorGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/RockPaperScissorGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/display/RockPaperScissorDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/display/RockPaperScissorDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +46,9 @@
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
-        <option value="Enum" />
+        <option value="package-info" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -186,7 +204,7 @@
       <workItem from="1619551139463" duration="581000" />
       <workItem from="1619855555842" duration="22516000" />
       <workItem from="1619892862050" duration="3305000" />
-      <workItem from="1620057352869" duration="19270000" />
+      <workItem from="1620057352869" duration="27613000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
@@ -479,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620095240397</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="edit register menu login messages">
+      <created>1620095998860</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1620095998860</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +544,8 @@
     <MESSAGE value="clean code and package classes" />
     <MESSAGE value="show card added and some clean code changes" />
     <MESSAGE value="entery of the game" />
-    <option name="LAST_COMMIT_MESSAGE" value="entery of the game" />
+    <MESSAGE value="edit register menu login messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit register menu login messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

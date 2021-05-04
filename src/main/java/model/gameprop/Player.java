@@ -1,38 +1,30 @@
 package model.gameprop;
 
-import model.cards.cardsProp.Card;
-import model.gameprop.BoardProp.GraveYard;
-import model.gameprop.BoardProp.MagicHouse;
-import model.gameprop.BoardProp.MonsterHouse;
+import model.gameprop.BoardProp.PlayerBoard;
 import model.userProp.Deck;
 import model.userProp.User;
 
-import java.util.ArrayList;
+enum Change {
+    INCREASE,
+    DECREASE
+    //TODO Change the name to the better one
+}
 
 public class Player {
     int playerLifePoint;
     User user;
-    MagicHouse[] magicHouse;
-    MonsterHouse[] monsterHouse;
-    ArrayList<Card> playerHand;
+    PlayerBoard board;
     Deck deck;
-    GraveYard graveYard;
 
     {
         playerLifePoint = 8000;
-        graveYard = new GraveYard();
-        magicHouse = new MagicHouse[6];
-        monsterHouse = new MonsterHouse[5];
-        playerHand = new ArrayList<>();
+        assert false;
         deck = user.getActiveDeck().getCopy();
     }
 
     public Player(User user) {
         setUser(user);
-    }
-
-    public GraveYard getGraveYard() {
-        return graveYard;
+        board = new PlayerBoard();
     }
 
     public User getUser() {
@@ -47,20 +39,12 @@ public class Player {
         return this.playerLifePoint;
     }
 
-    public ArrayList<Card> getPlayerHand() {
-        return playerHand;
-    }
-
     public Deck getDeck() {
         return deck;
     }
 
-    public MagicHouse getMagicHouse(int i) {
-        return this.magicHouse[i - 1];
-    }
-
-    public MonsterHouse getMonsterHouse(int i) {
-        return monsterHouse[i - 1];
+    public PlayerBoard getBoard() {
+        return board;
     }
 
     private void changePlayerLifePoint(Change change, int amount) {
@@ -77,10 +61,4 @@ public class Player {
             }
         }
     }
-}
-
- enum Change {
-    INCREASE,
-    DECREASE
-    //TODO Change the name to the better one
 }

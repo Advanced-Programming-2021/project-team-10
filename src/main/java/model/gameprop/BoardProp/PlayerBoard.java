@@ -1,9 +1,6 @@
 package model.gameprop.BoardProp;
 
 import model.cards.cardsProp.Card;
-import model.gameprop.BoardProp.GraveYard;
-import model.gameprop.BoardProp.MagicHouse;
-import model.gameprop.BoardProp.MonsterHouse;
 
 import java.util.ArrayList;
 
@@ -21,10 +18,18 @@ public class PlayerBoard {
     }
 
     public MagicHouse getMagicHouse(int i) {
-        return this.magicHouse[i - 1];
+        return magicHouse[i - 1];
     }
 
     public MonsterHouse getMonsterHouse(int i) {
-        return this.monsterHouse[i - 1];
+        return monsterHouse[i - 1];
+    }
+
+    public ArrayList<Card> getPlayerHand() {
+        return playerHand;
+    }
+
+    public GraveYard getGraveYard() {
+        return graveYard;
     }
 }

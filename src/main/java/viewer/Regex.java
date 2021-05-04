@@ -75,6 +75,11 @@ public final class Regex {
     public static String showAllShop = "shop show --all";
     // <- end of ShopMenu commands;
 
+    public static String[] generalCommands = new String[]{
+            "",
+            ""
+    };
+
 
     public static Matcher getMatcher(String input, String regex) {
         Pattern pattern = Pattern.compile(regex);
