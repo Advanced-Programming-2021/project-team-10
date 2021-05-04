@@ -2,6 +2,7 @@ package controller.enums;
 
 public enum Error {
 
+    //Register and Profile errors:
     INVALID_COMMAND("invalid command"),
     INVALID_NAVIGATION("menu navigation is not possible"),
     INVALID_USER_OR_PASS("Username and password didn't match!"),
@@ -11,7 +12,7 @@ public enum Error {
     INVALID_LOGOUT("no user is logged in now"),
     INVALID_PASSWORD("current password is invalid"),
     INVALID_NEW_PASSWORD("please enter a new password"),
-
+    INVALID_LOGIN("another user has login already"),
     // DeckMenu errors:
     REPETITIOUS_DECK_NAME("deck with name %s already exists"),
     NOT_FOUND_DECK_NAME("deck with name %s does not exist"),

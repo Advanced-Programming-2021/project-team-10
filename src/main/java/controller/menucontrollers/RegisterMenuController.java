@@ -48,9 +48,12 @@ public class RegisterMenuController {
     public static void login(String password, User user) {
         if (null != user) {
             if (user.isPasswordMatch(password)) {
+                if (LoginUser.getUser() == null)
                 MENU_DISPLAY.display(Register.SUCCESSFULLY_LOGIN);
                 LoginUser.setUser(user);
                 return;
+            }else{
+                MENU_DISPLAY.display(Error.INVALID_LOGIN);
             }
         }
         MENU_DISPLAY.display(Error.INVALID_USER_OR_PASS);
