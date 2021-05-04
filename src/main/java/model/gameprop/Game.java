@@ -1,11 +1,14 @@
 package model.gameprop;
 
-import controller.enums.GameEnums.PlayerOfGame;
 import controller.enums.GameEnums.PlayerTurn;
+import controller.enums.GameEnums.SideOfFeature;
+import model.cards.cardsProp.Card;
 import model.gameprop.gamestage.GameMainStage;
 import model.gameprop.gamestage.GameSideStage;
 
 public class Game {
+    private Card selectedCard;
+    private SideOfFeature sideOfSelectedCard;
     private PlayerTurn turn;
     private Player firstPlayer;
     private Player secondPlayer;
@@ -13,6 +16,7 @@ public class Game {
     private GameMainStage gameMainStage;
 
     {
+        sideOfSelectedCard = null;
         turn = PlayerTurn.PLAYER_ONE;
         gameMainStage = GameMainStage.DRAW_PHASE;
         gameSideStage = GameSideStage.NONE;
@@ -21,7 +25,7 @@ public class Game {
     public Game() {
     }
 
-    public Player getPlayer(PlayerOfGame turn) {
+    public Player getPlayer(SideOfFeature turn) {
         switch (turn) {
             case CURRENT: {
                 if (this.turn.equals(PlayerTurn.PLAYER_ONE)) {

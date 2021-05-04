@@ -3,7 +3,7 @@ package viewer.menu;
 import controller.enums.MenusMassages.Scoreboard;
 import controller.ImportScanner;
 import controller.menucontrollers.ScoreboardMenuController;
-import viewer.display.ScoreboardMenuDisplay;
+import viewer.menudisplay.ScoreboardMenuDisplay;
 
 public class ScoreboardMenu {
     private static ScoreboardMenu scoreboardMenu;

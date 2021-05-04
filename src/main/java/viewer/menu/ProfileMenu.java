@@ -4,7 +4,7 @@ import controller.enums.MenusMassages.Profile;
 import controller.ImportScanner;
 import controller.menucontrollers.ProfileMenuController;
 import viewer.Regex;
-import viewer.display.ProfileMenuDisplay;
+import viewer.menudisplay.ProfileMenuDisplay;
 
 import java.util.regex.Matcher;
 

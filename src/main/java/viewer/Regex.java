@@ -75,9 +75,12 @@ public final class Regex {
     public static String showAllShop = "shop show --all";
     // <- end of ShopMenu commands;
 
+    //GamePlay -> general commands
     public static String[] generalCommands = new String[]{
-            "",
-            ""
+            "card show --selected",
+            "show graveyard",
+            "show graveyard opponent",
+            "select "
     };
 
 

@@ -6,7 +6,7 @@ import controller.menucontrollers.RegisterMenuController;
 import model.userProp.User;
 import model.userProp.UserInfoType;
 import viewer.Regex;
-import viewer.display.RegisterMenuDisplay;
+import viewer.menudisplay.RegisterMenuDisplay;
 
 import java.util.regex.Matcher;
 

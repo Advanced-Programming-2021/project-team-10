@@ -6,8 +6,8 @@ import controller.enums.MenusMassages.ShopMessages;
 import model.cards.cardsProp.Card;
 import model.userProp.LoginUser;
 import model.userProp.User;
-import viewer.display.DeckMenuDisplay;
-import viewer.display.ShopMenuDisplay;
+import viewer.menudisplay.DeckMenuDisplay;
+import viewer.menudisplay.ShopMenuDisplay;
 
 import java.util.Arrays;
 import java.util.Comparator;

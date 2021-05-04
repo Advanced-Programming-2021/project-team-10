@@ -4,7 +4,7 @@ import controller.ImportScanner;
 import controller.enums.MenusMassages.Duel;
 import controller.menucontrollers.DuelMenuController;
 import viewer.Regex;
-import viewer.display.DuelMenuDisplay;
+import viewer.menudisplay.DuelMenuDisplay;
 
 import java.util.regex.Matcher;
 

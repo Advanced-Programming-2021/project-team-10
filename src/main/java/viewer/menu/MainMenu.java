@@ -5,7 +5,7 @@ import controller.ImportScanner;
 import controller.menucontrollers.MainMenuController;
 import model.userProp.LoginUser;
 import viewer.Regex;
-import viewer.display.MainMenuDisplay;
+import viewer.menudisplay.MainMenuDisplay;
 
 import java.util.regex.Matcher;
 

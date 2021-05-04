@@ -1,4 +1,4 @@
-package viewer;
+package viewer.game;
 
 import controller.enums.GameEnums.GameError;
 

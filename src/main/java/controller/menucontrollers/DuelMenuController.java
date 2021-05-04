@@ -8,9 +8,9 @@ import model.gameprop.Player;
 import model.userProp.LoginUser;
 import model.userProp.User;
 import model.userProp.UserInfoType;
-import viewer.GamePlay;
+import viewer.game.GameViewer;
 import viewer.RockPaperScissorGame;
-import viewer.display.DuelMenuDisplay;
+import viewer.menudisplay.DuelMenuDisplay;
 
 import java.util.Objects;
 
@@ -54,7 +54,7 @@ public class DuelMenuController {
                     game.setSecondPlayer(loggedInPlayer);
                 }
             }
-            GamePlay.run(game);
+            GameViewer.run(game);
         }
     }
 }

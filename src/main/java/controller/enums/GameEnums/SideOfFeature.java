@@ -1,6 +1,6 @@
 package controller.enums.GameEnums;
 
-public enum PlayerOfGame {
+public enum SideOfFeature {
     OPPONENT,
     CURRENT
 }

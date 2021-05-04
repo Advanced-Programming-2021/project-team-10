@@ -1,4 +1,4 @@
-package viewer.display;
+package viewer.menudisplay;
 
 import controller.enums.rockpaperscissor.PaperRockScissorError;
 import controller.enums.rockpaperscissor.GameMessages;

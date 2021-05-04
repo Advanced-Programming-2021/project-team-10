@@ -4,7 +4,7 @@ import controller.ImportScanner;
 import controller.enums.MenusMassages.ShopMessages;
 import controller.menucontrollers.ShopMenuController;
 import viewer.Regex;
-import viewer.display.ShopMenuDisplay;
+import viewer.menudisplay.ShopMenuDisplay;
 
 import java.util.regex.Matcher;
 

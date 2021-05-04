@@ -5,7 +5,7 @@ import controller.ImportScanner;
 import controller.enums.MenusMassages.DeckMessages;
 import controller.menucontrollers.DeckMenuController;
 import viewer.Regex;
-import viewer.display.DeckMenuDisplay;
+import viewer.menudisplay.DeckMenuDisplay;
 
 import java.util.regex.Matcher;
 

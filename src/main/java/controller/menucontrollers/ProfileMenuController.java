@@ -5,7 +5,7 @@ import controller.enums.MenusMassages.Profile;
 import model.userProp.LoginUser;
 import model.userProp.User;
 import model.userProp.UserInfoType;
-import viewer.display.ProfileMenuDisplay;
+import viewer.menudisplay.ProfileMenuDisplay;
 
 public class ProfileMenuController {
     public static void showCurrentMenu() {

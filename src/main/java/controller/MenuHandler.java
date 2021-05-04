@@ -2,11 +2,11 @@ package controller;
 
 import controller.enums.Menu;
 import controller.enums.MenusMassages.*;
-import viewer.display.ShopMenuDisplay;
-import viewer.display.DeckMenuDisplay;
-import viewer.display.DuelMenuDisplay;
-import viewer.display.ProfileMenuDisplay;
-import viewer.display.ScoreboardMenuDisplay;
+import viewer.menudisplay.ShopMenuDisplay;
+import viewer.menudisplay.DeckMenuDisplay;
+import viewer.menudisplay.DuelMenuDisplay;
+import viewer.menudisplay.ProfileMenuDisplay;
+import viewer.menudisplay.ScoreboardMenuDisplay;
 import viewer.menu.DeckMenu;
 import viewer.menu.*;
 

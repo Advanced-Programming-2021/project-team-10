@@ -1,4 +1,4 @@
-package viewer.display;
+package viewer.menudisplay;
 
 import controller.enums.Error;
 import controller.enums.MenusMassages.DeckMessages;

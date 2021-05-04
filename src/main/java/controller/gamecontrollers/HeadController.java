@@ -1,7 +1,7 @@
 package controller.gamecontrollers;
 
 import controller.enums.GameEnums.GameError;
-import viewer.GameDisplay;
+import viewer.game.GameDisplay;
 
 public class HeadController {
     public static void run(String command) {

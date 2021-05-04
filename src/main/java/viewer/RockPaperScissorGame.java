@@ -5,7 +5,7 @@ import controller.RockPaperScissorController;
 import controller.enums.GameEnums.PlayerTurn;
 import controller.enums.rockpaperscissor.PaperRockScissorError;
 import controller.enums.rockpaperscissor.GameMessages;
-import viewer.display.RockPaperScissorDisplay;
+import viewer.menudisplay.RockPaperScissorDisplay;
 
 public class RockPaperScissorGame {
     public static PlayerTurn run() {
