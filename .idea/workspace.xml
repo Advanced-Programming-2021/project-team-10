@@ -5,20 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="show card added and some clean code changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/RockPaperScissorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/PlayerOrientation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/rockpaperscissor/GameError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/rockpaperscissor/GameMessages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/DrawPhaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/RockPaperScissorGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/display/RockPaperScissorDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manualTestCase/MainMenuProfileAndScoreBoard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/manualTestCase/MainMenuProfileAndScoreBoard.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/Error.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DeckMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DeckMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/ShopMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menuControllers/ShopMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEnum/Monster/MonsterRace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEnum/Monster/MonsterRace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MonsterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/display/DeckMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/display/DeckMenuDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/display/ShopMenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/display/ShopMenuDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DrawPhase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/GamePlayGeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GamePlayGeneralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DeckMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/DeckMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/DuelMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/DuelMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/ProfileMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/RegisterMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/RegisterMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/ScoreboardMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/ScoreboardMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menuControllers/ShopMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/ShopMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Change.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/GraveYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/GraveYard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/MagicHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MagicHouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/MonsterHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MonsterHouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/PlayerBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/PlayerBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/GamePlay.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/viewer/menu/DeckMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/menu/DeckMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/menu/DuelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/menu/DuelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/menu/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/menu/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/menu/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/menu/RegisterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/menu/RegisterMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/menu/ScoreboardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/menu/ScoreboardMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/viewer/menu/ShopMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/menu/ShopMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestMapPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestMapPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +143,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="G:/semister 2/java Yu_gi_oh project/yu-gi-oh-Project" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -187,7 +218,7 @@
       <workItem from="1619551139463" duration="581000" />
       <workItem from="1619855555842" duration="22516000" />
       <workItem from="1619892862050" duration="3305000" />
-      <workItem from="1620057352869" duration="12124000" />
+      <workItem from="1620057352869" duration="18688000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
@@ -459,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620083480491</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="show card added and some clean code changes">
+      <created>1620086343723</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1620086343723</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

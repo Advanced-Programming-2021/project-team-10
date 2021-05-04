@@ -2,7 +2,7 @@ package viewer.menu;
 
 import controller.ImportScanner;
 import controller.enums.MenusMassages.Duel;
-import controller.menuControllers.DuelMenuController;
+import controller.menucontrollers.DuelMenuController;
 import viewer.Regex;
 import viewer.display.DuelMenuDisplay;
 

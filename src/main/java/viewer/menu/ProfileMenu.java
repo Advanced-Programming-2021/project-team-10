@@ -2,7 +2,7 @@ package viewer.menu;
 
 import controller.enums.MenusMassages.Profile;
 import controller.ImportScanner;
-import controller.menuControllers.ProfileMenuController;
+import controller.menucontrollers.ProfileMenuController;
 import viewer.Regex;
 import viewer.display.ProfileMenuDisplay;
 

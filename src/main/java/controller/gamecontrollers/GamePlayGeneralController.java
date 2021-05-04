@@ -1,9 +1,9 @@
-package controller;
+package controller.gamecontrollers;
 
 import controller.enums.PlayerEnum;
 import model.cards.cardsProp.Card;
 import model.gameprop.Game;
-import model.gameprop.GraveYard;
+import model.gameprop.BoardProp.GraveYard;
 import model.gameprop.Player;
 import viewer.display.GamePlayDisplay;
 
@@ -23,8 +23,8 @@ public class GamePlayGeneralController {
 
     public void showGameBoard() {
         StringBuilder mapDisplay = new StringBuilder();
-        Player opponentPlayer = game.getSecondPlayer();
-        Player currentPlayer = game.getFirstPlayer();
+        Player opponentPlayer = game.getFirstPlayer();
+        Player currentPlayer = game.getSecondPlayer();
         drawOpponentPlayerBoard(mapDisplay, opponentPlayer);
         mapDisplay.append("\n\n--------------------------");
         drawCurrentPlayerBoard(mapDisplay, currentPlayer);
@@ -78,13 +78,13 @@ public class GamePlayGeneralController {
         //TODO debug map drawer later
     }
 
-    public void showGraveYard(PlayerEnum currentPlayer) {
+    public void showGraveYard(PlayerEnum currentPlayer,Game gameDetail) {
         StringBuilder graveYardDisplay = new StringBuilder();
         GraveYard graveYard;
         if (currentPlayer == PlayerEnum.FRIEND) {
-            graveYard = game.getFirstPlayer().getGraveYard();
+            graveYard = gameDetail.getFirstPlayer().getGraveYard();
         } else {
-            graveYard = game.getSecondPlayer().getGraveYard();
+            graveYard = gameDetail.getSecondPlayer().getGraveYard();
         }
 
         if (graveYard.getDestroyedCards().size() == 0) {

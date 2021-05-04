@@ -22,16 +22,8 @@ public class Game {
         return firstPlayer;
     }
 
-    private void setFirstPlayer(Player firstPlayer) {
-        this.firstPlayer = firstPlayer;
-    }
-
     public Player getSecondPlayer() {
         return secondPlayer;
-    }
-
-    private void setSecondPlayer(Player secondPlayer) {
-        this.secondPlayer = secondPlayer;
     }
 
     public GameMainStage getGameMainStage() {

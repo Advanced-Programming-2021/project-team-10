@@ -1,6 +1,9 @@
-package model.gameprop;
+package model.gameprop.BoardProp;
 
 import model.cards.cardsProp.Card;
+import model.gameprop.BoardProp.GraveYard;
+import model.gameprop.BoardProp.MagicHouse;
+import model.gameprop.BoardProp.MonsterHouse;
 
 import java.util.ArrayList;
 

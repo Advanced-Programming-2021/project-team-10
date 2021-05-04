@@ -1,6 +1,9 @@
 package model.gameprop;
 
 import model.cards.cardsProp.Card;
+import model.gameprop.BoardProp.GraveYard;
+import model.gameprop.BoardProp.MagicHouse;
+import model.gameprop.BoardProp.MonsterHouse;
 import model.userProp.Deck;
 import model.userProp.User;
 
@@ -74,4 +77,10 @@ public class Player {
             }
         }
     }
+}
+
+ enum Change {
+    INCREASE,
+    DECREASE
+    //TODO Change the name to the better one
 }

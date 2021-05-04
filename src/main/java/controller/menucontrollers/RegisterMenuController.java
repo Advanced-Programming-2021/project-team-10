@@ -1,4 +1,4 @@
-package controller.menuControllers;
+package controller.menucontrollers;
 
 
 import controller.enums.Error;

@@ -1,4 +1,4 @@
-package model.gameprop;
+package model.gameprop.BoardProp;
 
 import model.cards.cardsProp.MonsterCard;
 import model.gameprop.cardvisibility.MonsterHouseVisibilityState;
