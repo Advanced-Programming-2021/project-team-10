@@ -7,7 +7,7 @@ import model.gameprop.gamestage.GameMainStage;
 import model.gameprop.gamestage.GameSideStage;
 
 public class Game {
-    private Card selectedCard;
+    private SelectedCardProp cardProp;
     private SideOfFeature sideOfSelectedCard;
     private PlayerTurn turn;
     private Player firstPlayer;
@@ -21,6 +21,7 @@ public class Game {
         gameMainStage = GameMainStage.DRAW_PHASE;
         gameSideStage = GameSideStage.NONE;
     }
+
 
     public Game() {
     }
@@ -43,6 +44,10 @@ public class Game {
             default:
                 return null;
         }
+    }
+
+    public SideOfFeature getSideOfSelectedCard() {
+        return sideOfSelectedCard;
     }
 
     public void changeTurn() {
@@ -76,5 +81,13 @@ public class Game {
 
     public void setGameSideStage(GameSideStage gameSideStage) {
         this.gameSideStage = gameSideStage;
+    }
+
+    public SelectedCardProp getCardProp() {
+        return cardProp;
+    }
+
+    public void setCardProp(SelectedCardProp cardProp) {
+        this.cardProp = cardProp;
     }
 }

@@ -18,8 +18,8 @@ public class User {
     private int score;
     private int balance;
     private Deck activeDeck;
-    private ArrayList<Deck> allDecks;
-    private ArrayList<Card> userCardCollection;
+    private final ArrayList<Deck> allDecks;
+    private final ArrayList<Card> userCardCollection;
 
     {
         allDecks = new ArrayList<>();
@@ -28,7 +28,7 @@ public class User {
     }
 
     {
-        balance = 100000;
+        balance = 10000000;
         score = 0;
     }
 
@@ -133,7 +133,7 @@ public class User {
     }
 
     public boolean isCardInUserCardCollection(Card card) {
-        return userCardCollection.contains(card);
+        return !userCardCollection.contains(card);
     }
 }
 

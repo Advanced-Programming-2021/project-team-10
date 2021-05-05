@@ -79,8 +79,19 @@ public final class Regex {
     public static String[] generalCommands = new String[]{
             "card show --selected",
             "show graveyard",
-            "show graveyard opponent",
-            "select "
+            "show graveyard --opponent",
+            "select --monster \\d+",
+            "select --spell \\d+",
+            "select --field \\d+",
+            "select --monster --opponent \\d+",
+            "select --spell --opponent \\d+",
+            "select --field --opponent \\d+",
+            "select --hand \\d+",
+            "-d select"
+    };
+
+    public static String[][] allGamePlayCommands = new String[][]{
+            generalCommands
     };
 
 

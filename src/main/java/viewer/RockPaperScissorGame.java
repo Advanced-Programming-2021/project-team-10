@@ -4,7 +4,7 @@ import controller.ImportScanner;
 import controller.RockPaperScissorController;
 import controller.enums.GameEnums.PlayerTurn;
 import controller.enums.rockpaperscissor.PaperRockScissorError;
-import controller.enums.rockpaperscissor.GameMessages;
+import controller.enums.rockpaperscissor.RockPaperScissorMessage;
 import viewer.menudisplay.RockPaperScissorDisplay;
 
 public class RockPaperScissorGame {
@@ -12,13 +12,13 @@ public class RockPaperScissorGame {
         String playerOneChoice;
         String playerTwoChoice;
         while (true) {
-            RockPaperScissorDisplay.display(GameMessages.PLAYER_ONE_CHOOSE);
+            RockPaperScissorDisplay.display(RockPaperScissorMessage.PLAYER_ONE_CHOOSE);
 
             playerOneChoice = ImportScanner.getInput().toLowerCase();
             if (chooseWrongTool(playerOneChoice)) {
                 continue;
             }
-            RockPaperScissorDisplay.display(GameMessages.PLAYER_TWO_CHOOSE);
+            RockPaperScissorDisplay.display(RockPaperScissorMessage.PLAYER_TWO_CHOOSE);
 
             playerTwoChoice = ImportScanner.getInput().toLowerCase();
             if (chooseWrongTool(playerTwoChoice)) {
@@ -28,13 +28,13 @@ public class RockPaperScissorGame {
             PlayerTurn firstPlayer = RockPaperScissorController.
                     recognizeGameWinner(playerOneChoice, playerTwoChoice);
             if (firstPlayer.equals(PlayerTurn.PLAYER_ONE)) {
-                RockPaperScissorDisplay.display(GameMessages.PLAYER_ONE_WIN_MESSAGE);
+                RockPaperScissorDisplay.display(RockPaperScissorMessage.PLAYER_ONE_WIN_MESSAGE);
                 return firstPlayer;
             } else if (firstPlayer.equals(PlayerTurn.PLAYER_TWO)) {
-                RockPaperScissorDisplay.display(GameMessages.PLAYER_TWO_WIN_MESSAGE);
+                RockPaperScissorDisplay.display(RockPaperScissorMessage.PLAYER_TWO_WIN_MESSAGE);
                 return firstPlayer;
             }
-            RockPaperScissorDisplay.display(GameMessages.DRAW_MESSAGE);
+            RockPaperScissorDisplay.display(RockPaperScissorMessage.DRAW_MESSAGE);
         }
     }
 

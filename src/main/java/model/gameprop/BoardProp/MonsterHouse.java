@@ -19,5 +19,9 @@ public class MonsterHouse {
     public void setState(MonsterHouseVisibilityState state) {
         this.state = state;
     }
+
+    public MonsterCard getMonsterCard() {
+        return monsterCard;
+    }
 }
 //TODO game map and where to add it

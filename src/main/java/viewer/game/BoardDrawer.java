@@ -2,6 +2,8 @@ package viewer.game;
 
 import controller.enums.GameEnums.SideOfFeature;
 import model.cards.cardsProp.Card;
+import model.gameprop.BoardProp.MagicHouse;
+import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.Game;
 import model.gameprop.Player;
 
@@ -25,29 +27,34 @@ public class BoardDrawer {
         mapDisplay.append("\n").append(opponentPlayer.
                 getDeck().getMainDeck().size()).append("\n");
         int[] cardOrientation = {4, 2, 1, 3, 5};
+        MagicHouse[] magicHouses = opponentPlayer.getBoard().getMagicHouse();
+        MonsterHouse[] monsterHouses = opponentPlayer.getBoard().getMonsterHouse();
         for (int i : cardOrientation) {
-            mapDisplay.append("\t").append(opponentPlayer.getBoard().getMagicHouse(i).getState().stateToString());
+            mapDisplay.append("\t").append(magicHouses[i].getState().stateToString());
         }
         mapDisplay.append("\n");
         for (int i : cardOrientation) {
-            mapDisplay.append("\t").append(opponentPlayer.getBoard().getMonsterHouse(i).getState().stateToString());
+            mapDisplay.append("\t").append(monsterHouses[i].getState().stateToString());
         }
         mapDisplay.append("\n").append(opponentPlayer.getBoard().getGraveYard().getDestroyedCards().size()).
                 append("\t\t\t\t\t").
-                append(opponentPlayer.getBoard().getMagicHouse(6));
+                append(magicHouses[6]);
     }
 
     private static void drawCurrentPlayerBoard(StringBuilder mapDisplay, Player currentPlayer) {
+        MagicHouse[] magicHouses = currentPlayer.getBoard().getMagicHouse();
+        MonsterHouse[] monsterHouses = currentPlayer.getBoard().getMonsterHouse();
+
         mapDisplay.append("\n").append(currentPlayer.getBoard().getGraveYard().getDestroyedCards().size()).
                 append("\t\t\t\t\t").
-                append(currentPlayer.getBoard().getMagicHouse(6)).append("\n");
+                append(magicHouses[6]).append("\n");
         int[] cardOrientation = {5, 3, 1, 2, 4};
         for (int i : cardOrientation) {
-            mapDisplay.append("\t").append(currentPlayer.getBoard().getMonsterHouse(i).getState().stateToString());
+            mapDisplay.append("\t").append(monsterHouses[i].getState().stateToString());
         }
         mapDisplay.append("\n");
         for (int i : cardOrientation) {
-            mapDisplay.append("\t").append(currentPlayer.getBoard().getMagicHouse(i).getState().stateToString());
+            mapDisplay.append("\t").append(magicHouses[i].getState().stateToString());
         }
         mapDisplay.append("\n");
         mapDisplay.append("\n").append(currentPlayer.

@@ -17,12 +17,12 @@ public class PlayerBoard {
         graveYard = new GraveYard();
     }
 
-    public MagicHouse getMagicHouse(int i) {
-        return magicHouse[i - 1];
+    public MagicHouse[] getMagicHouse() {
+        return magicHouse;
     }
 
-    public MonsterHouse getMonsterHouse(int i) {
-        return monsterHouse[i - 1];
+    public MonsterHouse[] getMonsterHouse() {
+        return monsterHouse;
     }
 
     public ArrayList<Card> getPlayerHand() {

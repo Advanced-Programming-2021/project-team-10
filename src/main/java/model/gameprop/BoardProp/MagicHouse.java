@@ -24,4 +24,7 @@ public class MagicHouse {
         this.state = state;
     }
 
+    public MagicCard getMagicCard() {
+        return magicCard;
+    }
 }
