@@ -1,4 +1,4 @@
-package model.gameprop.gamestage;
+package controller.enums.GameEnums.gamestage;
 
 public enum GameSideStage {
     GRAVE_YARD_SHOW,

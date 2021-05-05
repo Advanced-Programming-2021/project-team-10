@@ -107,7 +107,7 @@ public class DeckMenuController {
         User user = LoginUser.getUser();
         Deck selectedDeck = user.getDeckByName(deckName);
         Card selectedCard = Card.getCardByName(cardName);
-        if (selectedCard == null || !user.isCardInUserCardCollection(selectedCard)) {
+        if (selectedCard == null || user.isCardInUserCardCollection(selectedCard)) {
             DeckMenuDisplay.display(Error.NOT_FOUND_CARD_NAME_IN_COLLECTION, cardName);
         } else if (selectedDeck == null) {
             DeckMenuDisplay.display(Error.NOT_FOUND_DECK_NAME, deckName);
@@ -126,7 +126,7 @@ public class DeckMenuController {
         User user = LoginUser.getUser();
         Deck selectedDeck = user.getDeckByName(deckName);
         Card selectedCard = Card.getCardByName(cardName);
-        if (selectedCard == null || !user.isCardInUserCardCollection(selectedCard)) {
+        if (selectedCard == null || user.isCardInUserCardCollection(selectedCard)) {
             DeckMenuDisplay.display(Error.NOT_FOUND_CARD_NAME_IN_COLLECTION, cardName);
         } else if (selectedDeck == null) {
             DeckMenuDisplay.display(Error.NOT_FOUND_DECK_NAME, deckName);

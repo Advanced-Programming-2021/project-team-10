@@ -80,13 +80,13 @@ public final class Regex {
             "card show --selected",
             "show graveyard",
             "show graveyard --opponent",
-            "select --monster \\d+",
-            "select --spell \\d+",
-            "select --field \\d+",
-            "select --monster --opponent \\d+",
-            "select --spell --opponent \\d+",
-            "select --field --opponent \\d+",
-            "select --hand \\d+",
+            "select --monster(?<address>\\d+)",
+            "select --spell (?<address>\\d+)",
+            "select --field (?<address>\\d+)",
+            "select --monster --opponent (?<address>\\d+)",
+            "select --spell --opponent (?<address>\\d+)",
+            "select --field --opponent (?<address>\\d+)",
+            "select --hand (?<address>\\d+)",
             "-d select"
     };
 

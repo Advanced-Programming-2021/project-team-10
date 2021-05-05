@@ -4,7 +4,6 @@ import controller.enums.GameEnums.CardLocation;
 import controller.enums.GameEnums.GameError;
 import controller.enums.GameEnums.GamePhaseEnums.GeneralMessage;
 import controller.enums.GameEnums.SideOfFeature;
-import controller.enums.rockpaperscissor.RockPaperScissorMessage;
 import model.cards.cardsProp.Card;
 import model.gameprop.BoardProp.GraveYard;
 import model.gameprop.BoardProp.MagicHouse;
@@ -84,5 +83,9 @@ public abstract class GeneralCommands {
         } else {
             GameDisplay.display(cardProp.getCard().getCardDetail());
         }
+    }
+
+    public void nextPhase() {
+
     }
 }

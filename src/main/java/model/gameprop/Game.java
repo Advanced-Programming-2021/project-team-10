@@ -2,9 +2,8 @@ package model.gameprop;
 
 import controller.enums.GameEnums.PlayerTurn;
 import controller.enums.GameEnums.SideOfFeature;
-import model.cards.cardsProp.Card;
-import model.gameprop.gamestage.GameMainStage;
-import model.gameprop.gamestage.GameSideStage;
+import controller.enums.GameEnums.gamestage.GameMainStage;
+import controller.enums.GameEnums.gamestage.GameSideStage;
 
 public class Game {
     private SelectedCardProp cardProp;
