@@ -4,6 +4,7 @@ import model.cards.cardsEffect.EffectOfMagic;
 import model.cards.cardsEnum.Magic.MagicAttribute;
 import model.cards.cardsEnum.Magic.MagicSpeed;
 import model.cards.cardsEnum.Magic.MagicType;
+import model.events.Event;
 
 import java.util.ArrayList;
 
@@ -67,6 +68,15 @@ public class MagicCard extends Card {
 
     public void setMagicSpeed(MagicSpeed magicSpeed) {
         this.magicSpeed = magicSpeed;
+    }
+
+    @Override
+    public void activeEffectsByEvent(Event event) {
+        for (EffectOfMagic effect : effectsOfMagic) {
+            if (effect.isEventActiveEffect(event)) {
+                effect.active();
+            }
+        }
     }
 
     @Override

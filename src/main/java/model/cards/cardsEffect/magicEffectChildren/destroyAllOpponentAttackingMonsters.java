@@ -2,13 +2,21 @@ package model.cards.cardsEffect.magicEffectChildren;
 
 import controller.enums.GameEnums.SideOfFeature;
 import model.cards.cardsEffect.EffectOfMagic;
+import model.events.eventChildren.OpponentMonsterWantsToAttack;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
 import model.gameprop.cardvisibility.MonsterHouseVisibilityState;
 
+import java.util.ArrayList;
+
 public class destroyAllOpponentAttackingMonsters extends EffectOfMagic {
     public static destroyAllOpponentAttackingMonsters instance;
+
+    {
+        eventsActivateEffect = new ArrayList<>();
+        eventsActivateEffect.add(OpponentMonsterWantsToAttack.getInstance());
+    }
 
     public static destroyAllOpponentAttackingMonsters getInstance() {
         if (instance == null) {
