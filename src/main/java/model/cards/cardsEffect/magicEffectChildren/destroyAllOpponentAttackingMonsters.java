@@ -1,4 +1,4 @@
-package model.cards.cardsEffect.childMagicEfects;
+package model.cards.cardsEffect.magicEffectChildren;
 
 import controller.enums.GameEnums.SideOfFeature;
 import model.cards.cardsEffect.EffectOfMagic;

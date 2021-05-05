@@ -1,7 +1,7 @@
-package model.events.childEvents;
+package model.events.eventChildren;
 
 import model.cards.cardsEffect.EffectOfMagic;
-import model.cards.cardsEffect.childMagicEfects.destroyAllOpponentAttackingMonsters;
+import model.cards.cardsEffect.magicEffectChildren.destroyAllOpponentAttackingMonsters;
 import model.events.Event;
 
 import java.util.ArrayList;
