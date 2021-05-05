@@ -54,7 +54,7 @@ public class DuelMenuController {
                     game.setSecondPlayer(loggedInPlayer);
                 }
             }
-            GameViewer.run(game);
+            GameViewer.run();
         }
     }
 }

@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="completing general command">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/phaseControllers/DrawPhaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/phaseControllers/DrawPhaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/DeckMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/menucontrollers/DeckMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/gamestage/GameMainStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/GameEnums/gamestage/GameMainStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/gamestage/GameSideStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/GameEnums/gamestage/GameSideStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
-    </list>
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="completing general command" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,7 +186,7 @@
       <workItem from="1619892862050" duration="3305000" />
       <workItem from="1620057352869" duration="27695000" />
       <workItem from="1620144273542" duration="4503000" />
-      <workItem from="1620151715726" duration="11245000" />
+      <workItem from="1620151715726" duration="12070000" />
     </task>
     <task id="LOCAL-00001" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618787057522</created>
@@ -530,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620191207803</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="completing general command">
+      <created>1620193896911</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1620193896911</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
