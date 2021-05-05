@@ -20,6 +20,10 @@ public class MonsterHouse {
         this.state = state;
     }
 
+    public void setMonsterCard(MonsterCard monsterCard) {
+        this.monsterCard = monsterCard;
+    }
+
     public MonsterCard getMonsterCard() {
         return monsterCard;
     }

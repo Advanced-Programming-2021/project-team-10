@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="completing general command">
-      <change beforePath="$PROJECT_DIR$/csvFile/Monster.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvFile/Monster.csv" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="show card added and some clean code changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/childMagicEfects/destroyAllOpponentAttackingMonsters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/events/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/events/childEvents/OpponentMonsterWantsToAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/EffectOfMagic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/EffectOfMagic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/GraveYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/GraveYard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MonsterHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MonsterHouse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +35,8 @@
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
         <option value="package-info" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -102,11 +108,11 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="untitled" />
+      <module name="project-team-10" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
