@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="MindCrushEffect and some details">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/ManuallyActivation.java" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="ManuallyActivation added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/TimeSealEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/events/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/MindCrushEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/MindCrushEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/ManuallyActivation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/ManuallyActivation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,13 +192,6 @@
       <workItem from="1620057352869" duration="27695000" />
       <workItem from="1620144273542" duration="4503000" />
       <workItem from="1620151715726" duration="12272000" />
-    </task>
-    <task id="LOCAL-00006" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
-      <created>1618794987608</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1618794987609</updated>
     </task>
     <task id="LOCAL-00007" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618807421219</created>
@@ -528,7 +522,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۴" />
       <updated>1620295193600</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL‎۰۰۰۵۵" summary="ManuallyActivation added">
+      <created>1620315607686</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۵" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۵" />
+      <updated>1620315607686</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +548,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="set magic and monsters card and enum" />
     <MESSAGE value="fix some of warnings" />
     <MESSAGE value="fix some bugs in main menu and change accessibleness of some contents" />
     <MESSAGE value="clean" />
@@ -573,7 +572,8 @@
     <MESSAGE value="better naming" />
     <MESSAGE value="correction of effect and event to new structure" />
     <MESSAGE value="MindCrushEffect and some details" />
-    <option name="LAST_COMMIT_MESSAGE" value="MindCrushEffect and some details" />
+    <MESSAGE value="ManuallyActivation added" />
+    <option name="LAST_COMMIT_MESSAGE" value="ManuallyActivation added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

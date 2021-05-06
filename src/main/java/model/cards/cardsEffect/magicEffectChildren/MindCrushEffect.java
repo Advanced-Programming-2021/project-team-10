@@ -4,6 +4,7 @@ import controller.ImportScanner;
 import controller.enums.GameEnums.SideOfFeature;
 import model.cards.cardsEffect.EffectOfMagic;
 import model.cards.cardsProp.Card;
+import model.events.eventChildren.ManuallyActivation;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
@@ -19,6 +20,7 @@ public class MindCrushEffect extends EffectOfMagic {
 
     {
         eventsActivateEffect = new ArrayList<>();
+        eventsActivateEffect.add(ManuallyActivation.getInstance());
     }
 
     public static MindCrushEffect getInstance() {
