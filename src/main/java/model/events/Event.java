@@ -9,11 +9,18 @@ import model.gameprop.GameInProcess;
 public class Event {
     public void activeEffects(){
         PlayerBoard currentPlayerBoard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
+        PlayerBoard opponentPlayerBoard = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getBoard();
         for (MonsterHouse monsterHouse : currentPlayerBoard.getMonsterHouse()) {
             monsterHouse.getMonsterCard().activeEffectsByEvent(this);
         }
         for (MagicHouse magicHouse : currentPlayerBoard.getMagicHouse()) {
             magicHouse.getMagicCard().activeEffectsByEvent(this);
         }
+//        for (MonsterHouse monsterHouse : opponentPlayerBoard.getMonsterHouse()) {
+//            monsterHouse.getMonsterCard().activeEffectsByEvent(this);
+//        }
+//        for (MagicHouse magicHouse : opponentPlayerBoard.getMagicHouse()) {
+//            magicHouse.getMagicCard().activeEffectsByEvent(this);
+//        }
     }
 }

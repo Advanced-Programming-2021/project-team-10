@@ -11,7 +11,7 @@ import model.gameprop.cardvisibility.MonsterHouseVisibilityState;
 import java.util.ArrayList;
 
 public class destroyAllOpponentAttackingMonsters extends EffectOfMagic {
-    public static destroyAllOpponentAttackingMonsters instance;
+    private static destroyAllOpponentAttackingMonsters instance;
 
     {
         eventsActivateEffect = new ArrayList<>();

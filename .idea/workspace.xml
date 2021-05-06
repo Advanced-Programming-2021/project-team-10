@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="better naming">
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="correction of effect and event to new structure">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/MindCrushEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/EffectOfMagic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/EffectOfMagic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/destroyAllOpponentAttackingMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/destroyAllOpponentAttackingMonsters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/events/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/OpponentMonsterWantsToAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/OpponentMonsterWantsToAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,13 +194,6 @@
       <workItem from="1620057352869" duration="27695000" />
       <workItem from="1620144273542" duration="4503000" />
       <workItem from="1620151715726" duration="12272000" />
-    </task>
-    <task id="LOCAL-00004" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
-      <created>1618793821306</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1618793821306</updated>
     </task>
     <task id="LOCAL-00005" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618794152408</created>
@@ -534,7 +526,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۲" />
       <updated>1620217338661</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL‎۰۰۰۵۳" summary="correction of effect and event to new structure">
+      <created>1620228555476</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۳" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۳" />
+      <updated>1620228555477</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +552,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="end of task 1 and edit card abstract class" />
     <MESSAGE value="change jupiter version" />
     <MESSAGE value="set magic and monsters card and enum" />
     <MESSAGE value="fix some of warnings" />
@@ -579,7 +576,8 @@
     <MESSAGE value="completing general command" />
     <MESSAGE value="add first event and effect" />
     <MESSAGE value="better naming" />
-    <option name="LAST_COMMIT_MESSAGE" value="better naming" />
+    <MESSAGE value="correction of effect and event to new structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction of effect and event to new structure" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
