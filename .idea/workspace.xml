@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="game next phase command">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/enums/GameEnums/GamePhaseEnums/DrawPhaseMessage.java" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="better naming">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/enums/GameEnums/gamestage/GameMainStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/enums/GameEnums/gamestage/GameMainStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/phaseControllers/DrawPhaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/phaseControllers/DrawPhaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/game/GameDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/game/GameDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/EffectOfMagic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/EffectOfMagic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/destroyAllOpponentAttackingMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/destroyAllOpponentAttackingMonsters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/events/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/OpponentMonsterWantsToAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/OpponentMonsterWantsToAttack.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +35,8 @@
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
         <option value="package-info" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -108,11 +108,11 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="untitled" />
+      <module name="project-team-10" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -194,7 +194,7 @@
       <workItem from="1619892862050" duration="3305000" />
       <workItem from="1620057352869" duration="27695000" />
       <workItem from="1620144273542" duration="4503000" />
-      <workItem from="1620151715726" duration="19214000" />
+      <workItem from="1620151715726" duration="12272000" />
     </task>
     <task id="LOCAL-00004" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618793821306</created>
@@ -522,19 +522,17 @@
       <option name="project" value="LOCAL" />
       <updated>1620194709532</updated>
     </task>
-    <task id="LOCAL-00051" summary="edit csv file">
-      <created>1620194961240</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1620194961240</updated>
+    <task id="LOCAL‎۰۰۰۵۱" summary="add first event and effect">
+      <created>1620216989418</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۱" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۱" />
+      <updated>1620216989419</updated>
     </task>
-    <task id="LOCAL-00052" summary="game next phase command">
-      <created>1620255631570</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1620255631570</updated>
+    <task id="LOCAL‎۰۰۰۵۲" summary="better naming">
+      <created>1620217338661</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۲" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۲" />
+      <updated>1620217338661</updated>
     </task>
     <option name="localTasksCounter" value="53" />
     <servers />
@@ -579,9 +577,9 @@
     <MESSAGE value="polymorphism in enums" />
     <MESSAGE value="polymorphism in enums and Fix raw use of enums" />
     <MESSAGE value="completing general command" />
-    <MESSAGE value="edit csv file" />
-    <MESSAGE value="game next phase command" />
-    <option name="LAST_COMMIT_MESSAGE" value="game next phase command" />
+    <MESSAGE value="add first event and effect" />
+    <MESSAGE value="better naming" />
+    <option name="LAST_COMMIT_MESSAGE" value="better naming" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

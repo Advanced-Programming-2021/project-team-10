@@ -14,4 +14,8 @@ public class GraveYard {
     public ArrayList<Card> getDestroyedCards() {
         return destroyedCards;
     }
+
+    public void addCardToGraveYard(Card card) {
+        destroyedCards.add(card);
+    }
 }

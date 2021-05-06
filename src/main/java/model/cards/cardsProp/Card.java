@@ -1,5 +1,7 @@
 package model.cards.cardsProp;
 
+import model.events.Event;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,6 +83,8 @@ public abstract class Card {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public void activeEffectsByEvent(Event event) {}
 
     public abstract Card getCopy(); // semi duplicate code in overrides; cause -> Card is abstract and not constructable!
 }
