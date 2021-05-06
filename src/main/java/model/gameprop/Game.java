@@ -89,4 +89,8 @@ public class Game {
     public void setCardProp(SelectedCardProp cardProp) {
         this.cardProp = cardProp;
     }
+
+    public void goToNextPhase() {
+        gameMainStage = GameMainStage.getNextPhase(gameMainStage.getPhaseNumber());
+    }
 }

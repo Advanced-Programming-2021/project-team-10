@@ -14,7 +14,10 @@ import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
 import model.gameprop.cardvisibility.MagicHouseVisibilityState;
 import model.gameprop.cardvisibility.MonsterHouseVisibilityState;
+import viewer.Regex;
 import viewer.game.GameDisplay;
+
+import java.util.regex.Matcher;
 
 public abstract class GeneralCommands {
 
@@ -43,7 +46,17 @@ public abstract class GeneralCommands {
         GameDisplay.display(graveYardDisplay.toString());
     }
 
-    public void selectCard(SideOfFeature side, Card card, CardLocation location) {
+    public void selectCard(Card card, CardLocation location, String command) {
+        SideOfFeature side;
+        Matcher matcher;
+        if (command.contains("--opponent")) {
+            side = SideOfFeature.OPPONENT;
+            if ((matcher = Regex.getMatcher(command,Regex.generalCommands[6])).matches()) {
+
+            }
+        } else {
+            side = SideOfFeature.CURRENT;
+        }
         Game game = GameInProcess.getGame();
         SelectedCardProp cardProp = new SelectedCardProp(card, location, side);
         game.setCardProp(cardProp);
@@ -86,6 +99,6 @@ public abstract class GeneralCommands {
     }
 
     public void nextPhase() {
-
+        GameInProcess.getGame().goToNextPhase();
     }
 }

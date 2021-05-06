@@ -39,7 +39,7 @@ public enum GameMainStage {
         return phaseNumber;
     }
 
-    public GameMainStage getNextPhase() {
-        return getStageByNumber(GameInProcess.getGame().getGameMainStage().phaseNumber + 1);
+    public static GameMainStage getNextPhase(int currentStage) {
+        return getStageByNumber(currentStage + 1);
     }
 }
