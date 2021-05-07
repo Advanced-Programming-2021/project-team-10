@@ -14,8 +14,14 @@ public class GameDisplay {
         System.out.println(message.getMessageToString());
     }
 
+    public static void display(GeneralMessage message, String phasesName) {
+        System.out.printf(message.getMessageToString(), phasesName);
+        System.out.println();
+    }
+
     public static void display(DrawPhaseMessage message, String cardName) {
         System.out.printf(message.getMessage(), cardName);
+        System.out.println();
     }
 
     public static void display(String message) {

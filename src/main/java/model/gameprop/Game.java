@@ -6,9 +6,9 @@ import model.enums.GameEnums.gamestage.GameMainStage;
 import model.enums.GameEnums.gamestage.GameSideStage;
 
 public class Game {
+    private boolean isPlayerDrawInTurn;
     private boolean isGameFinished;
     private SelectedCardProp cardProp;
-    private SideOfFeature sideOfSelectedCard;
     private PlayerTurn turn;
     private Player firstPlayer;
     private Player secondPlayer;
@@ -17,17 +17,24 @@ public class Game {
     private GameMainStage gameMainStage;
 
     {
+        isPlayerDrawInTurn = false;
         isGameFinished = false;
-        sideOfSelectedCard = null;
         turn = PlayerTurn.PLAYER_ONE;
         gameMainStage = GameMainStage.DRAW_PHASE;
         gameSideStage = GameSideStage.NONE;
     }
 
-
     public Game(Player firstPlayer, Player secondPlayer) {
         setFirstPlayer(firstPlayer);
         setSecondPlayer(secondPlayer);
+    }
+
+    public boolean isPlayerDrawInThisTurn() {
+        return isPlayerDrawInTurn;
+    }
+
+    public void setPlayerDrawInTurn(boolean playerDrawInTurn) {
+        isPlayerDrawInTurn = playerDrawInTurn;
     }
 
     public Player getPlayer(SideOfFeature turn) {
@@ -50,8 +57,8 @@ public class Game {
         }
     }
 
-    public SideOfFeature getSideOfSelectedCard() {
-        return sideOfSelectedCard;
+    public SelectedCardProp getSelectedCardProp() {
+        return cardProp;
     }
 
     public void changeTurn() {
@@ -130,4 +137,5 @@ public class Game {
     public Player getWinner() {
         return winner;
     }
+
 }

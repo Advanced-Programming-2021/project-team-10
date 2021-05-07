@@ -5,6 +5,7 @@ import controller.gamecontrollers.mainstagecontroller.DrawPhaseController;
 import controller.gamecontrollers.mainstagecontroller.SideStageController;
 import model.gameprop.GameInProcess;
 import viewer.Regex;
+import viewer.game.BoardDrawer;
 
 import java.util.Objects;
 
@@ -18,6 +19,11 @@ public class HeadController {
     }
 
     public void run(String command) throws CmdLineParser.OptionException {
+
+        drawPhaseController.draw();
+        if (command.equals("START")) {
+            BoardDrawer.drawBoard(GameInProcess.getGame());
+        }
 
         if (isSideStageCommand(command)) {
             sideStageController.run(command);

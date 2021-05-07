@@ -88,7 +88,9 @@ public final class Regex {
             "select --opponent --spell (?<address>\\d+)",
             "select --opponent --field (?<address>\\d+)",
             "select --hand (?<address>\\d+)",
-            "select -d"
+            "select -d",
+            "next phase", 
+            "START"
     };
     //GamePlay -> side pages command
     public static String[] sideStageCommand = new String[]{

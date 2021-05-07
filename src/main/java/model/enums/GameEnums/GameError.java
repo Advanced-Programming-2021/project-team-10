@@ -6,7 +6,8 @@ public enum GameError {
     INVALID_DESELECT_CARD_REQUEST("no card is selected yet"),
     INVALID_SELECTION("invalid selection"),
     EMPTY_SELECTION("no card in this place"),
-    INVALID_SIDE_MENU_REQUEST("invalid side menu request");
+    INVALID_SIDE_MENU_REQUEST("invalid side menu request"),
+    CARD_SELECTED_BEFORE("you have selected card before");
     String errorToString;
 
     GameError(String errorToString) {
