@@ -1,6 +1,6 @@
 package model.events;
 
-import controller.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;

@@ -1,9 +1,9 @@
 package viewer.game;
 
-import controller.enums.GameEnums.GameError;
-import controller.enums.GameEnums.GamePhaseEnums.DrawPhaseMessage;
-import controller.enums.GameEnums.GamePhaseEnums.GeneralMessage;
-import controller.enums.GameEnums.gamestage.GameMainStage;
+import model.enums.GameEnums.GameError;
+import model.enums.GameEnums.GamePhaseEnums.DrawPhaseMessage;
+import model.enums.GameEnums.GamePhaseEnums.GeneralMessage;
+import model.enums.GameEnums.gamestage.GameMainStage;
 
 public class GameDisplay {
     public static void display(GameError error) {

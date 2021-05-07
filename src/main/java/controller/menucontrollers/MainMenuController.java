@@ -1,8 +1,8 @@
 package controller.menucontrollers;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Main;
-import controller.enums.Menu;
+import model.enums.Error;
+import model.enums.MenusMassages.Main;
+import model.enums.Menu;
 import controller.MenuHandler;
 import viewer.menudisplay.MainMenuDisplay;
 

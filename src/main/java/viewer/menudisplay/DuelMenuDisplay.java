@@ -1,7 +1,7 @@
 package viewer.menudisplay;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Duel;
+import model.enums.Error;
+import model.enums.MenusMassages.Duel;
 
 public class DuelMenuDisplay {
     public static void display(Duel message) {

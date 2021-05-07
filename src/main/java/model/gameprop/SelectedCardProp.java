@@ -1,7 +1,7 @@
 package model.gameprop;
 
-import controller.enums.GameEnums.CardLocation;
-import controller.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.CardLocation;
+import model.enums.GameEnums.SideOfFeature;
 import model.cards.cardsProp.Card;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;

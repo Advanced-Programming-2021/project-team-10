@@ -1,7 +1,7 @@
 package viewer.menu;
 
 import controller.ImportScanner;
-import controller.enums.MenusMassages.Register;
+import model.enums.MenusMassages.Register;
 import controller.menucontrollers.RegisterMenuController;
 import model.userProp.User;
 import model.userProp.UserInfoType;

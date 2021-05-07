@@ -2,7 +2,7 @@ package viewer.menu;
 
 
 import controller.ImportScanner;
-import controller.enums.MenusMassages.DeckMessages;
+import model.enums.MenusMassages.DeckMessages;
 import controller.menucontrollers.DeckMenuController;
 import viewer.Regex;
 import viewer.menudisplay.DeckMenuDisplay;
@@ -29,7 +29,8 @@ public class DeckMenu {
         if (command.equals("menu show-current")) {
             haveRecognizedCommand = true;
             DeckMenuController.showCurrent();
-        } else if ((matcher = Regex.getMatcher(command,Regex.showCard)).matches()) {
+        } else if ((matcher = Regex.getMatcher(command, Regex.showCard)).matches()) {
+            haveRecognizedCommand = true;
             DeckMenuController.showCard(matcher.group("cardName"));
         } else if ((matcher = Regex.getMatcher(command, Regex.createDeck)).matches()) {
             haveRecognizedCommand = true;

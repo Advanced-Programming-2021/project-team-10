@@ -1,6 +1,6 @@
 package viewer.menu;
 
-import controller.enums.MenusMassages.Scoreboard;
+import model.enums.MenusMassages.Scoreboard;
 import controller.ImportScanner;
 import controller.menucontrollers.ScoreboardMenuController;
 import viewer.menudisplay.ScoreboardMenuDisplay;

@@ -1,8 +1,9 @@
 package viewer.game;
 
 import controller.ImportScanner;
-import controller.enums.GameEnums.GameError;
+import model.enums.GameEnums.GameError;
 import controller.gamecontrollers.HeadController;
+import model.gameprop.GameInProcess;
 import viewer.Regex;
 
 public class GameViewer {
@@ -10,6 +11,7 @@ public class GameViewer {
         HeadController headController = new HeadController();
         String command;
         while (true) {
+            BoardDrawer.drawBoard(GameInProcess.getGame());
             command = ImportScanner.getInput();
             if (isCommandValid(command)) {
                 headController.run(command);

@@ -1,7 +1,7 @@
 package controller.gamecontrollers.phaseControllers;
 
-import controller.enums.GameEnums.GamePhaseEnums.DrawPhaseMessage;
-import controller.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.GamePhaseEnums.DrawPhaseMessage;
+import model.enums.GameEnums.SideOfFeature;
 import controller.gamecontrollers.GeneralCommands;
 import model.cards.cardsProp.Card;
 import model.gameprop.Game;
@@ -27,7 +27,7 @@ public class DrawPhaseController extends GeneralCommands {
 
     public void run(String command) {
         if (command.startsWith("select")){
-            selectCard(command);
+           // selectCard(command);
         }
     }
 }

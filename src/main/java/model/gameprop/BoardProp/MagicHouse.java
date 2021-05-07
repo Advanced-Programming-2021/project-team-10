@@ -1,15 +1,15 @@
 package model.gameprop.BoardProp;
 
 import model.cards.cardsProp.MagicCard;
-import model.gameprop.cardvisibility.MagicHouseVisibilityState;
+import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
 
-public class MagicHouse {
+public class MagicHouse extends GameHouse {
     MagicCard magicCard;
     MagicHouseVisibilityState state;
 
     {
         magicCard = null;
-        state = MagicHouseVisibilityState.EMPTY;
+        state = MagicHouseVisibilityState.E;
     }
 
     public void setMagicCard(MagicCard magicCard) {

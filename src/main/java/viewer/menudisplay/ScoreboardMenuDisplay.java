@@ -1,7 +1,7 @@
 package viewer.menudisplay;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Scoreboard;
+import model.enums.Error;
+import model.enums.MenusMassages.Scoreboard;
 
 public class ScoreboardMenuDisplay {
     public static void display(Scoreboard message) {

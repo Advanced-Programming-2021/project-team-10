@@ -1,6 +1,6 @@
 package viewer.menu;
 
-import controller.enums.MenusMassages.Main;
+import model.enums.MenusMassages.Main;
 import controller.ImportScanner;
 import controller.menucontrollers.MainMenuController;
 import model.userProp.LoginUser;

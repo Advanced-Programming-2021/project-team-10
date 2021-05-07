@@ -7,12 +7,12 @@ import java.util.ArrayList;
 public class PlayerBoard {
     MagicHouse[] magicHouse;
     MonsterHouse[] monsterHouse;
+    MagicHouse field;
     ArrayList<Card> playerHand;
     GraveYard graveYard;
 
     {
-        magicHouse = new MagicHouse[6];
-        monsterHouse = new MonsterHouse[5];
+        initializeBoardHouses();
         playerHand = new ArrayList<>();
         graveYard = new GraveYard();
     }
@@ -31,5 +31,21 @@ public class PlayerBoard {
 
     public GraveYard getGraveYard() {
         return graveYard;
+    }
+
+    private void initializeBoardHouses() {
+        monsterHouse = new MonsterHouse[5];
+        for (int i = 0; i < monsterHouse.length; i++) {
+            monsterHouse[i] = new MonsterHouse();
+        }
+        magicHouse = new MagicHouse[5];
+        for (int i = 0; i < magicHouse.length; i++) {
+            magicHouse[i] = new MagicHouse();
+        }
+        field = new MagicHouse();
+    }
+
+    public MagicHouse getFieldHouse() {
+        return field;
     }
 }

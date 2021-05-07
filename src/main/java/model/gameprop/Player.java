@@ -18,13 +18,12 @@ public class Player {
 
     {
         playerLifePoint = 8000;
-        assert false;
-        deck = user.getActiveDeck().getCopy();
     }
 
     public Player(User user) {
         setUser(user);
         board = new PlayerBoard();
+        deck = user.getActiveDeck().getCopy();
     }
 
     public User getUser() {

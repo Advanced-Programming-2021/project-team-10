@@ -1,7 +1,7 @@
 package controller;
 
-import controller.enums.Menu;
-import controller.enums.MenusMassages.*;
+import model.enums.Menu;
+import model.enums.MenusMassages.*;
 import viewer.menudisplay.ShopMenuDisplay;
 import viewer.menudisplay.DeckMenuDisplay;
 import viewer.menudisplay.DuelMenuDisplay;

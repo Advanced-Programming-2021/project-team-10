@@ -1,7 +1,7 @@
 package controller.menucontrollers;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.DeckMessages;
+import model.enums.Error;
+import model.enums.MenusMassages.DeckMessages;
 import model.cards.cardsProp.Card;
 import model.userProp.Deck;
 import model.userProp.LoginUser;

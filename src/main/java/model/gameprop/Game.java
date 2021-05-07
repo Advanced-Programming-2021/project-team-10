@@ -1,9 +1,9 @@
 package model.gameprop;
 
-import controller.enums.GameEnums.PlayerTurn;
-import controller.enums.GameEnums.SideOfFeature;
-import controller.enums.GameEnums.gamestage.GameMainStage;
-import controller.enums.GameEnums.gamestage.GameSideStage;
+import model.enums.GameEnums.PlayerTurn;
+import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.gamestage.GameMainStage;
+import model.enums.GameEnums.gamestage.GameSideStage;
 
 public class Game {
     private SelectedCardProp cardProp;
@@ -22,7 +22,9 @@ public class Game {
     }
 
 
-    public Game() {
+    public Game(Player firstPlayer, Player secondPlayer) {
+        setFirstPlayer(firstPlayer);
+        setSecondPlayer(secondPlayer);
     }
 
     public Player getPlayer(SideOfFeature turn) {
@@ -58,11 +60,11 @@ public class Game {
     }
 
 
-    public void setFirstPlayer(Player firstPlayer) {
+    private void setFirstPlayer(Player firstPlayer) {
         this.firstPlayer = firstPlayer;
     }
 
-    public void setSecondPlayer(Player secondPlayer) {
+    private void setSecondPlayer(Player secondPlayer) {
         this.secondPlayer = secondPlayer;
     }
 

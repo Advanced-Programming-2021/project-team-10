@@ -1,9 +1,9 @@
 package controller.menucontrollers;
 
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Register;
-import controller.enums.Menu;
+import model.enums.Error;
+import model.enums.MenusMassages.Register;
+import model.enums.Menu;
 import controller.MenuHandler;
 import model.userProp.LoginUser;
 import model.userProp.User;
