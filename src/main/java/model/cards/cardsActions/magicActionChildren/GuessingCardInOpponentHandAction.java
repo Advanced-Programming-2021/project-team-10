@@ -1,13 +1,13 @@
 package model.cards.cardsActions.magicActionChildren;
 
 import controller.ImportScanner;
-import controller.enums.GameEnums.SideOfFeature;
 import model.cards.cardsActions.ActionOfMagic;
 import model.cards.cardsProp.Card;
+import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
-import model.gameprop.cardvisibility.MonsterHouseVisibilityState;
 import model.userProp.Deck;
 
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class GuessingCardInOpponentHandAction extends ActionOfMagic {
                 if (monsterHouse.getMonsterCard().getName().equals(name)) {
                     opponentBoard.getGraveYard().addCardToGraveYard(monsterHouse.getMonsterCard());
                     monsterHouse.setMonsterCard(null);
-                    monsterHouse.setState(MonsterHouseVisibilityState.EMPTY);
+                    monsterHouse.setState(MonsterHouseVisibilityState.E);
                 }
             }
         }
