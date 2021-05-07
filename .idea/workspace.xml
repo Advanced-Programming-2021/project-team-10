@@ -4,26 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="show card added and some clean code changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/AddCardFromDeckTOHand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/AvoidAttackOfMonsters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/AvoidOpponentsCardDraw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/CancelSummon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangeDefenceOfMonsterCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangeTeamOfMonsterCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DamageOpponentHealthBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/MakeDamageZero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/OpponentDoesNormalOrFipSummon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/OpponentMonsterWantsToAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/OpponentMonsterWantsToAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/Error.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Profile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Register.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Enums/MenusMassages/Scoreboard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ImportScanner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/DataBase.class" beforeDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="json">
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/classes/classes/classes/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/classes/classes/classes/untitled-1.0-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/classes/classes/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
@@ -35,9 +17,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/untitled-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/untitled-1.0-SNAPSHOT.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,15 +122,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -223,13 +200,6 @@
       <workItem from="1620057352869" duration="27695000" />
       <workItem from="1620144273542" duration="4503000" />
       <workItem from="1620151715726" duration="12272000" />
-    </task>
-    <task id="LOCAL-00009" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
-      <created>1618812084919</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1618812084919</updated>
     </task>
     <task id="LOCAL-00010" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618815362445</created>
@@ -557,7 +527,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۷" />
       <updated>1620390954618</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL‎۰۰۰۵۸" summary="json">
+      <created>1620411136104</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۸" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۸" />
+      <updated>1620411136104</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +553,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix some bugs in main menu and change accessibleness of some contents" />
     <MESSAGE value="clean" />
     <MESSAGE value="game models and general structure" />
     <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class" />
@@ -602,7 +577,8 @@
     <MESSAGE value="MindCrushEffect and some details" />
     <MESSAGE value="ManuallyActivation added" />
     <MESSAGE value="new structure for actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="new structure for actions" />
+    <MESSAGE value="json" />
+    <option name="LAST_COMMIT_MESSAGE" value="json" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
