@@ -1,10 +1,9 @@
-package model.cards.cardsEffect.magicEffectChildren;
+package model.cards.cardsActions.magicActionChildren;
 
 import controller.ImportScanner;
 import controller.enums.GameEnums.SideOfFeature;
-import model.cards.cardsEffect.EffectOfMagic;
+import model.cards.cardsActions.ActionOfMagic;
 import model.cards.cardsProp.Card;
-import model.events.eventChildren.ManuallyActivation;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
@@ -15,17 +14,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class MindCrushEffect extends EffectOfMagic {
-    private static MindCrushEffect instance;
+public class GuessingCardInOpponentHand extends ActionOfMagic {
+    private static GuessingCardInOpponentHand instance;
 
-    {
-        eventsActivateEffect = new ArrayList<>();
-        eventsActivateEffect.add(ManuallyActivation.getInstance());
-    }
-
-    public static MindCrushEffect getInstance() {
+    public static GuessingCardInOpponentHand getInstance() {
         if (instance == null) {
-            instance = new MindCrushEffect();
+            instance = new GuessingCardInOpponentHand();
         }
         return instance;
     }

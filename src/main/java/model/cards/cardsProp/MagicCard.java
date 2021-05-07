@@ -1,6 +1,6 @@
 package model.cards.cardsProp;
 
-import model.cards.cardsEffect.EffectOfMagic;
+import model.cards.cardsActions.ActionOfMagic;
 import model.cards.cardsEnum.Magic.MagicAttribute;
 import model.cards.cardsEnum.Magic.MagicSpeed;
 import model.cards.cardsEnum.Magic.MagicType;
@@ -16,13 +16,17 @@ public class MagicCard extends Card {
         magicCards = new ArrayList<>();
     }
 
-    private final ArrayList<EffectOfMagic> effectsOfMagic;
+    private final ArrayList<ActionOfMagic> effectsOfMagic;
+    private final ArrayList<Event> sideEvents;
+    private final ArrayList<Event> triggers;
     private MagicSpeed magicSpeed;
     private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
 
     {
         effectsOfMagic = new ArrayList<>();
+        sideEvents = new ArrayList<>();
+        triggers = new ArrayList<>();
     }
 
     public MagicCard(String name, String typeOfMagic, String magicAttribute, String description, String speed, String price) {
@@ -72,9 +76,9 @@ public class MagicCard extends Card {
 
     @Override
     public void activeEffectsByEvent(Event event) {
-        for (EffectOfMagic effect : effectsOfMagic) {
-            if (effect.isEventActiveEffect(event)) {
-                effect.active();
+        for (Event mainEvent : triggers) {
+            if (mainEvent.equals(event)) {
+
             }
         }
     }

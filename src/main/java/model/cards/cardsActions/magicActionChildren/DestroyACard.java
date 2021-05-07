@@ -1,26 +1,18 @@
-package model.cards.cardsEffect.magicEffectChildren;
+package model.cards.cardsActions.magicActionChildren;
 
 import controller.enums.GameEnums.SideOfFeature;
-import model.cards.cardsEffect.EffectOfMagic;
-import model.events.eventChildren.OpponentMonsterWantsToAttack;
+import model.cards.cardsActions.ActionOfMagic;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
 import model.gameprop.cardvisibility.MonsterHouseVisibilityState;
 
-import java.util.ArrayList;
+public class DestroyACard extends ActionOfMagic {
+    private static DestroyACard instance;
 
-public class destroyAllOpponentAttackingMonsters extends EffectOfMagic {
-    private static destroyAllOpponentAttackingMonsters instance;
-
-    {
-        eventsActivateEffect = new ArrayList<>();
-        eventsActivateEffect.add(OpponentMonsterWantsToAttack.getInstance());
-    }
-
-    public static destroyAllOpponentAttackingMonsters getInstance() {
+    public static DestroyACard getInstance() {
         if (instance == null) {
-            instance = new destroyAllOpponentAttackingMonsters();
+            instance = new DestroyACard();
         }
         return instance;
     }
