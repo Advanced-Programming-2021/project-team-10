@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class GuessingCardInOpponentHand extends ActionOfMagic {
-    private static GuessingCardInOpponentHand instance;
+public class GuessingCardInOpponentHandAction extends ActionOfMagic {
+    private static GuessingCardInOpponentHandAction instance;
 
-    public static GuessingCardInOpponentHand getInstance() {
+    public static GuessingCardInOpponentHandAction getInstance() {
         if (instance == null) {
-            instance = new GuessingCardInOpponentHand();
+            instance = new GuessingCardInOpponentHandAction();
         }
         return instance;
     }

@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="ManuallyActivation added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyACard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/GuessingCardInOpponentHand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromGraveYard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/MonsterSummon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/events/eventChildren/SpecialMonsterSummon.java" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="new structure for actions">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingLifePointAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterAttackAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/EndBattlePhaseAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/FlipCardAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/RitualSummonAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/EffectOfMagic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/ActionOfMagic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/MindCrushEffect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/TimeSealEffect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsEffect/magicEffectChildren/destroyAllOpponentAttackingMonsters.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyACard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyACardAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/GuessingCardInOpponentHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/GuessingCardInOpponentHandAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromGraveYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromGraveYardAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,13 +197,6 @@
       <workItem from="1620057352869" duration="27695000" />
       <workItem from="1620144273542" duration="4503000" />
       <workItem from="1620151715726" duration="12272000" />
-    </task>
-    <task id="LOCAL-00008" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
-      <created>1618807492589</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1618807492589</updated>
     </task>
     <task id="LOCAL-00009" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618812084919</created>
@@ -534,7 +525,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۶" />
       <updated>1620318279173</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL‎۰۰۰۵۷" summary="new structure for actions">
+      <created>1620390954617</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۷" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۷" />
+      <updated>1620390954618</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +551,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix some of warnings" />
     <MESSAGE value="fix some bugs in main menu and change accessibleness of some contents" />
     <MESSAGE value="clean" />
     <MESSAGE value="game models and general structure" />
@@ -579,7 +575,8 @@
     <MESSAGE value="correction of effect and event to new structure" />
     <MESSAGE value="MindCrushEffect and some details" />
     <MESSAGE value="ManuallyActivation added" />
-    <option name="LAST_COMMIT_MESSAGE" value="ManuallyActivation added" />
+    <MESSAGE value="new structure for actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="new structure for actions" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -7,12 +7,12 @@ import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
 import model.gameprop.cardvisibility.MonsterHouseVisibilityState;
 
-public class DestroyACard extends ActionOfMagic {
-    private static DestroyACard instance;
+public class DestroyACardAction extends ActionOfMagic {
+    private static DestroyACardAction instance;
 
-    public static DestroyACard getInstance() {
+    public static DestroyACardAction getInstance() {
         if (instance == null) {
-            instance = new DestroyACard();
+            instance = new DestroyACardAction();
         }
         return instance;
     }
