@@ -1,7 +1,7 @@
 package viewer.menudisplay;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.DeckMessages;
+import model.enums.Error;
+import model.enums.MenusMassages.DeckMessages;
 import model.cards.cardsProp.Card;
 import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;

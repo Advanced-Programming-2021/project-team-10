@@ -1,20 +1,23 @@
 package model.gameprop;
 
-import controller.enums.GameEnums.PlayerTurn;
-import controller.enums.GameEnums.SideOfFeature;
-import controller.enums.GameEnums.gamestage.GameMainStage;
-import controller.enums.GameEnums.gamestage.GameSideStage;
+import model.enums.GameEnums.PlayerTurn;
+import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.gamestage.GameMainStage;
+import model.enums.GameEnums.gamestage.GameSideStage;
 
 public class Game {
+    private boolean isGameFinished;
     private SelectedCardProp cardProp;
     private SideOfFeature sideOfSelectedCard;
     private PlayerTurn turn;
     private Player firstPlayer;
     private Player secondPlayer;
+    private Player winner;
     private GameSideStage gameSideStage;
     private GameMainStage gameMainStage;
 
     {
+        isGameFinished = false;
         sideOfSelectedCard = null;
         turn = PlayerTurn.PLAYER_ONE;
         gameMainStage = GameMainStage.DRAW_PHASE;
@@ -22,7 +25,9 @@ public class Game {
     }
 
 
-    public Game() {
+    public Game(Player firstPlayer, Player secondPlayer) {
+        setFirstPlayer(firstPlayer);
+        setSecondPlayer(secondPlayer);
     }
 
     public Player getPlayer(SideOfFeature turn) {
@@ -58,11 +63,11 @@ public class Game {
     }
 
 
-    public void setFirstPlayer(Player firstPlayer) {
+    private void setFirstPlayer(Player firstPlayer) {
         this.firstPlayer = firstPlayer;
     }
 
-    public void setSecondPlayer(Player secondPlayer) {
+    private void setSecondPlayer(Player secondPlayer) {
         this.secondPlayer = secondPlayer;
     }
 
@@ -88,5 +93,41 @@ public class Game {
 
     public void setCardProp(SelectedCardProp cardProp) {
         this.cardProp = cardProp;
+    }
+
+    public void goToNextPhase() {
+        gameMainStage = GameMainStage.getNextPhase(gameMainStage.getPhaseNumber());
+    }
+
+    public PlayerTurn getTurn() {
+        return turn;
+    }
+
+    public boolean isGameFinished() {
+        return isGameFinished;
+    }
+
+    public void finishGame(PlayerTurn looserTurn) {
+        Player looser = null;
+        switch (looserTurn) {
+            case PLAYER_ONE: {
+                winner = secondPlayer;
+                looser = firstPlayer;
+                break;
+            }
+            case PLAYER_TWO:
+                winner = firstPlayer;
+                looser = secondPlayer;
+        }
+        assert winner != null;
+        winner.getUser().changeBalance(100);
+        assert looser != null;
+        looser.getUser().increaseScore(1000);
+        secondPlayer.getUser().changeBalance(1000 + secondPlayer.playerLifePoint);
+        isGameFinished = true;
+    }
+
+    public Player getWinner() {
+        return winner;
     }
 }

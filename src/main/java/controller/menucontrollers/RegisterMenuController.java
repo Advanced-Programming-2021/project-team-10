@@ -1,9 +1,10 @@
 package controller.menucontrollers;
 
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Register;
-import controller.enums.Menu;
+import com.sanityinc.jargs.CmdLineParser;
+import model.enums.Error;
+import model.enums.MenusMassages.Register;
+import model.enums.Menu;
 import controller.MenuHandler;
 import model.userProp.LoginUser;
 import model.userProp.User;
@@ -21,7 +22,11 @@ public class RegisterMenuController {
             if (null == LoginUser.getUser()) {
                 MENU_DISPLAY.display(Error.INVALID_ENTER_MENU);
             } else {
-                MenuHandler.changeMenu(Menu.MAIN_MENU);
+                try {
+                    MenuHandler.changeMenu(Menu.MAIN_MENU);
+                } catch (CmdLineParser.OptionException e) {
+                    e.printStackTrace();
+                }
             }
         } else {
             if (MenuHandler.isMenuExist(matcher.group(1))) {

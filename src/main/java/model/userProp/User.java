@@ -36,7 +36,6 @@ public class User {
         setUsername(username);
         setNickname(nickname);
         setPassword(password);
-        setScore(score);
         ALL_USERS.add(this);
     }
 
@@ -78,7 +77,7 @@ public class User {
         return score;
     }
 
-    public void setScore(int score) {
+    public void increaseScore(int score) {
         this.score = score;
     }
 
@@ -106,8 +105,8 @@ public class User {
         return balance;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void changeBalance(int cost) {
+        this.balance += cost;
     }
 
     public boolean isPasswordMatch(String password) {

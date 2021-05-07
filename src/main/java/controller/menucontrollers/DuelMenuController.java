@@ -1,15 +1,17 @@
 package controller.menucontrollers;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Duel;
-import controller.enums.GameEnums.PlayerTurn;
+import com.sanityinc.jargs.CmdLineParser;
+import model.enums.Error;
+import model.enums.GameEnums.PlayerTurn;
+import model.enums.MenusMassages.Duel;
 import model.gameprop.Game;
+import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.userProp.LoginUser;
 import model.userProp.User;
 import model.userProp.UserInfoType;
-import viewer.game.GameViewer;
 import viewer.RockPaperScissorGame;
+import viewer.game.GameViewer;
 import viewer.menudisplay.DuelMenuDisplay;
 
 import java.util.Objects;
@@ -23,9 +25,11 @@ public class DuelMenuController {
         DuelMenuDisplay.display(Duel.CURRENT_MENU);
     }
 
-    public static void makeNewDuel(String rounds, String secondPlayer) {
+    public static void makeNewDuel(String rounds, String secondPlayer) throws CmdLineParser.OptionException {
         if (User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME) == null) {
             DuelMenuDisplay.display(Duel.INVALID_SECOND_PLAYER);
+        } else if (User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME) == LoginUser.getUser()) {
+            DuelMenuDisplay.display(Duel.CANT_PLAY_WITH_YOURSELF);
         } else if (LoginUser.getUser().getActiveDeck() == null) {
             DuelMenuDisplay.display(Duel.NO_ACTIVE_DECK, LoginUser.getUser().getUsername());
         } else if (Objects.requireNonNull(User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME)).
@@ -41,19 +45,19 @@ public class DuelMenuController {
         } else {
             Player loggedInPlayer = new Player(LoginUser.getUser());
             Player opponentPlayer = new Player(User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME));
-            Game game = new Game();
-            PlayerTurn firstPlayer = RockPaperScissorGame.run();
+            Game game = null;
+            PlayerTurn firstPlayer = RockPaperScissorGame.run(LoginUser.getUser().getNickname() ,
+                    Objects.requireNonNull(User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME)).getNickname());
             switch (firstPlayer) {
                 case PLAYER_ONE: {
-                    game.setFirstPlayer(loggedInPlayer);
-                    game.setSecondPlayer(opponentPlayer);
+                    game = new Game(loggedInPlayer, opponentPlayer);
                     break;
                 }
                 case PLAYER_TWO: {
-                    game.setFirstPlayer(opponentPlayer);
-                    game.setSecondPlayer(loggedInPlayer);
+                    game = new Game(opponentPlayer, loggedInPlayer);
                 }
             }
+            GameInProcess.setGame(game);
             GameViewer.run();
         }
     }

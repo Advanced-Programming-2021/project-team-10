@@ -1,6 +1,6 @@
 package viewer.menu;
 
-import controller.enums.MenusMassages.Profile;
+import model.enums.MenusMassages.Profile;
 import controller.ImportScanner;
 import controller.menucontrollers.ProfileMenuController;
 import viewer.Regex;

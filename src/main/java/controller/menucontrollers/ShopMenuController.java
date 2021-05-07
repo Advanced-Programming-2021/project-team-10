@@ -1,8 +1,8 @@
 package controller.menucontrollers;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.DeckMessages;
-import controller.enums.MenusMassages.ShopMessages;
+import model.enums.Error;
+import model.enums.MenusMassages.DeckMessages;
+import model.enums.MenusMassages.ShopMessages;
 import model.cards.cardsProp.Card;
 import model.userProp.LoginUser;
 import model.userProp.User;
@@ -29,7 +29,7 @@ public class ShopMenuController {
             ShopMenuDisplay.display(Error.NOT_ENOUGH_MONEY);
         } else {
             user.getUserCardCollection().add(card);
-            user.setBalance(userBalance - card.getPrice());
+            user.changeBalance(-card.getPrice());
             ShopMenuDisplay.display(ShopMessages.SUCCESSFULLY_BOUGHT_A_CARD, "" + user.getBalance());
         }
     }

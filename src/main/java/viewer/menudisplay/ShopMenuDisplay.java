@@ -1,7 +1,7 @@
 package viewer.menudisplay;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.ShopMessages;
+import model.enums.Error;
+import model.enums.MenusMassages.ShopMessages;
 import model.cards.cardsProp.Card;
 
 public class ShopMenuDisplay {

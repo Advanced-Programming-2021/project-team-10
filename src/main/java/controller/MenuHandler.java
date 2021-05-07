@@ -1,7 +1,8 @@
 package controller;
 
-import controller.enums.Menu;
-import controller.enums.MenusMassages.*;
+import com.sanityinc.jargs.CmdLineParser;
+import model.enums.Menu;
+import model.enums.MenusMassages.*;
 import viewer.menudisplay.ShopMenuDisplay;
 import viewer.menudisplay.DeckMenuDisplay;
 import viewer.menudisplay.DuelMenuDisplay;
@@ -29,7 +30,7 @@ public class MenuHandler {
         };
     }
 
-    public static void changeMenu(Menu menu) {
+    public static void changeMenu(Menu menu) throws CmdLineParser.OptionException {
         if (menu == Menu.REGISTER_MENU) {
             RegisterMenu registerMenu = RegisterMenu.getInstance();
             System.out.println(Register.SUCCESSFULLY_ENTER_MENU.getMassage());

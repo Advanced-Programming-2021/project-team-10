@@ -1,7 +1,7 @@
 package viewer.menudisplay;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Main;
+import model.enums.Error;
+import model.enums.MenusMassages.Main;
 
 public class MainMenuDisplay {
     public static void display(Main message) {

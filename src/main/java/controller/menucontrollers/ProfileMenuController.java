@@ -1,7 +1,7 @@
 package controller.menucontrollers;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Profile;
+import model.enums.Error;
+import model.enums.MenusMassages.Profile;
 import model.userProp.LoginUser;
 import model.userProp.User;
 import model.userProp.UserInfoType;

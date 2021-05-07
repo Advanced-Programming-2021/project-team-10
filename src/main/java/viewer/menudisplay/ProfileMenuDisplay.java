@@ -1,7 +1,7 @@
 package viewer.menudisplay;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Profile;
+import model.enums.Error;
+import model.enums.MenusMassages.Profile;
 
 
 public class ProfileMenuDisplay {

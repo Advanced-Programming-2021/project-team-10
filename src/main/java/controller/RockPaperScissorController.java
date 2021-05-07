@@ -1,6 +1,6 @@
 package controller;
 
-import controller.enums.GameEnums.PlayerTurn;
+import model.enums.GameEnums.PlayerTurn;
 
 
 public class RockPaperScissorController {

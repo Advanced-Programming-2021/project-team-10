@@ -1,6 +1,7 @@
 package viewer.menu;
 
-import controller.enums.MenusMassages.Main;
+import com.sanityinc.jargs.CmdLineParser;
+import model.enums.MenusMassages.Main;
 import controller.ImportScanner;
 import controller.menucontrollers.MainMenuController;
 import model.userProp.LoginUser;
@@ -19,7 +20,7 @@ public class MainMenu {
         return mainMenu;
     }
 
-    private static void recognizeCommand(String command) {
+    private static void recognizeCommand(String command) throws CmdLineParser.OptionException {
         Matcher matcher;
         if ((matcher = Regex.getMatcher(command, Regex.menuEnter)).matches()) {
             MainMenuController.enterMenu(matcher);
@@ -30,7 +31,7 @@ public class MainMenu {
         }
     }
 
-    public void run() {
+    public void run() throws CmdLineParser.OptionException {
         String command;
         while (true) {
             command = ImportScanner.getInput();

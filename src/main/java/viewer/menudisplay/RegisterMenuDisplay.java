@@ -1,7 +1,7 @@
 package viewer.menudisplay;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Register;
+import model.enums.Error;
+import model.enums.MenusMassages.Register;
 
 public class RegisterMenuDisplay {
 

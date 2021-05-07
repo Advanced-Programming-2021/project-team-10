@@ -1,15 +1,15 @@
 package model.gameprop.BoardProp;
 
 import model.cards.cardsProp.MonsterCard;
-import model.gameprop.cardvisibility.MonsterHouseVisibilityState;
+import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 
-public class MonsterHouse {
+public class MonsterHouse extends GameHouse {
     MonsterCard monsterCard;
     MonsterHouseVisibilityState state;
 
     {
         monsterCard = null;
-        state = MonsterHouseVisibilityState.EMPTY;
+        state = MonsterHouseVisibilityState.E;
     }
 
     public MonsterHouseVisibilityState getState() {

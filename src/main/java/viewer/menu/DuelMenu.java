@@ -1,7 +1,8 @@
 package viewer.menu;
 
+import com.sanityinc.jargs.CmdLineParser;
 import controller.ImportScanner;
-import controller.enums.MenusMassages.Duel;
+import model.enums.MenusMassages.Duel;
 import controller.menucontrollers.DuelMenuController;
 import viewer.Regex;
 import viewer.menudisplay.DuelMenuDisplay;
@@ -18,7 +19,7 @@ public class DuelMenu {
         return duelMenu;
     }
 
-    public void run() {
+    public void run() throws CmdLineParser.OptionException {
         String command;
         while (true) {
             command = ImportScanner.getInput();
@@ -30,7 +31,7 @@ public class DuelMenu {
         DuelMenuDisplay.display(Duel.SUCCESSFULLY_EXIT_MENU);
     }
 
-    private void recognizeCommand(String command) {
+    private void recognizeCommand(String command) throws CmdLineParser.OptionException {
         Matcher matcher = Regex.getMatcher(command, Regex.duel), matcherNew =
                 Regex.getMatcher(command, Regex.duelNew), matcherRound =
                 Regex.getMatcher(command, Regex.rounds), matcherSecondPlayer =

@@ -1,7 +1,7 @@
 package viewer.menu;
 
 import controller.ImportScanner;
-import controller.enums.MenusMassages.ShopMessages;
+import model.enums.MenusMassages.ShopMessages;
 import controller.menucontrollers.ShopMenuController;
 import viewer.Regex;
 import viewer.menudisplay.ShopMenuDisplay;

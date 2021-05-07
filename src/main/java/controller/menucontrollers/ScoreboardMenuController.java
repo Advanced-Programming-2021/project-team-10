@@ -1,7 +1,7 @@
 package controller.menucontrollers;
 
-import controller.enums.Error;
-import controller.enums.MenusMassages.Scoreboard;
+import model.enums.Error;
+import model.enums.MenusMassages.Scoreboard;
 import model.userProp.User;
 import viewer.menudisplay.ScoreboardMenuDisplay;
 
