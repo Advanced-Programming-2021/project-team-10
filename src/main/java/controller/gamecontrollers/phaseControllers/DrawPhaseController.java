@@ -1,8 +1,9 @@
 package controller.gamecontrollers.phaseControllers;
 
+import com.sanityinc.jargs.CmdLineParser;
 import model.enums.GameEnums.GamePhaseEnums.DrawPhaseMessage;
 import model.enums.GameEnums.SideOfFeature;
-import controller.gamecontrollers.GeneralCommands;
+import controller.gamecontrollers.GeneralController;
 import model.cards.cardsProp.Card;
 import model.gameprop.Game;
 import model.gameprop.GameInProcess;
@@ -12,7 +13,7 @@ import viewer.game.GameDisplay;
 
 import java.util.ArrayList;
 
-public class DrawPhaseController extends GeneralCommands {
+public class DrawPhaseController extends GeneralController {
     public void draw() {
         Game game = GameInProcess.getGame();
         Player player = game.getPlayer(SideOfFeature.CURRENT);
@@ -26,8 +27,17 @@ public class DrawPhaseController extends GeneralCommands {
     }
 
     public void run(String command) {
-        if (command.startsWith("select")){
-           // selectCard(command);
+        if (command.startsWith("select -d")){
+           deSelectCard();
+           // d selecting card
+        }else if(command.startsWith("show graveyard")){
+            showGraveYard(command);
+            // show grave yard (current / opponent)
+        }else if(command.startsWith("select")){
+            // select a card from (monster / spell / hand )
+        }else if (command.startsWith("card show")){
+            showSelectedCard();
+            // show card detail
         }
     }
 }

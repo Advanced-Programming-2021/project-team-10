@@ -1,5 +1,6 @@
 package controller.menucontrollers;
 
+import com.sanityinc.jargs.CmdLineParser;
 import model.enums.Error;
 import model.enums.GameEnums.PlayerTurn;
 import model.enums.MenusMassages.Duel;
@@ -24,7 +25,7 @@ public class DuelMenuController {
         DuelMenuDisplay.display(Duel.CURRENT_MENU);
     }
 
-    public static void makeNewDuel(String rounds, String secondPlayer) {
+    public static void makeNewDuel(String rounds, String secondPlayer) throws CmdLineParser.OptionException {
         if (User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME) == null) {
             DuelMenuDisplay.display(Duel.INVALID_SECOND_PLAYER);
         } else if (User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME) == LoginUser.getUser()) {

@@ -10,4 +10,8 @@ public enum GameError {
     GameError(String errorToString) {
         this.errorToString = errorToString;
     }
+
+    public String getErrorToString() {
+        return errorToString;
     }
+}

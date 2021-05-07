@@ -1,5 +1,6 @@
 package controller.menucontrollers;
 
+import com.sanityinc.jargs.CmdLineParser;
 import model.enums.Error;
 import model.enums.MenusMassages.Main;
 import model.enums.Menu;
@@ -17,7 +18,7 @@ public class MainMenuController {
         MainMenuDisplay.display(Error.INVALID_COMMAND);
     }
 
-    public static void enterMenu(Matcher matcher) {
+    public static void enterMenu(Matcher matcher) throws CmdLineParser.OptionException {
         String menuName = matcher.group(1);
         if (menuName.equals("Duel menu")) {
             MenuHandler.changeMenu(Menu.START_DUEL);

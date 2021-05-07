@@ -7,5 +7,6 @@ public class ImportScanner {
 
     public static String getInput() {
         return INPUT.nextLine().trim();
+
     }
 }
