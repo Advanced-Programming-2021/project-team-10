@@ -47,6 +47,11 @@ public abstract class GeneralController {
     }
 
     public void selectCard(String command) throws CmdLineParser.OptionException {
+        Game game = GameInProcess.getGame();
+        if (game.getSelectedCardProp() != null){
+            GameDisplay.display(GameError.CARD_SELECTED_BEFORE);
+            return;
+        }
         CmdLineParser parser = new CmdLineParser();
         CmdLineParser.Option<Boolean> isOpponent = parser.addBooleanOption('o', "opponent");
         CmdLineParser.Option<Boolean> field = parser.addBooleanOption('f', "field");
@@ -56,7 +61,7 @@ public abstract class GeneralController {
         String[] splitCommand = command.split(" ");
         parser.parse(splitCommand);
 
-        Game game = GameInProcess.getGame();
+
         boolean opponentSide = parser.getOptionValue(isOpponent, false);
         SideOfFeature side = SideOfFeature.CURRENT;
         Player player = game.getPlayer(SideOfFeature.CURRENT);
@@ -140,7 +145,9 @@ public abstract class GeneralController {
     }
 
     public void nextPhase() {
-        GameInProcess.getGame().goToNextPhase();
+        Game game = GameInProcess.getGame();
+        game.goToNextPhase();
+        GameDisplay.display(GeneralMessage.NEXT_PHASE_MESSAGE, game.getGameMainStage().getPhaseName());
     }
 
     public void surrender() {

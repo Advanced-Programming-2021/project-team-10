@@ -11,7 +11,7 @@ public class GameViewer {
     public static void run() throws CmdLineParser.OptionException {
         HeadController headController = new HeadController();
         String command;
-        BoardDrawer.drawBoard(GameInProcess.getGame());
+        System.out.println("press START to start game ");
         while (true) {
             command = ImportScanner.getInput();
             if (!GameInProcess.getGame().isGameFinished()) {

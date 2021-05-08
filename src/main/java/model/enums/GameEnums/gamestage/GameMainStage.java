@@ -1,17 +1,19 @@
 package model.enums.GameEnums.gamestage;
 
 public enum GameMainStage {
-    DRAW_PHASE(1),
-    STAND_BY_PHASE(2),
-    FIRST_MAIN_PHASE(3),
-    BATTLE_PHASE(4),
-    SECOND_MAIN_PHASE(5),
-    END_PHASE(6);
+    DRAW_PHASE(1, "draw phase"),
+    STAND_BY_PHASE(2, "stand by phase"),
+    FIRST_MAIN_PHASE(3, "first main phase"),
+    BATTLE_PHASE(4, "battle phase"),
+    SECOND_MAIN_PHASE(5, "second main phase"),
+    END_PHASE(6, "end phase");
 
     int phaseNumber;
+    String phaseName;
 
-    GameMainStage(int phaseNumber) {
-        phaseNumber = this.phaseNumber;
+    GameMainStage(int phaseNumber, String phaseName) {
+        this.phaseNumber = phaseNumber;
+        this.phaseName = phaseName;
     }
 
     private static GameMainStage getStageByNumber(int phaseNumber) {
@@ -35,6 +37,10 @@ public enum GameMainStage {
 
     public static GameMainStage getNextPhase(int currentStage) {
         return getStageByNumber(currentStage + 1);
+    }
+
+    public String getPhaseName() {
+        return phaseName;
     }
 
     public int getPhaseNumber() {
