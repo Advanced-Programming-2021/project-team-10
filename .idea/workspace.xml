@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="game side stages and draw phase and game setup">
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="new structure for actions">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingLifePointAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterAttackAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/EndBattlePhaseAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/FlipCardAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/RitualSummonAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestMapPrinter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyACard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyACardAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/GuessingCardInOpponentHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/GuessingCardInOpponentHandAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromGraveYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromGraveYardAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +33,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
         <option value="package-info" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -107,7 +114,18 @@
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="untitled" />
+      <module name="project-team-10" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,17 +197,6 @@
       <workItem from="1620057352869" duration="27695000" />
       <workItem from="1620144273542" duration="4503000" />
       <workItem from="1620151715726" duration="12272000" />
-      <workItem from="1620353937511" duration="13260000" />
-      <workItem from="1620402246359" duration="20636000" />
-      <workItem from="1620437070737" duration="845000" />
-      <workItem from="1620438019308" duration="317000" />
-    </task>
-    <task id="LOCAL-00008" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
-      <created>1618807492589</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1618807492589</updated>
     </task>
     <task id="LOCAL-00009" summary="register menu and user model is defined login class user is added to remove the connection of menus remove their fields the enum menu is defined to make transformation from menus easier and better">
       <created>1618812084919</created>
@@ -494,35 +501,37 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۲" />
       <updated>1620217338661</updated>
     </task>
-    <task id="LOCAL-00053" summary="debug">
-      <created>1620353889729</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1620353889729</updated>
+    <task id="LOCAL‎۰۰۰۵۳" summary="correction of effect and event to new structure">
+      <created>1620228555476</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۳" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۳" />
+      <updated>1620228555477</updated>
     </task>
-    <task id="LOCAL-00054" summary="add jargs">
-      <created>1620353976052</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1620353976052</updated>
+    <task id="LOCAL‎۰۰۰۵۴" summary="MindCrushEffect and some details">
+      <created>1620295193600</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۴" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۴" />
+      <updated>1620295193600</updated>
     </task>
-    <task id="LOCAL-00055" summary="make draw phase">
-      <created>1620375200981</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1620375200981</updated>
+    <task id="LOCAL‎۰۰۰۵۵" summary="ManuallyActivation added">
+      <created>1620315607686</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۵" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۵" />
+      <updated>1620315607686</updated>
     </task>
-    <task id="LOCAL-00056" summary="game side stages and draw phase and game setup">
-      <created>1620438161823</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1620438161824</updated>
+    <task id="LOCAL‎۰۰۰۵۶" summary="ManuallyActivation added">
+      <created>1620318279173</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۶" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۶" />
+      <updated>1620318279173</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL‎۰۰۰۵۷" summary="new structure for actions">
+      <created>1620390954617</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۷" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۷" />
+      <updated>1620390954618</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,19 +572,11 @@
     <MESSAGE value="completing general command" />
     <MESSAGE value="add first event and effect" />
     <MESSAGE value="better naming" />
-    <MESSAGE value="debug" />
-    <MESSAGE value="add jargs" />
-    <MESSAGE value="make draw phase" />
-    <MESSAGE value="game side stages and draw phase and game setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="game side stages and draw phase and game setup" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="typeOfMagic" language="JAVA" />
-        <watch expression="this.typeOfMagic" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <MESSAGE value="correction of effect and event to new structure" />
+    <MESSAGE value="MindCrushEffect and some details" />
+    <MESSAGE value="ManuallyActivation added" />
+    <MESSAGE value="new structure for actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="new structure for actions" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

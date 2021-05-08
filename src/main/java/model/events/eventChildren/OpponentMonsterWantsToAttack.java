@@ -3,7 +3,7 @@ package model.events.eventChildren;
 import model.events.Event;
 
 public class OpponentMonsterWantsToAttack extends Event {
-    public static OpponentMonsterWantsToAttack instance;
+    private static OpponentMonsterWantsToAttack instance;
 
     public static OpponentMonsterWantsToAttack getInstance() {
         if (instance == null) {
