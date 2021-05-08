@@ -77,6 +77,7 @@ public final class Regex {
 
     //GamePlay -> general commands
     public static String[] generalCommands = new String[]{
+            "surrender",
             "card show --selected",
             "show graveyard(?= --opponent|$)",
             "show graveyard --opponent",
@@ -89,11 +90,24 @@ public final class Regex {
             "select --hand (?<address>\\d+)",
             "select -d"
     };
+    //GamePlay -> side pages command
+    public static String[] sideStageCommand = new String[]{
+            "resume",
+    };
 
-    //GamePlay -> draw phaseCommands
+    //GamePlay -> draw phaseCommands -> nothing special
+    //GamePlay -> main phaseCommands
+    public static String[] mainPhaseCommands = new String[]{
+
+    };
+    //GamePlay -> battle  phaseCommands
+    public static String[] battlePhaseCommands = new String[]{
+
+    };
 
     public static String[][] allGamePlayCommands = new String[][]{
-            generalCommands,
+            mainPhaseCommands,
+            battlePhaseCommands
     };
 
 

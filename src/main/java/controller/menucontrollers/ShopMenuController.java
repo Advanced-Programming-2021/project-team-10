@@ -29,7 +29,7 @@ public class ShopMenuController {
             ShopMenuDisplay.display(Error.NOT_ENOUGH_MONEY);
         } else {
             user.getUserCardCollection().add(card);
-            user.setBalance(userBalance - card.getPrice());
+            user.changeBalance(-card.getPrice());
             ShopMenuDisplay.display(ShopMessages.SUCCESSFULLY_BOUGHT_A_CARD, "" + user.getBalance());
         }
     }

@@ -3,6 +3,7 @@ package model.gameprop;
 import model.cards.cardsProp.Card;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.SideOfFeature;
+import model.gameprop.BoardProp.GameHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 
 public class SelectedCardProp {
@@ -25,18 +26,7 @@ public class SelectedCardProp {
         else
             player = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT);
 
-        switch (location) {
-            case FIELD_HOUSE:
-                return player.getBoard().getFieldHouse().getMagicCard();
-            case MAGIC_HOUSE:
-                return player.getBoard().getMagicHouse()[cardAddress].getMagicCard();
-            case MONSTER_HOUSE:
-                return player.getBoard().getMonsterHouse()[cardAddress].getMonsterCard();
-            case PLAYER_HAND:
-                return player.getBoard().getPlayerHand().get(cardAddress);
-            default:
-                return null;
-        }
+        return player.getBoard().getCard(cardAddress, location);
     }
 
 
@@ -48,7 +38,7 @@ public class SelectedCardProp {
         return location;
     }
 
-    public Object getCardPlace() {
+    public GameHouse getCardPlace() {
 
         PlayerBoard board = GameInProcess.getGame().getPlayer(side).getBoard();
         if (location.equals(CardLocation.MAGIC_HOUSE)) {

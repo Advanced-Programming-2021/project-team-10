@@ -90,7 +90,7 @@ public class MagicCard extends Card {
         //
 
         copy.setMagicSpeed(this.magicSpeed);
-        copy.setMagicSpeed(this.magicSpeed);
+        copy.setTypeOfMagic(this.typeOfMagic);
         copy.setMagicAttribute(this.magicAttribute);
 
         return copy;

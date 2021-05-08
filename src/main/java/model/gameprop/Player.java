@@ -24,6 +24,7 @@ public class Player {
         setUser(user);
         board = new PlayerBoard();
         deck = user.getActiveDeck().getCopy();
+        gameSetUp();
     }
 
     public User getUser() {
@@ -59,5 +60,12 @@ public class Player {
                 break;
             }
         }
+    }
+
+    private void gameSetUp() {
+        for (int i = 0; i < 5; i++) {
+            board.getPlayerHand().add(deck.getMainDeck().get(i));
+        }
+        deck.getMainDeck().subList(0, 5).clear();
     }
 }

@@ -33,11 +33,11 @@ public enum GameMainStage {
         return null;
     }
 
-    public int getPhaseNumber() {
-        return phaseNumber;
-    }
-
     public static GameMainStage getNextPhase(int currentStage) {
         return getStageByNumber(currentStage + 1);
+    }
+
+    public int getPhaseNumber() {
+        return phaseNumber;
     }
 }

@@ -1,6 +1,7 @@
 package model.gameprop.BoardProp;
 
 import model.cards.cardsProp.Card;
+import model.enums.GameEnums.CardLocation;
 
 import java.util.ArrayList;
 
@@ -47,5 +48,20 @@ public class PlayerBoard {
 
     public MagicHouse getFieldHouse() {
         return field;
+    }
+
+    public Card getCard(int address, CardLocation location) {
+        switch (location) {
+            case PLAYER_HAND:
+                return playerHand.get(address - 1);
+            case FIELD_HOUSE:
+                return field.getMagicCard();
+            case MAGIC_HOUSE:
+                return magicHouse[address - 1].getMagicCard();
+            case MONSTER_HOUSE:
+                return monsterHouse[address - 1].getMonsterCard();
+            default:
+                return null;
+        }
     }
 }

@@ -6,15 +6,18 @@ import model.enums.GameEnums.gamestage.GameMainStage;
 import model.enums.GameEnums.gamestage.GameSideStage;
 
 public class Game {
+    private boolean isGameFinished;
     private SelectedCardProp cardProp;
     private SideOfFeature sideOfSelectedCard;
     private PlayerTurn turn;
     private Player firstPlayer;
     private Player secondPlayer;
+    private Player winner;
     private GameSideStage gameSideStage;
     private GameMainStage gameMainStage;
 
     {
+        isGameFinished = false;
         sideOfSelectedCard = null;
         turn = PlayerTurn.PLAYER_ONE;
         gameMainStage = GameMainStage.DRAW_PHASE;
@@ -94,5 +97,37 @@ public class Game {
 
     public void goToNextPhase() {
         gameMainStage = GameMainStage.getNextPhase(gameMainStage.getPhaseNumber());
+    }
+
+    public PlayerTurn getTurn() {
+        return turn;
+    }
+
+    public boolean isGameFinished() {
+        return isGameFinished;
+    }
+
+    public void finishGame(PlayerTurn looserTurn) {
+        Player looser = null;
+        switch (looserTurn) {
+            case PLAYER_ONE: {
+                winner = secondPlayer;
+                looser = firstPlayer;
+                break;
+            }
+            case PLAYER_TWO:
+                winner = firstPlayer;
+                looser = secondPlayer;
+        }
+        assert winner != null;
+        winner.getUser().changeBalance(100);
+        assert looser != null;
+        looser.getUser().increaseScore(1000);
+        secondPlayer.getUser().changeBalance(1000 + secondPlayer.playerLifePoint);
+        isGameFinished = true;
+    }
+
+    public Player getWinner() {
+        return winner;
     }
 }

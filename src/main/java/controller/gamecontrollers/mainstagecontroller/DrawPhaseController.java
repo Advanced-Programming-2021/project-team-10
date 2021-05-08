@@ -1,4 +1,4 @@
-package controller.gamecontrollers.phaseControllers;
+package controller.gamecontrollers.mainstagecontroller;
 
 import com.sanityinc.jargs.CmdLineParser;
 import model.enums.GameEnums.GamePhaseEnums.DrawPhaseMessage;
@@ -26,7 +26,7 @@ public class DrawPhaseController extends GeneralController {
         }
     }
 
-    public void run(String command) {
+    public void run(String command) throws CmdLineParser.OptionException {
         if (command.startsWith("select -d")){
            deSelectCard();
            // d selecting card
@@ -34,10 +34,13 @@ public class DrawPhaseController extends GeneralController {
             showGraveYard(command);
             // show grave yard (current / opponent)
         }else if(command.startsWith("select")){
+            selectCard(command);
             // select a card from (monster / spell / hand )
         }else if (command.startsWith("card show")){
             showSelectedCard();
             // show card detail
+        }else if(command.equals("surrender")){
+            surrender();
         }
     }
 }

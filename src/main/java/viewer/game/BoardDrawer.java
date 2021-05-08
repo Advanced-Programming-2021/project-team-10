@@ -62,11 +62,11 @@ public class BoardDrawer {
         mapDisplay.append("\n").append(currentPlayer.
                 getDeck().getMainDeck().size()).append("\n");
 
-        mapDisplay.append("\n");
+
         for (Card ignored : currentPlayer.getBoard().getPlayerHand()) {
             mapDisplay.append("\tc");
         }
-        mapDisplay.append(currentPlayer.getUser().getNickname()).append(" : ").
+        mapDisplay.append("\n").append(currentPlayer.getUser().getNickname()).append(" : ").
                 append(currentPlayer.getPlayerLifePoint());
     }
 

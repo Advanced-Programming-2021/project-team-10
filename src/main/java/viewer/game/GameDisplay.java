@@ -7,11 +7,11 @@ import model.enums.GameEnums.gamestage.GameMainStage;
 
 public class GameDisplay {
     public static void display(GameError error) {
-        System.out.println(error);
+        System.out.println(error.getErrorToString());
     }
 
     public static void display(GeneralMessage message) {
-        System.out.println(message);
+        System.out.println(message.getMessageToString());
     }
 
     public static void display(DrawPhaseMessage message, String cardName) {

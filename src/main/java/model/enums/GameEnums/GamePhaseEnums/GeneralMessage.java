@@ -8,4 +8,8 @@ public enum GeneralMessage {
     GeneralMessage(String messageToString) {
         this.messageToString = messageToString;
     }
+
+    public String getMessageToString() {
+        return messageToString;
+    }
 }

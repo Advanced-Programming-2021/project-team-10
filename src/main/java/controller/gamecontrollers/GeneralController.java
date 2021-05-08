@@ -8,6 +8,7 @@ import model.enums.GameEnums.GamePhaseEnums.GeneralMessage;
 import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
+import model.enums.GameEnums.gamestage.GameSideStage;
 import model.gameprop.BoardProp.GraveYard;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
@@ -42,6 +43,7 @@ public abstract class GeneralController {
             graveYardDisplay.deleteCharAt(graveYardDisplay.length() - 1);
         }
         GameDisplay.display(graveYardDisplay.toString());
+        game.setGameSideStage(GameSideStage.WAIT_STAGE);
     }
 
     public void selectCard(String command) throws CmdLineParser.OptionException {
@@ -54,28 +56,49 @@ public abstract class GeneralController {
         String[] splitCommand = command.split(" ");
         parser.parse(splitCommand);
 
-        boolean opponentSide = parser.getOptionValue(isOpponent,false);
+        Game game = GameInProcess.getGame();
+        boolean opponentSide = parser.getOptionValue(isOpponent, false);
         SideOfFeature side = SideOfFeature.CURRENT;
-        if (opponentSide) side = SideOfFeature.OPPONENT;
+        Player player = game.getPlayer(SideOfFeature.CURRENT);
+        if (opponentSide) {
+            side = SideOfFeature.OPPONENT;
+            player = game.getPlayer(SideOfFeature.OPPONENT);
+        }
 
-        int cardAddress = 0;
+        Integer cardAddress;
         CardLocation location;
 
-        if (parser.getOptionValue(monster) != null) {
-            cardAddress = parser.getOptionValue(monster);
+        if ((cardAddress = parser.getOptionValue(monster)) != null) {
+            if (cardAddress > 5 || cardAddress < 1) {
+                GameDisplay.display(GameError.INVALID_SELECTION);
+                return;
+            }
             location = CardLocation.MONSTER_HOUSE;
-        } else if (parser.getOptionValue(spell) != null) {
-            cardAddress = parser.getOptionValue(spell);
+        } else if ((cardAddress = parser.getOptionValue(spell)) != null) {
+            if (cardAddress > 5 || cardAddress < 1) {
+                GameDisplay.display(GameError.INVALID_SELECTION);
+                return;
+            }
             location = CardLocation.MAGIC_HOUSE;
         } else if (parser.getOptionValue(field, false)) {
             location = CardLocation.FIELD_HOUSE;
         } else {
             cardAddress = parser.getOptionValue(hand);
+            if (cardAddress > player.getBoard().getPlayerHand().size()) {
+                GameDisplay.display(GameError.INVALID_SELECTION);
+                return;
+            }
             location = CardLocation.PLAYER_HAND;
         }
 
-        SelectedCardProp selectedCardProp = new SelectedCardProp(cardAddress, location, side);
-        GameInProcess.getGame().setCardProp(selectedCardProp);
+        if (player.getBoard().getCard(cardAddress, location) != null) {
+            SelectedCardProp selectedCardProp = new SelectedCardProp(cardAddress, location, side);
+            game.setCardProp(selectedCardProp);
+            game.setGameSideStage(GameSideStage.WAIT_STAGE);
+        } else {
+            GameDisplay.display(GameError.EMPTY_SELECTION);
+        }
+
     }
 
     public void deSelectCard() {
@@ -83,6 +106,7 @@ public abstract class GeneralController {
         if (game.getCardProp() != null) {
             game.setCardProp(null);
             GameDisplay.display(GeneralMessage.DESELECT_CARD_MESSAGE);
+            game.setGameSideStage(GameSideStage.WAIT_STAGE);
         } else {
             GameDisplay.display(GameError.INVALID_DESELECT_CARD_REQUEST);
         }
@@ -90,7 +114,6 @@ public abstract class GeneralController {
 
     public void showSelectedCard() {
         Game game = GameInProcess.getGame();
-        Player player;
         SelectedCardProp cardProp = game.getCardProp();
         if (cardProp.getSide().equals(SideOfFeature.OPPONENT)) {
             if (cardProp.getLocation().equals(CardLocation.MAGIC_HOUSE)) {
@@ -99,6 +122,7 @@ public abstract class GeneralController {
                     GameDisplay.display(GameError.INVALID_SHOW_CARD_REQUEST);
                 } else {
                     GameDisplay.display(cardProp.getCard().getCardDetail());
+                    game.setGameSideStage(GameSideStage.WAIT_STAGE);
                 }
             } else {
                 MonsterHouse monsterHouse = (MonsterHouse) cardProp.getCardPlace();
@@ -106,15 +130,24 @@ public abstract class GeneralController {
                     GameDisplay.display(GameError.INVALID_SHOW_CARD_REQUEST);
                 } else {
                     GameDisplay.display(cardProp.getCard().getCardDetail());
+                    game.setGameSideStage(GameSideStage.WAIT_STAGE);
                 }
             }
         } else {
             GameDisplay.display(cardProp.getCard().getCardDetail());
+            game.setGameSideStage(GameSideStage.WAIT_STAGE);
         }
     }
 
     public void nextPhase() {
         GameInProcess.getGame().goToNextPhase();
+    }
+
+    public void surrender() {
+        Game game = GameInProcess.getGame();
+        GameInProcess.getGame().finishGame(GameInProcess.getGame().getTurn());
+        GameDisplay.display(game.getPlayer(SideOfFeature.CURRENT).getUser().getNickname() +
+                " won the game and the score is: 1-0");
     }
 
     public abstract void run(String command) throws CmdLineParser.OptionException;
