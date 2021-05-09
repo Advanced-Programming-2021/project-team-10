@@ -5,6 +5,10 @@ import model.cards.cardsActions.ActionOfMagic;
 public class CancelSummon extends ActionOfMagic {
     private static CancelSummon instance;
 
+    {
+        name = this.getClass().getSimpleName();
+    }
+
     private CancelSummon(){
     }
 

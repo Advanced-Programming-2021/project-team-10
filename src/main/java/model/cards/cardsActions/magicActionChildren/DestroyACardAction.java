@@ -10,6 +10,10 @@ import model.gameprop.GameInProcess;
 public class DestroyACardAction extends ActionOfMagic {
     private static DestroyACardAction instance;
 
+    {
+        name = this.getClass().getSimpleName();
+    }
+
     public static DestroyACardAction getInstance() {
         if (instance == null) {
             instance = new DestroyACardAction();

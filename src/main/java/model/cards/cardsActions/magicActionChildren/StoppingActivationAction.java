@@ -5,6 +5,10 @@ import model.cards.cardsActions.ActionOfMagic;
 public class StoppingActivationAction extends ActionOfMagic {
     private static StoppingActivationAction instance;
 
+    {
+        name = this.getClass().getSimpleName();
+    }
+
     private StoppingActivationAction(){}
 
     public static StoppingActivationAction getInstance() {

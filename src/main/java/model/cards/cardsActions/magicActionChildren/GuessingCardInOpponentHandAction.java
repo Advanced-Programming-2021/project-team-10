@@ -17,6 +17,10 @@ import java.util.Iterator;
 public class GuessingCardInOpponentHandAction extends ActionOfMagic {
     private static GuessingCardInOpponentHandAction instance;
 
+    {
+        name = this.getClass().getSimpleName();
+    }
+
     public static GuessingCardInOpponentHandAction getInstance() {
         if (instance == null) {
             instance = new GuessingCardInOpponentHandAction();

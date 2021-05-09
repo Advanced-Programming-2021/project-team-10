@@ -52,7 +52,7 @@ public class DataBase {
 //        Writer writer = null;
 //        try {
 //            writer = new BufferedWriter(new OutputStreamWriter(
-//                    new FileOutputStream("MagicCard.json"), StandardCharsets.UTF_8));
+//                    new FileOutputStream("jsonResources\\MagicCard.json"), StandardCharsets.UTF_8));
 //            writer.write(json);
 //        } catch (IOException ex) {
 //            // Report
@@ -64,7 +64,7 @@ public class DataBase {
 //        json = new Gson().toJson(monsterCards);
 //        try {
 //            writer = new BufferedWriter(new OutputStreamWriter(
-//                    new FileOutputStream("MonsterCard.json"), StandardCharsets.UTF_8));
+//                    new FileOutputStream("jsonResources\\MonsterCard.json"), StandardCharsets.UTF_8));
 //            writer.write(json);
 //        } catch (IOException ex) {
 //            // Report

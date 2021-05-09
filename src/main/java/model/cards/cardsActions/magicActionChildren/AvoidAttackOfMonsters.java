@@ -5,6 +5,10 @@ import model.cards.cardsActions.ActionOfMagic;
 public class AvoidAttackOfMonsters extends ActionOfMagic {
     private static AvoidAttackOfMonsters instance;
 
+    {
+        name = this.getClass().getSimpleName();
+    }
+
     private AvoidAttackOfMonsters(){
     }
 
