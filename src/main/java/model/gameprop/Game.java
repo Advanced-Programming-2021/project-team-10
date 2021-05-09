@@ -7,6 +7,7 @@ import model.enums.GameEnums.gamestage.GameSideStage;
 
 public class Game {
     private boolean isPlayerDrawInTurn;
+    private boolean isPlayerHireMonster;
     private boolean isGameFinished;
     private SelectedCardProp cardProp;
     private PlayerTurn turn;
@@ -55,6 +56,14 @@ public class Game {
             default:
                 return null;
         }
+    }
+
+    public boolean isPlayerHireMonster() {
+        return isPlayerHireMonster;
+    }
+
+    public void setPlayerHireMonster(boolean playerHireMonster) {
+        isPlayerHireMonster = playerHireMonster;
     }
 
     public SelectedCardProp getSelectedCardProp() {

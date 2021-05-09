@@ -1,4 +1,4 @@
-package controller.gamecontrollers.mainstagecontroller;
+package controller.gamecontrollers.gamestagecontroller;
 
 import com.sanityinc.jargs.CmdLineParser;
 import controller.gamecontrollers.GeneralController;
@@ -31,22 +31,6 @@ public class DrawPhaseController extends GeneralController {
     }
 
     public void run(String command) throws CmdLineParser.OptionException {
-        if (command.startsWith("select -d")) {
-            deSelectCard();
-            // d selecting card
-        } else if (command.startsWith("show graveyard")) {
-            showGraveYard(command);
-            // show grave yard (current / opponent)
-        } else if (command.startsWith("select")) {
-            selectCard(command);
-            // select a card from (monster / spell / hand )
-        } else if (command.startsWith("card show")) {
-            showSelectedCard();
-            // show card detail
-        } else if (command.equals("surrender")) {
-            surrender();
-        } else if (command.equals("next phase")) {
-            nextPhase();
-        }
+        isCommandGeneral(command);
     }
 }

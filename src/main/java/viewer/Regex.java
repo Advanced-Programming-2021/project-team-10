@@ -100,7 +100,7 @@ public final class Regex {
     //GamePlay -> draw phaseCommands -> nothing special
     //GamePlay -> main phaseCommands
     public static String[] mainPhaseCommands = new String[]{
-
+            "summon",
     };
     //GamePlay -> battle  phaseCommands
     public static String[] battlePhaseCommands = new String[]{

@@ -48,7 +48,7 @@ public abstract class GeneralController {
 
     public void selectCard(String command) throws CmdLineParser.OptionException {
         Game game = GameInProcess.getGame();
-        if (game.getSelectedCardProp() != null){
+        if (game.getSelectedCardProp() != null) {
             GameDisplay.display(GameError.CARD_SELECTED_BEFORE);
             return;
         }
@@ -158,4 +158,30 @@ public abstract class GeneralController {
     }
 
     public abstract void run(String command) throws CmdLineParser.OptionException;
+
+    public boolean isCommandGeneral(String command) throws CmdLineParser.OptionException {
+        if (command.startsWith("select -d")) {
+            deSelectCard();
+            return true;
+            // d selecting card
+        } else if (command.startsWith("show graveyard")) {
+            showGraveYard(command);
+            // show grave yard (current / opponent)
+        } else if (command.startsWith("select")) {
+            selectCard(command);
+            return true;
+            // select a card from (monster / spell / hand )
+        } else if (command.startsWith("card show")) {
+            showSelectedCard();
+            return true;
+            // show card detail
+        } else if (command.equals("surrender")) {
+            surrender();
+            return true;
+        } else if (command.equals("next phase")) {
+            nextPhase();
+            return true;
+        }
+        return false;
+    }
 }

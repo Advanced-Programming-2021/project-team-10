@@ -2,7 +2,7 @@ package viewer.game;
 
 import com.sanityinc.jargs.CmdLineParser;
 import controller.ImportScanner;
-import controller.gamecontrollers.HeadController;
+import controller.gamecontrollers.gamestagecontroller.HeadController;
 import model.enums.GameEnums.GameError;
 import model.gameprop.GameInProcess;
 import viewer.Regex;

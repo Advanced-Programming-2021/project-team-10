@@ -1,4 +1,4 @@
-package controller.gamecontrollers.mainstagecontroller;
+package controller.gamecontrollers.gamestagecontroller;
 
 import model.enums.GameEnums.GameError;
 import model.enums.GameEnums.gamestage.GameSideStage;
