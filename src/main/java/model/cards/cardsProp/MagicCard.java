@@ -28,22 +28,22 @@ public class MagicCard extends Card {
         actionsOfMagic = new ArrayList<>();
         sideEvents = new ArrayList<>();
         triggers = new ArrayList<>();
-//        if (name.equals("Monster Reborn") || name.equals("Call of the Haunted")) actionsOfMagic.add(SummonMonsterFromGraveYardAction.getInstance());
-//        if (name.equals("Terraforming") || name.equals("Pot of Greed") || name.equals("Supply Squad")) actionsOfMagic.add(AddCardFromDeckTOHand.getInstance());
-//        if (name.equals("Magic Jammer") || name.equals("Magic Cylinder")) actionsOfMagic.add(StoppingActivationAction.getInstance());
-//        if (name.equals("Advanced Ritual Art")) actionsOfMagic.add(RitualSummonAction.getInstance());
-//        if (name.equals("Ring of Defense") || name.equals("Negate Attack")) actionsOfMagic.add(MakeDamageZero.getInstance());
-//        if (name.equals("Mind Crush")) actionsOfMagic.add(GuessingCardInOpponentHandAction.getInstance());
-//        if (name.equals("Swords of Revealing Light")) actionsOfMagic.add(FlipCardAction.getInstance());
-//        if (name.equals("Torrential Tribute") || name.equals("Trap Hole") || name.equals("Mirror Force") || name.equals("Mystical space typhoon") || name.equals("Twin Twisters") || name.equals("Dark Hole") || name.equals("Harpie’s Feather Duster") || name.equals("Raigeki")) actionsOfMagic.add(DestroyACardAction.getInstance());
-//        if (name.equals("Magnum Shield") || name.equals("United We Stand") || name.equals("Black Pendant") || name.equals("Sword of Dark Destruction") || name.equals("UMIIRUKA") || name.equals("Closed Forest") || name.equals("Forest") || name.equals("Yami")) actionsOfMagic.add(ChangingMonsterAttackAction.getInstance());
-//        if (name.equals("Spell Absorption")) actionsOfMagic.add(ChangingLifePointAction.getInstance());
-//        if (name.equals("Change of Heart")) actionsOfMagic.add(ChangeTeamOfMonsterCard.getInstance());
-//        if (name.equals("Magnum Shield") || name.equals("United We Stand") || name.equals("Sword of Dark Destruction") || name.equals("UMIIRUKA") || name.equals("Forest") || name.equals("Yami")) actionsOfMagic.add(ChangeDefenceOfMonsterCard.getInstance());
-//        if (name.equals("Solemn Warning")) actionsOfMagic.add(CancelSummon.getInstance());
-//        if (name.equals("Time Seal")) actionsOfMagic.add(AvoidOpponentsCardDraw.getInstance());
-//        if (name.equals("Messenger of peace")) actionsOfMagic.add(AvoidAttackOfMonsters.getInstance());
-//        if (name.equals("Negate Attack")) actionsOfMagic.add(EndBattlePhaseAction.getInstance());
+        if (name.equals("Monster Reborn") || name.equals("Call of the Haunted")) actionsOfMagic.add(SummonMonsterFromGraveYardAction.getInstance());
+        if (name.equals("Terraforming") || name.equals("Pot of Greed") || name.equals("Supply Squad")) actionsOfMagic.add(AddCardFromDeckTOHand.getInstance());
+        if (name.equals("Magic Jammer") || name.equals("Magic Cylinder")) actionsOfMagic.add(StoppingActivationAction.getInstance());
+        if (name.equals("Advanced Ritual Art")) actionsOfMagic.add(RitualSummonAction.getInstance());
+        if (name.equals("Ring of Defense") || name.equals("Negate Attack")) actionsOfMagic.add(MakeDamageZero.getInstance());
+        if (name.equals("Mind Crush")) actionsOfMagic.add(GuessingCardInOpponentHandAction.getInstance());
+        if (name.equals("Swords of Revealing Light")) actionsOfMagic.add(FlipCardAction.getInstance());
+        if (name.equals("Torrential Tribute") || name.equals("Trap Hole") || name.equals("Mirror Force") || name.equals("Mystical space typhoon") || name.equals("Twin Twisters") || name.equals("Dark Hole") || name.equals("Harpie’s Feather Duster") || name.equals("Raigeki")) actionsOfMagic.add(DestroyACardAction.getInstance());
+        if (name.equals("Magnum Shield") || name.equals("United We Stand") || name.equals("Black Pendant") || name.equals("Sword of Dark Destruction") || name.equals("Umiiruka") || name.equals("Closed Forest") || name.equals("Forest") || name.equals("Yami")) actionsOfMagic.add(ChangingMonsterAttackAction.getInstance());
+        if (name.equals("Spell Absorption")) actionsOfMagic.add(ChangingLifePointAction.getInstance());
+        if (name.equals("Change of Heart")) actionsOfMagic.add(ChangeTeamOfMonsterCard.getInstance());
+        if (name.equals("Magnum Shield") || name.equals("United We Stand") || name.equals("Sword of Dark Destruction") || name.equals("Umiiruka") || name.equals("Forest") || name.equals("Yami")) actionsOfMagic.add(ChangeDefenceOfMonsterCard.getInstance());
+        if (name.equals("Solemn Warning")) actionsOfMagic.add(CancelSummon.getInstance());
+        if (name.equals("Time Seal")) actionsOfMagic.add(AvoidOpponentsCardDraw.getInstance());
+        if (name.equals("Messenger of peace")) actionsOfMagic.add(AvoidAttackOfMonsters.getInstance());
+        if (name.equals("Negate Attack")) actionsOfMagic.add(EndBattlePhaseAction.getInstance());
     }
 
     public MagicCard(String name, String typeOfMagic, String magicAttribute, String description, String speed, String price) {
