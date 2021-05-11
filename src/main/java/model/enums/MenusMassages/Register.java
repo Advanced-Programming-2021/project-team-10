@@ -16,7 +16,7 @@ public enum Register {
         this.registerMessage = registerMessage;
     }
 
-    public String getMassage() {
+    public String toString() {
         return registerMessage;
     }
 }

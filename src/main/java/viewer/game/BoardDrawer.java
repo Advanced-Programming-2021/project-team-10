@@ -1,7 +1,7 @@
 package viewer.game;
 
-import model.enums.GameEnums.SideOfFeature;
 import model.cards.cardsProp.Card;
+import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.GameHouse;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
@@ -10,17 +10,23 @@ import model.gameprop.Game;
 import model.gameprop.Player;
 
 public class BoardDrawer {
-    public static void drawBoard(Game game) {
+
+    Game game;
+    public BoardDrawer(Game game){
+        this.game = game;
+    }
+
+    public String drawBoard() {
         StringBuilder mapDisplay = new StringBuilder();
         Player opponentPlayer = game.getPlayer(SideOfFeature.OPPONENT);
         Player currentPlayer = game.getPlayer(SideOfFeature.CURRENT);
         drawOpponentPlayerBoard(mapDisplay, opponentPlayer);
         mapDisplay.append("\n--------------------------");
         drawCurrentPlayerBoard(mapDisplay, currentPlayer);
-        GameDisplay.display(mapDisplay.toString());
+        return mapDisplay.toString();
     }
 
-    private static void drawOpponentPlayerBoard(StringBuilder mapDisplay, Player opponentPlayer) {
+    private void drawOpponentPlayerBoard(StringBuilder mapDisplay, Player opponentPlayer) {
         mapDisplay.append(opponentPlayer.getUser().getNickname()).append(" : ").
                 append(opponentPlayer.getPlayerLifePoint()).append("\n");
 
@@ -44,8 +50,7 @@ public class BoardDrawer {
                 append(board.getFieldHouse().getState());
     }
 
-
-    private static void drawCurrentPlayerBoard(StringBuilder mapDisplay, Player currentPlayer) {
+    private void drawCurrentPlayerBoard(StringBuilder mapDisplay, Player currentPlayer) {
         MagicHouse[] magicHouses = currentPlayer.getBoard().getMagicHouse();
         MonsterHouse[] monsterHouses = currentPlayer.getBoard().getMonsterHouse();
         PlayerBoard board = currentPlayer.getBoard();
@@ -70,7 +75,7 @@ public class BoardDrawer {
                 append(currentPlayer.getPlayerLifePoint());
     }
 
-    private static void displayGameHouses(StringBuilder mapDisplay, GameHouse[] house, int[] orientation) {
+    private void displayGameHouses(StringBuilder mapDisplay, GameHouse[] house, int[] orientation) {
         for (int i : orientation) {
             mapDisplay.append("\t").append(house[i - 1].getState());
         }

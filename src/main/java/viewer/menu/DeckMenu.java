@@ -3,7 +3,7 @@ package viewer.menu;
 
 import controller.ImportScanner;
 import model.enums.MenusMassages.DeckMessages;
-import controller.menucontrollers.DeckMenuController;
+import controller.menues.menuhandlers.menucontrollers.DeckMenuController;
 import viewer.Regex;
 import viewer.menudisplay.DeckMenuDisplay;
 

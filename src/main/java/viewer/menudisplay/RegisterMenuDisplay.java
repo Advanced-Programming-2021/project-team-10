@@ -17,20 +17,20 @@ public class RegisterMenuDisplay {
     }
 
     public void display(Register message) {
-        System.out.println(message.getMassage());
+        System.out.println(message.toString());
     }
 
     public void display(Error message) {
-        System.out.println(message.getMassage());
+        System.out.println(message.toString());
     }
 
     public void display(Register message, String name) {
-        System.out.printf(message.getMassage(), name);
+        System.out.printf(message.toString(), name);
         System.out.println();
     }
 
     public void display(Error message, String name) {
-        System.out.printf(message.getMassage(), name);
+        System.out.printf(message.toString(), name);
         System.out.println();
 
     }

@@ -11,7 +11,7 @@ public class ProfileMenuDisplay {
     }
 
     public static void display(Error message) {
-            System.out.println(message.getMassage());
+            System.out.println(message.toString());
     }
 
     public static void display(Profile message, String name) {
@@ -21,7 +21,7 @@ public class ProfileMenuDisplay {
     }
 
     public static void display(Error message, String name) {
-            System.out.printf(message.getMassage(), name);
+            System.out.printf(message.toString(), name);
             System.out.println();
 
     }

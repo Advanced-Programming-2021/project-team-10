@@ -10,7 +10,7 @@ public class ShopMenuDisplay {
     }
 
     public static void display(Error message) {
-            System.out.println(message.getMassage());
+            System.out.println(message.toString());
     }
 
     public static void display(ShopMessages message, String field) {
@@ -19,7 +19,7 @@ public class ShopMenuDisplay {
     }
 
     public static void display(Error message, String field) {
-            System.out.printf(message.getMassage(), field);
+            System.out.printf(message.toString(), field);
             System.out.println();
     }
 

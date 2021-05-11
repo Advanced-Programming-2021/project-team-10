@@ -2,7 +2,7 @@ package viewer.menu;
 
 import model.enums.MenusMassages.Scoreboard;
 import controller.ImportScanner;
-import controller.menucontrollers.ScoreboardMenuController;
+import controller.menues.menuhandlers.menucontrollers.ScoreboardMenuController;
 import viewer.menudisplay.ScoreboardMenuDisplay;
 
 public class ScoreboardMenu {

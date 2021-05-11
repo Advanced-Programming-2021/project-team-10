@@ -2,12 +2,10 @@ package viewer.menu;
 
 import com.sanityinc.jargs.CmdLineParser;
 import controller.ImportScanner;
+import controller.menues.menuhandlers.menucontrollers.DuelMenuController;
+import model.enums.Error;
 import model.enums.MenusMassages.Duel;
-import controller.menucontrollers.DuelMenuController;
 import viewer.Regex;
-import viewer.menudisplay.DuelMenuDisplay;
-
-import java.util.regex.Matcher;
 
 public class DuelMenu {
     private static DuelMenu duelMenu;
@@ -19,31 +17,33 @@ public class DuelMenu {
         return duelMenu;
     }
 
+
     public void run() throws CmdLineParser.OptionException {
+        System.out.println(Duel.SUCCESSFULLY_ENTER_MENU);
         String command;
+        DuelMenuController controller = DuelMenuController.getController();
         while (true) {
             command = ImportScanner.getInput();
             if (command.equals("menu exit")) {
+                System.out.println("menu exit successfully");
                 break;
             }
-            recognizeCommand(command);
+            if (!invalidCommand(command)) {
+                String outPut;
+                if ((outPut = controller.run(command)) != null) {
+                    System.out.println(outPut);
+                }
+            } else
+                System.out.println(Error.INVALID_COMMAND);
         }
-        DuelMenuDisplay.display(Duel.SUCCESSFULLY_EXIT_MENU);
     }
 
-    private void recognizeCommand(String command) throws CmdLineParser.OptionException {
-        Matcher matcher = Regex.getMatcher(command, Regex.duel), matcherNew =
-                Regex.getMatcher(command, Regex.duelNew), matcherRound =
-                Regex.getMatcher(command, Regex.rounds), matcherSecondPlayer =
-                Regex.getMatcher(command, Regex.secondPlayer);
-        if (command.equals("menu show-current")) {
-            DuelMenuController.showCurrentMenu();
-        } else if (matcher.matches() && matcherNew.matches() && matcherRound.matches() && matcherSecondPlayer.matches()) {
-            String secondPlayer = matcherSecondPlayer.group(1);
-            String rounds = matcherRound.group(1);
-            DuelMenuController.makeNewDuel(rounds, secondPlayer);
-        } else {
-            DuelMenuController.invalidCommand();
+    private boolean invalidCommand(String command) {
+        for (String pattern : Regex.duelMenuCommands) {
+            if (command.matches(pattern)) {
+                return false;
+            }
         }
+        return true;
     }
 }

@@ -22,7 +22,7 @@ public class Game {
         isGameFinished = false;
         turn = PlayerTurn.PLAYER_ONE;
         gameMainStage = GameMainStage.DRAW_PHASE;
-        gameSideStage = GameSideStage.NONE;
+        gameSideStage = GameSideStage.START_STAGE;
     }
 
     public Game(Player firstPlayer, Player secondPlayer) {
@@ -62,8 +62,8 @@ public class Game {
         return isPlayerHireMonster;
     }
 
-    public void setPlayerHireMonster(boolean playerHireMonster) {
-        isPlayerHireMonster = playerHireMonster;
+    public void setIsMonsterHired() {
+        isPlayerHireMonster = true;
     }
 
     public SelectedCardProp getSelectedCardProp() {
@@ -91,10 +91,6 @@ public class Game {
         return gameMainStage;
     }
 
-    public void setGameMainStage(GameMainStage gameMainStage) {
-        this.gameMainStage = gameMainStage;
-    }
-
     public GameSideStage getGameSideStage() {
         return gameSideStage;
     }
@@ -113,6 +109,8 @@ public class Game {
 
     public void goToNextPhase() {
         gameMainStage = GameMainStage.getNextPhase(gameMainStage.getPhaseNumber());
+        if (gameMainStage.equals(GameMainStage.DRAW_PHASE))
+            resetLastTurnData();
     }
 
     public PlayerTurn getTurn() {
@@ -145,6 +143,12 @@ public class Game {
 
     public Player getWinner() {
         return winner;
+    }
+
+    private void resetLastTurnData(){
+        changeTurn();
+        isPlayerHireMonster = false;
+        isPlayerDrawInTurn = false;
     }
 
 }

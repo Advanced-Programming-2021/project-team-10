@@ -50,7 +50,7 @@ public class PlayerBoard {
         return field;
     }
 
-    public Card getCard(int address, CardLocation location) {
+    public Card getCard(Integer address, CardLocation location) {
         switch (location) {
             case PLAYER_HAND:
                 return playerHand.get(address - 1);

@@ -1,4 +1,4 @@
-package controller.menucontrollers;
+package controller.menues.menuhandlers.menucontrollers;
 
 import model.enums.Error;
 import model.enums.MenusMassages.Scoreboard;

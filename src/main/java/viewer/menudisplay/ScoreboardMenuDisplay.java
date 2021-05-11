@@ -10,7 +10,7 @@ public class ScoreboardMenuDisplay {
     }
 
     public static void display(Error message) {
-            System.out.println(message.getMassage());
+            System.out.println(message.toString());
 
     }
 

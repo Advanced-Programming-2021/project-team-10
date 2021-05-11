@@ -19,7 +19,7 @@ public enum GameError {
         this.errorToString = errorToString;
     }
 
-    public String getErrorToString() {
+    public String toString() {
         return errorToString;
     }
 }

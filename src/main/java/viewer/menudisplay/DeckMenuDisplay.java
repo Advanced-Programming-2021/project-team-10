@@ -81,7 +81,7 @@ public class DeckMenuDisplay {
     }
 
     public static void display(Error message) {
-        System.out.println(message.getMassage());
+        System.out.println(message.toString());
     }
 
 
@@ -96,7 +96,7 @@ public class DeckMenuDisplay {
     }
 
     public static void display(Error message, String field) {
-        System.out.printf(message.getMassage(), field);
+        System.out.printf(message.toString(), field);
         System.out.println();
     }
 
@@ -106,7 +106,7 @@ public class DeckMenuDisplay {
     }
 
     public static void display(Error message, String field1, String field2) {
-        System.out.printf(message.getMassage(), field1, field2);
+        System.out.printf(message.toString(), field1, field2);
         System.out.println();
     }
 }

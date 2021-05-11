@@ -5,22 +5,52 @@ import java.util.regex.Pattern;
 
 public final class Regex {
     public static String menuEnter = "menu enter (.+)";
-    public static String createUser = "user create --[npu].+";
-    public static String username = ".+(?<= )--username ([^-]+)(?= --nickname.*| --password.*|$).*$";
-    public static String nickname = ".+(?<= )--nickname ([^-]+)(?= --username.*| --password.*|$).*$";
-    public static String password = ".+(?<= )--password (\\S+)(?= --nickname.*| --username.*|$).*$";
     public static String profileChange = "profile change (.*)";
     public static String changeNickname = "profile change --nickname (.*)";
     public static String changePassword = ".+(?<= |^)--password(?= --current.*| --new.*|$).*$";
     public static String currentPassword = ".+(?<= |^)--current (\\S+)(?= --password| --new.*|$).*$";
     public static String newPassword = ".+(?<= |^)--new (\\S+)(?= --password| --current.*|$).*$";
-    public static String showGraveYard = "show graveyard(?: --opponent)?$";
     public static String duel = "duel (.+)";
-    public static String secondPlayer = ".+(?<= |^)--second-player (\\S+)(?= --new| --rounds.*|$).*$";
-    public static String rounds = ".+(?<= |^)--rounds (\\S+)(?= --new| --second-player.*|$).*$";
-    public static String duelNew = ".+(?<= |^)--new(?= --second-player.*| --rounds.*|$).*$";
     public static String showCard = "card show (?<cardName>.+)";
 
+    //Register Menu commands
+    // -> create user
+    public static String[] userCreateCommand = new String[]{
+            "user create --username .+ --nickname .+ --password .+",
+            "user create --username .+ --password .+ --nickname .+",
+            "user create --nickname .+ --username .+ --password .+",
+            "user create --nickname .+ --password .+ --username .+",
+            "user create --password .+ --nickname .+ --username .+",
+            "user create --password .+ --username .+ --nickname .+"
+    };
+    // -> login user
+    public static String[] userLoginCommand = new String[]{
+            "user login --username .+ --password .+",
+            "user login --password .+ --username .+"
+    };
+
+    // -> fixed commands
+    public static String[] otherCommands = new String[]{
+            "user logout",
+            "menu exit",
+            "menu show-current",
+            "menu enter.+"
+    };
+    // -> all commands
+    public static String[][] registerCommands = new String[][]{
+            userCreateCommand,
+            userLoginCommand,
+            otherCommands
+    };
+
+
+    //DuelMenu commands:
+    public static String[] duelMenuCommands = new String[]{
+            ".+(?<= |^)--second-player (\\S+)(?= --new| --rounds.*|$).*$",
+            ".+(?<= |^)--rounds (\\S+)(?= --new| --second-player.*|$).*$",
+            ".+(?<= |^)--new(?= --second-player.*| --rounds.*|$).*$",
+            "menu show-current"
+    };
     // DeckMenu Commands:
     public static String createDeck = "deck create (?<deckName>.+)";
     public static String deleteDeck = "deck delete (?<deckName>.+)";
@@ -89,7 +119,8 @@ public final class Regex {
             "select --opponent --field (?<address>\\d+)",
             "select --hand (?<address>\\d+)",
             "select -d",
-            "next phase", 
+            "next phase"
+            , "draw board",
             "START"
     };
     //GamePlay -> side pages command
@@ -101,6 +132,7 @@ public final class Regex {
     //GamePlay -> main phaseCommands
     public static String[] mainPhaseCommands = new String[]{
             "summon",
+            "set"
     };
     //GamePlay -> battle  phaseCommands
     public static String[] battlePhaseCommands = new String[]{
@@ -118,12 +150,4 @@ public final class Regex {
         return pattern.matcher(input);
     }
 
-    public static boolean doubleFlagUsing(String command, String word) {
-        int counter = 0;
-        Matcher matcher = getMatcher(command, word);
-        while (matcher.find()) {
-            counter++;
-        }
-        return counter != 1;
-    }
 }

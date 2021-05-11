@@ -1,4 +1,4 @@
-package controller.menucontrollers;
+package controller.menues.menuhandlers.menucontrollers;
 
 import com.sanityinc.jargs.CmdLineParser;
 import model.enums.Error;

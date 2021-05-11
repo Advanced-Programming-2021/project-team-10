@@ -3,7 +3,6 @@ package viewer.game;
 import com.sanityinc.jargs.CmdLineParser;
 import controller.ImportScanner;
 import controller.gamecontrollers.gamestagecontroller.HeadController;
-import model.enums.GameEnums.GameError;
 import model.gameprop.GameInProcess;
 import viewer.Regex;
 
@@ -11,14 +10,17 @@ public class GameViewer {
     public static void run() throws CmdLineParser.OptionException {
         HeadController headController = new HeadController();
         String command;
+        String output;
         System.out.println("press START to start game ");
         while (true) {
             command = ImportScanner.getInput();
             if (!GameInProcess.getGame().isGameFinished()) {
                 if (isCommandValid(command)) {
-                    headController.run(command);
+                    if ((output = headController.run(command)) != null) {
+                        System.out.println(output);
+                    }
                 } else {
-                    GameDisplay.display(GameError.INVALID_COMMAND.getErrorToString());
+                    System.out.println("invalid input");
                 }
             } else {
                 break;

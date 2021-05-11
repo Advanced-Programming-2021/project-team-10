@@ -1,14 +1,14 @@
 package model.enums.GameEnums.GamePhaseEnums;
 
-public enum DrawPhaseMessage {
-    ADD_NEW_CARD("new card added to the hand : %s");
+public enum DrawPhase {
+    ADD_NEW_CARD("new card added to the hand : _CN_");
     String drawMessageToString;
 
-    DrawPhaseMessage(String drawMessageToString) {
+    DrawPhase(String drawMessageToString) {
         this.drawMessageToString = drawMessageToString;
     }
 
-    public String getMessage() {
+    public String toString() {
         return drawMessageToString;
     }
 }

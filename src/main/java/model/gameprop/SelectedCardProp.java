@@ -12,7 +12,7 @@ public class SelectedCardProp {
     SideOfFeature side;
 
 
-    public SelectedCardProp(int cardAddress, CardLocation location, SideOfFeature side) {
+    public SelectedCardProp(Integer cardAddress, CardLocation location, SideOfFeature side) {
         this.cardAddress = cardAddress;
         this.location = location;
         this.side = side;

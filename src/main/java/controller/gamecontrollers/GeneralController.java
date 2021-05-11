@@ -1,13 +1,15 @@
 package controller.gamecontrollers;
 
 import com.sanityinc.jargs.CmdLineParser;
+import controller.gamecontrollers.gamestagecontroller.DrawPhaseController;
 import model.cards.cardsProp.Card;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GameError;
-import model.enums.GameEnums.GamePhaseEnums.GeneralMessage;
+import model.enums.GameEnums.GamePhaseEnums.General;
 import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
+import model.enums.GameEnums.gamestage.GameMainStage;
 import model.enums.GameEnums.gamestage.GameSideStage;
 import model.gameprop.BoardProp.GraveYard;
 import model.gameprop.BoardProp.MagicHouse;
@@ -16,13 +18,22 @@ import model.gameprop.Game;
 import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
-import viewer.game.GameDisplay;
+import viewer.game.BoardDrawer;
 
-public abstract class GeneralController {
+public class GeneralController {
 
-    public static void showGraveYard(String command) {
+    private static GeneralController instance;
+
+    protected GeneralController() {
+    }
+
+    public static GeneralController getInstance() {
+        if (instance == null) instance = new GeneralController();
+        return instance;
+    }
+
+    private String showGraveYard(Game game, String command) {
         Player player;
-        Game game = GameInProcess.getGame();
         if (command.contains("--opponent")) {
             player = game.getPlayer(SideOfFeature.OPPONENT);
         } else {
@@ -42,15 +53,13 @@ public abstract class GeneralController {
             }
             graveYardDisplay.deleteCharAt(graveYardDisplay.length() - 1);
         }
-        GameDisplay.display(graveYardDisplay.toString());
         game.setGameSideStage(GameSideStage.WAIT_STAGE);
+        return graveYardDisplay.toString();
     }
 
-    public void selectCard(String command) throws CmdLineParser.OptionException {
-        Game game = GameInProcess.getGame();
+    private String selectCard(Game game, String command) throws CmdLineParser.OptionException {
         if (game.getSelectedCardProp() != null) {
-            GameDisplay.display(GameError.CARD_SELECTED_BEFORE);
-            return;
+            return GameError.CARD_SELECTED_BEFORE.toString();
         }
         CmdLineParser parser = new CmdLineParser();
         CmdLineParser.Option<Boolean> isOpponent = parser.addBooleanOption('o', "opponent");
@@ -75,14 +84,12 @@ public abstract class GeneralController {
 
         if ((cardAddress = parser.getOptionValue(monster)) != null) {
             if (cardAddress > 5 || cardAddress < 1) {
-                GameDisplay.display(GameError.INVALID_SELECTION);
-                return;
+                return GameError.INVALID_SELECTION.toString();
             }
             location = CardLocation.MONSTER_HOUSE;
         } else if ((cardAddress = parser.getOptionValue(spell)) != null) {
             if (cardAddress > 5 || cardAddress < 1) {
-                GameDisplay.display(GameError.INVALID_SELECTION);
-                return;
+                return GameError.INVALID_SELECTION.toString();
             }
             location = CardLocation.MAGIC_HOUSE;
         } else if (parser.getOptionValue(field, false)) {
@@ -90,8 +97,7 @@ public abstract class GeneralController {
         } else {
             cardAddress = parser.getOptionValue(hand);
             if (cardAddress > player.getBoard().getPlayerHand().size()) {
-                GameDisplay.display(GameError.INVALID_SELECTION);
-                return;
+                return GameError.INVALID_SELECTION.toString();
             }
             location = CardLocation.PLAYER_HAND;
         }
@@ -100,88 +106,106 @@ public abstract class GeneralController {
             SelectedCardProp selectedCardProp = new SelectedCardProp(cardAddress, location, side);
             game.setCardProp(selectedCardProp);
             game.setGameSideStage(GameSideStage.WAIT_STAGE);
+            return General.CARD_SELECTED_SUCCESSFULLY.toString();
         } else {
-            GameDisplay.display(GameError.EMPTY_SELECTION);
+            return GameError.EMPTY_SELECTION.toString();
         }
 
     }
 
-    public void deSelectCard() {
-        Game game = GameInProcess.getGame();
+    private String deSelectCard(Game game) {
         if (game.getCardProp() != null) {
             game.setCardProp(null);
-            GameDisplay.display(GeneralMessage.DESELECT_CARD_MESSAGE);
             game.setGameSideStage(GameSideStage.WAIT_STAGE);
+            return General.CARD_DESELECT_SUCCESSFULLY.toString();
         } else {
-            GameDisplay.display(GameError.INVALID_DESELECT_CARD_REQUEST);
+            return GameError.INVALID_DESELECT_CARD_REQUEST.toString();
         }
     }
 
-    public void showSelectedCard() {
-        Game game = GameInProcess.getGame();
+    private String showSelectedCard(Game game) {
         SelectedCardProp cardProp = game.getCardProp();
         if (cardProp.getSide().equals(SideOfFeature.OPPONENT)) {
             if (cardProp.getLocation().equals(CardLocation.MAGIC_HOUSE)) {
                 MagicHouse magicHouse = (MagicHouse) cardProp.getCardPlace();
                 if (magicHouse.getState().equals(MagicHouseVisibilityState.H)) {
-                    GameDisplay.display(GameError.INVALID_SHOW_CARD_REQUEST);
+                    return GameError.INVALID_SHOW_CARD_REQUEST.toString();
                 } else {
-                    GameDisplay.display(cardProp.getCard().getCardDetail());
                     game.setGameSideStage(GameSideStage.WAIT_STAGE);
+                    return cardProp.getCard().getCardDetail();
                 }
             } else {
                 MonsterHouse monsterHouse = (MonsterHouse) cardProp.getCardPlace();
                 if (monsterHouse.getState().equals(MonsterHouseVisibilityState.DH)) {
-                    GameDisplay.display(GameError.INVALID_SHOW_CARD_REQUEST);
+                    return GameError.INVALID_SHOW_CARD_REQUEST.toString();
                 } else {
-                    GameDisplay.display(cardProp.getCard().getCardDetail());
                     game.setGameSideStage(GameSideStage.WAIT_STAGE);
+                    return cardProp.getCard().getCardDetail();
                 }
             }
         } else {
-            GameDisplay.display(cardProp.getCard().getCardDetail());
             game.setGameSideStage(GameSideStage.WAIT_STAGE);
+            return cardProp.getCard().getCardDetail();
         }
     }
 
-    public void nextPhase() {
-        Game game = GameInProcess.getGame();
+    private String nextPhase(Game game) {
+        DrawPhaseController drawController = DrawPhaseController.getInstance();
         game.goToNextPhase();
-        GameDisplay.display(GeneralMessage.NEXT_PHASE_MESSAGE, game.getGameMainStage().getPhaseName());
-    }
-
-    public void surrender() {
-        Game game = GameInProcess.getGame();
-        GameInProcess.getGame().finishGame(GameInProcess.getGame().getTurn());
-        GameDisplay.display(game.getPlayer(SideOfFeature.CURRENT).getUser().getNickname() +
-                " won the game and the score is: 1-0");
-    }
-
-    public abstract void run(String command) throws CmdLineParser.OptionException;
-
-    public boolean isCommandGeneral(String command) throws CmdLineParser.OptionException {
-        if (command.startsWith("select -d")) {
-            deSelectCard();
-            return true;
-            // d selecting card
-        } else if (command.startsWith("show graveyard")) {
-            showGraveYard(command);
-            // show grave yard (current / opponent)
-        } else if (command.startsWith("select")) {
-            selectCard(command);
-            return true;
-            // select a card from (monster / spell / hand )
-        } else if (command.startsWith("card show")) {
-            showSelectedCard();
-            return true;
-            // show card detail
-        } else if (command.equals("surrender")) {
-            surrender();
-            return true;
-        } else if (command.equals("next phase")) {
-            nextPhase();
-            return true;
+        String output = process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName());
+        if (game.getGameMainStage().equals(GameMainStage.DRAW_PHASE)) {
+            if (!game.isPlayerDrawInThisTurn())
+                return output + "\n" + drawController.draw();
         }
-        return false;
+        return process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName());
+    }
+
+    private String surrender(Game game) {
+        GameInProcess.getGame().finishGame(GameInProcess.getGame().getTurn());
+        return game.getPlayer(SideOfFeature.CURRENT).getUser().getNickname() +
+                " won the game and the score is: 1-0";
+    }
+
+    private String drawBoard(Game game) {
+        BoardDrawer drawer = new BoardDrawer(game);
+        return drawer.drawBoard();
+    }
+
+    public String run(String command) throws CmdLineParser.OptionException {
+        Game game = GameInProcess.getGame();
+        if (command.equals("START")) {
+            game.setGameSideStage(GameSideStage.NONE);
+            return DrawPhaseController.getInstance().draw() + "\n" + drawBoard(game);
+        } else {
+            if (game.getGameSideStage().equals(GameSideStage.NONE)) {
+                if (command.startsWith("select -d")) {
+                    return deSelectCard(game);
+                    // d selecting card
+                } else if (command.startsWith("show graveyard")) {
+                    return showGraveYard(game, command);
+                    // show grave yard (current / opponent)
+                } else if (command.startsWith("select")) {
+                    return selectCard(game, command);
+                    // select a card from (monster / spell / hand )
+                } else if (command.startsWith("card show")) {
+                    return showSelectedCard(game);
+                    // show card detail
+                } else if (command.equals("surrender")) {
+                    return surrender(game);
+                } else if (command.equals("next phase")) {
+                    return nextPhase(game);
+                } else if (command.equals("draw board")) {
+                    return drawBoard(game);
+                } else return null;
+            } else return "back to game first";
+        }
+    }
+
+
+    private String process(String generalMessage, String name) {
+        if (generalMessage.contains("StAgE")) {
+            generalMessage = generalMessage.replace("StAgE", name);
+        }
+        return generalMessage;
     }
 }

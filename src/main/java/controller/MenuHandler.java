@@ -5,7 +5,6 @@ import model.enums.Menu;
 import model.enums.MenusMassages.*;
 import viewer.menudisplay.ShopMenuDisplay;
 import viewer.menudisplay.DeckMenuDisplay;
-import viewer.menudisplay.DuelMenuDisplay;
 import viewer.menudisplay.ProfileMenuDisplay;
 import viewer.menudisplay.ScoreboardMenuDisplay;
 import viewer.menu.DeckMenu;
@@ -33,7 +32,7 @@ public class MenuHandler {
     public static void changeMenu(Menu menu) throws CmdLineParser.OptionException {
         if (menu == Menu.REGISTER_MENU) {
             RegisterMenu registerMenu = RegisterMenu.getInstance();
-            System.out.println(Register.SUCCESSFULLY_ENTER_MENU.getMassage());
+            System.out.println(Register.SUCCESSFULLY_ENTER_MENU.toString());
             registerMenu.run();
         }
         else if (menu == Menu.MAIN_MENU) {
@@ -60,7 +59,6 @@ public class MenuHandler {
             shopMenu.run();
         } else if (menu == Menu.START_DUEL) {
             DuelMenu duelMenu = DuelMenu.getInstance();
-            DuelMenuDisplay.display(Duel.SUCCESSFULLY_ENTER_MENU);
             duelMenu.run();
         }
     }

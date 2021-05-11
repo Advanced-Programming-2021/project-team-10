@@ -3,7 +3,7 @@ package viewer.menu;
 import com.sanityinc.jargs.CmdLineParser;
 import model.enums.MenusMassages.Main;
 import controller.ImportScanner;
-import controller.menucontrollers.MainMenuController;
+import controller.menues.menuhandlers.menucontrollers.MainMenuController;
 import model.userProp.LoginUser;
 import viewer.Regex;
 import viewer.menudisplay.MainMenuDisplay;
