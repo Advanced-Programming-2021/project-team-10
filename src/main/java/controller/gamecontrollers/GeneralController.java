@@ -53,7 +53,6 @@ public class GeneralController {
             }
             graveYardDisplay.deleteCharAt(graveYardDisplay.length() - 1);
         }
-        game.setGameSideStage(GameSideStage.WAIT_STAGE);
         return graveYardDisplay.toString();
     }
 
@@ -94,6 +93,7 @@ public class GeneralController {
             location = CardLocation.MAGIC_HOUSE;
         } else if (parser.getOptionValue(field, false)) {
             location = CardLocation.FIELD_HOUSE;
+            cardAddress = 0;
         } else {
             cardAddress = parser.getOptionValue(hand);
             if (cardAddress > player.getBoard().getPlayerHand().size()) {
@@ -102,10 +102,9 @@ public class GeneralController {
             location = CardLocation.PLAYER_HAND;
         }
 
-        if (player.getBoard().getCard(cardAddress, location) != null) {
-            SelectedCardProp selectedCardProp = new SelectedCardProp(cardAddress, location, side);
+        if (player.getBoard().getCard(cardAddress - 1, location) != null) {
+            SelectedCardProp selectedCardProp = new SelectedCardProp(cardAddress - 1, location, side);
             game.setCardProp(selectedCardProp);
-            game.setGameSideStage(GameSideStage.WAIT_STAGE);
             return General.CARD_SELECTED_SUCCESSFULLY.toString();
         } else {
             return GameError.EMPTY_SELECTION.toString();
@@ -116,7 +115,6 @@ public class GeneralController {
     private String deSelectCard(Game game) {
         if (game.getCardProp() != null) {
             game.setCardProp(null);
-            game.setGameSideStage(GameSideStage.WAIT_STAGE);
             return General.CARD_DESELECT_SUCCESSFULLY.toString();
         } else {
             return GameError.INVALID_DESELECT_CARD_REQUEST.toString();
@@ -131,7 +129,6 @@ public class GeneralController {
                 if (magicHouse.getState().equals(MagicHouseVisibilityState.H)) {
                     return GameError.INVALID_SHOW_CARD_REQUEST.toString();
                 } else {
-                    game.setGameSideStage(GameSideStage.WAIT_STAGE);
                     return cardProp.getCard().getCardDetail();
                 }
             } else {
@@ -139,12 +136,10 @@ public class GeneralController {
                 if (monsterHouse.getState().equals(MonsterHouseVisibilityState.DH)) {
                     return GameError.INVALID_SHOW_CARD_REQUEST.toString();
                 } else {
-                    game.setGameSideStage(GameSideStage.WAIT_STAGE);
                     return cardProp.getCard().getCardDetail();
                 }
             }
         } else {
-            game.setGameSideStage(GameSideStage.WAIT_STAGE);
             return cardProp.getCard().getCardDetail();
         }
     }
@@ -154,8 +149,11 @@ public class GeneralController {
         game.goToNextPhase();
         String output = process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName());
         if (game.getGameMainStage().equals(GameMainStage.DRAW_PHASE)) {
+            String draw;
             if (!game.isPlayerDrawInThisTurn())
-                return output + "\n" + drawController.draw();
+                if ((draw = drawController.draw()) != null)
+                return output + "\n" + draw;
+                else return output;
         }
         return process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName());
     }

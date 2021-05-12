@@ -2,11 +2,14 @@ package controller.gamecontrollers.gamestagecontroller;
 
 import com.sanityinc.jargs.CmdLineParser;
 import controller.gamecontrollers.GeneralController;
+import controller.gamecontrollers.gamestagecontroller.handlers.changeposition.ChangePosChain;
 import controller.gamecontrollers.gamestagecontroller.handlers.hiremonster.HireMonsterChain;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
 import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.WantedPos;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
+import model.enums.GameEnums.gamestage.GameSideStage;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.Game;
 import model.gameprop.GameInProcess;
@@ -25,11 +28,15 @@ public class MainPhaseController extends GeneralController {
 
     public String run(String command) throws CmdLineParser.OptionException {
         Game game = GameInProcess.getGame();
-        if (command.equals("summon")) {
-            return hireMonster(game, HireType.SUMMON);
-        } else if (command.equals("set")) {
-            return hireMonster(game, HireType.SET);
-        }
+        if (game.getGameSideStage().equals(GameSideStage.NONE)) {
+            if (command.equals("summon")) {
+                return hireMonster(game, HireType.SUMMON);
+            } else if (command.equals("set")) {
+                return hireMonster(game, HireType.SET);
+            } else if (command.equals("set -- position")) {
+                return changePosition(game.getSelectedCardProp(), command);
+            }
+        } else return "back to game first";
         return null;
     }
 
@@ -56,10 +63,32 @@ public class MainPhaseController extends GeneralController {
                 }
             }
         } else {
-            return "higher than level 4";
+            game.setTypeOfMonsterHire(type.toString());
+            if (monsterCard.getLevel() < 7) {
+                if (game.getPlayer(SideOfFeature.CURRENT).getBoard().numberOfFullHouse("monster") < 1)
+                    return MainPhase.TRIBUTE_NOT_POSSIBLE.toString();
+                game.setTributeSize(1);
+                game.setGameSideStage(GameSideStage.TRIBUTE);
+                return MainPhase.ONE_TRIBUTE_NEED.toString();
+            } else {
+                if (game.getPlayer(SideOfFeature.CURRENT).getBoard().numberOfFullHouse("monster") < 2)
+                    return MainPhase.TRIBUTE_NOT_POSSIBLE.toString();
+                game.setTributeSize(2);
+                game.setGameSideStage(GameSideStage.TRIBUTE);
+                return MainPhase.TW0_TRIBUTE_NEED.toString();
+            }
         }
 
         return null;
+    }
+
+    private String changePosition(SelectedCardProp cardProp, String command) {
+        ChangePosChain chain = new ChangePosChain();
+        if (command.contains("attack")) {
+            return chain.request(cardProp, WantedPos.ATTACK).toString();
+        } else {
+            return chain.request(cardProp, WantedPos.DEFENCE).toString();
+        }
     }
 
     enum HireType {

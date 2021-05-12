@@ -65,8 +65,8 @@ public class Player {
     }
 
     private void gameSetUp() {
-        Collections.shuffle(deck.getMainDeck());
-        Collections.shuffle(deck.getSideDeck());
+        //Collections.shuffle(deck.getMainDeck());
+        //Collections.shuffle(deck.getSideDeck());
 
         for (int i = 0; i < 5; i++) {
             board.getPlayerHand().add(deck.getMainDeck().get(i));

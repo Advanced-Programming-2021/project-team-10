@@ -2,6 +2,8 @@ package model.gameprop.BoardProp;
 
 import model.cards.cardsProp.Card;
 import model.enums.GameEnums.CardLocation;
+import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
+import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 
 import java.util.ArrayList;
 
@@ -53,15 +55,42 @@ public class PlayerBoard {
     public Card getCard(Integer address, CardLocation location) {
         switch (location) {
             case PLAYER_HAND:
-                return playerHand.get(address - 1);
+                return playerHand.get(address);
             case FIELD_HOUSE:
                 return field.getMagicCard();
             case MAGIC_HOUSE:
-                return magicHouse[address - 1].getMagicCard();
+                return magicHouse[address].getMagicCard();
             case MONSTER_HOUSE:
-                return monsterHouse[address - 1].getMonsterCard();
+                return monsterHouse[address].getMonsterCard();
             default:
                 return null;
         }
+    }
+
+    public void moveCardToGraveYard( int address , CardLocation location){
+        if (location.equals(CardLocation.MONSTER_HOUSE)){
+            Card card =  monsterHouse[address].getMonsterCard();
+            monsterHouse[address].setMonsterCard(null);
+            monsterHouse[address].setState(MonsterHouseVisibilityState.E);
+            graveYard.addCardToGraveYard(card);
+        }
+    }
+
+    public int numberOfFullHouse(String typeOfHouse){
+        int counter = 0;
+        if (typeOfHouse.equals("monster")){
+            for (MonsterHouse house : monsterHouse) {
+                if (!house.getState().equals(MonsterHouseVisibilityState.E)){
+                    counter++;
+                }
+            }
+        }else{
+            for (MagicHouse house : magicHouse) {
+                if (!house.getState().equals(MagicHouseVisibilityState.E)){
+                    counter++;
+                }
+            }
+        }
+        return counter;
     }
 }

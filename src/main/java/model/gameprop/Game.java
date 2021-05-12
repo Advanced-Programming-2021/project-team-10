@@ -6,6 +6,8 @@ import model.enums.GameEnums.gamestage.GameMainStage;
 import model.enums.GameEnums.gamestage.GameSideStage;
 
 public class Game {
+    private int tributeNumber;
+    private String typeOfMonsterHire;
     private boolean isPlayerDrawInTurn;
     private boolean isPlayerHireMonster;
     private boolean isGameFinished;
@@ -145,10 +147,27 @@ public class Game {
         return winner;
     }
 
-    private void resetLastTurnData(){
+    public int getTributeNumber() {
+        return tributeNumber;
+    }
+
+    private void resetLastTurnData() {
         changeTurn();
+        cardProp = null;
+        tributeNumber = 0;
         isPlayerHireMonster = false;
         isPlayerDrawInTurn = false;
     }
 
+    public void setTributeSize(int numberOfCard) {
+        tributeNumber = numberOfCard;
+    }
+
+    public void setTypeOfMonsterHire(String typeOfMonsterHire) {
+        this.typeOfMonsterHire = typeOfMonsterHire;
+    }
+
+    public String getTypeOfMonsterHire() {
+        return typeOfMonsterHire;
+    }
 }

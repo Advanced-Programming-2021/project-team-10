@@ -8,6 +8,7 @@ public class MagicHouse extends GameHouse {
     MagicHouseVisibilityState state;
 
     {
+        changePos = false;
         magicCard = null;
         state = MagicHouseVisibilityState.E;
     }
@@ -27,4 +28,6 @@ public class MagicHouse extends GameHouse {
     public MagicCard getMagicCard() {
         return magicCard;
     }
+
+
 }

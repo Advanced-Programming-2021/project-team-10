@@ -120,19 +120,23 @@ public final class Regex {
             "select --hand (?<address>\\d+)",
             "select -d",
             "next phase"
-            , "draw board",
+            ,"draw board",
             "START"
     };
     //GamePlay -> side pages command
     public static String[] sideStageCommand = new String[]{
-            "resume",
+            "T:\\d$",
+            "T1:\\d T2:\\d$",
     };
 
     //GamePlay -> draw phaseCommands -> nothing special
     //GamePlay -> main phaseCommands
     public static String[] mainPhaseCommands = new String[]{
             "summon",
-            "set"
+            "set",
+            "^set -- position attack",
+            "^set -- position defence"
+
     };
     //GamePlay -> battle  phaseCommands
     public static String[] battlePhaseCommands = new String[]{

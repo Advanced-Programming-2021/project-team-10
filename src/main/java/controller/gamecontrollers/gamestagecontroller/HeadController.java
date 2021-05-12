@@ -53,6 +53,7 @@ public class HeadController {
                 return mainPhaseController;
             }
         }
+
         return null;
     }
 }
