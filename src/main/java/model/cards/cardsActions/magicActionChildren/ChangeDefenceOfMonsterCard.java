@@ -5,6 +5,10 @@ import model.cards.cardsActions.ActionOfMagic;
 public class ChangeDefenceOfMonsterCard extends ActionOfMagic {
     private static ChangeDefenceOfMonsterCard instance;
 
+    {
+        name = this.getClass().getSimpleName();
+    }
+
     private ChangeDefenceOfMonsterCard() {
     }
 

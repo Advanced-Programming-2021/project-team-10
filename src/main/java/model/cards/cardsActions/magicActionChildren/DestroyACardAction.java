@@ -1,14 +1,18 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import model.enums.GameEnums.SideOfFeature;
 import model.cards.cardsActions.ActionOfMagic;
+import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
-import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 
 public class DestroyACardAction extends ActionOfMagic {
     private static DestroyACardAction instance;
+
+    {
+        name = this.getClass().getSimpleName();
+    }
 
     public static DestroyACardAction getInstance() {
         if (instance == null) {

@@ -5,6 +5,10 @@ import model.cards.cardsActions.ActionOfMagic;
 public class MakeDamageZero extends ActionOfMagic {
     private static MakeDamageZero instance;
 
+    {
+        name = this.getClass().getSimpleName();
+    }
+
     private MakeDamageZero() {
     }
 

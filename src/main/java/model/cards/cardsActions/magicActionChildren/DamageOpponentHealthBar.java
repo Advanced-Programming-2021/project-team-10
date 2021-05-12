@@ -5,6 +5,10 @@ import model.cards.cardsActions.ActionOfMagic;
 public class DamageOpponentHealthBar extends ActionOfMagic {
     private static DamageOpponentHealthBar instance;
 
+    {
+        name = this.getClass().getSimpleName();
+    }
+
     private DamageOpponentHealthBar(){
     }
 

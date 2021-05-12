@@ -5,6 +5,12 @@ import model.cards.cardsActions.ActionOfMagic;
 public class SummonMonsterFromGraveYardAction extends ActionOfMagic {
     private static SummonMonsterFromGraveYardAction instance;
 
+    {
+        name = this.getClass().getSimpleName();
+    }
+
+    private SummonMonsterFromGraveYardAction(){}
+
     public static SummonMonsterFromGraveYardAction getInstance() {
         if (instance == null) {
             instance = new SummonMonsterFromGraveYardAction();

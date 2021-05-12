@@ -4,28 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="make side menues">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/changeposition/ChangePosChain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/changeposition/ChangePosProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/changeposition/processors/CardStateProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/changeposition/processors/ChangeRequestProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/changeposition/processors/SelectedCardProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/SidePhase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/WantedPos.java" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="adding magic actions to json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/HeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/HeadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/MainPhaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/MainPhaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/SideStageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/SideStageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/MainPhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/MainPhase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/gamestage/GameSideStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/gamestage/GameSideStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/GameHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/GameHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MagicHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MagicHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MonsterHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MonsterHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/PlayerBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/PlayerBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonResources/MagicCard.json" beforeDir="false" afterPath="$PROJECT_DIR$/jsonResources/MagicCard.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/classes/classes/classes/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/classes/classes/classes/untitled-1.0-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/classes/classes/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
@@ -100,7 +84,10 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/Viewer" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/Main.java" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -118,6 +105,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SooSan\Desktop\project-team-10\jsonResources" />
       <recent name="G:\semister 2\java Yu_gi_oh project\yu-gi-oh-Project\csvFile" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -137,7 +125,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="untitled" />
+      <module name="project-team-10" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -222,15 +210,7 @@
       <workItem from="1620057352869" duration="27695000" />
       <workItem from="1620144273542" duration="4503000" />
       <workItem from="1620151715726" duration="12272000" />
-      <workItem from="1620452539413" duration="2036000" />
-      <workItem from="1620489344831" duration="375000" />
-      <workItem from="1620489737944" duration="56083000" />
-      <workItem from="1620579613804" duration="16306000" />
-      <workItem from="1620614943332" duration="10408000" />
-      <workItem from="1620630431865" duration="1215000" />
-      <workItem from="1620660319704" duration="5491000" />
-      <workItem from="1620749463549" duration="34144000" />
-      <workItem from="1620840549075" duration="1074000" />
+      <workItem from="1620551235289" duration="10314000" />
     </task>
     <task id="LOCAL-00012" summary="end of task 1">
       <created>1618850628822</created>
@@ -544,26 +524,23 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۷" />
       <updated>1620390954618</updated>
     </task>
-    <task id="LOCAL-00058" summary="complete draw phase and next phase">
-      <created>1620451781852</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1620451781853</updated>
+    <task id="LOCAL‎۰۰۰۵۸" summary="json">
+      <created>1620411136104</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۸" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۸" />
+      <updated>1620411136104</updated>
     </task>
-    <task id="LOCAL-00059" summary="add summon option">
-      <created>1620579312585</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1620579312586</updated>
+    <task id="LOCAL‎۰۰۰۵۹" summary="json">
+      <created>1620413922144</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۹" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۹" />
+      <updated>1620413922144</updated>
     </task>
-    <task id="LOCAL-00060" summary="make side menues">
-      <created>1620769669581</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1620769669581</updated>
+    <task id="LOCAL‎۰۰۰۶۰" summary="adding magic actions to json">
+      <created>1620573345261</created>
+      <option name="number" value="LOCAL‎۰۰۰۶۰" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۶۰" />
+      <updated>1620573345262</updated>
     </task>
     <option name="localTasksCounter" value="61" />
     <servers />
@@ -585,6 +562,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="game models and general structure" />
     <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class" />
     <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes" />
     <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes&#10;-add &quot;DeckMenu&quot; errors to &quot;Error&quot; ENUM" />
@@ -607,16 +585,12 @@
     <MESSAGE value="MindCrushEffect and some details" />
     <MESSAGE value="ManuallyActivation added" />
     <MESSAGE value="new structure for actions" />
-    <MESSAGE value="complete draw phase and next phase" />
-    <MESSAGE value="add summon option" />
-    <MESSAGE value="make side menues" />
-    <option name="LAST_COMMIT_MESSAGE" value="make side menues" />
+    <MESSAGE value="json" />
+    <MESSAGE value="adding magic actions to json" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding magic actions to json" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Main_java$Main.ic" NAME="Main Coverage Results" MODIFIED="1620630295245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

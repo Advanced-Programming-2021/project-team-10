@@ -8,6 +8,8 @@ import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
 
 public class Event {
+    protected String name;
+
     public void activeEffects() {
         PlayerBoard currentPlayerBoard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
         if (this instanceof ManuallyActivation) {

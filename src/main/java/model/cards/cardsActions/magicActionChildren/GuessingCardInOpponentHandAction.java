@@ -1,13 +1,13 @@
 package model.cards.cardsActions.magicActionChildren;
 
 import controller.ImportScanner;
-import model.enums.GameEnums.SideOfFeature;
 import model.cards.cardsActions.ActionOfMagic;
 import model.cards.cardsProp.Card;
+import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
-import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.userProp.Deck;
 
 import java.util.ArrayList;
@@ -16,6 +16,10 @@ import java.util.Iterator;
 
 public class GuessingCardInOpponentHandAction extends ActionOfMagic {
     private static GuessingCardInOpponentHandAction instance;
+
+    {
+        name = this.getClass().getSimpleName();
+    }
 
     public static GuessingCardInOpponentHandAction getInstance() {
         if (instance == null) {
