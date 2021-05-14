@@ -29,7 +29,6 @@ public class DestroyACardAction extends ActionOfMagic {
             if (monsterHouse.getMonsterCard() != null) {
                 opponentBoard.getGraveYard().addCardToGraveYard(monsterHouse.getMonsterCard());
                 monsterHouse.setMonsterCard(null);
-                monsterHouse.setState(MonsterHouseVisibilityState.E);
             }
         }
     }

@@ -4,7 +4,7 @@ import controller.gamecontrollers.GeneralController;
 import model.cards.cardsProp.Card;
 import model.enums.GameEnums.GamePhaseEnums.DrawPhase;
 import model.enums.GameEnums.SideOfFeature;
-import model.gameprop.Game;
+import model.gameprop.gamemodel.Game;
 import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.userProp.Deck;
@@ -32,7 +32,7 @@ public class DrawPhaseController extends GeneralController {
                 Deck playerDeck = player.getDeck();
                 Card newCard = playerDeck.getMainDeck().get(0);
                 playerDeck.removeCardFromMainDeck(newCard);
-                game.setPlayerDrawInTurn(true);
+                game.setPlayerDrawInTurn();
                 game.getPlayer(SideOfFeature.CURRENT).getBoard().getPlayerHand().add(newCard);
                return process(DrawPhase.ADD_NEW_CARD.toString(), newCard.getName());
             }

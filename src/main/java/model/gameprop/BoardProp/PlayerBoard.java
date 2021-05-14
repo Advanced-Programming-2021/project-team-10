@@ -56,11 +56,11 @@ public class PlayerBoard {
         switch (location) {
             case PLAYER_HAND:
                 return playerHand.get(address);
-            case FIELD_HOUSE:
+            case FIELD_ZONE:
                 return field.getMagicCard();
-            case MAGIC_HOUSE:
+            case SPELL_ZONE:
                 return magicHouse[address].getMagicCard();
-            case MONSTER_HOUSE:
+            case MONSTER_ZONE:
                 return monsterHouse[address].getMonsterCard();
             default:
                 return null;
@@ -68,10 +68,9 @@ public class PlayerBoard {
     }
 
     public void moveCardToGraveYard( int address , CardLocation location){
-        if (location.equals(CardLocation.MONSTER_HOUSE)){
+        if (location.equals(CardLocation.MONSTER_ZONE)){
             Card card =  monsterHouse[address].getMonsterCard();
             monsterHouse[address].setMonsterCard(null);
-            monsterHouse[address].setState(MonsterHouseVisibilityState.E);
             graveYard.addCardToGraveYard(card);
         }
     }

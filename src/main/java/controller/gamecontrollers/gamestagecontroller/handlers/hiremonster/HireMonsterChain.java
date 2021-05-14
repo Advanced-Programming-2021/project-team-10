@@ -3,7 +3,7 @@ package controller.gamecontrollers.gamestagecontroller.handlers.hiremonster;
 import controller.gamecontrollers.gamestagecontroller.handlers.hiremonster.processors.BoardProcessor;
 import controller.gamecontrollers.gamestagecontroller.handlers.hiremonster.processors.CardSelectProcessor;
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
-import model.gameprop.Game;
+import model.gameprop.gamemodel.Game;
 
 public class HireMonsterChain {
     MonsterProcessor processor;

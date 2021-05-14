@@ -10,13 +10,15 @@ public class HeadController {
     MainPhaseController mainPhaseController;
     StandByPhaseController standByPhaseController;
     GeneralController generalController;
+    BattlePhaseController battlePhaseController;
 
     public HeadController() {
-        drawPhaseController =  DrawPhaseController.getInstance();
-        standByPhaseController =  StandByPhaseController.getInstance();
-        sideStageController =  SideStageController.getInstance();
-        mainPhaseController =  MainPhaseController.getInstance();
-        generalController =  GeneralController.getInstance();
+        drawPhaseController = DrawPhaseController.getInstance();
+        standByPhaseController = StandByPhaseController.getInstance();
+        sideStageController = SideStageController.getInstance();
+        mainPhaseController = MainPhaseController.getInstance();
+        generalController = GeneralController.getInstance();
+        battlePhaseController = BattlePhaseController.getInstance();
     }
 
     public String run(String command) throws CmdLineParser.OptionException {
@@ -49,11 +51,15 @@ public class HeadController {
 
     private GeneralController getCommandController(String command) {
         for (String commandPattern : Regex.mainPhaseCommands) {
-            if (commandPattern.matches(command)) {
+            if (command.matches(commandPattern)) {
                 return mainPhaseController;
             }
         }
-
+        for (String commandPatter : Regex.battlePhaseCommands) {
+            if (command.matches(commandPatter)) {
+                return battlePhaseController;
+            }
+        }
         return null;
     }
 }

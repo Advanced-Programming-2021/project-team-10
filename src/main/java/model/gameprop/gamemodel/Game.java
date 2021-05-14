@@ -1,28 +1,27 @@
-package model.gameprop;
+package model.gameprop.gamemodel;
 
 import model.enums.GameEnums.PlayerTurn;
 import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.TypeOfHire;
 import model.enums.GameEnums.gamestage.GameMainStage;
 import model.enums.GameEnums.gamestage.GameSideStage;
+import model.gameprop.BoardProp.MonsterHouse;
+import model.gameprop.Player;
+import model.gameprop.SelectedCardProp;
 
 public class Game {
-    private int tributeNumber;
-    private String typeOfMonsterHire;
-    private boolean isPlayerDrawInTurn;
-    private boolean isPlayerHireMonster;
     private boolean isGameFinished;
-    private SelectedCardProp cardProp;
-    private PlayerTurn turn;
+    private PlayerTurn turnOfGame;
     private Player firstPlayer;
     private Player secondPlayer;
     private Player winner;
+    private Turn turn;
     private GameSideStage gameSideStage;
     private GameMainStage gameMainStage;
 
     {
-        isPlayerDrawInTurn = false;
         isGameFinished = false;
-        turn = PlayerTurn.PLAYER_ONE;
+        turnOfGame = PlayerTurn.PLAYER_ONE;
         gameMainStage = GameMainStage.DRAW_PHASE;
         gameSideStage = GameSideStage.START_STAGE;
     }
@@ -30,27 +29,28 @@ public class Game {
     public Game(Player firstPlayer, Player secondPlayer) {
         setFirstPlayer(firstPlayer);
         setSecondPlayer(secondPlayer);
+        turn = new Turn(firstPlayer);
     }
 
     public boolean isPlayerDrawInThisTurn() {
-        return isPlayerDrawInTurn;
+        return turn.isCardDraw();
     }
 
-    public void setPlayerDrawInTurn(boolean playerDrawInTurn) {
-        isPlayerDrawInTurn = playerDrawInTurn;
+    public void setPlayerDrawInTurn() {
+        turn.setCardDraw();
     }
 
     public Player getPlayer(SideOfFeature turn) {
         switch (turn) {
             case CURRENT: {
-                if (this.turn.equals(PlayerTurn.PLAYER_ONE)) {
+                if (this.turnOfGame.equals(PlayerTurn.PLAYER_ONE)) {
                     return firstPlayer;
                 } else {
                     return secondPlayer;
                 }
             }
             case OPPONENT: {
-                if (this.turn.equals(PlayerTurn.PLAYER_ONE)) {
+                if (this.turnOfGame.equals(PlayerTurn.PLAYER_ONE)) {
                     return secondPlayer;
                 } else
                     return firstPlayer;
@@ -60,23 +60,19 @@ public class Game {
         }
     }
 
-    public boolean isPlayerHireMonster() {
-        return isPlayerHireMonster;
+    public MonsterHouse getHiredMonster() {
+        return turn.getMonsterHouseOfHiredMonster();
     }
 
-    public void setIsMonsterHired() {
-        isPlayerHireMonster = true;
-    }
-
-    public SelectedCardProp getSelectedCardProp() {
-        return cardProp;
+    public void setHiredMonster(MonsterHouse monsterHouse) {
+        turn.setMonsterHouseOfHiredMonster(monsterHouse);
     }
 
     public void changeTurn() {
-        if (turn.equals(PlayerTurn.PLAYER_ONE)) {
-            turn = PlayerTurn.PLAYER_TWO;
+        if (turnOfGame.equals(PlayerTurn.PLAYER_ONE)) {
+            turnOfGame = PlayerTurn.PLAYER_TWO;
         } else {
-            turn = PlayerTurn.PLAYER_ONE;
+            turnOfGame = PlayerTurn.PLAYER_ONE;
         }
     }
 
@@ -102,11 +98,11 @@ public class Game {
     }
 
     public SelectedCardProp getCardProp() {
-        return cardProp;
+        return turn.getSelectedCardProp();
     }
 
     public void setCardProp(SelectedCardProp cardProp) {
-        this.cardProp = cardProp;
+        turn.selectedCardProp = cardProp;
     }
 
     public void goToNextPhase() {
@@ -115,8 +111,8 @@ public class Game {
             resetLastTurnData();
     }
 
-    public PlayerTurn getTurn() {
-        return turn;
+    public PlayerTurn getTurnOfGame() {
+        return turnOfGame;
     }
 
     public boolean isGameFinished() {
@@ -148,26 +144,23 @@ public class Game {
     }
 
     public int getTributeNumber() {
-        return tributeNumber;
+        return turn.getTributeNumber();
     }
 
     private void resetLastTurnData() {
         changeTurn();
-        cardProp = null;
-        tributeNumber = 0;
-        isPlayerHireMonster = false;
-        isPlayerDrawInTurn = false;
+        turn = new Turn(getPlayer(SideOfFeature.CURRENT));
     }
 
     public void setTributeSize(int numberOfCard) {
-        tributeNumber = numberOfCard;
+        turn.setTributeNumber(numberOfCard);
     }
 
-    public void setTypeOfMonsterHire(String typeOfMonsterHire) {
-        this.typeOfMonsterHire = typeOfMonsterHire;
+    public TypeOfHire getTypeOfMonsterHire() {
+        return turn.getTypeOfHighLevelMonsterHire();
     }
 
-    public String getTypeOfMonsterHire() {
-        return typeOfMonsterHire;
+    public void setTypeOfMonsterHire(TypeOfHire typeOfMonsterHire) {
+            turn.setTypeOfHighLevelMonsterHire(typeOfMonsterHire);
     }
 }

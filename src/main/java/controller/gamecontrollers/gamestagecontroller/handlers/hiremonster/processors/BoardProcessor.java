@@ -5,7 +5,7 @@ import model.enums.GameEnums.GamePhaseEnums.MainPhase;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.Game;
+import model.gameprop.gamemodel.Game;
 
 public class BoardProcessor extends MonsterProcessor {
     public BoardProcessor(MonsterProcessor processor) {
@@ -13,7 +13,7 @@ public class BoardProcessor extends MonsterProcessor {
     }
 
     public MainPhase process(Game game){
-        if (game.isPlayerHireMonster()) return MainPhase.HIRE_MONSTER_BEFORE;
+        if (game.getHiredMonster() != null) return MainPhase.HIRE_MONSTER_BEFORE;
 
         PlayerBoard board = game.getPlayer(SideOfFeature.CURRENT).getBoard();
         if (isBoardFull(board)) return MainPhase.BOARD_IS_FULL;

@@ -4,8 +4,6 @@ import model.gameprop.BoardProp.PlayerBoard;
 import model.userProp.Deck;
 import model.userProp.User;
 
-import java.util.Collections;
-
 enum Change {
     INCREASE,
     DECREASE
@@ -13,7 +11,7 @@ enum Change {
 }
 
 public class Player {
-    int playerLifePoint;
+    public int playerLifePoint;
     User user;
     PlayerBoard board;
     Deck deck;
@@ -49,19 +47,10 @@ public class Player {
         return board;
     }
 
-    private void changePlayerLifePoint(Change change, int amount) {
-        switch (change) {
-            case INCREASE: {
-                this.playerLifePoint += amount;
-                break;
-            }
-            case DECREASE: {
-                this.playerLifePoint -= amount;
-                if (this.playerLifePoint < 0)
-                    this.playerLifePoint = 0;
-                break;
-            }
-        }
+    public void changePlayerLifePoint(int amount) {
+        playerLifePoint -= amount;
+        if (playerLifePoint < 0)
+            playerLifePoint = 0;
     }
 
     private void gameSetUp() {

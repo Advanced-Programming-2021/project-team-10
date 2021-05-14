@@ -6,7 +6,8 @@ import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 public class MonsterHouse extends GameHouse {
     MonsterCard monsterCard;
     MonsterHouseVisibilityState state;
-    private boolean isMonsterAttacked ;
+    private boolean isMonsterAttacked;
+
     {
         isMonsterAttacked = false;
         changePos = false;
@@ -22,28 +23,30 @@ public class MonsterHouse extends GameHouse {
         this.state = state;
     }
 
-    public void setMonsterCard(MonsterCard monsterCard) {
-        this.monsterCard = monsterCard;
-    }
-
     public MonsterCard getMonsterCard() {
         return monsterCard;
     }
 
-    public boolean isPosChange(){
+    public void setMonsterCard(MonsterCard monsterCard) {
+        this.monsterCard = monsterCard;
+        if (this.monsterCard == null)
+            state = MonsterHouseVisibilityState.E;
+    }
+
+    public boolean isPosChange() {
         return changePos;
     }
 
-    public void changePos(){
+    public void changePos() {
         changePos = true;
+    }
+
+    public boolean isMonsterAttacked() {
+        return isMonsterAttacked;
     }
 
     public void setMonsterAttacked(boolean monsterAttacked) {
         isMonsterAttacked = monsterAttacked;
-    }
-
-    public boolean isMonsterAttacked(){
-        return isMonsterAttacked;
     }
 }
 //TODO game map and where to add it

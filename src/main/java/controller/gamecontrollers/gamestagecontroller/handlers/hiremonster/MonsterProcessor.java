@@ -1,7 +1,7 @@
 package controller.gamecontrollers.gamestagecontroller.handlers.hiremonster;
 
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
-import model.gameprop.Game;
+import model.gameprop.gamemodel.Game;
 
 public abstract class MonsterProcessor {
     MonsterProcessor processor;

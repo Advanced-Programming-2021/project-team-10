@@ -2,10 +2,9 @@ package controller.menues.menuhandlers.menucontrollers;
 
 import com.sanityinc.jargs.CmdLineParser;
 import controller.menues.menuhandlers.duelmenuhandler.DuelChain;
-import model.enums.Error;
 import model.enums.GameEnums.PlayerTurn;
 import model.enums.MenusMassages.Duel;
-import model.gameprop.Game;
+import model.gameprop.gamemodel.Game;
 import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.userProp.LoginUser;

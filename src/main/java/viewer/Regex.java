@@ -134,13 +134,14 @@ public final class Regex {
     public static String[] mainPhaseCommands = new String[]{
             "summon",
             "set",
-            "^set -- position attack",
-            "^set -- position defence"
+            "^set --position attack",
+            "^set --position defence",
+            "^flip-summon"
 
     };
     //GamePlay -> battle  phaseCommands
     public static String[] battlePhaseCommands = new String[]{
-
+            "attack \\d",
     };
 
     public static String[][] allGamePlayCommands = new String[][]{

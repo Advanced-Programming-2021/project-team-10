@@ -41,11 +41,11 @@ public class SelectedCardProp {
     public GameHouse getCardPlace() {
 
         PlayerBoard board = GameInProcess.getGame().getPlayer(side).getBoard();
-        if (location.equals(CardLocation.MAGIC_HOUSE)) {
+        if (location.equals(CardLocation.SPELL_ZONE)) {
             return board.getMagicHouse()[cardAddress];
-        } else if (location.equals(CardLocation.MONSTER_HOUSE)) {
+        } else if (location.equals(CardLocation.MONSTER_ZONE)) {
             return board.getMonsterHouse()[cardAddress];
-        } else if (location.equals(CardLocation.FIELD_HOUSE)) {
+        } else if (location.equals(CardLocation.FIELD_ZONE)) {
             return board.getFieldHouse();
         }
         return null;

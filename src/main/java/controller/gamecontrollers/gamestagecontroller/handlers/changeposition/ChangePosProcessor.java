@@ -1,9 +1,8 @@
 package controller.gamecontrollers.gamestagecontroller.handlers.changeposition;
 
-import controller.gamecontrollers.gamestagecontroller.handlers.hiremonster.MonsterProcessor;
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
 import model.enums.GameEnums.WantedPos;
-import model.gameprop.Game;
+import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.SelectedCardProp;
 
 public abstract class ChangePosProcessor {
@@ -13,10 +12,10 @@ public abstract class ChangePosProcessor {
         this.processor = processor;
     }
 
-    protected MainPhase process(SelectedCardProp cardProp , WantedPos pos) {
+    protected MainPhase process(SelectedCardProp cardProp, WantedPos pos, MonsterHouse monsterHouse) {
         if (processor != null) {
-            return processor.process(cardProp, pos);
-        }else{
+            return processor.process(cardProp, pos, monsterHouse);
+        } else {
             return null;
         }
     }

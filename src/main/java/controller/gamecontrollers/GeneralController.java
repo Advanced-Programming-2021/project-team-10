@@ -14,7 +14,7 @@ import model.enums.GameEnums.gamestage.GameSideStage;
 import model.gameprop.BoardProp.GraveYard;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
-import model.gameprop.Game;
+import model.gameprop.gamemodel.Game;
 import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
@@ -57,7 +57,7 @@ public class GeneralController {
     }
 
     private String selectCard(Game game, String command) throws CmdLineParser.OptionException {
-        if (game.getSelectedCardProp() != null) {
+        if (game.getCardProp() != null) {
             return GameError.CARD_SELECTED_BEFORE.toString();
         }
         CmdLineParser parser = new CmdLineParser();
@@ -85,14 +85,14 @@ public class GeneralController {
             if (cardAddress > 5 || cardAddress < 1) {
                 return GameError.INVALID_SELECTION.toString();
             }
-            location = CardLocation.MONSTER_HOUSE;
+            location = CardLocation.MONSTER_ZONE;
         } else if ((cardAddress = parser.getOptionValue(spell)) != null) {
             if (cardAddress > 5 || cardAddress < 1) {
                 return GameError.INVALID_SELECTION.toString();
             }
-            location = CardLocation.MAGIC_HOUSE;
+            location = CardLocation.SPELL_ZONE;
         } else if (parser.getOptionValue(field, false)) {
-            location = CardLocation.FIELD_HOUSE;
+            location = CardLocation.FIELD_ZONE;
             cardAddress = 0;
         } else {
             cardAddress = parser.getOptionValue(hand);
@@ -124,7 +124,7 @@ public class GeneralController {
     private String showSelectedCard(Game game) {
         SelectedCardProp cardProp = game.getCardProp();
         if (cardProp.getSide().equals(SideOfFeature.OPPONENT)) {
-            if (cardProp.getLocation().equals(CardLocation.MAGIC_HOUSE)) {
+            if (cardProp.getLocation().equals(CardLocation.SPELL_ZONE)) {
                 MagicHouse magicHouse = (MagicHouse) cardProp.getCardPlace();
                 if (magicHouse.getState().equals(MagicHouseVisibilityState.H)) {
                     return GameError.INVALID_SHOW_CARD_REQUEST.toString();
@@ -159,7 +159,7 @@ public class GeneralController {
     }
 
     private String surrender(Game game) {
-        GameInProcess.getGame().finishGame(GameInProcess.getGame().getTurn());
+        GameInProcess.getGame().finishGame(GameInProcess.getGame().getTurnOfGame());
         return game.getPlayer(SideOfFeature.CURRENT).getUser().getNickname() +
                 " won the game and the score is: 1-0";
     }

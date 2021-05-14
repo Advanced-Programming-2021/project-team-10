@@ -6,7 +6,7 @@ import model.gameprop.BoardProp.GameHouse;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.Game;
+import model.gameprop.gamemodel.Game;
 import model.gameprop.Player;
 
 public class BoardDrawer {

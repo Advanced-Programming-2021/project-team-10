@@ -28,6 +28,18 @@ public class MagicCard extends Card {
         actionsOfMagic = new ArrayList<>();
         sideEvents = new ArrayList<>();
         triggers = new ArrayList<>();
+    }
+
+    public MagicCard(String name, String typeOfMagic, String magicAttribute, String description, String speed, String price) {
+        super(name, description, price);
+        setTypeOfMagic(MagicType.setType(typeOfMagic));
+        setMagicAttribute(MagicAttribute.setAttribute(magicAttribute));
+        setMagicSpeed(MagicSpeed.setSpeed(speed));
+        magicCards.add(this);
+        setMagicEffect(name);
+    }
+
+    private void setMagicEffect(String name) {
         if (name.equals("Monster Reborn") || name.equals("Call of the Haunted")) actionsOfMagic.add(SummonMonsterFromGraveYardAction.getInstance());
         if (name.equals("Terraforming") || name.equals("Pot of Greed") || name.equals("Supply Squad")) actionsOfMagic.add(AddCardFromDeckTOHand.getInstance());
         if (name.equals("Magic Jammer") || name.equals("Magic Cylinder")) actionsOfMagic.add(StoppingActivationAction.getInstance());
@@ -44,14 +56,6 @@ public class MagicCard extends Card {
         if (name.equals("Time Seal")) actionsOfMagic.add(AvoidOpponentsCardDraw.getInstance());
         if (name.equals("Messenger of peace")) actionsOfMagic.add(AvoidAttackOfMonsters.getInstance());
         if (name.equals("Negate Attack")) actionsOfMagic.add(EndBattlePhaseAction.getInstance());
-    }
-
-    public MagicCard(String name, String typeOfMagic, String magicAttribute, String description, String speed, String price) {
-        super(name, description, price);
-        setTypeOfMagic(MagicType.setType(typeOfMagic));
-        setMagicAttribute(MagicAttribute.setAttribute(magicAttribute));
-        setMagicSpeed(MagicSpeed.setSpeed(speed));
-        magicCards.add(this);
     }
 
     public MagicCard() {

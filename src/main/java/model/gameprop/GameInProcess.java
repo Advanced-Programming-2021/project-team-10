@@ -1,5 +1,7 @@
 package model.gameprop;
 
+import model.gameprop.gamemodel.Game;
+
 public class GameInProcess {
     private static Game game;
 

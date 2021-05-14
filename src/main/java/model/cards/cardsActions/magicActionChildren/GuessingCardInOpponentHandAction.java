@@ -65,7 +65,6 @@ public class GuessingCardInOpponentHandAction extends ActionOfMagic {
                 if (monsterHouse.getMonsterCard().getName().equals(name)) {
                     opponentBoard.getGraveYard().addCardToGraveYard(monsterHouse.getMonsterCard());
                     monsterHouse.setMonsterCard(null);
-                    monsterHouse.setState(MonsterHouseVisibilityState.E);
                 }
             }
         }
