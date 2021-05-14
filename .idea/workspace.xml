@@ -4,24 +4,25 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="change pos choice added to game">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/AttackDirectChain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/AttackDirectProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/processors/AttackProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/processors/SelectedCardProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/BattlePhase.java" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="final magic cards with actions">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GetStringInputFromView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromBothGraveYardsAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromOwnGraveYardAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/RequestingInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viewer/game/GetStringInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/BattlePhaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/BattlePhaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackMonster/AttackMonsterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/AttackMonsterChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackMonster/AttackMonsterProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/AttackMonsterProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackMonster/processors/AttackProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/processors/AttackProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackMonster/processors/SelectedCardProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/processors/SelectedCardProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/MainPhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/MainPhase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MonsterHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MonsterHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/game/BoardDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/game/BoardDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/AddCardFromDeckTOHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/AddCardFromDeckToHand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterAttackAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterAttackAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyACardAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyACardAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/GuessingCardInOpponentHandAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/GuessingCardInOpponentHandAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromGraveYardAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/GraveYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/GraveYard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/PlayerBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/PlayerBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DataBase.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,15 +126,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="untitled" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -143,6 +135,15 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="project-team-10" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -606,7 +607,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/changeposition/processors/SelectedCardProcessor.java</url>
           <line>15</line>
-          <properties class="controller.gamecontrollers.gamestagecontroller.handlers.changeposition.processors.SelectedCardProcessor" method="process">
+          <properties class="controller.gamecontrollers.gamestagecontroller.handlers.changeposition.processors.SelectedCardProcessor">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="3" />

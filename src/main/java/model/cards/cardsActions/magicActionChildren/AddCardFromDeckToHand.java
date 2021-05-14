@@ -2,18 +2,18 @@ package model.cards.cardsActions.magicActionChildren;
 
 import model.cards.cardsActions.ActionOfMagic;
 
-public class AddCardFromDeckTOHand extends ActionOfMagic {
-    private static AddCardFromDeckTOHand instance;
+public class AddCardFromDeckToHand extends ActionOfMagic {
+    private static AddCardFromDeckToHand instance;
 
     {
         name = this.getClass().getSimpleName();
     }
 
-    private AddCardFromDeckTOHand(){
+    private AddCardFromDeckToHand(){
     }
 
-    public static AddCardFromDeckTOHand getInstance(){
-        if (instance == null) instance = new AddCardFromDeckTOHand();
+    public static AddCardFromDeckToHand getInstance(){
+        if (instance == null) instance = new AddCardFromDeckToHand();
         return instance;
     }
 

@@ -1,6 +1,7 @@
 package model.gameprop.BoardProp;
 
 import model.cards.cardsProp.Card;
+import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
@@ -91,5 +92,15 @@ public class PlayerBoard {
             }
         }
         return counter;
+    }
+
+    public void summonMonster(MonsterCard monsterCard) {
+        for (MonsterHouse house : monsterHouse) {
+            if (house.getMonsterCard() == null) {
+                house.setMonsterCard(monsterCard);
+                house.setState(MonsterHouseVisibilityState.OO);
+                return;
+            }
+        }
     }
 }

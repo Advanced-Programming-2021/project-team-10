@@ -32,7 +32,7 @@ public class GeneralController {
         return instance;
     }
 
-    private String showGraveYard(Game game, String command) {
+    public String showGraveYard(Game game, String command) {
         Player player;
         if (command.contains("--opponent")) {
             player = game.getPlayer(SideOfFeature.OPPONENT);
