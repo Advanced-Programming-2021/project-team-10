@@ -1,5 +1,6 @@
-package controller.gamecontrollers.gamestagecontroller.handlers.attackMonster;
+package controller.gamecontrollers.gamestagecontroller.handlers.attackmonster;
 
+import model.enums.GameEnums.GamePhaseEnums.BattlePhase;
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.SelectedCardProp;
@@ -12,7 +13,7 @@ public abstract class AttackMonsterProcessor {
         this.processor = processor;
     }
 
-    protected MainPhase process(SelectedCardProp offensive, MonsterHouse target, Game game) {
+    protected BattlePhase process(SelectedCardProp offensive, MonsterHouse target, Game game) {
         if (processor != null)
             return processor.process(offensive, target, game);
         else return null;

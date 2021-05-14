@@ -1,0 +1,30 @@
+package model.enums.GameEnums.GamePhaseEnums;
+
+public enum BattlePhase {
+    DEFEAT_ATTACK_OO_TARGET("Your monster card is destroyed and you received OO_DEFEAT battle\n" +
+            "damage"),
+    DEFEAT_ATTACK_ON_DEFENCE_UNKNOWN("no card is destroyed and you received D_DEFEAT battle damage"),
+    SUCCESSFUL_ATTACK_DEFENCE_KNOWN_TARGET("the defense position monster is destroyed"),
+    SUCCESSFUL_ATTACK_OFFENSIVE_TARGET("your opponent’s monster is destroyed and your opponent receives\n" +
+            "OO_WIN battle damage"),
+    NO_CARD_ELIMINATE("no card is destroyed"),
+    BOTH_CARD_ELIMINATE("both you and your opponent monster cards are destroyed and no\n" +
+            "one receives damage"),
+    ALREADY_ATTACK("this card already attacked"),
+    CANT_ATTACK_WRONG_lOC("can't attack with this card"),
+    EMPTY_LOC_TO_ATTACK("there is no card in this position"),
+    CANT_ATTACK_DIRECT("you can't attack directly"),
+    NO_CARD_SELECTED_YET("no card selected yet");
+
+
+    private String messageToString;
+
+    BattlePhase(String messageToString) {
+        this.messageToString = messageToString;
+    }
+
+    public String toString() {
+        return messageToString;
+    }
+
+}

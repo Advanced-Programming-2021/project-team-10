@@ -58,10 +58,10 @@ public class BoardDrawer {
                 append("\t\t\t\t\t").
                 append(board.getFieldHouse().getState()).append("\n\n");
 
-        int[] cardOrientation = {5, 3, 1, 2, 4};
-        displayGameHouses(mapDisplay, monsterHouses, cardOrientation);
+        int[] houseOrientation = {5, 3, 1, 2, 4};
+        displayGameHouses(mapDisplay, monsterHouses, houseOrientation);
         mapDisplay.append("\n");
-        displayGameHouses(mapDisplay, magicHouses, cardOrientation);
+        displayGameHouses(mapDisplay, magicHouses, houseOrientation);
 
         mapDisplay.append("\n");
         mapDisplay.append("\n").append(currentPlayer.

@@ -14,10 +14,10 @@ import model.enums.GameEnums.gamestage.GameSideStage;
 import model.gameprop.BoardProp.GraveYard;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
-import model.gameprop.gamemodel.Game;
 import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
+import model.gameprop.gamemodel.Game;
 import viewer.game.BoardDrawer;
 
 public class GeneralController {
@@ -152,10 +152,10 @@ public class GeneralController {
             String draw;
             if (!game.isPlayerDrawInThisTurn())
                 if ((draw = drawController.draw()) != null)
-                return output + "\n" + draw;
+                    return output + "\n" + draw;
                 else return output;
         }
-        return process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName());
+        return process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName()) + drawBoard(game);
     }
 
     private String surrender(Game game) {
@@ -171,32 +171,34 @@ public class GeneralController {
 
     public String run(String command) throws CmdLineParser.OptionException {
         Game game = GameInProcess.getGame();
-        if (command.equals("START")) {
-            game.setGameSideStage(GameSideStage.NONE);
-            return DrawPhaseController.getInstance().draw() + "\n" + drawBoard(game);
-        } else {
-            if (game.getGameSideStage().equals(GameSideStage.NONE)) {
-                if (command.startsWith("select -d")) {
-                    return deSelectCard(game);
-                    // d selecting card
-                } else if (command.startsWith("show graveyard")) {
-                    return showGraveYard(game, command);
-                    // show grave yard (current / opponent)
-                } else if (command.startsWith("select")) {
-                    return selectCard(game, command);
-                    // select a card from (monster / spell / hand )
-                } else if (command.startsWith("card show")) {
-                    return showSelectedCard(game);
-                    // show card detail
-                } else if (command.equals("surrender")) {
-                    return surrender(game);
-                } else if (command.equals("next phase")) {
-                    return nextPhase(game);
-                } else if (command.equals("draw board")) {
-                    return drawBoard(game);
-                } else return null;
-            } else return "back to game first";
+        if (game.getGameSideStage().equals(GameSideStage.START_STAGE)) {
+            if (command.equals("START")) {
+                game.setGameSideStage(GameSideStage.NONE);
+                return DrawPhaseController.getInstance().draw() + "\n" + drawBoard(game);
+            }
+            return "invalid command to start game";
+        } else if (game.getGameSideStage().equals(GameSideStage.NONE)) {
+            if (command.startsWith("select -d")) {
+                return deSelectCard(game);
+                // d selecting card
+            } else if (command.startsWith("show graveyard")) {
+                return showGraveYard(game, command);
+                // show grave yard (current / opponent)
+            } else if (command.startsWith("select")) {
+                return selectCard(game, command);
+                // select a card from (monster / spell / hand )
+            } else if (command.startsWith("card show")) {
+                return showSelectedCard(game);
+                // show card detail
+            } else if (command.equals("surrender")) {
+                return surrender(game);
+            } else if (command.equals("next phase")) {
+                return nextPhase(game);
+            } else if (command.equals("draw board")) {
+                return drawBoard(game);
+            } else return null;
         }
+        else return "back to game first";
     }
 
 

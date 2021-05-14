@@ -142,6 +142,7 @@ public final class Regex {
     //GamePlay -> battle  phaseCommands
     public static String[] battlePhaseCommands = new String[]{
             "attack \\d",
+            "attack direct"
     };
 
     public static String[][] allGamePlayCommands = new String[][]{

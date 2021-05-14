@@ -4,11 +4,7 @@ import model.gameprop.BoardProp.PlayerBoard;
 import model.userProp.Deck;
 import model.userProp.User;
 
-enum Change {
-    INCREASE,
-    DECREASE
-    //TODO Change the name to the better one
-}
+import java.util.Collections;
 
 public class Player {
     public int playerLifePoint;

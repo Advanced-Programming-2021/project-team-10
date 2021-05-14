@@ -29,8 +29,10 @@ public class MonsterHouse extends GameHouse {
 
     public void setMonsterCard(MonsterCard monsterCard) {
         this.monsterCard = monsterCard;
-        if (this.monsterCard == null)
+        if (this.monsterCard == null) {
             state = MonsterHouseVisibilityState.E;
+            isMonsterAttacked = false;
+        }
     }
 
     public boolean isPosChange() {
@@ -45,8 +47,8 @@ public class MonsterHouse extends GameHouse {
         return isMonsterAttacked;
     }
 
-    public void setMonsterAttacked(boolean monsterAttacked) {
-        isMonsterAttacked = monsterAttacked;
+    public void setMonsterAttacked() {
+        isMonsterAttacked = true;
     }
 }
 //TODO game map and where to add it

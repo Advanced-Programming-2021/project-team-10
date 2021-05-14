@@ -1,7 +1,8 @@
-package controller.gamecontrollers.gamestagecontroller.handlers.attackMonster.processors;
+package controller.gamecontrollers.gamestagecontroller.handlers.attackmonster.processors;
 
-import controller.gamecontrollers.gamestagecontroller.handlers.attackMonster.AttackMonsterProcessor;
+import controller.gamecontrollers.gamestagecontroller.handlers.attackmonster.AttackMonsterProcessor;
 import model.cards.cardsProp.MonsterCard;
+import model.enums.GameEnums.GamePhaseEnums.BattlePhase;
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
 import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
@@ -15,36 +16,39 @@ public class AttackProcessor extends AttackMonsterProcessor {
         super(processor);
     }
 
-    public MainPhase process(SelectedCardProp offensive, MonsterHouse target, Game game) {
+    public BattlePhase process(SelectedCardProp offensive, MonsterHouse target, Game game) {
         MonsterCard offensiveCard = (MonsterCard) offensive.getCard();
         MonsterCard targetCard = target.getMonsterCard();
         MonsterHouse offensiveCardPlace = (MonsterHouse) offensive.getCardPlace();
         Player opponent = game.getPlayer(SideOfFeature.OPPONENT);
         Player current = game.getPlayer(SideOfFeature.CURRENT);
+        offensiveCardPlace.setMonsterAttacked();
 
         if (target.getState().equals(MonsterHouseVisibilityState.OO)) {
             int attackDifference = offensiveCard.getAttack() - targetCard.getAttack();
             if (attackDifference > 0) {
                 successfulAttackToOffensiveMonster(target, targetCard, opponent, attackDifference);
-                return MainPhase.SUCCESSFUL_ATTACK_OFFENSIVE_TARGET;
+                return BattlePhase.SUCCESSFUL_ATTACK_OFFENSIVE_TARGET;
             } else if (attackDifference == 0) {
                 drawAttackToOffensiveMonster(target, offensiveCard, targetCard, offensiveCardPlace, opponent, current);
-                return MainPhase.BOTH_CARD_ELIMINATE;
+                return BattlePhase.BOTH_CARD_ELIMINATE;
             } else {
                 defeatAttackToOffensiveMonster(offensiveCard, offensiveCardPlace, opponent, current, attackDifference);
-                return MainPhase.DEFEAT_ATTACK_OO_TARGET;
+                return BattlePhase.DEFEAT_ATTACK_OO_TARGET;
             }
         } else {
             int damageAmount = offensiveCard.getAttack() - targetCard.getDefence();
             if (damageAmount > 0) {
                 target.setMonsterCard(null);
                 opponent.getBoard().getGraveYard().addCardToGraveYard(offensiveCard);
-                return MainPhase.SUCCESSFUL_ATTACK_DEFENCE_KNOWN_TARGET;
-            } else if (damageAmount == 0)
-                return MainPhase.NO_CARD_ELIMINATE;
+                return BattlePhase.SUCCESSFUL_ATTACK_DEFENCE_KNOWN_TARGET;
+            } else if (damageAmount == 0) {
+                target.setState(MonsterHouseVisibilityState.DO);
+                return BattlePhase.NO_CARD_ELIMINATE;
+            }
             else {
                 current.changePlayerLifePoint(damageAmount * -1);
-                return MainPhase.DEFEAT_ATTACK_ON_DEFENCE_UNKNOWN;
+                return BattlePhase.DEFEAT_ATTACK_ON_DEFENCE_UNKNOWN;
             }
         }
     }
