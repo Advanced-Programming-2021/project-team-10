@@ -20,6 +20,7 @@ public class MonsterCard extends Card {
     protected MonsterType type;
     protected MonsterRace race;
     protected MonsterAttribute attribute;
+    protected MagicCard equippedWith;
 
     public MonsterCard(String name, String level, String attribute, String race, String type,
                        String attack, String defence, String description, String price) {
@@ -93,6 +94,14 @@ public class MonsterCard extends Card {
 
     public void setAttribute(MonsterAttribute attribute) {
         this.attribute = attribute;
+    }
+
+    public MagicCard getEquippedWith() {
+        return equippedWith;
+    }
+
+    public void setEquippedWith(MagicCard equippedWith) {
+        this.equippedWith = equippedWith;
     }
 
     @Override
