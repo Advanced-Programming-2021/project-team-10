@@ -26,18 +26,14 @@ public class ChangingEquipedMonsterAttack extends ActionOfMagic {
         this.changeAttack = changeAttack;
     }
 
+    public MonsterCard getEquipedMonster() {
+        return equipedMonster;
+    }
+
     @Override
     public void active() {
-        if (equipedMonster == null) {
-            String nameOfMonster = GetStringInputFromView.getInputFromView(RequestingInput.SET_EQUIPED_MONSTER);
-            PlayerBoard currentPlayerboard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
-            try {
-                equipedMonster = currentPlayerboard.getMonsterCardByName(nameOfMonster);
-                equipedMonster.setEquippedWith((MagicCard) GameInProcess.getGame().getCardProp().getCard());
-            } catch (CardNotFoundException e) {
-                active();
-            }
-        }
+        equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this);
+
         int attack = equipedMonster.getAttack();
         attack += changeAttack * addOrMinus;
         equipedMonster.setAttack(attack);
