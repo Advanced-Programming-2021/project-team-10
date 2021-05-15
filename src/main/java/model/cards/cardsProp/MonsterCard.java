@@ -37,6 +37,19 @@ public class MonsterCard extends Card {
     public MonsterCard() {
     }
 
+    public void setDetails(String name, String level, String attribute, String race, String type,
+                                  String attack, String defence, String description, String price) {
+        setName(name);
+        setDescription(description);
+        setPrice(price);
+        setAttack(Integer.parseInt(attack));
+        setDefence(Integer.parseInt(defence));
+        setLevel(Integer.parseInt(level));
+        setType(MonsterType.assignType(type));
+        setRace(MonsterRace.assignRace(race));
+        setAttribute(MonsterAttribute.assignAttribute(attribute));
+    }
+
     @Override
     public String getCardDetail() {
         return "Name: " + name +
@@ -46,6 +59,11 @@ public class MonsterCard extends Card {
                 "\nDEF: " + defence +
                 "\nDescription: " + description;
 
+    }
+
+    public static void setMonsterCards(ArrayList<MonsterCard> monsterCards) {
+        MonsterCard.monsterCards = monsterCards;
+        Card.addMonstersToCards(monsterCards);
     }
 
     public int getAttack() {

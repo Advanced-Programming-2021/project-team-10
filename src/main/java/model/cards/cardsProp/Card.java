@@ -54,6 +54,14 @@ public abstract class Card {
         return null; // No such card exists.
     }
 
+    public static void addMagicsToCards(ArrayList<MagicCard> magicCards) {
+        cards.addAll(magicCards);
+    }
+
+    public static void addMonstersToCards(ArrayList<MonsterCard> monsterCards) {
+        cards.addAll(monsterCards);
+    }
+
     public static List<Card> getCards() {
         return cards;
     }

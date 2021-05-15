@@ -28,7 +28,7 @@ public class DataBase {
     }
 
     public void restoreDate() {
-        ArrayList<Card> monsterCards = new ArrayList<>();
+        ArrayList<MonsterCard> monsterCards = new ArrayList<>();
         ArrayList<MagicCard> magicCards = new ArrayList<>();
         try {
             String json = new String(Files.readAllBytes(Paths.get("jsonResources\\MagicCard.json")));
@@ -38,47 +38,63 @@ public class DataBase {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        try {
+            String json = new String(Files.readAllBytes(Paths.get("jsonResources\\MonsterCard.json")));
+            monsterCards = new Gson().fromJson(json,
+                    new TypeToken<List<MonsterCard>>() {
+                    }.getType());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         try (CSVReader reader = new CSVReader(new FileReader("csvFile\\SpellTrap.csv"))) {
             String[] lineInArray;
             int counter = 0;
             while ((lineInArray = reader.readNext()) != null) {
-//                MagicCard magicCard = magicCards.get(counter);
-//                magicCard.setDetails(lineInArray[0], lineInArray[1],
-//                        lineInArray[2], lineInArray[3],
-//                        lineInArray[4], lineInArray[5]);
-//                counter++;
-                magicCards.add(new MagicCard(lineInArray[0], lineInArray[1],
+                MagicCard magicCard = magicCards.get(counter);
+                magicCard.setDetails(lineInArray[0], lineInArray[1],
                         lineInArray[2], lineInArray[3],
-                        lineInArray[4], lineInArray[5]));
+                        lineInArray[4], lineInArray[5]);
+                counter++;
+//                magicCards.add(new MagicCard(lineInArray[0], lineInArray[1],
+//                        lineInArray[2], lineInArray[3],
+//                        lineInArray[4], lineInArray[5]));
             }
+            MagicCard.setMagicCards(magicCards);
         } catch (Exception e) {
             e.printStackTrace();
         }
         try (CSVReader reader = new CSVReader(new FileReader("csvFile\\Monster.csv"))) {
             String[] infoRow;
+            int counter = 0;
             reader.readNext(); // dummy read to skip the title row
             while ((infoRow = reader.readNext()) != null) {
-                MonsterCard monsterCard = new MonsterCard(infoRow[0], infoRow[1], infoRow[2],
+                MonsterCard monsterCard = monsterCards.get(counter);
+                monsterCard.setDetails(infoRow[0], infoRow[1], infoRow[2],
                         infoRow[3], infoRow[4], infoRow[5],
                         infoRow[6], infoRow[7], infoRow[8]);
+                counter++;
+//                MonsterCard monsterCard = new MonsterCard(infoRow[0], infoRow[1], infoRow[2],
+//                        infoRow[3], infoRow[4], infoRow[5],
+//                        infoRow[6], infoRow[7], infoRow[8]);
 //                monsterCards.add(monsterCard);
             }
+            MonsterCard.setMonsterCards(monsterCards);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String json = new Gson().toJson(magicCards);
-        Writer writer = null;
-        try {
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream("jsonResources\\MagicCard.json"), StandardCharsets.UTF_8));
-            writer.write(json);
-        } catch (IOException ex) {
-            // Report
-        } finally {
-            try {
-                assert writer != null;
-                writer.close();} catch (Exception ex) {/*ignore*/}
-        }
+//        String json = new Gson().toJson(magicCards);
+//        Writer writer = null;
+//        try {
+//            writer = new BufferedWriter(new OutputStreamWriter(
+//                    new FileOutputStream("jsonResources\\MagicCard.json"), StandardCharsets.UTF_8));
+//            writer.write(json);
+//        } catch (IOException ex) {
+//            // Report
+//        } finally {
+//            try {
+//                assert writer != null;
+//                writer.close();} catch (Exception ex) {/*ignore*/}
+//        }
 //        json = new Gson().toJson(monsterCards);
 //        try {
 //            writer = new BufferedWriter(new OutputStreamWriter(

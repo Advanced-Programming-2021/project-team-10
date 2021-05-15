@@ -8,10 +8,6 @@ import model.cards.cardsEnum.Magic.MagicType;
 import model.cards.cardsEnum.Monster.MonsterRace;
 import model.enums.GameEnums.SideOfFeature;
 import model.events.Event;
-import model.gameprop.BoardProp.GraveYard;
-import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
-import model.gameprop.Player;
 
 import java.util.ArrayList;
 
@@ -149,6 +145,7 @@ public class MagicCard extends Card {
 
     public static void setMagicCards(ArrayList<MagicCard> magicCards) {
         MagicCard.magicCards = magicCards;
+        Card.addMagicsToCards(magicCards);
     }
 
     public static MagicCard getMagicCardByName(String name) {
