@@ -5,6 +5,7 @@ import model.cards.cardsActions.magicActionChildren.*;
 import model.cards.cardsEnum.Magic.MagicAttribute;
 import model.cards.cardsEnum.Magic.MagicSpeed;
 import model.cards.cardsEnum.Magic.MagicType;
+import model.cards.cardsEnum.Monster.MonsterRace;
 import model.enums.GameEnums.SideOfFeature;
 import model.events.Event;
 import model.gameprop.BoardProp.GraveYard;
@@ -46,41 +47,100 @@ public class MagicCard extends Card {
     }
 
     private void setMagicEffect(String name) {
-//        if (name.equals("Monster Reborn")) {
-//            ArrayList<GraveYard> graveYards = new ArrayList<>();
-//            graveYards.add(GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard().getGraveYard());
-//            graveYards.add(GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getBoard().getGraveYard());
-//            actionsOfMagic.add(new SummonMonsterFromGraveYardAction(graveYards));
-//        }
-//        if (name.equals("Call of the Haunted")) {
-//            ArrayList<GraveYard> graveYards = new ArrayList<>();
-//            graveYards.add(GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard().getGraveYard());
-//            actionsOfMagic.add(new SummonMonsterFromGraveYardAction(graveYards));
-//        }
-//        if (name.equals("Torrential Tribute")) {
-//            ArrayList<MonsterCard> monsterCards = new ArrayList<>();
-//            ArrayList<MagicCard> magicCards = new ArrayList<>();
-//        }
-//        if (name.equals("Terraforming") || name.equals("Pot of Greed") || name.equals("Supply Squad"))
-//            actionsOfMagic.add(AddCardFromDeckTOHand.getInstance());
+        if (name.equals("Monster Reborn")) {
+            actionsOfMagic.add(new SummonMonsterFromBothGraveYardsAction());
+        }
+        if (name.equals("Torrential Tribute")) {
+            ArrayList<MonsterCard> monsterCards = new ArrayList<>();
+            ArrayList<MagicCard> magicCards = new ArrayList<>();
+        }
+        if (name.equals("Raigeki")) {
+            actionsOfMagic.add(new DestroyAllOpponentMonsters());
+        }
+        if (name.equals("Harpie’s Feather Duster")) {
+            actionsOfMagic.add(new DestroyAllOpponentMagics());
+        }
+        if (name.equals("Dark Hole")) {
+            actionsOfMagic.add(new DestroyAllBoardMonsters());
+        }
+        if (name.equals("Mystical space typhoon")) {
+            actionsOfMagic.add(new DestroyAMagicCard());
+        }
+        if (name.equals("Yami")) {
+            ArrayList<String> types = new ArrayList<>();
+            types.add(MonsterRace.FIEND.toString());
+            types.add(MonsterRace.SPELLCASTER.toString());
+            ArrayList<SideOfFeature> sideOfFeatures = new ArrayList<>();
+            sideOfFeatures.add(SideOfFeature.CURRENT);
+            sideOfFeatures.add(SideOfFeature.OPPONENT);
+            actionsOfMagic.add(new ChangingMonsterAttackAction(200, types, 1, sideOfFeatures));
+            types = new ArrayList<>();
+            types.add(MonsterRace.FAIRY.toString());
+            actionsOfMagic.add(new ChangingMonsterAttackAction(200, types, -1, sideOfFeatures));
+        }
+        if (name.equals("Forest")) {
+            ArrayList<String> types = new ArrayList<>();
+            types.add(MonsterRace.BEAST.toString());
+            types.add(MonsterRace.INSECT.toString());
+            types.add(MonsterRace.BEAST_WARRIOR.toString());
+            ArrayList<SideOfFeature> sideOfFeatures = new ArrayList<>();
+            sideOfFeatures.add(SideOfFeature.CURRENT);
+            sideOfFeatures.add(SideOfFeature.OPPONENT);
+            actionsOfMagic.add(new ChangingMonsterAttackAction(200, types, 1, sideOfFeatures));
+        }
+        if (name.equals("Closed Forest")) {
+            ArrayList<String> types = new ArrayList<>();
+            types.add(MonsterRace.BEAST.toString());
+            types.add(MonsterRace.BEAST_WARRIOR.toString());
+            ArrayList<SideOfFeature> sideOfFeaturesGraveyard = new ArrayList<>();
+            sideOfFeaturesGraveyard.add(SideOfFeature.OPPONENT);
+            sideOfFeaturesGraveyard.add(SideOfFeature.CURRENT);
+            ArrayList<SideOfFeature> sideOfFeaturesChangeAttack = new ArrayList<>();
+            sideOfFeaturesChangeAttack.add(SideOfFeature.CURRENT);
+            actionsOfMagic.add(new ChangingMonsterAttackWithGraveyardsMonster(100, 1, types, sideOfFeaturesGraveyard, sideOfFeaturesChangeAttack));
+        }
+        if (name.equals("Umiiruka")) {
+            ArrayList<String> types = new ArrayList<>();
+            types.add(MonsterRace.AQUA.toString());
+            ArrayList<SideOfFeature> sideOfFeatures = new ArrayList<>();
+            sideOfFeatures.add(SideOfFeature.CURRENT);
+            sideOfFeatures.add(SideOfFeature.OPPONENT);
+            actionsOfMagic.add(new ChangingMonsterAttackAction(500, types, 1, sideOfFeatures));
+        }
+        if (name.equals("Sword of Dark Destruction")) {
+            ArrayList<String> types = new ArrayList<>();
+            types.add(MonsterRace.FIEND.toString());
+            types.add(MonsterRace.SPELLCASTER.toString());
+            actionsOfMagic.add(new ChangingSomeRaceEquipedMonsterAttack(400, 1, types));
+        }
+        if (name.equals("Black Pendant")) {
+            actionsOfMagic.add(new ChangingEquipedMonsterAttack(500, 1));
+        }
+        if (name.equals("Mirror Force")) {
+            actionsOfMagic.add(new DestroyAllOpponentAttackingMonsters());
+        }
+        if (name.equals("Mind Crush")) {
+            actionsOfMagic.add(new GuessingCardInOpponentHandAction());
+        }
+        if (name.equals("Torrential Tribute")) {
+            actionsOfMagic.add(new DestroyAllBoardMonsters());
+        }
+        if (name.equals("Call of the Haunted")) {
+            actionsOfMagic.add(new SummonMonsterFromOwnGraveYardAction());
+        }
 //        if (name.equals("Magic Jammer") || name.equals("Magic Cylinder"))
 //            actionsOfMagic.add(StoppingActivationAction.getInstance());
 //        if (name.equals("Advanced Ritual Art")) actionsOfMagic.add(RitualSummonAction.getInstance());
 //        if (name.equals("Ring of Defense") || name.equals("Negate Attack"))
 //            actionsOfMagic.add(MakeDamageZero.getInstance());
-//        if (name.equals("Mind Crush")) actionsOfMagic.add(GuessingCardInOpponentHandAction.getInstance());
-//        if (name.equals("Swords of Revealing Light")) actionsOfMagic.add(FlipCardAction.getInstance());
-//        if (name.equals("Torrential Tribute") || name.equals("Trap Hole") || name.equals("Mirror Force") || name.equals("Mystical space typhoon") || name.equals("Twin Twisters") || name.equals("Dark Hole") || name.equals("Harpie’s Feather Duster") || name.equals("Raigeki"))
+//        if (name.equals("Trap Hole") || name.equals("Twin Twisters"))
 //            ;
-//        if (name.equals("Magnum Shield") || name.equals("United We Stand") || name.equals("Black Pendant") || name.equals("Sword of Dark Destruction") || name.equals("Umiiruka") || name.equals("Closed Forest") || name.equals("Forest") || name.equals("Yami"))
+//        if (name.equals("Magnum Shield") || name.equals("United We Stand"))
 //            actionsOfMagic.add(ChangingMonsterAttackAction.getInstance());
 //        if (name.equals("Spell Absorption")) actionsOfMagic.add(ChangingLifePointAction.getInstance());
-//        if (name.equals("Change of Heart")) actionsOfMagic.add(ChangeTeamOfMonsterCard.getInstance());
 //        if (name.equals("Magnum Shield") || name.equals("United We Stand") || name.equals("Sword of Dark Destruction") || name.equals("Umiiruka") || name.equals("Forest") || name.equals("Yami"))
 //            actionsOfMagic.add(ChangeDefenceOfMonsterCard.getInstance());
-//        if (name.equals("Solemn Warning")) actionsOfMagic.add(CancelSummon.getInstance());
 //        if (name.equals("Time Seal")) actionsOfMagic.add(AvoidOpponentsCardDraw.getInstance());
-//        if (name.equals("Messenger of peace")) actionsOfMagic.add(AvoidAttackOfMonsters.getInstance());
 //        if (name.equals("Negate Attack")) actionsOfMagic.add(EndBattlePhaseAction.getInstance());
     }
 
