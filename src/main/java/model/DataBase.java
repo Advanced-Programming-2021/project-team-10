@@ -47,6 +47,9 @@ public class DataBase {
                         lineInArray[2], lineInArray[3],
                         lineInArray[4], lineInArray[5]);
                 counter++;
+//                magicCards.add(new MagicCard(lineInArray[0], lineInArray[1],
+//                        lineInArray[2], lineInArray[3],
+//                        lineInArray[4], lineInArray[5]));
             }
         } catch (Exception e) {
             e.printStackTrace();

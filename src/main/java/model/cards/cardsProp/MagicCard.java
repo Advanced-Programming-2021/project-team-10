@@ -26,7 +26,6 @@ public class MagicCard extends Card {
     private final ArrayList<ActionOfMagic> actionsOfMagic;
     private final ArrayList<Event> sideEvents;
     private final ArrayList<Event> triggers;
-    private String actionSpecialized;
     private MagicSpeed magicSpeed;
     private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
