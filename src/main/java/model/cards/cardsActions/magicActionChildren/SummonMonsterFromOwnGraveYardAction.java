@@ -34,5 +34,6 @@ public class SummonMonsterFromOwnGraveYardAction extends ActionOfMagic {
             e.printStackTrace();
             active();
         }
+        isActivatedBefore = true;
     }
 }

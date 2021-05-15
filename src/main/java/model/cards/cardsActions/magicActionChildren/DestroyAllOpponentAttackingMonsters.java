@@ -23,5 +23,6 @@ public class DestroyAllOpponentAttackingMonsters extends ActionOfMagic {
                 }
             }
         }
+        isActivatedBefore = true;
     }
 }

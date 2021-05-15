@@ -77,5 +77,6 @@ public class GuessingCardInOpponentHandAction extends ActionOfMagic {
             currentPlayerBoard.getGraveYard().addCardToGraveYard(card);
             hand.remove(0);
         }
+        isActivatedBefore = true;
     }
 }

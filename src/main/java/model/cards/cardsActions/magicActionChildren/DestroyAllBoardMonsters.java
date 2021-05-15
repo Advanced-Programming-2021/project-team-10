@@ -28,5 +28,6 @@ public class DestroyAllBoardMonsters extends ActionOfMagic {
                 monsterHouse.setMonsterCard(null);
             }
         }
+        isActivatedBefore = true;
     }
 }

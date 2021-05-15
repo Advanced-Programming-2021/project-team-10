@@ -21,5 +21,6 @@ public class DestroyAllOpponentMagics extends ActionOfMagic {
                 magicHouse.setMagicCard(null);
             }
         }
+        isActivatedBefore = true;
     }
 }

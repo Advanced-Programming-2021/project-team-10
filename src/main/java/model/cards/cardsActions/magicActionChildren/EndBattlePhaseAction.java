@@ -12,5 +12,6 @@ public class EndBattlePhaseAction extends ActionOfMagic {
     @Override
     public void active() {
         GeneralController.getInstance().nextPhase(GameInProcess.getGame());
+        isActivatedBefore = true;
     }
 }

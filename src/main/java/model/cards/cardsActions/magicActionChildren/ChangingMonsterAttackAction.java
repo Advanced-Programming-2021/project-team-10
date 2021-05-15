@@ -11,26 +11,31 @@ public class ChangingMonsterAttackAction extends ActionOfMagic {
     private final int changeAttack;
     private final ArrayList<String> typesToChangeAttack;
     private final int addOrMinus;
+    private final ArrayList<SideOfFeature> changeWhichTeamMonsterAttack;
 
     {
         name = this.getClass().getSimpleName();
     }
 
-    public ChangingMonsterAttackAction(int changeAttack, ArrayList<String> typesToChangeAttack, int addOrMinus) {
+    public ChangingMonsterAttackAction(int changeAttack, ArrayList<String> typesToChangeAttack, int addOrMinus, ArrayList<SideOfFeature> changeWhichTeamMonsterAttack) {
         this.changeAttack = changeAttack;
         this.typesToChangeAttack = typesToChangeAttack;
         this.addOrMinus = addOrMinus;
+        this.changeWhichTeamMonsterAttack = changeWhichTeamMonsterAttack;
     }
 
     @Override
     public void active() {
-        MonsterHouse[] monsterHouses = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard().getMonsterHouse();
-        for (MonsterHouse monsterHouse : monsterHouses) {
-            if (typesToChangeAttack.contains(monsterHouse.getMonsterCard().getRace().toString())) {
-                int newAttack = monsterHouse.getMonsterCard().getAttack();
-                newAttack += changeAttack * addOrMinus;
-                monsterHouse.getMonsterCard().setAttack(newAttack);
+        for (SideOfFeature sideOfFeature : changeWhichTeamMonsterAttack) {
+            MonsterHouse[] monsterHouses = GameInProcess.getGame().getPlayer(sideOfFeature).getBoard().getMonsterHouse();
+            for (MonsterHouse monsterHouse : monsterHouses) {
+                if (typesToChangeAttack.contains(monsterHouse.getMonsterCard().getRace().toString())) {
+                    int newAttack = monsterHouse.getMonsterCard().getAttack();
+                    newAttack += changeAttack * addOrMinus;
+                    monsterHouse.getMonsterCard().setAttack(newAttack);
+                }
             }
         }
+        isActivatedBefore = true;
     }
 }

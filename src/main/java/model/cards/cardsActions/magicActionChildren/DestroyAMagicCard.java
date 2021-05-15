@@ -43,5 +43,6 @@ public class DestroyAMagicCard extends ActionOfMagic {
                 active();
             }
         }
+        isActivatedBefore = true;
     }
 }

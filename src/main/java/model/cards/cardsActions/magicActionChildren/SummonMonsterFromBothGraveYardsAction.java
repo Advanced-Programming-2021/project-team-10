@@ -37,6 +37,6 @@ public class SummonMonsterFromBothGraveYardsAction extends ActionOfMagic {
                 active();
             }
         }
-
+        isActivatedBefore = true;
     }
 }
