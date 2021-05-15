@@ -2,6 +2,7 @@ package model.cards.cardsActions.magicActionChildren;
 
 import controller.gamecontrollers.GeneralController;
 import controller.gamecontrollers.GetStringInputFromView;
+import exceptions.CardNotFoundException;
 import model.cards.cardsActions.ActionOfMagic;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
@@ -21,14 +22,21 @@ public class SummonMonsterFromBothGraveYardsAction extends ActionOfMagic {
         GeneralController.getInstance().showGraveYard(GameInProcess.getGame(), "--current");
         GeneralController.getInstance().showGraveYard(GameInProcess.getGame(), "--opponent");
         String cardToSummon = GetStringInputFromView.getInputFromView(RequestingInput.FROM_GRAVEYARD);
-        if (opponentPlayerboard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon) != null) {
-            MonsterCard summonedMonster = opponentPlayerboard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);
+        MonsterCard summonedMonster;
+        try {
+            summonedMonster = opponentPlayerboard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);
             opponentPlayerboard.summonMonster(summonedMonster);
             opponentPlayerboard.getGraveYard().removeCardFromGraveYard(summonedMonster);
-        } else {
-            MonsterCard summonedMonster = currentPlayerboard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);
-            currentPlayerboard.summonMonster(summonedMonster);
-            currentPlayerboard.getGraveYard().removeCardFromGraveYard(summonedMonster);
+        } catch (CardNotFoundException e) {
+            try {
+                summonedMonster = currentPlayerboard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);
+                currentPlayerboard.summonMonster(summonedMonster);
+                currentPlayerboard.getGraveYard().removeCardFromGraveYard(summonedMonster);
+            } catch (CardNotFoundException cardNotFoundException) {
+                cardNotFoundException.printStackTrace();
+                active();
+            }
         }
+
     }
 }

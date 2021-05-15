@@ -1,5 +1,6 @@
 package model.gameprop.BoardProp;
 
+import exceptions.CardNotFoundException;
 import model.cards.cardsProp.Card;
 import model.cards.cardsProp.MonsterCard;
 
@@ -25,7 +26,7 @@ public class GraveYard {
         destroyedCards.remove(card);
     }
 
-    public MonsterCard getMonsterCardFromGraveyardByName(String name) {
+    public MonsterCard getMonsterCardFromGraveyardByName(String name) throws CardNotFoundException {
         for (Card destroyedCard : destroyedCards) {
             if (destroyedCard.getName().equals(name)) {
                 if (destroyedCard instanceof MonsterCard) {
@@ -33,6 +34,6 @@ public class GraveYard {
                 }
             }
         }
-        return null;
+        throw new CardNotFoundException("monster card not found!");
     }
 }

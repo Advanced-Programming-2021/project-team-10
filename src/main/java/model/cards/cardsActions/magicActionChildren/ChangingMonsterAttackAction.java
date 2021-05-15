@@ -8,15 +8,22 @@ import model.gameprop.GameInProcess;
 import java.util.ArrayList;
 
 public class ChangingMonsterAttackAction extends ActionOfMagic {
-    private int changeAttack;
-    private ArrayList<String> typesToChangeAttack;
-    private int addOrMinus;
+    private final int changeAttack;
+    private final ArrayList<String> typesToChangeAttack;
+    private final int addOrMinus;
 
     {
         name = this.getClass().getSimpleName();
     }
 
     public ChangingMonsterAttackAction(int changeAttack, ArrayList<String> typesToChangeAttack, int addOrMinus) {
+        this.changeAttack = changeAttack;
+        this.typesToChangeAttack = typesToChangeAttack;
+        this.addOrMinus = addOrMinus;
+    }
+
+    @Override
+    public void active() {
         MonsterHouse[] monsterHouses = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard().getMonsterHouse();
         for (MonsterHouse monsterHouse : monsterHouses) {
             if (typesToChangeAttack.contains(monsterHouse.getMonsterCard().getRace().toString())) {

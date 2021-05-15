@@ -144,7 +144,7 @@ public class GeneralController {
         }
     }
 
-    private String nextPhase(Game game) {
+    public String nextPhase(Game game) {
         DrawPhaseController drawController = DrawPhaseController.getInstance();
         game.goToNextPhase();
         String output = process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName());
