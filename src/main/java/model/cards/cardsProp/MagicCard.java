@@ -198,6 +198,7 @@ public class MagicCard extends Card {
         setMagicSpeed(MagicSpeed.setSpeed(speed));
         setDescription(description);
         setPrice(price);
+        setMagicEffect(name);
     }
 
     public ArrayList<ActionOfMagic> getActionsOfMagic() {

@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="add actions to cards">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
-    </list>
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="restore data again" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,13 +202,6 @@
       <workItem from="1620947078549" duration="229000" />
       <workItem from="1620956538345" duration="13214000" />
       <workItem from="1621006540814" duration="6959000" />
-    </task>
-    <task id="LOCAL-00015" summary="end of task 1">
-      <created>1618869999106</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1618869999106</updated>
     </task>
     <task id="LOCAL-00016" summary="end of task 1">
       <created>1618952263886</created>
@@ -533,7 +523,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۶۳" />
       <updated>1621096563198</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL‎۰۰۰۶۴" summary="restore data again">
+      <created>1621101451197</created>
+      <option name="number" value="LOCAL‎۰۰۰۶۴" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۶۴" />
+      <updated>1621101451213</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +549,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes&#10;-add &quot;DeckMenu&quot; errors to &quot;Error&quot; ENUM" />
     <MESSAGE value="deck" />
     <MESSAGE value="DuelMenu added" />
     <MESSAGE value="DuelMenu adding final error" />
@@ -578,7 +573,8 @@
     <MESSAGE value="add some actions" />
     <MESSAGE value="actions almost completed" />
     <MESSAGE value="add actions to cards" />
-    <option name="LAST_COMMIT_MESSAGE" value="add actions to cards" />
+    <MESSAGE value="restore data again" />
+    <option name="LAST_COMMIT_MESSAGE" value="restore data again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
