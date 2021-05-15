@@ -5,6 +5,7 @@ import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
+import model.userProp.Deck;
 
 import java.util.ArrayList;
 

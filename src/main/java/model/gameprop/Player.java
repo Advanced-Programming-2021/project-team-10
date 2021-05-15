@@ -4,8 +4,6 @@ import model.gameprop.BoardProp.PlayerBoard;
 import model.userProp.Deck;
 import model.userProp.User;
 
-import java.util.Collections;
-
 public class Player {
     public int playerLifePoint;
     User user;

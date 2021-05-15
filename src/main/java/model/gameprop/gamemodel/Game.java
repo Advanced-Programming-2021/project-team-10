@@ -1,13 +1,20 @@
 package model.gameprop.gamemodel;
 
+import model.cards.cardsProp.Card;
 import model.enums.GameEnums.PlayerTurn;
 import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.TypeOfHire;
 import model.enums.GameEnums.gamestage.GameMainStage;
 import model.enums.GameEnums.gamestage.GameSideStage;
 import model.gameprop.BoardProp.MonsterHouse;
+import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
+import model.gameprop.turnBasedObserver.TurnObserver;
+import model.userProp.Deck;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Game {
     private boolean isGameFinished;
@@ -149,6 +156,14 @@ public class Game {
 
     private void resetLastTurnData() {
         changeTurn();
+
+        ArrayList<TurnObserver> turnObservers = TurnObserver.getTurnObservers();
+        if (turnObservers != null) {
+            for (TurnObserver turnObserver : turnObservers) {
+                turnObserver.update();
+            }
+        }
+
         turn = new Turn(getPlayer(SideOfFeature.CURRENT));
     }
 
@@ -162,5 +177,16 @@ public class Game {
 
     public void setTypeOfMonsterHire(TypeOfHire typeOfMonsterHire) {
             turn.setTypeOfHighLevelMonsterHire(typeOfMonsterHire);
+    }
+
+    public void moveCardFromHandToDeck (Card card) {
+        Player player = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT);
+        Deck deck = player.getDeck();
+        ArrayList<Card> hand = player.getBoard().getPlayerHand();
+
+        deck.removeCardFromMainDeck(card);
+        hand.add(card);
+
+        Collections.shuffle(deck.getMainDeck());
     }
 }
