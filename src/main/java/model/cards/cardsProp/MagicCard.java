@@ -10,7 +10,7 @@ import model.enums.GameEnums.SideOfFeature;
 import model.events.Event;
 import model.events.eventChildren.FieldMagicFaceUp;
 import model.events.eventChildren.ManuallyActivation;
-import model.events.eventChildren.OpponentMonsterWantsToAttack;
+import model.events.eventChildren.CurrentMonsterWantsToAttack;
 import model.events.eventChildren.SummonMonster;
 import model.gameprop.gamemodel.Game;
 
@@ -135,7 +135,7 @@ public class MagicCard extends Card {
         }
         if (name.equals("Mirror Force")) {
             actionsOfMagic.add(new DestroyAllOpponentAttackingMonsters());
-            triggers.add(OpponentMonsterWantsToAttack.getInstance());
+            triggers.add(CurrentMonsterWantsToAttack.getInstance());
         }
         if (name.equals("Mind Crush")) {
             actionsOfMagic.add(new GuessingCardInOpponentHandAction());
