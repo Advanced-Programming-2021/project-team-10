@@ -17,7 +17,7 @@ public class ChangingMonsterDefenceAction extends ActionOfMagic {
         name = this.getClass().getSimpleName();
     }
 
-    ChangingMonsterDefenceAction(int changeDefence, ArrayList<String> typesToChangeDefence, int addOrMinus, ArrayList<SideOfFeature> changeWhichTeamMonsterDefence) {
+    public ChangingMonsterDefenceAction(int changeDefence, ArrayList<String> typesToChangeDefence, int addOrMinus, ArrayList<SideOfFeature> changeWhichTeamMonsterDefence) {
         this.changeDefence = changeDefence;
         this.typesToChangeDefence = typesToChangeDefence;
         this.addOrMinus = addOrMinus;

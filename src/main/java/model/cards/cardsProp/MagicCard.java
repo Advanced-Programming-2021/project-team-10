@@ -69,9 +69,11 @@ public class MagicCard extends Card {
             sideOfFeatures.add(SideOfFeature.CURRENT);
             sideOfFeatures.add(SideOfFeature.OPPONENT);
             actionsOfMagic.add(new ChangingMonsterAttackAction(200, types, 1, sideOfFeatures));
+            actionsOfMagic.add(new ChangingMonsterDefenceAction(200, types, 1, sideOfFeatures));
             types = new ArrayList<>();
             types.add(MonsterRace.FAIRY.toString());
             actionsOfMagic.add(new ChangingMonsterAttackAction(200, types, -1, sideOfFeatures));
+            actionsOfMagic.add(new ChangingMonsterDefenceAction(200, types, -1, sideOfFeatures));
         }
         if (name.equals("Forest")) {
             ArrayList<String> types = new ArrayList<>();
@@ -82,6 +84,7 @@ public class MagicCard extends Card {
             sideOfFeatures.add(SideOfFeature.CURRENT);
             sideOfFeatures.add(SideOfFeature.OPPONENT);
             actionsOfMagic.add(new ChangingMonsterAttackAction(200, types, 1, sideOfFeatures));
+            actionsOfMagic.add(new ChangingMonsterDefenceAction(200, types, 1, sideOfFeatures));
         }
         if (name.equals("Closed Forest")) {
             ArrayList<String> types = new ArrayList<>();
@@ -101,12 +104,14 @@ public class MagicCard extends Card {
             sideOfFeatures.add(SideOfFeature.CURRENT);
             sideOfFeatures.add(SideOfFeature.OPPONENT);
             actionsOfMagic.add(new ChangingMonsterAttackAction(500, types, 1, sideOfFeatures));
+            actionsOfMagic.add(new ChangingMonsterDefenceAction(400, types, -1, sideOfFeatures));
         }
         if (name.equals("Sword of Dark Destruction")) {
             ArrayList<String> types = new ArrayList<>();
             types.add(MonsterRace.FIEND.toString());
             types.add(MonsterRace.SPELLCASTER.toString());
             actionsOfMagic.add(new ChangingSomeRaceEquipedMonsterAttack(400, 1, types));
+            actionsOfMagic.add(new ChangingSomeRaceEquipedMonsterDefence(200, -1, types));
         }
         if (name.equals("Black Pendant")) {
             actionsOfMagic.add(new ChangingEquipedMonsterAttack(500, 1));

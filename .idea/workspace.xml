@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="restore data again">
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="restore data:(">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jsonResources/MagicCard.json" beforeDir="false" afterPath="$PROJECT_DIR$/jsonResources/MagicCard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingEquippedMonsterDefence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingEquippedMonsterDefence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterDefenceAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterDefenceAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MonsterCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DataBase.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,13 +209,6 @@
       <workItem from="1620947078549" duration="229000" />
       <workItem from="1620956538345" duration="13214000" />
       <workItem from="1621006540814" duration="6959000" />
-    </task>
-    <task id="LOCAL-00017" summary="end of task 1 and edit card abstract class">
-      <created>1618952446277</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1618952446277</updated>
     </task>
     <task id="LOCAL-00018" summary="end of task 1 and edit card abstract class">
       <created>1618957459088</created>
@@ -535,7 +528,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۶۵" />
       <updated>1621101745423</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL‎۰۰۰۶۶" summary="restore data:(">
+      <created>1621105148067</created>
+      <option name="number" value="LOCAL‎۰۰۰۶۶" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۶۶" />
+      <updated>1621105148067</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +554,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="deck" />
     <MESSAGE value="DuelMenu added" />
     <MESSAGE value="DuelMenu adding final error" />
     <MESSAGE value="board" />
@@ -580,7 +578,8 @@
     <MESSAGE value="actions almost completed" />
     <MESSAGE value="add actions to cards" />
     <MESSAGE value="restore data again" />
-    <option name="LAST_COMMIT_MESSAGE" value="restore data again" />
+    <MESSAGE value="restore data:(" />
+    <option name="LAST_COMMIT_MESSAGE" value="restore data:(" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

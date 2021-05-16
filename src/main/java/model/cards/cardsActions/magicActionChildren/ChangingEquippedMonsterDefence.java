@@ -14,7 +14,7 @@ public class ChangingEquippedMonsterDefence extends ActionOfMagic {
         isActivatedBefore = false;
     }
 
-    ChangingEquippedMonsterDefence(int changeDefence, int addOrMinus){
+    public ChangingEquippedMonsterDefence(int changeDefence, int addOrMinus){
         this.changeDefence = changeDefence;
         this.addOrMinus = addOrMinus;
     }
