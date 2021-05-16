@@ -4,13 +4,39 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="restore data:(">
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="game added as an argument to actions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsonResources/MagicCard.json" beforeDir="false" afterPath="$PROJECT_DIR$/jsonResources/MagicCard.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/ActionOfMagic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/ActionOfMagic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/AvoidAttackOfMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/AvoidAttackOfMonsters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/AvoidOpponentsCardDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/AvoidOpponentsCardDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/CancelSummon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/CancelSummon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangeTeamOfMonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangeTeamOfMonsterCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingEquipedMonsterAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingEquipedMonsterAttack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingEquippedMonsterDefence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingEquippedMonsterDefence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingLifePointAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingLifePointAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterAttackAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterAttackAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterAttackWithGraveyardsMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterAttackWithGraveyardsMonster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterDefenceAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingMonsterDefenceAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingSomeRaceEquipedMonsterAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingSomeRaceEquipedMonsterAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingSomeRaceEquipedMonsterDefence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/ChangingSomeRaceEquipedMonsterDefence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DamageOpponentHealthBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DamageOpponentHealthBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAMagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAMagicCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAllBoardMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAllBoardMonsters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAllOpponentAttackingMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAllOpponentAttackingMonsters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAllOpponentMagics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAllOpponentMagics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAllOpponentMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DestroyAllOpponentMonsters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DrawCardFromTopOfDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/DrawCardFromTopOfDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/EndBattlePhaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/EndBattlePhaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/GuessingCardInOpponentHandAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/GuessingCardInOpponentHandAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/MakeDamageZero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/MakeDamageZero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/RitualSummonAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/RitualSummonAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/StoppingActivationAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/StoppingActivationAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromBothGraveYardsAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromBothGraveYardsAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromOwnGraveYardAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromOwnGraveYardAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/TerraformingAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/TerraformingAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/events/Event.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,13 +235,6 @@
       <workItem from="1620947078549" duration="229000" />
       <workItem from="1620956538345" duration="13214000" />
       <workItem from="1621006540814" duration="6959000" />
-    </task>
-    <task id="LOCAL-00018" summary="end of task 1 and edit card abstract class">
-      <created>1618957459088</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1618957459088</updated>
     </task>
     <task id="LOCAL-00019" summary="end of task 1 and edit card abstract class">
       <created>1618960666801</created>
@@ -534,7 +553,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۶۶" />
       <updated>1621105148067</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL‎۰۰۰۶۷" summary="add actions completely">
+      <created>1621174939152</created>
+      <option name="number" value="LOCAL‎۰۰۰۶۷" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۶۷" />
+      <updated>1621174939152</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,8 +579,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="DuelMenu added" />
-    <MESSAGE value="DuelMenu adding final error" />
     <MESSAGE value="board" />
     <MESSAGE value="clean code and package classes" />
     <MESSAGE value="show card added and some clean code changes" />
@@ -579,7 +602,9 @@
     <MESSAGE value="add actions to cards" />
     <MESSAGE value="restore data again" />
     <MESSAGE value="restore data:(" />
-    <option name="LAST_COMMIT_MESSAGE" value="restore data:(" />
+    <MESSAGE value="add actions completely" />
+    <MESSAGE value="game added as an argument to actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="game added as an argument to actions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

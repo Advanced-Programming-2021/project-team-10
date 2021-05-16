@@ -7,6 +7,7 @@ import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
@@ -30,10 +31,10 @@ public class ChangingMonsterAttackWithGraveyardsMonster extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
+    public void active(Game game) {
         int countMonstersInGraveyard = 0;
         for (SideOfFeature countWhichGraveYard : countWhichGraveYards) {
-            PlayerBoard playerBoard = GameInProcess.getGame().getPlayer(countWhichGraveYard).getBoard();
+            PlayerBoard playerBoard = game.getPlayer(countWhichGraveYard).getBoard();
             for (Card destroyedCard : playerBoard.getGraveYard().getDestroyedCards()) {
                 if (destroyedCard instanceof MonsterCard) {
                     countMonstersInGraveyard++;
@@ -42,7 +43,7 @@ public class ChangingMonsterAttackWithGraveyardsMonster extends ActionOfMagic {
         }
         int changeAttack = countMonstersInGraveyard * changeAttackForEachMonsterInGraveyard * addOrMinus;
         for (SideOfFeature sideOfFeature : changeWhichTeamMonstersAttack) {
-            PlayerBoard playerBoard = GameInProcess.getGame().getPlayer(sideOfFeature).getBoard();
+            PlayerBoard playerBoard = game.getPlayer(sideOfFeature).getBoard();
             for (MonsterHouse monsterHouse : playerBoard.getMonsterHouse()) {
                 if (typesToChangeAttack.contains(monsterHouse.getMonsterCard().getRace().toString())) {
                     int monsterAttack = monsterHouse.getMonsterCard().getAttack();

@@ -6,6 +6,7 @@ import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 public class DestroyAllOpponentAttackingMonsters extends ActionOfMagic {
     {
@@ -13,8 +14,8 @@ public class DestroyAllOpponentAttackingMonsters extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        PlayerBoard opponentBoard = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getBoard();
+    public void active(Game game) {
+        PlayerBoard opponentBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         for (MonsterHouse monsterHouse : opponentBoard.getMonsterHouse()) {
             if (monsterHouse.getMonsterCard() != null) {
                 if (monsterHouse.getState().equals(MonsterHouseVisibilityState.OO)) {

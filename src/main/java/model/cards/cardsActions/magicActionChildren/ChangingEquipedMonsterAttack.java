@@ -9,6 +9,7 @@ import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 public class ChangingEquipedMonsterAttack extends ActionOfMagic {
     private MonsterCard equipedMonster;
@@ -31,9 +32,8 @@ public class ChangingEquipedMonsterAttack extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this);
-
+    public void active(Game game) {
+        equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this, game);
         int attack = equipedMonster.getAttack();
         attack += changeAttack * addOrMinus;
         equipedMonster.setAttack(attack);

@@ -12,6 +12,7 @@ import model.gameprop.BoardProp.GraveYard;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
@@ -21,8 +22,8 @@ public class SummonMonsterFromOwnGraveYardAction extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        PlayerBoard currentPlayerboard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
+    public void active(Game game) {
+        PlayerBoard currentPlayerboard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
         GeneralController.getInstance().showGraveYard(GameInProcess.getGame(), "--current");
         String cardToSummon = GetStringInputFromView.getInputFromView(RequestingInput.FROM_GRAVEYARD);
         MonsterCard summonedMonster;
@@ -32,7 +33,7 @@ public class SummonMonsterFromOwnGraveYardAction extends ActionOfMagic {
             currentPlayerboard.getGraveYard().removeCardFromGraveYard(summonedMonster);
         } catch (CardNotFoundException e) {
             e.printStackTrace();
-            active();
+            active(game);
         }
         isActivatedBefore = true;
     }

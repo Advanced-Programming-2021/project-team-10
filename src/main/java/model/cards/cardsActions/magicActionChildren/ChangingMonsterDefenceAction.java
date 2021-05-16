@@ -4,6 +4,7 @@ import model.cards.cardsActions.ActionOfMagic;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
@@ -25,9 +26,9 @@ public class ChangingMonsterDefenceAction extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
+    public void active(Game game) {
         for (SideOfFeature sideOfFeature : changeWhichTeamMonsterDefence) {
-            MonsterHouse[] monsterHouses = GameInProcess.getGame().getPlayer(sideOfFeature).getBoard().getMonsterHouse();
+            MonsterHouse[] monsterHouses = game.getPlayer(sideOfFeature).getBoard().getMonsterHouse();
             for (MonsterHouse monsterHouse : monsterHouses) {
                 if (typesToChangeDefence.contains(monsterHouse.getMonsterCard().getRace().toString())) {
                     int newDefence = monsterHouse.getMonsterCard().getAttack();

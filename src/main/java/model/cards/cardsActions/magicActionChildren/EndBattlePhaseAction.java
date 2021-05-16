@@ -2,7 +2,7 @@ package model.cards.cardsActions.magicActionChildren;
 
 import controller.gamecontrollers.GeneralController;
 import model.cards.cardsActions.ActionOfMagic;
-import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 public class EndBattlePhaseAction extends ActionOfMagic {
     {
@@ -10,8 +10,8 @@ public class EndBattlePhaseAction extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        GeneralController.getInstance().nextPhase(GameInProcess.getGame());
+    public void active(Game game) {
+        GeneralController.getInstance().nextPhase(game);
         isActivatedBefore = true;
     }
 }

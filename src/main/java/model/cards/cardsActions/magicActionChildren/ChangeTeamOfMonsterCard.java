@@ -19,9 +19,9 @@ public class ChangeTeamOfMonsterCard extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        Player currentPlayer = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT);
-        Player opponentPlayer = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT);
+    public void active(Game game) {
+        Player currentPlayer = game.getPlayer(SideOfFeature.CURRENT);
+        Player opponentPlayer = game.getPlayer(SideOfFeature.OPPONENT);
 
         PlayerBoard oppoBoard = opponentPlayer.getBoard();
         if (oppoBoard.numberOfFullHouse("monster") == 0) {
@@ -37,14 +37,14 @@ public class ChangeTeamOfMonsterCard extends ActionOfMagic {
                 // TODO: output properly!!!
             }
 
-            for (int i = 0; i < oppoPlayerMonsterHouses.length; i++) { // seeking for the selected card...
-                Card card = oppoPlayerMonsterHouses[i].getMonsterCard();
+            for (MonsterHouse oppoPlayerMonsterHouse : oppoPlayerMonsterHouses) { // seeking for the selected card...
+                MonsterCard card = oppoPlayerMonsterHouse.getMonsterCard();
 
                 if (card.getName().equals(selectedCardName)) { // found the wanted Card!
-                    oppoPlayerMonsterHouses[i].setMonsterCard(null); // emptying monster house
+                    oppoPlayerMonsterHouse.setMonsterCard(null); // emptying monster house
                     for (MonsterHouse monsterHouse : currPlayerMonsterHouses) { // setting the card at the first empty monsterHouse
                         if (monsterHouse.getMonsterCard() == null) {
-                            monsterHouse.setMonsterCard((MonsterCard) card);
+                            monsterHouse.setMonsterCard(card);
                         }
                     }
 
