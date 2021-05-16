@@ -1,9 +1,13 @@
 package model.gameprop.BoardProp;
 
+import exceptions.CardNotFoundException;
 import model.cards.cardsProp.Card;
+import model.cards.cardsProp.MagicCard;
+import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
+import model.userProp.Deck;
 
 import java.util.ArrayList;
 
@@ -91,5 +95,33 @@ public class PlayerBoard {
             }
         }
         return counter;
+    }
+
+    public void summonMonster(MonsterCard monsterCard) {
+        for (MonsterHouse house : monsterHouse) {
+            if (house.getMonsterCard() == null) {
+                house.setMonsterCard(monsterCard);
+                house.setState(MonsterHouseVisibilityState.OO);
+                return;
+            }
+        }
+    }
+
+    public MagicCard getMagicCardByName(String name) throws CardNotFoundException {
+        for (MagicHouse house : magicHouse) {
+            if (house.getMagicCard().getName().equals(name)) {
+                return house.getMagicCard();
+            }
+        }
+        throw new CardNotFoundException("magic card not found!");
+    }
+
+    public MonsterCard getMonsterCardByName(String name) throws CardNotFoundException {
+        for (MonsterHouse house : monsterHouse) {
+            if (house.getMonsterCard().getName().equals(name)) {
+                return house.getMonsterCard();
+            }
+        }
+        throw new CardNotFoundException("monster card not found!");
     }
 }

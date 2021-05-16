@@ -1,18 +1,16 @@
 package model.cards.cardsActions.magicActionChildren;
 
+import controller.gamecontrollers.GeneralController;
 import model.cards.cardsActions.ActionOfMagic;
+import model.gameprop.GameInProcess;
 
 public class EndBattlePhaseAction extends ActionOfMagic {
-    private static EndBattlePhaseAction instance;
-
     {
         name = this.getClass().getSimpleName();
     }
 
-    public static EndBattlePhaseAction getInstance() {
-        if (instance == null) {
-            instance = new EndBattlePhaseAction();
-        }
-        return instance;
+    @Override
+    public void active() {
+        GeneralController.getInstance().nextPhase(GameInProcess.getGame());
     }
 }

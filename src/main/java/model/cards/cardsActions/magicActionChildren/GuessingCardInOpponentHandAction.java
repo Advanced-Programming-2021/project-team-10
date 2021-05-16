@@ -1,8 +1,10 @@
 package model.cards.cardsActions.magicActionChildren;
 
 import controller.ImportScanner;
+import controller.gamecontrollers.GetStringInputFromView;
 import model.cards.cardsActions.ActionOfMagic;
 import model.cards.cardsProp.Card;
+import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
@@ -30,8 +32,7 @@ public class GuessingCardInOpponentHandAction extends ActionOfMagic {
 
     @Override
     public void active() {
-        System.out.println("declare a card name:");
-        String name = ImportScanner.getInput();
+        String name = GetStringInputFromView.getInputFromView(RequestingInput.GUESS_CARD);
         boolean isCardInOpponentHand = false;
         PlayerBoard opponentBoard = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getBoard();
         for (Card card : opponentBoard.getPlayerHand()) {

@@ -32,7 +32,7 @@ public class GeneralController {
         return instance;
     }
 
-    private String showGraveYard(Game game, String command) {
+    public String showGraveYard(Game game, String command) {
         Player player;
         if (command.contains("--opponent")) {
             player = game.getPlayer(SideOfFeature.OPPONENT);
@@ -145,7 +145,7 @@ public class GeneralController {
         }
     }
 
-    private String nextPhase(Game game) {
+    public String nextPhase(Game game) {
         DrawPhaseController drawController = DrawPhaseController.getInstance();
         game.goToNextPhase();
         String output = process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName());
