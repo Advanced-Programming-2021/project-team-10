@@ -5,7 +5,6 @@ import model.cards.cardsProp.Card;
 import java.util.ArrayList;
 
 public class User {
-
     private static final ArrayList<User> ALL_USERS;
 
     static {
