@@ -7,6 +7,7 @@ import model.cards.cardsActions.Action;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
+import model.events.eventChildren.SummonMonster;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.gamemodel.Game;
 
@@ -33,10 +34,10 @@ public class SummonMonsterFromBothGraveYardsAction extends Action {
                 currentPlayerboard.summonMonster(summonedMonster);
                 currentPlayerboard.getGraveYard().removeCardFromGraveYard(summonedMonster);
             } catch (CardNotFoundException cardNotFoundException) {
-                cardNotFoundException.printStackTrace();
                 active(game);
             }
         }
         isActivatedBefore = true;
+        SummonMonster.getInstance().activeEffects(game);
     }
 }

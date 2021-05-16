@@ -39,7 +39,6 @@ public class DestroyAMagicCard extends Action {
                     }
                 }
             } catch (CardNotFoundException cardNotFoundException) {
-                cardNotFoundException.printStackTrace();
                 active(game);
             }
         }

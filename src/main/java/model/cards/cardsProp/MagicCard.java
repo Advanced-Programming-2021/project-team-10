@@ -8,7 +8,10 @@ import model.cards.cardsEnum.Magic.MagicType;
 import model.cards.cardsEnum.Monster.MonsterRace;
 import model.enums.GameEnums.SideOfFeature;
 import model.events.Event;
+import model.events.eventChildren.FieldMagicFaceUp;
 import model.events.eventChildren.ManuallyActivation;
+import model.events.eventChildren.CurrentMonsterWantsToAttack;
+import model.events.eventChildren.SummonMonster;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
@@ -40,34 +43,34 @@ public class MagicCard extends Card {
         setMagicAttribute(MagicAttribute.setAttribute(magicAttribute));
         setMagicSpeed(MagicSpeed.setSpeed(speed));
         magicCards.add(this);
-        setMagicEffect(name);
+        setMagicEffectAndEvents(name);
     }
 
-    private void setMagicEvents(String name) {
-        if (name.equals("Monster Reborn")) {
-            triggers.add(ManuallyActivation.getInstance());
-        }
-    }
-
-    private void setMagicEffect(String name) {
+    private void setMagicEffectAndEvents(String name) {
         if (name.equals("Monster Reborn")) {
             actionsOfMagic.add(new SummonMonsterFromBothGraveYardsAction());
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Torrential Tribute")) {
             ArrayList<MonsterCard> monsterCards = new ArrayList<>();
             ArrayList<MagicCard> magicCards = new ArrayList<>();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Raigeki")) {
             actionsOfMagic.add(new DestroyAllOpponentMonsters());
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Harpie’s Feather Duster")) {
             actionsOfMagic.add(new DestroyAllOpponentMagics());
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Dark Hole")) {
             actionsOfMagic.add(new DestroyAllBoardMonsters());
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Mystical space typhoon")) {
             actionsOfMagic.add(new DestroyAMagicCard());
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Yami")) {
             ArrayList<String> types = new ArrayList<>();
@@ -82,6 +85,7 @@ public class MagicCard extends Card {
             types.add(MonsterRace.FAIRY.toString());
             actionsOfMagic.add(new ChangingMonsterAttackAction(200, types, -1, sideOfFeatures));
             actionsOfMagic.add(new ChangingMonsterDefenceAction(200, types, -1, sideOfFeatures));
+            triggers.add(FieldMagicFaceUp.getInstance());
         }
         if (name.equals("Forest")) {
             ArrayList<String> types = new ArrayList<>();
@@ -93,6 +97,7 @@ public class MagicCard extends Card {
             sideOfFeatures.add(SideOfFeature.OPPONENT);
             actionsOfMagic.add(new ChangingMonsterAttackAction(200, types, 1, sideOfFeatures));
             actionsOfMagic.add(new ChangingMonsterDefenceAction(200, types, 1, sideOfFeatures));
+            triggers.add(FieldMagicFaceUp.getInstance());
         }
         if (name.equals("Closed Forest")) {
             ArrayList<String> types = new ArrayList<>();
@@ -104,6 +109,7 @@ public class MagicCard extends Card {
             ArrayList<SideOfFeature> sideOfFeaturesChangeAttack = new ArrayList<>();
             sideOfFeaturesChangeAttack.add(SideOfFeature.CURRENT);
             actionsOfMagic.add(new ChangingMonsterAttackWithGraveyardsMonster(100, 1, types, sideOfFeaturesGraveyard, sideOfFeaturesChangeAttack));
+            triggers.add(FieldMagicFaceUp.getInstance());
         }
         if (name.equals("Umiiruka")) {
             ArrayList<String> types = new ArrayList<>();
@@ -113,6 +119,7 @@ public class MagicCard extends Card {
             sideOfFeatures.add(SideOfFeature.OPPONENT);
             actionsOfMagic.add(new ChangingMonsterAttackAction(500, types, 1, sideOfFeatures));
             actionsOfMagic.add(new ChangingMonsterDefenceAction(400, types, -1, sideOfFeatures));
+            triggers.add(FieldMagicFaceUp.getInstance());
         }
         if (name.equals("Sword of Dark Destruction")) {
             ArrayList<String> types = new ArrayList<>();
@@ -120,21 +127,27 @@ public class MagicCard extends Card {
             types.add(MonsterRace.SPELLCASTER.toString());
             actionsOfMagic.add(new ChangingSomeRaceEquipedMonsterAttack(400, 1, types));
             actionsOfMagic.add(new ChangingSomeRaceEquipedMonsterDefence(200, -1, types));
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Black Pendant")) {
             actionsOfMagic.add(new ChangingEquipedMonsterAttack(500, 1));
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Mirror Force")) {
             actionsOfMagic.add(new DestroyAllOpponentAttackingMonsters());
+            triggers.add(CurrentMonsterWantsToAttack.getInstance());
         }
         if (name.equals("Mind Crush")) {
             actionsOfMagic.add(new GuessingCardInOpponentHandAction());
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Torrential Tribute")) {
             actionsOfMagic.add(new DestroyAllBoardMonsters());
+            triggers.add(SummonMonster.getInstance());
         }
         if (name.equals("Call of the Haunted")) {
             actionsOfMagic.add(new SummonMonsterFromOwnGraveYardAction());
+            triggers.add(ManuallyActivation.getInstance());
         }
 //        if (name.equals("Magic Jammer") || name.equals("Magic Cylinder"))
 //            actionsOfMagic.add(StoppingActivationAction.getInstance());
@@ -224,7 +237,7 @@ public class MagicCard extends Card {
         setMagicSpeed(MagicSpeed.setSpeed(speed));
         setDescription(description);
         setPrice(price);
-        setMagicEffect(name);
+        setMagicEffectAndEvents(name);
     }
 
     public ArrayList<Action> getActionsOfMagic() {

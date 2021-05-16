@@ -82,29 +82,29 @@ public class DataBase {
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        String json = new Gson().toJson(magicCards);
-//        Writer writer = null;
-//        try {
-//            writer = new BufferedWriter(new OutputStreamWriter(
-//                    new FileOutputStream("jsonResources\\MagicCard.json"), StandardCharsets.UTF_8));
-//            writer.write(json);
-//        } catch (IOException ex) {
-//            // Report
-//        } finally {
-//            try {
-//                assert writer != null;
-//                writer.close();} catch (Exception ex) {/*ignore*/}
-//        }
-//        json = new Gson().toJson(monsterCards);
-//        try {
-//            writer = new BufferedWriter(new OutputStreamWriter(
-//                    new FileOutputStream("jsonResources\\MonsterCard.json"), StandardCharsets.UTF_8));
-//            writer.write(json);
-//        } catch (IOException ex) {
-//            // Report
-//        } finally {
-//            try {
-//                writer.close();} catch (Exception ex) {/*ignore*/}
-//        }
+        String json = new Gson().toJson(magicCards);
+        Writer writer = null;
+        try {
+            writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream("jsonResources\\MagicCard.json"), StandardCharsets.UTF_8));
+            writer.write(json);
+        } catch (IOException ex) {
+            // Report
+        } finally {
+            try {
+                assert writer != null;
+                writer.close();} catch (Exception ex) {/*ignore*/}
+        }
+        json = new Gson().toJson(monsterCards);
+        try {
+            writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream("jsonResources\\MonsterCard.json"), StandardCharsets.UTF_8));
+            writer.write(json);
+        } catch (IOException ex) {
+            // Report
+        } finally {
+            try {
+                writer.close();} catch (Exception ex) {/*ignore*/}
+        }
     }
 }
