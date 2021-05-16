@@ -1,6 +1,6 @@
 package model.cards.cardsProp;
 
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 import model.cards.cardsActions.magicActionChildren.*;
 import model.cards.cardsEnum.Magic.MagicAttribute;
 import model.cards.cardsEnum.Magic.MagicSpeed;
@@ -21,7 +21,7 @@ public class MagicCard extends Card {
         magicCards = new ArrayList<>();
     }
 
-    private final ArrayList<ActionOfMagic> actionsOfMagic;
+    private final ArrayList<Action> actionsOfMagic;
     private final ArrayList<Event> sideEvents;
     private final ArrayList<Event> triggers;
     private MagicSpeed magicSpeed;
@@ -178,7 +178,7 @@ public class MagicCard extends Card {
             }
         }
         if (shouldActiveEffects) {
-            for (ActionOfMagic actionOfMagic : actionsOfMagic) {
+            for (Action actionOfMagic : actionsOfMagic) {
                 actionOfMagic.active(game);
             }
         }
@@ -227,7 +227,7 @@ public class MagicCard extends Card {
         setMagicEffect(name);
     }
 
-    public ArrayList<ActionOfMagic> getActionsOfMagic() {
+    public ArrayList<Action> getActionsOfMagic() {
         return actionsOfMagic;
     }
 

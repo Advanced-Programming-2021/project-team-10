@@ -1,14 +1,12 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MagicHouse;
-import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
-public class DestroyAllOpponentMagics extends ActionOfMagic {
+public class DestroyAllOpponentMagics extends Action {
     {
         name = this.getClass().getSimpleName();
     }

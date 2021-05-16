@@ -1,19 +1,17 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import model.cards.cardsActions.ActionOfMagic;
-import model.cards.cardsProp.Card;
+import model.cards.cardsActions.Action;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.gameprop.gamemodel.Game;
 import model.gameprop.turnBasedObserver.ChangeTeamForOneTurn;
 import viewer.game.GetStringInput;
 
-public class ChangeTeamOfMonsterCard extends ActionOfMagic {
+public class ChangeTeamOfMonsterCard extends Action {
     {
         name = this.getClass().getSimpleName();
     }

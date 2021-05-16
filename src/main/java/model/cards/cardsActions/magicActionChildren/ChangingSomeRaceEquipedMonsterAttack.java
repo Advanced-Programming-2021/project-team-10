@@ -1,19 +1,12 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import controller.gamecontrollers.GetStringInputFromView;
-import exceptions.CardNotFoundException;
-import model.cards.cardsActions.ActionOfMagic;
-import model.cards.cardsProp.MagicCard;
+import model.cards.cardsActions.Action;
 import model.cards.cardsProp.MonsterCard;
-import model.enums.GameEnums.RequestingInput;
-import model.enums.GameEnums.SideOfFeature;
-import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
-public class ChangingSomeRaceEquipedMonsterAttack extends ActionOfMagic {
+public class ChangingSomeRaceEquipedMonsterAttack extends Action {
     private final ArrayList<String> typesToChangeAttack;
     private final int changeAttack;
     private final int addOrMinus;
@@ -35,7 +28,7 @@ public class ChangingSomeRaceEquipedMonsterAttack extends ActionOfMagic {
 
     @Override
     public void active(Game game) {
-        equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this, game);
+        equipedMonster = Action.equipAMonsterWithSpell(this, game);
         if (typesToChangeAttack.contains(equipedMonster.getRace().toString())) {
             int attack = equipedMonster.getAttack();
             attack += changeAttack * addOrMinus;

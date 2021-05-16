@@ -1,14 +1,13 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MonsterHouse;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
-public class ChangingMonsterAttackAction extends ActionOfMagic {
+public class ChangingMonsterAttackAction extends Action {
     private final int changeAttack;
     private final ArrayList<String> typesToChangeAttack;
     private final int addOrMinus;

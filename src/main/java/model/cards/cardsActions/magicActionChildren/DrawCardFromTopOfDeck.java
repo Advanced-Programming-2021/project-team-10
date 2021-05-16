@@ -1,10 +1,10 @@
 package model.cards.cardsActions.magicActionChildren;
 
 import controller.gamecontrollers.gamestagecontroller.DrawPhaseController;
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 import model.gameprop.gamemodel.Game;
 
-public class DrawCardFromTopOfDeck extends ActionOfMagic {
+public class DrawCardFromTopOfDeck extends Action {
     int numOfDraws;
 
     {

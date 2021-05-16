@@ -1,6 +1,6 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 import model.cards.cardsEnum.Magic.MagicAttribute;
 import model.cards.cardsProp.Card;
 import model.cards.cardsProp.MagicCard;
@@ -13,7 +13,7 @@ import viewer.game.GetStringInput;
 
 import java.util.ArrayList;
 
-public class TerraformingAction extends ActionOfMagic {
+public class TerraformingAction extends Action {
 
     {
         name = this.getClass().getSimpleName();

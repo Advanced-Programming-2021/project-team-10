@@ -2,16 +2,15 @@ package model.cards.cardsActions.magicActionChildren;
 
 import controller.gamecontrollers.GetStringInputFromView;
 import exceptions.CardNotFoundException;
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 import model.cards.cardsProp.MagicCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
-public class DestroyAMagicCard extends ActionOfMagic {
+public class DestroyAMagicCard extends Action {
     {
         name = this.getClass().getSimpleName();
     }

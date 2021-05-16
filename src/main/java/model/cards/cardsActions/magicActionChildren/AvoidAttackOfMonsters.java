@@ -1,8 +1,8 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 
-public class AvoidAttackOfMonsters extends ActionOfMagic {
+public class AvoidAttackOfMonsters extends Action {
     {
         name = this.getClass().getSimpleName();
     }

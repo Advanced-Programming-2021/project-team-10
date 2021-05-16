@@ -10,19 +10,17 @@ import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
-import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
-public class ActionOfMagic {
+public class Action {
     protected String name;
     protected boolean isActivatedBefore;
 
     public void active(Game game) {
     }
 
-    public static MonsterCard equipAMonsterWithSpell(ActionOfMagic action, Game game) { // Because of Polymorphism and JSON problems the best approach was this way!!!
+    public static MonsterCard equipAMonsterWithSpell(Action action, Game game) { // Because of Polymorphism and JSON problems the best approach was this way!!!
 
         MonsterCard equipedMonster;
 

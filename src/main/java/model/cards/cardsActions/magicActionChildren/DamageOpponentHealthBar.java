@@ -1,8 +1,8 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 
-public class DamageOpponentHealthBar extends ActionOfMagic {
+public class DamageOpponentHealthBar extends Action {
     {
         name = this.getClass().getSimpleName();
     }
