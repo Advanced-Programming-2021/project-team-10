@@ -136,8 +136,7 @@ public final class Regex {
             "set",
             "^set --position attack",
             "^set --position defence",
-            "^flip-summon"
-
+            "^flip-summon",
     };
     //GamePlay -> battle  phaseCommands
     public static String[] battlePhaseCommands = new String[]{

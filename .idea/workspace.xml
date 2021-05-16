@@ -4,24 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="change pos choice added to game">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/AttackDirectChain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/AttackDirectProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/processors/AttackProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/processors/SelectedCardProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/BattlePhase.java" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="direct attack and attack added &#10;repair the accessibility of game commands">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/BattlePhaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/BattlePhaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackMonster/AttackMonsterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/AttackMonsterChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackMonster/AttackMonsterProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/AttackMonsterProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackMonster/processors/AttackProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/processors/AttackProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackMonster/processors/SelectedCardProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/processors/SelectedCardProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/MainPhaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/MainPhaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/processors/SelectedCardProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/processors/SelectedCardProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/processors/SelectedCardProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackmonster/processors/SelectedCardProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/hiremonster/processors/BoardProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/hiremonster/processors/BoardProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/hiremonster/processors/CardSelectProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/hiremonster/processors/CardSelectProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/BattlePhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/BattlePhase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/General.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/General.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/MainPhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/GamePhaseEnums/MainPhase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MonsterHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/BoardProp/MonsterHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/Regex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/game/BoardDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/game/BoardDrawer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,15 +128,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -221,14 +213,10 @@
       <workItem from="1620930929473" duration="901000" />
       <workItem from="1620947078549" duration="229000" />
       <workItem from="1620956538345" duration="13214000" />
-      <workItem from="1621006540814" duration="6959000" />
-    </task>
-    <task id="LOCAL-00012" summary="end of task 1">
-      <created>1618850628822</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1618850628822</updated>
+      <workItem from="1621006540814" duration="9597000" />
+      <workItem from="1621059648954" duration="296000" />
+      <workItem from="1621122135942" duration="4106000" />
+      <workItem from="1621126570454" duration="364000" />
     </task>
     <task id="LOCAL-00013" summary="end of task 1">
       <created>1618857031950</created>
@@ -553,7 +541,14 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۶۰" />
       <updated>1620573345262</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="direct attack and attack added &#10;repair the accessibility of game commands">
+      <created>1621020348107</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1621020348108</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +568,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="game models and general structure" />
     <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class" />
     <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes" />
     <MESSAGE value="-add abstract method &quot;getCopy&quot; to &quot;Card&quot;&#10;-override &quot;getCopy&quot; by &quot;Monster&quot; &amp; &quot;Magic&quot; classes.&#10;-add &quot;getCopy&quot; to &quot;Deck&quot; class&#10;-finish &quot;Deck&quot; model class&#10;-add empty classes; DeckController, DeckMenu, DeckMenuDisplay&#10;-fix fields in &quot;Card&quot; branch&#10;-relate &quot;User&quot; &amp; &quot;Deck&quot; classes&#10;-add &quot;DeckMenu&quot; errors to &quot;Error&quot; ENUM" />
@@ -598,7 +592,8 @@
     <MESSAGE value="new structure for actions" />
     <MESSAGE value="json" />
     <MESSAGE value="adding magic actions to json" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding magic actions to json" />
+    <MESSAGE value="direct attack and attack added &#10;repair the accessibility of game commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="direct attack and attack added &#10;repair the accessibility of game commands" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -611,6 +606,22 @@
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/BattlePhaseController.java</url>
+          <line>46</line>
+          <properties class="controller.gamecontrollers.gamestagecontroller.BattlePhaseController" method="attackDirect">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/attackdirect/processors/SelectedCardProcessor.java</url>
+          <line>15</line>
+          <properties class="controller.gamecontrollers.gamestagecontroller.handlers.attackdirect.processors.SelectedCardProcessor" method="process">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -619,6 +630,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Main_java$Main.ic" NAME="Main Coverage Results" MODIFIED="1620630295245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Main_java$Main.ic" NAME="Main Coverage Results" MODIFIED="1621126449663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

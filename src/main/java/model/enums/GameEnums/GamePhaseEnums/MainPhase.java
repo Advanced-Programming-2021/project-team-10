@@ -2,12 +2,13 @@ package model.enums.GameEnums.GamePhaseEnums;
 
 public enum MainPhase {
     SUMMONED_SUCCESSFULLY("summon successfully"),
+    CANT_SUMMON_MAGIC("can't summon spell or trap card"),
     CARD_FLIP_SUCCESSFULLY("flip summoned successfully"),
     CANT_FLIP_SUMMON_THIS_CARD("can't flip summon this card"),
     CANT_CHANGE_POS_OF_HIRED_CARD("can't change the position of summoned card"),
     FLIP_NEEDED("you must flip this card"),
     SET_SUCCESSFULLY("set successfully"),
-    CANT_SUMMON_CARD("cant summon this card"),
+    CANT_HIRE_CARD("cant hire this card"),
     HIRE_MONSTER_BEFORE("you already summoned/set on this turn"),
     BOARD_IS_FULL("player board is full"),
     TRIBUTE_NOT_POSSIBLE("dont have enough card for tribute"),

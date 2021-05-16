@@ -123,6 +123,7 @@ public class GeneralController {
 
     private String showSelectedCard(Game game) {
         SelectedCardProp cardProp = game.getCardProp();
+        if (cardProp == null) return General.NO_CARD_SELECTED.toString();
         if (cardProp.getSide().equals(SideOfFeature.OPPONENT)) {
             if (cardProp.getLocation().equals(CardLocation.SPELL_ZONE)) {
                 MagicHouse magicHouse = (MagicHouse) cardProp.getCardPlace();
@@ -155,7 +156,7 @@ public class GeneralController {
                     return output + "\n" + draw;
                 else return output;
         }
-        return process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName()) + drawBoard(game);
+        return process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName()) + "\n" + drawBoard(game);
     }
 
     private String surrender(Game game) {
@@ -197,8 +198,7 @@ public class GeneralController {
             } else if (command.equals("draw board")) {
                 return drawBoard(game);
             } else return null;
-        }
-        else return "back to game first";
+        } else return "back to game first";
     }
 
 

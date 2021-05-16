@@ -3,6 +3,7 @@ package model.enums.GameEnums.GamePhaseEnums;
 public enum BattlePhase {
     DEFEAT_ATTACK_OO_TARGET("Your monster card is destroyed and you received OO_DEFEAT battle\n" +
             "damage"),
+    CANT_ATTACK_IN_DEFENCE("your card must be in attack position !"),
     DEFEAT_ATTACK_ON_DEFENCE_UNKNOWN("no card is destroyed and you received D_DEFEAT battle damage"),
     SUCCESSFUL_ATTACK_DEFENCE_KNOWN_TARGET("the defense position monster is destroyed"),
     SUCCESSFUL_ATTACK_OFFENSIVE_TARGET("your opponent’s monster is destroyed and your opponent receives\n" +

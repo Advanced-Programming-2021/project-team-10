@@ -46,7 +46,6 @@ public class BattlePhaseController extends GeneralController {
 
     private String attackDirect(Game game) {
         AttackDirectChain chain = new AttackDirectChain();
-        game.setCardProp(null);
         return chain.request(game.getCardProp(), game.getPlayer(SideOfFeature.OPPONENT));
     }
 }

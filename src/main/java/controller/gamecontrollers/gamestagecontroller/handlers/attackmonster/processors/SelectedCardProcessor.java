@@ -20,6 +20,9 @@ public class SelectedCardProcessor extends AttackMonsterProcessor {
         if (!offensive.getLocation().equals(CardLocation.MONSTER_ZONE)) {
             return BattlePhase.CANT_ATTACK_WRONG_lOC;
         }
+        if (!offensive.getCardPlace().getState().equals(MonsterHouseVisibilityState.OO)){
+            return BattlePhase.CANT_ATTACK_IN_DEFENCE;
+        }
         MonsterHouse offensiveCardPlace = (MonsterHouse) offensive.getCardPlace();
         if (offensiveCardPlace.isMonsterAttacked()) {
             return BattlePhase.ALREADY_ATTACK;
