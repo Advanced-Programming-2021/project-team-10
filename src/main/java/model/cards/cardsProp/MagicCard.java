@@ -10,6 +10,8 @@ import model.enums.GameEnums.SideOfFeature;
 import model.events.Event;
 import model.events.eventChildren.FieldMagicFaceUp;
 import model.events.eventChildren.ManuallyActivation;
+import model.events.eventChildren.OpponentMonsterWantsToAttack;
+import model.events.eventChildren.SummonMonster;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
@@ -133,7 +135,7 @@ public class MagicCard extends Card {
         }
         if (name.equals("Mirror Force")) {
             actionsOfMagic.add(new DestroyAllOpponentAttackingMonsters());
-            triggers.add(ManuallyActivation.getInstance());
+            triggers.add(OpponentMonsterWantsToAttack.getInstance());
         }
         if (name.equals("Mind Crush")) {
             actionsOfMagic.add(new GuessingCardInOpponentHandAction());
@@ -141,7 +143,7 @@ public class MagicCard extends Card {
         }
         if (name.equals("Torrential Tribute")) {
             actionsOfMagic.add(new DestroyAllBoardMonsters());
-            triggers.add(ManuallyActivation.getInstance());
+            triggers.add(SummonMonster.getInstance());
         }
         if (name.equals("Call of the Haunted")) {
             actionsOfMagic.add(new SummonMonsterFromOwnGraveYardAction());
