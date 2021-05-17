@@ -8,6 +8,8 @@ import model.cards.cardsEnum.Magic.MagicType;
 import model.cards.cardsEnum.Monster.MonsterRace;
 import model.enums.GameEnums.SideOfFeature;
 import model.events.Event;
+import model.events.eventChildren.ManuallyActivation;
+import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
@@ -39,6 +41,12 @@ public class MagicCard extends Card {
         setMagicSpeed(MagicSpeed.setSpeed(speed));
         magicCards.add(this);
         setMagicEffect(name);
+    }
+
+    private void setMagicEvents(String name) {
+        if (name.equals("Monster Reborn")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
     }
 
     private void setMagicEffect(String name) {
@@ -158,6 +166,22 @@ public class MagicCard extends Card {
             if (magicCard.name.equals(name)) return magicCard;
         }
         return null;
+    }
+
+    @Override
+    public void activeEffectsByEvent(Event event, Game game) {
+        boolean shouldActiveEffects = false;
+        for (Event trigger : triggers) {
+            if (trigger.equals(event)) {
+                shouldActiveEffects = true;
+                break;
+            }
+        }
+        if (shouldActiveEffects) {
+            for (ActionOfMagic actionOfMagic : actionsOfMagic) {
+                actionOfMagic.active(game);
+            }
+        }
     }
 
     @Override

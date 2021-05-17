@@ -8,6 +8,7 @@ import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.GameInProcess;
 import model.gameprop.Player;
+import model.gameprop.gamemodel.Game;
 import viewer.game.GetStringInput;
 
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ public class TerraformingAction extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        Player player = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT);
+    public void active(Game game) {
+        Player player = game.getPlayer(SideOfFeature.CURRENT);
         ArrayList<Card> mainDeck = player.getDeck().getMainDeck();
         ArrayList<Card> toShowCards = new ArrayList<>();
 

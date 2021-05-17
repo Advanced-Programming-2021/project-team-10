@@ -1,6 +1,7 @@
 package model.cards.cardsProp;
 
 import model.events.Event;
+import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +93,7 @@ public abstract class Card {
         this.description = description;
     }
 
-    public void activeEffectsByEvent(Event event) {}
+    public void activeEffectsByEvent(Event event, Game game) {}
 
     public abstract Card getCopy(); // semi duplicate code in overrides; cause -> Card is abstract and not constructable!
 }

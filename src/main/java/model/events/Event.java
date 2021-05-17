@@ -6,20 +6,21 @@ import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 public class Event {
     protected String name;
 
-    public void activeEffects() {
-        PlayerBoard currentPlayerBoard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
+    public void activeEffects(Game game) {
+        PlayerBoard currentPlayerBoard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
         if (this instanceof ManuallyActivation) {
-            GameInProcess.getGame().getCardProp().getCard().activeEffectsByEvent(this);
+            game.getCardProp().getCard().activeEffectsByEvent(this, game);
         } else {
             for (MonsterHouse monsterHouse : currentPlayerBoard.getMonsterHouse()) {
-                monsterHouse.getMonsterCard().activeEffectsByEvent(this);
+                monsterHouse.getMonsterCard().activeEffectsByEvent(this, game);
             }
             for (MagicHouse magicHouse : currentPlayerBoard.getMagicHouse()) {
-                magicHouse.getMagicCard().activeEffectsByEvent(this);
+                magicHouse.getMagicCard().activeEffectsByEvent(this, game);
             }
         }
     }

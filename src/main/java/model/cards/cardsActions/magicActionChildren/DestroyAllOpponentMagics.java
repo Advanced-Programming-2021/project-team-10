@@ -6,6 +6,7 @@ import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 public class DestroyAllOpponentMagics extends ActionOfMagic {
     {
@@ -13,8 +14,8 @@ public class DestroyAllOpponentMagics extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        PlayerBoard opponentBoard = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getBoard();
+    public void active(Game game) {
+        PlayerBoard opponentBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         for (MagicHouse magicHouse : opponentBoard.getMagicHouse()) {
             if (magicHouse.getMagicCard() != null) {
                 opponentBoard.getGraveYard().addCardToGraveYard(magicHouse.getMagicCard());

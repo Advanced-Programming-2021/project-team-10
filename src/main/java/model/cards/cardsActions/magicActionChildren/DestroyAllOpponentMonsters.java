@@ -5,6 +5,7 @@ import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 public class DestroyAllOpponentMonsters extends ActionOfMagic {
     {
@@ -12,8 +13,8 @@ public class DestroyAllOpponentMonsters extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        PlayerBoard opponentBoard = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getBoard();
+    public void active(Game game) {
+        PlayerBoard opponentBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         for (MonsterHouse monsterHouse : opponentBoard.getMonsterHouse()) {
             if (monsterHouse.getMonsterCard() != null) {
                 opponentBoard.getGraveYard().addCardToGraveYard(monsterHouse.getMonsterCard());

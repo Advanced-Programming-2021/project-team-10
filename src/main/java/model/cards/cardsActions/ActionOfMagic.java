@@ -10,17 +10,19 @@ import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
+import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 public class ActionOfMagic {
     protected String name;
     protected boolean isActivatedBefore;
 
-    public void active() {
+    public void active(Game game) {
     }
 
-    public static MonsterCard equipAMonsterWithSpell(ActionOfMagic action) { // Because of Polymorphism and JSON problems the best approach was this way!!!
+    public static MonsterCard equipAMonsterWithSpell(ActionOfMagic action, Game game) { // Because of Polymorphism and JSON problems the best approach was this way!!!
 
         MonsterCard equipedMonster;
 
@@ -52,13 +54,13 @@ public class ActionOfMagic {
 
 
         if (equipedMonster == null) {
-            String nameOfMonster = GetStringInputFromView.getInputFromController(RequestingInput.SET_EQUIPED_MONSTER);
-            PlayerBoard currentPlayerboard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
+            String nameOfMonster = GetStringInputFromView.getInputFromView(RequestingInput.SET_EQUIPED_MONSTER);
+            PlayerBoard currentPlayerboard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
             try {
                 equipedMonster = currentPlayerboard.getMonsterCardByName(nameOfMonster);
-                equipedMonster.setEquippedWith((MagicCard) GameInProcess.getGame().getCardProp().getCard());
+                equipedMonster.setEquippedWith((MagicCard) game.getCardProp().getCard());
             } catch (CardNotFoundException e) {
-                equipAMonsterWithSpell(action);
+                equipAMonsterWithSpell(action, game);
             }
         }
 

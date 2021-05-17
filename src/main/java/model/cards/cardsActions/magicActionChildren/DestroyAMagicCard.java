@@ -9,6 +9,7 @@ import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 public class DestroyAMagicCard extends ActionOfMagic {
     {
@@ -16,10 +17,10 @@ public class DestroyAMagicCard extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        PlayerBoard opponentBoard = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getBoard();
-        PlayerBoard currentBoard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
-        String magicToDestroy = GetStringInputFromView.getInputFromController(RequestingInput.MAGIC_CARD_TO_DESTROY);
+    public void active(Game game) {
+        PlayerBoard opponentBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
+        PlayerBoard currentBoard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
+        String magicToDestroy = GetStringInputFromView.getInputFromView(RequestingInput.MAGIC_CARD_TO_DESTROY);
         try {
             MagicCard cardToDestroy = opponentBoard.getMagicCardByName(magicToDestroy);
             opponentBoard.getGraveYard().addCardToGraveYard(cardToDestroy);
@@ -40,7 +41,7 @@ public class DestroyAMagicCard extends ActionOfMagic {
                 }
             } catch (CardNotFoundException cardNotFoundException) {
                 cardNotFoundException.printStackTrace();
-                active();
+                active(game);
             }
         }
         isActivatedBefore = true;

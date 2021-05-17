@@ -9,6 +9,7 @@ import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
@@ -33,8 +34,8 @@ public class ChangingSomeRaceEquipedMonsterAttack extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this);
+    public void active(Game game) {
+        equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this, game);
         if (typesToChangeAttack.contains(equipedMonster.getRace().toString())) {
             int attack = equipedMonster.getAttack();
             attack += changeAttack * addOrMinus;

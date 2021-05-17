@@ -2,6 +2,7 @@ package model.cards.cardsActions.magicActionChildren;
 
 import model.cards.cardsActions.ActionOfMagic;
 import model.cards.cardsProp.MonsterCard;
+import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
@@ -26,9 +27,8 @@ public class ChangingSomeRaceEquipedMonsterDefence extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this);
-
+    public void active(Game game) {
+        equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this, game);
         if (typesToChangeDefence.contains(equipedMonster.getRace().toString())) {
             int defence = equipedMonster.getAttack();
             defence += changeDefence * addOrMinus;

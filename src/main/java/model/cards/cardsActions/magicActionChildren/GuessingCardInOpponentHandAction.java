@@ -1,13 +1,16 @@
 package model.cards.cardsActions.magicActionChildren;
 
+import controller.ImportScanner;
 import controller.gamecontrollers.GetStringInputFromView;
 import model.cards.cardsActions.ActionOfMagic;
 import model.cards.cardsProp.Card;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 import model.userProp.Deck;
 
 import java.util.ArrayList;
@@ -20,10 +23,10 @@ public class GuessingCardInOpponentHandAction extends ActionOfMagic {
     }
 
     @Override
-    public void active() {
-        String name = GetStringInputFromView.getInputFromController(RequestingInput.GUESS_CARD);
+    public void active(Game game) {
+        String name = GetStringInputFromView.getInputFromView(RequestingInput.GUESS_CARD);
         boolean isCardInOpponentHand = false;
-        PlayerBoard opponentBoard = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getBoard();
+        PlayerBoard opponentBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         for (Card card : opponentBoard.getPlayerHand()) {
             if (name.equals(card.getName())) {
                 isCardInOpponentHand = true;
@@ -31,7 +34,7 @@ public class GuessingCardInOpponentHandAction extends ActionOfMagic {
             }
         }
         if (isCardInOpponentHand) {
-            Deck deck = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getDeck();
+            Deck deck = game.getPlayer(SideOfFeature.OPPONENT).getDeck();
             ArrayList<Card> mainDeck = deck.getMainDeck();
             Iterator<Card> mainDeckIterator = mainDeck.iterator();
             while (mainDeckIterator.hasNext()) {
@@ -59,7 +62,7 @@ public class GuessingCardInOpponentHandAction extends ActionOfMagic {
             }
         }
         else {
-            PlayerBoard currentPlayerBoard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
+            PlayerBoard currentPlayerBoard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
             ArrayList<Card> hand = currentPlayerBoard.getPlayerHand();
             Collections.shuffle(hand);
             Card card = hand.get(0);
