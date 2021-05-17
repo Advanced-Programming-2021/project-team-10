@@ -2,6 +2,7 @@ package controller.gamecontrollers;
 
 import com.sanityinc.jargs.CmdLineParser;
 import controller.gamecontrollers.gamestagecontroller.DrawPhaseController;
+import controller.gamecontrollers.gamestagecontroller.handlers.activeeffect.ActiveEffectChain;
 import model.cards.cardsProp.Card;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GameError;
@@ -197,6 +198,8 @@ public class GeneralController {
                 return nextPhase(game);
             } else if (command.equals("draw board")) {
                 return drawBoard(game);
+            } else if (command.equals("active effect")) {
+                return activeEffect(game);
             } else return null;
         } else return "back to game first";
     }
@@ -207,5 +210,10 @@ public class GeneralController {
             generalMessage = generalMessage.replace("StAgE", name);
         }
         return generalMessage;
+    }
+
+    private String activeEffect(Game game) {
+        ActiveEffectChain chain = new ActiveEffectChain();
+        return chain.request(game);
     }
 }
