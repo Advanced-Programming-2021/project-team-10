@@ -108,6 +108,7 @@ public final class Regex {
     //GamePlay -> general commands
     public static String[] generalCommands = new String[]{
             "surrender",
+            "active effect",
             "card show --selected",
             "show graveyard(?= --opponent|$)",
             "show graveyard --opponent",
@@ -119,8 +120,8 @@ public final class Regex {
             "select --opponent --field (?<address>\\d+)",
             "select --hand (?<address>\\d+)",
             "select -d",
-            "next phase"
-            ,"draw board",
+            "next phase",
+            "draw board",
             "START"
     };
     //GamePlay -> side pages command

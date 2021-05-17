@@ -35,7 +35,6 @@ public class ChangingSomeRaceEquipedMonsterAttack extends ActionOfMagic {
     @Override
     public void active() {
         equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this);
-
         if (typesToChangeAttack.contains(equipedMonster.getRace().toString())) {
             int attack = equipedMonster.getAttack();
             attack += changeAttack * addOrMinus;

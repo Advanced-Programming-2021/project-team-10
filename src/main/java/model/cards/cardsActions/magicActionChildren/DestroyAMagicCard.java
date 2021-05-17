@@ -19,7 +19,7 @@ public class DestroyAMagicCard extends ActionOfMagic {
     public void active() {
         PlayerBoard opponentBoard = GameInProcess.getGame().getPlayer(SideOfFeature.OPPONENT).getBoard();
         PlayerBoard currentBoard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
-        String magicToDestroy = GetStringInputFromView.getInputFromView(RequestingInput.MAGIC_CARD_TO_DESTROY);
+        String magicToDestroy = GetStringInputFromView.getInputFromController(RequestingInput.MAGIC_CARD_TO_DESTROY);
         try {
             MagicCard cardToDestroy = opponentBoard.getMagicCardByName(magicToDestroy);
             opponentBoard.getGraveYard().addCardToGraveYard(cardToDestroy);

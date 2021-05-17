@@ -10,7 +10,6 @@ import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
-import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
 
@@ -53,7 +52,7 @@ public class ActionOfMagic {
 
 
         if (equipedMonster == null) {
-            String nameOfMonster = GetStringInputFromView.getInputFromView(RequestingInput.SET_EQUIPED_MONSTER);
+            String nameOfMonster = GetStringInputFromView.getInputFromController(RequestingInput.SET_EQUIPED_MONSTER);
             PlayerBoard currentPlayerboard = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT).getBoard();
             try {
                 equipedMonster = currentPlayerboard.getMonsterCardByName(nameOfMonster);
