@@ -107,7 +107,6 @@ public class Deck {
 
     public void addCardToMainDeck(Card card) {
         this.mainDeck.add(card.getID());
-        System.out.println(mainDeck);
     }
 
     public void addCardToSideDeck(Card card) {

@@ -8,8 +8,8 @@ import model.cards.cardsProp.MonsterCard;
 import model.userProp.Deck;
 import model.userProp.User;
 
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -55,9 +55,9 @@ public class DataBase {
                         lineInArray[2], lineInArray[3],
                         lineInArray[4], lineInArray[5]);
                 counter++;
-//                magicCards.add(new MagicCard(lineInArray[0], lineInArray[1],
-//                        lineInArray[2], lineInArray[3],
-//                        lineInArray[4], lineInArray[5]));
+ /*             magicCards.add(new MagicCard(lineInArray[0], lineInArray[1],
+                       lineInArray[2], lineInArray[3],
+                       lineInArray[4], lineInArray[5]));*/
             }
             MagicCard.setMagicCards(magicCards);
         } catch (Exception e) {
@@ -73,47 +73,43 @@ public class DataBase {
                         infoRow[3], infoRow[4], infoRow[5],
                         infoRow[6], infoRow[7], infoRow[8]);
                 counter++;
-//                MonsterCard monsterCard = new MonsterCard(infoRow[0], infoRow[1], infoRow[2],
-//                        infoRow[3], infoRow[4], infoRow[5],
-//                        infoRow[6], infoRow[7], infoRow[8]);
-//                monsterCards.add(monsterCard);
+/*                MonsterCard monsterCard = new MonsterCard(infoRow[0], infoRow[1], infoRow[2],
+                        infoRow[3], infoRow[4], infoRow[5],
+                        infoRow[6], infoRow[7], infoRow[8]);
+                monsterCards.add(monsterCard);*/
             }
             MonsterCard.setMonsterCards(monsterCards);
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        String json = new Gson().toJson(magicCards);
-//        Writer writer = null;
-//        try {
-//            writer = new BufferedWriter(new OutputStreamWriter(
-//                    new FileOutputStream("jsonResources\\MagicCard.json"), StandardCharsets.UTF_8));
-//            writer.write(json);
-//        } catch (IOException ex) {
-//            // Report
-//        } finally {
-//            try {
-//                assert writer != null;
-//                writer.close();} catch (Exception ex) {/*ignore*/}
-//        }
-//        json = new Gson().toJson(monsterCards);
-//        try {
-//            writer = new BufferedWriter(new OutputStreamWriter(
-//                    new FileOutputStream("jsonResources\\MonsterCard.json"), StandardCharsets.UTF_8));
-//            writer.write(json);
-//        } catch (IOException ex) {
-//            // Report
-//        } finally {
-//            try {
-//                writer.close();} catch (Exception ex) {/*ignore*/}
-//        }
 
 
 
-
-
-
-
-
+        //card Json
+/*        String json = new Gson().toJson(magicCards);
+        Writer writer = null;
+        try {
+            writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream("jsonResources\\MagicCard.json"), StandardCharsets.UTF_8));
+            writer.write(json);
+        } catch (IOException ex) {
+            // Report
+        } finally {
+            try {
+                assert writer != null;
+                writer.close();} catch (Exception ex) {*//*ignore*//*}
+        }
+        json = new Gson().toJson(monsterCards);
+        try {
+            writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream("jsonResources\\MonsterCard.json"), StandardCharsets.UTF_8));
+            writer.write(json);
+        } catch (IOException ex) {
+            // Report
+        } finally {
+            try {
+                writer.close();} catch (Exception ex) {*//*ignore*//*}
+        }*/
 
 
 
