@@ -6,23 +6,23 @@ import java.util.ArrayList;
 
 public class User {
 
-    private static final ArrayList<User> ALL_USERS;
+    private static ArrayList<User> allUsers;
 
     static {
-        ALL_USERS = new ArrayList<>();
+        allUsers = new ArrayList<>();
     }
 
+    private final ArrayList<String> allUserDecksId;
+    private final ArrayList<Integer> userCardCollection;
     private String username;
     private String nickname;
     private String password;
     private int score;
     private int balance;
     private Deck activeDeck;
-    private final ArrayList<Deck> allDecks;
-    private final ArrayList<Card> userCardCollection;
 
     {
-        allDecks = new ArrayList<>();
+        allUserDecksId = new ArrayList<>();
         userCardCollection = new ArrayList<>();
         activeDeck = null;
     }
@@ -36,13 +36,13 @@ public class User {
         setUsername(username);
         setNickname(nickname);
         setPassword(password);
-        ALL_USERS.add(this);
+        allUsers.add(this);
     }
 
     public static User getUserByUserInfo(String info, UserInfoType userInfoType) {
         switch (userInfoType) {
             case USERNAME: {
-                for (User user : ALL_USERS) {
+                for (User user : allUsers) {
                     if (user.getUsername().equals(info)) {
                         return user;
                     }
@@ -50,7 +50,7 @@ public class User {
                 break;
             }
             case NICKNAME: {
-                for (User user : ALL_USERS) {
+                for (User user : allUsers) {
                     if (user.getNickname().equals(info))
                         return user;
                 }
@@ -61,11 +61,18 @@ public class User {
     }
 
     public static ArrayList<User> getAllUsers() {
-        return ALL_USERS;
+        return allUsers;
+    }
+
+    public static void setAllUsers(ArrayList<User> users) {
+        allUsers = users;
     }
 
     public Deck getDeckByName(String name) {
-        for (Deck deck : allDecks) {
+
+        for (String ID : allUserDecksId) {
+            Deck deck = Deck.getDeckById(ID);
+            assert deck != null;
             if (deck.getName().equals(name)) {
                 return deck;
             }
@@ -117,22 +124,45 @@ public class User {
         return activeDeck;
     }
 
-    public ArrayList<Deck> getAllDecks() {
-        return allDecks;
-    }
-
     public void setActiveDeck(Deck activeDeck) {
         if (this.activeDeck != null) this.activeDeck.setDeckActivated(false);
         this.activeDeck = activeDeck;
-        if (activeDeck != null ) activeDeck.setDeckActivated(true);
+        if (activeDeck != null) activeDeck.setDeckActivated(true);
+    }
+
+    public ArrayList<Deck> getAllUserDecksId() {
+        ArrayList<Deck> allUserDecks = new ArrayList<>();
+        for (String deckId : allUserDecksId) {
+            allUserDecks.add(Deck.getDeckById(deckId));
+        }
+        return allUserDecks;
     }
 
     public ArrayList<Card> getUserCardCollection() {
-        return userCardCollection;
+        ArrayList<Card> cards = new ArrayList<>();
+        for (Integer ID : userCardCollection) {
+            cards.add(Card.getCardById(ID));
+        }
+        return cards;
     }
 
-    public boolean isCardInUserCardCollection(Card card) {
-        return !userCardCollection.contains(card);
+    public void addCard(Integer ID) {
+        userCardCollection.add(ID);
     }
+
+    public void removeCard(int ID) {
+        userCardCollection.remove(ID);
+    }
+
+
+    public boolean isCardInUserCardCollection(Card card) {
+        return !this.getUserCardCollection().contains(card);
+    }
+
+    public void addDeckId(String ID) {
+        allUserDecksId.add(ID);
+    }
+
+
 }
 

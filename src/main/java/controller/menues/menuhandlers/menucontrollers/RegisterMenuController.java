@@ -1,14 +1,19 @@
 package controller.menues.menuhandlers.menucontrollers;
 
 
+import com.google.gson.Gson;
 import com.sanityinc.jargs.CmdLineParser;
 import controller.MenuHandler;
 import model.enums.Error;
 import model.enums.Menu;
 import model.enums.MenusMassages.Register;
+import model.userProp.Deck;
 import model.userProp.LoginUser;
 import model.userProp.User;
 import model.userProp.UserInfoType;
+
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class RegisterMenuController {
 
@@ -48,7 +53,7 @@ public class RegisterMenuController {
                 try {
                     MenuHandler.changeMenu(Menu.MAIN_MENU);
                     return "enter Main menu successfully";
-                } catch (CmdLineParser.OptionException e) {
+                } catch (CmdLineParser.OptionException | IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -112,5 +117,20 @@ public class RegisterMenuController {
             error = error.replace("N_N", name);
         }
         return error;
+    }
+
+
+    public void saveData() throws IOException {
+        FileWriter writer = new FileWriter("Decks.Json");
+        for (Deck deck : Deck.getAllDecks()) {
+            System.out.println("*" + deck.getMainDeck() + "*");
+        }
+        writer.write(new Gson().toJson(Deck.getAllDecks()));
+        writer.close();
+        writer = new FileWriter("Users.Json");
+        System.out.println(User.getAllUsers());
+        writer.write(new Gson().toJson(User.getAllUsers()));
+        writer.close();
+
     }
 }

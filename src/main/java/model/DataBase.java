@@ -2,15 +2,15 @@ package model;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import model.cards.cardsProp.Card;
+import com.opencsv.CSVReader;
 import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;
-import com.opencsv.CSVReader;
+import model.userProp.Deck;
+import model.userProp.User;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -106,5 +106,42 @@ public class DataBase {
 //            try {
 //                writer.close();} catch (Exception ex) {/*ignore*/}
 //        }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //User Json
+  /*      try {
+            String json = new String(Files.readAllBytes(Paths.get("Decks.Json")));
+            ArrayList<Deck> decks;
+            decks = new Gson().fromJson(json,
+                    new TypeToken<List<Deck>>() {
+                    }.getType()
+            );
+            Deck.setAllDecks(decks);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String json = new String(Files.readAllBytes(Paths.get("Users.Json")));
+            ArrayList<User> decks;
+            decks = new Gson().fromJson(json,
+                    new TypeToken<List<User>>() {
+                    }.getType()
+            );
+            User.setAllUsers(decks);
+        } catch (IOException e) {
+            e.printStackTrace();
+     }  */
+}
 }

@@ -54,7 +54,7 @@ public class ActionOfMagic {
 
 
         if (equipedMonster == null) {
-            String nameOfMonster = GetStringInputFromView.getInputFromView(RequestingInput.SET_EQUIPED_MONSTER);
+            String nameOfMonster = GetStringInputFromView.getInputFromController(RequestingInput.SET_EQUIPED_MONSTER);
             PlayerBoard currentPlayerboard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
             try {
                 equipedMonster = currentPlayerboard.getMonsterCardByName(nameOfMonster);

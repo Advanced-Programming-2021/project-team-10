@@ -24,7 +24,7 @@ public class GuessingCardInOpponentHandAction extends ActionOfMagic {
 
     @Override
     public void active(Game game) {
-        String name = GetStringInputFromView.getInputFromView(RequestingInput.GUESS_CARD);
+        String name = GetStringInputFromView.getInputFromController(RequestingInput.GUESS_CARD);
         boolean isCardInOpponentHand = false;
         PlayerBoard opponentBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         for (Card card : opponentBoard.getPlayerHand()) {

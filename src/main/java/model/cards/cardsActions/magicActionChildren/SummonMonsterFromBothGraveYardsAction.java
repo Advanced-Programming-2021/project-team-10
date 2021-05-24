@@ -8,7 +8,6 @@ import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
 public class SummonMonsterFromBothGraveYardsAction extends ActionOfMagic {
@@ -18,21 +17,21 @@ public class SummonMonsterFromBothGraveYardsAction extends ActionOfMagic {
 
     @Override
     public void active(Game game) {
-        PlayerBoard currentPlayerboard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
-        PlayerBoard opponentPlayerboard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
+        PlayerBoard currentPlayerBoard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
+        PlayerBoard opponentPlayerBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         GeneralController.getInstance().showGraveYard(game, "--current");
         GeneralController.getInstance().showGraveYard(game, "--opponent");
-        String cardToSummon = GetStringInputFromView.getInputFromView(RequestingInput.FROM_GRAVEYARD);
+        String cardToSummon = GetStringInputFromView.getInputFromController(RequestingInput.FROM_GRAVEYARD);
         MonsterCard summonedMonster;
         try {
-            summonedMonster = opponentPlayerboard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);
-            opponentPlayerboard.summonMonster(summonedMonster);
-            opponentPlayerboard.getGraveYard().removeCardFromGraveYard(summonedMonster);
+            summonedMonster = opponentPlayerBoard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);
+            opponentPlayerBoard.summonMonster(summonedMonster);
+            opponentPlayerBoard.getGraveYard().removeCardFromGraveYard(summonedMonster);
         } catch (CardNotFoundException e) {
             try {
-                summonedMonster = currentPlayerboard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);
-                currentPlayerboard.summonMonster(summonedMonster);
-                currentPlayerboard.getGraveYard().removeCardFromGraveYard(summonedMonster);
+                summonedMonster = currentPlayerBoard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);
+                currentPlayerBoard.summonMonster(summonedMonster);
+                currentPlayerBoard.getGraveYard().removeCardFromGraveYard(summonedMonster);
             } catch (CardNotFoundException cardNotFoundException) {
                 cardNotFoundException.printStackTrace();
                 active(game);

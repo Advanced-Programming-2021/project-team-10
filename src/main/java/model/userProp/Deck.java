@@ -2,15 +2,24 @@ package model.userProp;
 
 import model.cards.cardsProp.Card;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Deck {
-    private String name;
-    private User owner;
-    private final ArrayList<Card> mainDeck;
-    private ArrayList<Card> sideDeck;
-    private boolean isDeckActivated;
+    private static int totalNumberOfDeck;
+    private static ArrayList<Deck> allDecks;
 
+    static {
+        allDecks = new ArrayList<>();
+        totalNumberOfDeck = 0;
+    }
+
+    private final ArrayList<Integer> mainDeck;
+    private String name;
+    private String ID;
+    private final ArrayList<Integer> sideDeck;
+    private boolean isDeckActivated;
 
     {
         mainDeck = new ArrayList<>();
@@ -18,47 +27,59 @@ public class Deck {
         isDeckActivated = false;
     }
 
-    public Deck(String name, User owner) {
+    public Deck(String name) {
         setName(name);
-        setOwner(owner);
-        owner.getAllDecks().add(this);
+        allDecks.add(this);
+        totalNumberOfDeck++;
+        setID();
     }
 
-
-    public boolean getIsActivated() {
-        return this.isDeckActivated;
+    public static Deck getDeckById(String ID) {
+        for (Deck deck : Deck.allDecks) {
+            if (deck.ID.equals(ID))
+                return deck;
+        }
+        return null;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public static ArrayList<Deck> getAllDecks() {
+        return allDecks;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public static void setAllDecks(ArrayList<Deck> allDecks) {
+        Deck.allDecks = allDecks;
     }
 
     public ArrayList<Card> getMainDeck() {
-        return mainDeck;
+        ArrayList<Card> mainDeckCards = new ArrayList<>();
+        for (Integer ID : mainDeck) {
+            mainDeckCards.add(Card.getCardById(ID));
+        }
+        return mainDeckCards;
     }
 
     public ArrayList<Card> getSideDeck() {
-        return sideDeck;
+        ArrayList<Card> sideDeckCards = new ArrayList<>();
+        for (Integer ID : sideDeck) {
+            sideDeckCards.add(Card.getCardById(ID));
+        }
+        return sideDeckCards;
     }
 
     public boolean getValidity() {
         return (mainDeck.size() >= 40);
     }
 
-    public Deck getCopy(){ // Somehow "Prototype pattern" is implemented
-        Deck copy = new Deck(this.name, this.owner);
+    public Deck getCopy() { // Somehow "Prototype pattern" is implemented
+        Deck copy = new Deck(this.name);
         copy.isDeckActivated = this.isDeckActivated;
 
-        for (Card card : this.mainDeck) {
-            copy.mainDeck.add(card.getCopy());
+        for (Card card : this.getMainDeck()) {
+            copy.mainDeck.add(card.getCopy().getID());
         }
 
-        for (Card card : this.sideDeck) {
-            copy.sideDeck.add(card.getCopy());
+        for (Card card : this.getSideDeck()) {
+            copy.sideDeck.add(card.getCopy().getID());
         }
 
         return copy;
@@ -72,34 +93,36 @@ public class Deck {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void removeCardFromMainDeck(Card card) {
-        this.mainDeck.remove(card);
+        this.mainDeck.remove(card.getID());
     }
 
     public void removeCardFromSideDeck(Card card) {
-        this.sideDeck.remove(card);
+        this.sideDeck.remove(card.getID());
     }
 
     public void addCardToMainDeck(Card card) {
-        this.mainDeck.add(card);
+        this.mainDeck.add(card.getID());
+        System.out.println(mainDeck);
     }
 
     public void addCardToSideDeck(Card card) {
-        this.sideDeck.add(card);
+        this.sideDeck.add(card.getID());
     }
 
     public void deleteDeckFromOwner() {
-        this.owner.getAllDecks().remove(this);
-        if (isDeckActivated) {
-            this.owner.setActiveDeck(null);
-        }
+        allDecks.remove(this);
     }
 
     public int numOfCardOccurrence(String cardName, String where) {
         int mainDeckCounter = 0;
         int sideDeckCounter = 0;
         if (where.equals("main deck") || where.equals("both decks")) {
-            for (Card card : mainDeck) { // mainDeck count:
+            for (Card card : this.getMainDeck()) { // mainDeck count:
                 if (card.getName().equals(cardName)) {
                     mainDeckCounter++;
                 }
@@ -107,7 +130,7 @@ public class Deck {
         }
 
         if (where.equals("side deck") || where.equals("both decks")) {
-            for (Card card : sideDeck) { // sideDeck count:
+            for (Card card : this.getSideDeck()) { // sideDeck count:
                 if (card.getName().equals(cardName)) {
                     sideDeckCounter++;
                 }
@@ -117,5 +140,13 @@ public class Deck {
         return mainDeckCounter + sideDeckCounter; // in "single deck" situations, one of the counters would automatically be zero.
     }
 
+    public void setID() {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        LocalDateTime time = LocalDateTime.now();
+        ID = format.format(time) + totalNumberOfDeck;
+    }
 
+    public String getID() {
+        return ID;
+    }
 }

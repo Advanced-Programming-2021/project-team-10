@@ -1,8 +1,8 @@
 package controller.menues.menuhandlers.menucontrollers;
 
+import model.cards.cardsProp.Card;
 import model.enums.Error;
 import model.enums.MenusMassages.DeckMessages;
-import model.cards.cardsProp.Card;
 import model.userProp.Deck;
 import model.userProp.LoginUser;
 import model.userProp.User;
@@ -21,7 +21,8 @@ public class DeckMenuController {
         if (LoginUser.getUser().getDeckByName(name) != null) {
             DeckMenuDisplay.display(Error.REPETITIOUS_DECK_NAME, name);
         } else {
-            new Deck(name, LoginUser.getUser());
+            Deck deck = new Deck(name);
+            LoginUser.getUser().addDeckId(deck.getID());
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_CREATE_DECK);
         }
     }
@@ -47,7 +48,7 @@ public class DeckMenuController {
     }
 
     public static void showAllDecks() {
-        ArrayList<Deck> decks = LoginUser.getUser().getAllDecks();
+        ArrayList<Deck> decks = LoginUser.getUser().getAllUserDecksId();
         Deck activeDeck = LoginUser.getUser().getActiveDeck();
         Deck[] sortedDecks = DeckMenuController.deckNameAlphabetSorter(decks);
         DeckMenuDisplay.showAllDecks(sortedDecks, activeDeck);
@@ -78,7 +79,7 @@ public class DeckMenuController {
         ArrayList<Card> unionOfDecksAndCollection;
 
         unionOfDecksAndCollection = new ArrayList<>(user.getUserCardCollection());
-        for (Deck deck : user.getAllDecks()) {
+        for (Deck deck : user.getAllUserDecksId()) {
             unionOfDecksAndCollection.addAll(deck.getMainDeck());
             unionOfDecksAndCollection.addAll(deck.getSideDeck());
         }
@@ -117,7 +118,7 @@ public class DeckMenuController {
             DeckMenuDisplay.display(Error.NUMBER_LIMITATION_PASSED, cardName, deckName);
         } else {
             selectedDeck.addCardToMainDeck(selectedCard);
-            user.getUserCardCollection().remove(selectedCard);
+            user.removeCard(selectedCard.getID());
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_ADD_CARD_TO_DECK);
         }
     }
@@ -136,7 +137,7 @@ public class DeckMenuController {
             DeckMenuDisplay.display(Error.NUMBER_LIMITATION_PASSED, cardName, deckName);
         } else {
             selectedDeck.addCardToSideDeck(selectedCard);
-            user.getUserCardCollection().remove(selectedCard);
+            user.removeCard(selectedCard.getID());
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_ADD_CARD_TO_DECK);
         }
     }
@@ -149,8 +150,9 @@ public class DeckMenuController {
         } else if (selectedDeck.numOfCardOccurrence(cardName, "main deck") == 0) {
             DeckMenuDisplay.display(Error.NOT_FOUND_CARD_NAME_IN_MAIN_DECK, cardName, deckName);
         } else {
+            assert selectedCard != null;
             selectedDeck.removeCardFromMainDeck(selectedCard);
-            LoginUser.getUser().getUserCardCollection().add(selectedCard);
+            LoginUser.getUser().addCard(selectedCard.getID());
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_REMOVE_CARD_FROM_DECK);
         }
     }
@@ -163,8 +165,9 @@ public class DeckMenuController {
         } else if (selectedDeck.numOfCardOccurrence(cardName, "side deck") == 0) {
             DeckMenuDisplay.display(Error.NOT_FOUND_CARD_NAME_IN_SIDE_DECK, cardName, deckName);
         } else {
+            assert selectedCard != null;
             selectedDeck.removeCardFromSideDeck(selectedCard);
-            LoginUser.getUser().getUserCardCollection().add(selectedCard);
+            LoginUser.getUser().addCard(selectedCard.getID());
             DeckMenuDisplay.display(DeckMessages.SUCCESSFULLY_REMOVE_CARD_FROM_DECK);
         }
     }
