@@ -6,7 +6,8 @@ public enum RequestingInput {
     CHOOSE_FIELD_CARD("Declare a field card:"),
     CHOOSE_FROM_OPPO_MONSTER_HOUSES("Declare one of your opponents monsters:"),
     MAGIC_CARD_TO_DESTROY("Declare a magic card to destroy:"),
-    SET_EQUIPED_MONSTER("Declare a monster card you want to equip:");
+    SET_EQUIPED_MONSTER("Declare a monster card you want to equip:"),
+    ERROR_OF_INVALID_MONSTER_CARD_EQUIPPED("Invalid Monster! Press Enter to retry");
 
     private final String message;
 

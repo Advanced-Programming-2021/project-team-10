@@ -5,12 +5,14 @@ import model.userProp.Deck;
 import model.userProp.User;
 
 public class Player {
+    public  boolean isAllowedToDraw;
     public int playerLifePoint;
     User user;
     PlayerBoard board;
     Deck deck;
 
     {
+        isAllowedToDraw = true;
         playerLifePoint = 8000;
     }
 

@@ -26,7 +26,7 @@ public class TerraformingAction extends Action {
         ArrayList<Card> toShowCards = new ArrayList<>();
 
         ArrayList<Card> hand = player.getBoard().getPlayerHand();
-        if (hand.size() <= 6){
+        if (hand.size() <= 6) {
             for (Card card : mainDeck) { // seeking "FIELD" spells in deck...
                 if (card instanceof MagicCard) {
                     if (((MagicCard) card).getMagicAttribute() == MagicAttribute.FIELD) {

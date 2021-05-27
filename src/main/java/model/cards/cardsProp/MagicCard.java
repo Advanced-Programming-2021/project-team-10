@@ -149,6 +149,22 @@ public class MagicCard extends Card {
             actionsOfMagic.add(new SummonMonsterFromOwnGraveYardAction());
             triggers.add(ManuallyActivation.getInstance());
         }
+        if (name.equals("Change of Heart")) {
+            actionsOfMagic.add(new ChangeTeamOfMonsterCard());
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Time Seal")) {
+            actionsOfMagic.add(new AvoidOpponentsCardDraw(2));
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Pot Of Greed")) {
+            actionsOfMagic.add(new DrawCardFromTopOfDeck(2));
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Terraforming")) {
+            actionsOfMagic.add(new TerraformingAction());
+            triggers.add(ManuallyActivation.getInstance());
+        }
 //        if (name.equals("Magic Jammer") || name.equals("Magic Cylinder"))
 //            actionsOfMagic.add(StoppingActivationAction.getInstance());
 //        if (name.equals("Advanced Ritual Art")) actionsOfMagic.add(RitualSummonAction.getInstance());
@@ -161,7 +177,6 @@ public class MagicCard extends Card {
 //        if (name.equals("Spell Absorption")) actionsOfMagic.add(ChangingLifePointAction.getInstance());
 //        if (name.equals("Magnum Shield") || name.equals("United We Stand") || name.equals("Sword of Dark Destruction") || name.equals("Umiiruka") || name.equals("Forest") || name.equals("Yami"))
 //            actionsOfMagic.add(ChangeDefenceOfMonsterCard.getInstance());
-//        if (name.equals("Time Seal")) actionsOfMagic.add(AvoidOpponentsCardDraw.getInstance());
 //        if (name.equals("Negate Attack")) actionsOfMagic.add(EndBattlePhaseAction.getInstance());
     }
 

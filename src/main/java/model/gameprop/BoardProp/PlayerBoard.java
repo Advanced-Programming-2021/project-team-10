@@ -76,6 +76,22 @@ public class PlayerBoard {
             Card card =  monsterHouse[address].getMonsterCard();
             monsterHouse[address].setMonsterCard(null);
             graveYard.addCardToGraveYard(card);
+        } else if (location.equals(CardLocation.SPELL_ZONE)) {
+            Card card = magicHouse[address].getMagicCard();
+            magicHouse[address].setMagicCard(null);
+            graveYard.addCardToGraveYard(card);
+        }
+    }
+
+    public void moveCardToGraveYard(Card card) {
+        if (card instanceof MonsterCard) {
+            MonsterHouse monsterHouse = MonsterHouse.getMonsterHouseByMonsterCard((MonsterCard) card);
+            monsterHouse.setMonsterCard(null);
+            graveYard.addCardToGraveYard(card);
+        } else if (card instanceof MagicCard) {
+            MagicHouse magicHouse = MagicHouse.getMagicHouseByMagicCard((MagicCard) card);
+            magicHouse.setMagicCard(null);
+            graveYard.addCardToGraveYard(card);
         }
     }
 

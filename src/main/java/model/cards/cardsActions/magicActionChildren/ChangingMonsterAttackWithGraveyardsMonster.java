@@ -4,18 +4,22 @@ import model.cards.cardsActions.Action;
 import model.cards.cardsProp.Card;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.SideOfFeature;
-import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
+import model.gameprop.GameInProcess;
+import model.gameprop.Player;
+import model.gameprop.existenceBasedObserver.ExistenceObserver;
+import model.gameprop.existenceBasedObserver.FieldCardObserver;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
-public class ChangingMonsterAttackWithGraveyardsMonster extends Action {
+public class ChangingMonsterAttackWithGraveyardsMonster extends Action implements ChangingSomethingByFieldCard{
     private final ArrayList<String> typesToChangeAttack;
     private final int changeAttackForEachMonsterInGraveyard;
     private final int addOrMinus;
     private final ArrayList<SideOfFeature> countWhichGraveYards;
     private final ArrayList<SideOfFeature> changeWhichTeamMonstersAttack;
+    private int finalChangeValue;
 
     {
         name = this.getClass().getSimpleName();
@@ -29,6 +33,18 @@ public class ChangingMonsterAttackWithGraveyardsMonster extends Action {
         this.countWhichGraveYards = countWhichGraveYards;
     }
 
+    public ArrayList<SideOfFeature> getChangeWhichTeamMonstersAttack() {
+        return changeWhichTeamMonstersAttack;
+    }
+
+    public int getFinalChangeValue() {
+        return finalChangeValue;
+    }
+
+    public ArrayList<String> getTypesToChangeAttack() {
+        return typesToChangeAttack;
+    }
+
     @Override
     public void active(Game game) {
         int countMonstersInGraveyard = 0;
@@ -40,17 +56,16 @@ public class ChangingMonsterAttackWithGraveyardsMonster extends Action {
                 }
             }
         }
-        int changeAttack = countMonstersInGraveyard * changeAttackForEachMonsterInGraveyard * addOrMinus;
-        for (SideOfFeature sideOfFeature : changeWhichTeamMonstersAttack) {
-            PlayerBoard playerBoard = game.getPlayer(sideOfFeature).getBoard();
-            for (MonsterHouse monsterHouse : playerBoard.getMonsterHouse()) {
-                if (typesToChangeAttack.contains(monsterHouse.getMonsterCard().getRace().toString())) {
-                    int monsterAttack = monsterHouse.getMonsterCard().getAttack();
-                    monsterAttack += changeAttack;
-                    monsterHouse.getMonsterCard().setAttack(monsterAttack);
-                }
-            }
-        }
+        finalChangeValue = countMonstersInGraveyard * changeAttackForEachMonsterInGraveyard * addOrMinus;
+
+        Player currentPlayer = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT);
+        change(finalChangeValue, changeWhichTeamMonstersAttack, typesToChangeAttack, currentPlayer, "Attack");
+
+        ArrayList<ExistenceObserver> existenceObservers = ExistenceObserver.getExistenceObservers();
+        FieldCardObserver lastObserver = (FieldCardObserver) existenceObservers.get(existenceObservers.size() - 1);
+        // it can be guaranteed that the last observer is from this type as the last one is added just moments (lines!) before in "change()"!
+        lastObserver.setToRevertAction(this);
+
         isActivatedBefore = true;
     }
 }
