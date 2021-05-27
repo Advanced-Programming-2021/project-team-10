@@ -10,6 +10,7 @@ import viewer.menudisplay.ScoreboardMenuDisplay;
 import viewer.menu.DeckMenu;
 import viewer.menu.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MenuHandler {
@@ -29,7 +30,7 @@ public class MenuHandler {
         };
     }
 
-    public static void changeMenu(Menu menu) throws CmdLineParser.OptionException {
+    public static void changeMenu(Menu menu) throws CmdLineParser.OptionException, IOException {
         if (menu == Menu.REGISTER_MENU) {
             RegisterMenu registerMenu = RegisterMenu.getInstance();
             System.out.println(Register.SUCCESSFULLY_ENTER_MENU.toString());

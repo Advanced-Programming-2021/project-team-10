@@ -6,6 +6,8 @@ import controller.menues.menuhandlers.menucontrollers.RegisterMenuController;
 import model.enums.Error;
 import viewer.Regex;
 
+import java.io.IOException;
+
 public class RegisterMenu {
     private static RegisterMenu registerMenu;
 
@@ -19,12 +21,13 @@ public class RegisterMenu {
         return registerMenu;
     }
 
-    public void run() throws CmdLineParser.OptionException {
+    public void run() throws CmdLineParser.OptionException, IOException {
         RegisterMenuController controller = RegisterMenuController.getInstance();
         String command;
         while (true) {
             command = ImportScanner.getInput();
             if (command.equals("menu exit")) {
+                controller.saveData();
                 break;
             }
             if (!isCommandInValid(command)) {

@@ -6,6 +6,9 @@ import model.cards.cardsProp.MagicCard;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GamePhaseEnums.General;
 import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
+import model.events.eventChildren.ManuallyActivation;
+import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.SelectedCardProp;
 import model.gameprop.gamemodel.Game;
 
@@ -26,8 +29,17 @@ public class ActiveSpellProcessor extends ActiveEffectProcessor {
                 if (game.getPlayer(SideOfFeature.CURRENT).getBoard().numberOfFullHouse("spell") == 5) {
                     return General.SPELL_CARD_ZONE_FULL.toString();
                 }
+                else{
+                    for (MagicHouse house : game.getPlayer(SideOfFeature.CURRENT).getBoard().getMagicHouse()) {
+                        if (house.getMagicCard() == null){
+                            house.setMagicCard(magicCard);
+                            house.setState(MagicHouseVisibilityState.O);
+                        }
+                    }
+                }
             }
         }
-        return null;
+        ManuallyActivation.getInstance().activeEffects(game);
+        return General.SPELL_ACTIVATED_SUCCESSFULLY.toString();
     }
 }

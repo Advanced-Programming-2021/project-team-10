@@ -7,6 +7,7 @@ import model.enums.Menu;
 import controller.MenuHandler;
 import viewer.menudisplay.MainMenuDisplay;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 
 public class MainMenuController {
@@ -18,7 +19,7 @@ public class MainMenuController {
         MainMenuDisplay.display(Error.INVALID_COMMAND);
     }
 
-    public static void enterMenu(Matcher matcher) throws CmdLineParser.OptionException {
+    public static void enterMenu(Matcher matcher) throws CmdLineParser.OptionException, IOException {
         String menuName = matcher.group(1);
         if (menuName.equals("Duel menu")) {
             MenuHandler.changeMenu(Menu.START_DUEL);

@@ -22,7 +22,7 @@ public class GuessingCardInOpponentHandAction extends Action {
 
     @Override
     public void active(Game game) {
-        String name = GetStringInputFromView.getInputFromView(RequestingInput.GUESS_CARD);
+        String name = GetStringInputFromView.getInputFromController(RequestingInput.GUESS_CARD);
         boolean isCardInOpponentHand = false;
         PlayerBoard opponentBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         for (Card card : opponentBoard.getPlayerHand()) {

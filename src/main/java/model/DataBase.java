@@ -2,15 +2,15 @@ package model;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import model.cards.cardsProp.Card;
+import com.opencsv.CSVReader;
 import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;
-import com.opencsv.CSVReader;
+import model.userProp.Deck;
+import model.userProp.User;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,9 +55,9 @@ public class DataBase {
                         lineInArray[2], lineInArray[3],
                         lineInArray[4], lineInArray[5]);
                 counter++;
-//                magicCards.add(new MagicCard(lineInArray[0], lineInArray[1],
-//                        lineInArray[2], lineInArray[3],
-//                        lineInArray[4], lineInArray[5]));
+ /*             magicCards.add(new MagicCard(lineInArray[0], lineInArray[1],
+                       lineInArray[2], lineInArray[3],
+                       lineInArray[4], lineInArray[5]));*/
             }
             MagicCard.setMagicCards(magicCards);
         } catch (Exception e) {
@@ -73,16 +73,20 @@ public class DataBase {
                         infoRow[3], infoRow[4], infoRow[5],
                         infoRow[6], infoRow[7], infoRow[8]);
                 counter++;
-//                MonsterCard monsterCard = new MonsterCard(infoRow[0], infoRow[1], infoRow[2],
-//                        infoRow[3], infoRow[4], infoRow[5],
-//                        infoRow[6], infoRow[7], infoRow[8]);
-//                monsterCards.add(monsterCard);
+/*                MonsterCard monsterCard = new MonsterCard(infoRow[0], infoRow[1], infoRow[2],
+                        infoRow[3], infoRow[4], infoRow[5],
+                        infoRow[6], infoRow[7], infoRow[8]);
+                monsterCards.add(monsterCard);*/
             }
             MonsterCard.setMonsterCards(monsterCards);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String json = new Gson().toJson(magicCards);
+
+
+
+        //card Json
+/*        String json = new Gson().toJson(magicCards);
         Writer writer = null;
         try {
             writer = new BufferedWriter(new OutputStreamWriter(
@@ -93,7 +97,7 @@ public class DataBase {
         } finally {
             try {
                 assert writer != null;
-                writer.close();} catch (Exception ex) {/*ignore*/}
+                writer.close();} catch (Exception ex) {*//*ignore*//*}
         }
         json = new Gson().toJson(monsterCards);
         try {
@@ -104,7 +108,36 @@ public class DataBase {
             // Report
         } finally {
             try {
-                writer.close();} catch (Exception ex) {/*ignore*/}
+                writer.close();} catch (Exception ex) {*//*ignore*//*}
+        }*/
+
+
+
+
+
+        //User Json
+  /*      try {
+            String json = new String(Files.readAllBytes(Paths.get("Decks.Json")));
+            ArrayList<Deck> decks;
+            decks = new Gson().fromJson(json,
+                    new TypeToken<List<Deck>>() {
+                    }.getType()
+            );
+            Deck.setAllDecks(decks);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
+
+        try {
+            String json = new String(Files.readAllBytes(Paths.get("Users.Json")));
+            ArrayList<User> decks;
+            decks = new Gson().fromJson(json,
+                    new TypeToken<List<User>>() {
+                    }.getType()
+            );
+            User.setAllUsers(decks);
+        } catch (IOException e) {
+            e.printStackTrace();
+     }  */
+}
 }

@@ -28,7 +28,7 @@ public class ShopMenuController {
         } else if (userBalance < card.getPrice()) {
             ShopMenuDisplay.display(Error.NOT_ENOUGH_MONEY);
         } else {
-            user.getUserCardCollection().add(card);
+            user.addCard(card.getID());
             user.changeBalance(-card.getPrice());
             ShopMenuDisplay.display(ShopMessages.SUCCESSFULLY_BOUGHT_A_CARD, "" + user.getBalance());
         }

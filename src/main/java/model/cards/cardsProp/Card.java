@@ -8,21 +8,28 @@ import java.util.List;
 
 public abstract class Card {
     protected static List<Card> cards;
+    protected static int numberOfCard;
 
     static {
         cards = new ArrayList<>();
+        numberOfCard = 0;
     }
 
+    protected int ID;
     protected String name;
     protected String number; // on card's picture
     protected int price;
     protected String description;
+
 
     public Card(String name, String description, String price) {
         setName(name);
         setDescription(description);
         setPrice(price);
         cards.add(this);
+        ID = numberOfCard;
+        numberOfCard++;
+        System.out.println("ID of card : " + ID + "number of Cards : " + numberOfCard);
     }
 
     public Card() {
@@ -93,7 +100,21 @@ public abstract class Card {
         this.description = description;
     }
 
-    public void activeEffectsByEvent(Event event, Game game) {}
+    public void activeEffectsByEvent(Event event, Game game) {
+    }
 
     public abstract Card getCopy(); // semi duplicate code in overrides; cause -> Card is abstract and not constructable!
+
+    public static Card getCardById(int ID) {
+        for (Card card : cards) {
+            if (card.ID == ID) {
+                return card;
+            }
+        }
+        return null;
+    }
+
+    public int getID() {
+        return ID;
+    }
 }

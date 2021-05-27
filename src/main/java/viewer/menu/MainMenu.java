@@ -8,6 +8,7 @@ import model.userProp.LoginUser;
 import viewer.Regex;
 import viewer.menudisplay.MainMenuDisplay;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 
 public class MainMenu {
@@ -20,7 +21,7 @@ public class MainMenu {
         return mainMenu;
     }
 
-    private static void recognizeCommand(String command) throws CmdLineParser.OptionException {
+    private static void recognizeCommand(String command) throws CmdLineParser.OptionException, IOException {
         Matcher matcher;
         if ((matcher = Regex.getMatcher(command, Regex.menuEnter)).matches()) {
             MainMenuController.enterMenu(matcher);
@@ -31,7 +32,7 @@ public class MainMenu {
         }
     }
 
-    public void run() throws CmdLineParser.OptionException {
+    public void run() throws CmdLineParser.OptionException, IOException {
         String command;
         while (true) {
             command = ImportScanner.getInput();
