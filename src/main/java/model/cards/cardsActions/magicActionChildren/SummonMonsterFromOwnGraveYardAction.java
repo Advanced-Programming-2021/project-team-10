@@ -20,7 +20,7 @@ public class SummonMonsterFromOwnGraveYardAction extends Action {
     public void active(Game game) {
         PlayerBoard currentPlayerboard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
         GeneralController.getInstance().showGraveYard(GameInProcess.getGame(), "--current");
-        String cardToSummon = GetStringInputFromView.getInputFromController(RequestingInput.FROM_GRAVEYARD);
+        String cardToSummon = GetStringInputFromView.getInputFromView(RequestingInput.FROM_GRAVEYARD);
         MonsterCard summonedMonster;
         try {
             summonedMonster = currentPlayerboard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);

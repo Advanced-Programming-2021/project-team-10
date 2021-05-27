@@ -21,7 +21,7 @@ public class SummonMonsterFromBothGraveYardsAction extends Action {
         PlayerBoard opponentPlayerBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         GeneralController.getInstance().showGraveYard(game, "--current");
         GeneralController.getInstance().showGraveYard(game, "--opponent");
-        String cardToSummon = GetStringInputFromView.getInputFromController(RequestingInput.FROM_GRAVEYARD);
+        String cardToSummon = GetStringInputFromView.getInputFromView(RequestingInput.FROM_GRAVEYARD);
         MonsterCard summonedMonster;
         try {
             summonedMonster = opponentPlayerBoard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);
