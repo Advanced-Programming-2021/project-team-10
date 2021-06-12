@@ -107,6 +107,7 @@ public final class Regex {
 
     //GamePlay -> general commands
     public static String[] generalCommands = new String[]{
+            "cheat code : make me winner",
             "surrender",
             "active effect",
             "card show --selected",

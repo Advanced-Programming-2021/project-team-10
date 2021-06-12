@@ -5,7 +5,6 @@ import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
 public class DestroyAllOpponentAttackingMonsters extends ActionOfMagic {

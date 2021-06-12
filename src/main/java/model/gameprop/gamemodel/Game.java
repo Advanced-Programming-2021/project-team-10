@@ -18,25 +18,30 @@ import java.util.Collections;
 
 public class Game {
     private boolean isGameFinished;
+    private boolean isMatchFinished;
+    private int numberOfGameRounds;
+    private int roundNumber;
     private PlayerTurn turnOfGame;
     private Player firstPlayer;
     private Player secondPlayer;
-    private Player winner;
     private Turn turn;
     private GameSideStage gameSideStage;
     private GameMainStage gameMainStage;
 
     {
+        roundNumber = 1;
         isGameFinished = false;
+        isMatchFinished = false;
         turnOfGame = PlayerTurn.PLAYER_ONE;
         gameMainStage = GameMainStage.DRAW_PHASE;
         gameSideStage = GameSideStage.START_STAGE;
     }
 
-    public Game(Player firstPlayer, Player secondPlayer) {
+    public Game(Player firstPlayer, Player secondPlayer, int numberOfRounds) {
         setFirstPlayer(firstPlayer);
         setSecondPlayer(secondPlayer);
         turn = new Turn(firstPlayer);
+        this.numberOfGameRounds = numberOfRounds;
     }
 
     public boolean isPlayerDrawInThisTurn() {
@@ -122,32 +127,61 @@ public class Game {
         return turnOfGame;
     }
 
-    public boolean isGameFinished() {
-        return isGameFinished;
+    public boolean isMatchFinished() {
+        return isMatchFinished;
+    }
+
+    public void finishMatch(PlayerTurn looserTurn) {
+        if (numberOfGameRounds == 1) {
+            finishGame(looserTurn);
+        } else {
+            roundNumber++;
+            firstPlayer = new Player(firstPlayer.getUser(), firstPlayer.getNumberOfWinningRound());
+            secondPlayer = new Player(secondPlayer.getUser(), firstPlayer.getNumberOfWinningRound());
+            //change card between decks
+
+        }
     }
 
     public void finishGame(PlayerTurn looserTurn) {
-        Player looser = null;
         switch (looserTurn) {
             case PLAYER_ONE: {
-                winner = secondPlayer;
-                looser = firstPlayer;
+                secondPlayer.increaseWinningRound();
+                calculatePlayersBonus(secondPlayer, firstPlayer);
                 break;
             }
             case PLAYER_TWO:
-                winner = firstPlayer;
-                looser = secondPlayer;
+                firstPlayer.increaseWinningRound();
+                calculatePlayersBonus(firstPlayer, secondPlayer);
         }
-        assert winner != null;
-        winner.getUser().changeBalance(100);
-        assert looser != null;
-        looser.getUser().increaseScore(1000);
-        secondPlayer.getUser().changeBalance(1000 + secondPlayer.playerLifePoint);
+
+    }
+
+    private void calculatePlayersBonus(Player winner, Player looser) {
+        if (numberOfGameRounds == 1) {
+            looser.getUser().changeBalance(100);
+            winner.getUser().increaseScore(1000);
+            winner.getUser().changeBalance(1000 + winner.playerLifePoint);
+        } else {
+            looser.getUser().changeBalance(300);
+            winner.getUser().increaseScore(3000);
+            winner.getUser().changeBalance(3000 + winner.playerLifePoint);
+        }
         isGameFinished = true;
     }
 
     public Player getWinner() {
-        return winner;
+        if (firstPlayer.getNumberOfWinningRound() > secondPlayer.getNumberOfWinningRound())
+            return firstPlayer;
+        else
+            return secondPlayer;
+    }
+
+    public Player getLooser() {
+        if (firstPlayer.getNumberOfWinningRound() > secondPlayer.getNumberOfWinningRound())
+            return secondPlayer;
+        else
+            return firstPlayer;
     }
 
     public int getTributeNumber() {
@@ -176,10 +210,10 @@ public class Game {
     }
 
     public void setTypeOfMonsterHire(TypeOfHire typeOfMonsterHire) {
-            turn.setTypeOfHighLevelMonsterHire(typeOfMonsterHire);
+        turn.setTypeOfHighLevelMonsterHire(typeOfMonsterHire);
     }
 
-    public void moveCardFromHandToDeck (Card card) {
+    public void moveCardFromHandToDeck(Card card) {
         Player player = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT);
         Deck deck = player.getDeck();
         ArrayList<Card> hand = player.getBoard().getPlayerHand();
@@ -188,5 +222,9 @@ public class Game {
         hand.add(card);
 
         Collections.shuffle(deck.getMainDeck());
+    }
+
+    public boolean isGameFinished() {
+        return isGameFinished;
     }
 }

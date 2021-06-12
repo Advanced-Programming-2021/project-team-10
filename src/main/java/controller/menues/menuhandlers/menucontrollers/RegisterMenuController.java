@@ -121,12 +121,11 @@ public class RegisterMenuController {
 
 
     public void saveData() throws IOException {
-        FileWriter writer = new FileWriter("Decks.Json");
+        FileWriter writer = new FileWriter("jsonResources//Decks.Json");
         writer.write(new Gson().toJson(Deck.getAllDecks()));
         writer.close();
-        writer = new FileWriter("Users.Json");
+        writer = new FileWriter("jsonResources//Users.Json");
         writer.write(new Gson().toJson(User.getAllUsers()));
         writer.close();
-
     }
 }

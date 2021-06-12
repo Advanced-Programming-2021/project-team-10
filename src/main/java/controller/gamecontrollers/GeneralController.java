@@ -161,9 +161,13 @@ public class GeneralController {
     }
 
     private String surrender(Game game) {
-        GameInProcess.getGame().finishGame(GameInProcess.getGame().getTurnOfGame());
-        return game.getPlayer(SideOfFeature.CURRENT).getUser().getNickname() +
-                " won the game and the score is: 1-0";
+        GameInProcess.getGame().finishMatch(game.getTurnOfGame());
+        if (game.isGameFinished()) {
+            Player winner = game.getWinner();
+            return winner.getUser().getNickname() +
+                    "  WIN !!!! game Points -> " + game.getWinner().getNumberOfWinningRound() + " : " + game.getLooser().getNumberOfWinningRound();
+        }
+        return "next ROUND";
     }
 
     private String drawBoard(Game game) {
@@ -200,6 +204,8 @@ public class GeneralController {
                 return drawBoard(game);
             } else if (command.equals("active effect")) {
                 return activeEffect(game);
+            } else if (command.startsWith("cheat code : ")) {
+                return runCheatCode(command);
             } else return null;
         } else return "back to game first";
     }
@@ -215,5 +221,12 @@ public class GeneralController {
     private String activeEffect(Game game) {
         ActiveEffectChain chain = new ActiveEffectChain();
         return chain.request(game);
+    }
+
+    private String runCheatCode(String cheatCode) {
+        if (cheatCode.contains("winner")) {
+            return null;
+        } else
+            return null;
     }
 }

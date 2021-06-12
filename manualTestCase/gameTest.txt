@@ -392,8 +392,6 @@ shop buy Yomi Ship
 shop buy Yomi Ship
 menu exit
 menu enter Deck menu
-deck create firstDeck
-deck create secondDeck
 deck create thirdDeck
 deck set-active thirdDeck
 deck add-card --card Yami --deck thirdDeck
@@ -871,4 +869,4 @@ deck add-card --card Haniwa --deck thirdDeck
 deck add-card --card Haniwa --deck thirdDeck
 menu exit
 menu enter Duel menu
-duel --new --second-player Yaroo --rounds 1dexwsaq
+duel --new --second-player Yaroo --rounds 1

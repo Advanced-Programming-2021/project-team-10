@@ -3,7 +3,6 @@ package model.cards.cardsActions.magicActionChildren;
 import model.cards.cardsActions.ActionOfMagic;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MonsterHouse;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;

@@ -62,7 +62,7 @@ public class SideStageController {
                 TypeOfHire type = game.getTypeOfMonsterHire();
                 for (MonsterHouse monsterHouse : game.getPlayer(SideOfFeature.CURRENT).getBoard().getMonsterHouse()) {
                     if (monsterHouse.getMonsterCard() == null) {
-                        monsterHouse.setMonsterCard((MonsterCard)game.getCardProp().getCard());
+                        monsterHouse.setMonsterCard((MonsterCard) game.getCardProp().getCard());
                         if (type == TypeOfHire.SUMMON) monsterHouse.setState(MonsterHouseVisibilityState.OO);
                         else monsterHouse.setState(MonsterHouseVisibilityState.DH);
                         game.setHiredMonster(monsterHouse);

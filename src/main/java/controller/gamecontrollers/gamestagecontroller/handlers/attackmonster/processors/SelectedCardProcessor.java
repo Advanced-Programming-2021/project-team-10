@@ -3,7 +3,6 @@ package controller.gamecontrollers.gamestagecontroller.handlers.attackmonster.pr
 import controller.gamecontrollers.gamestagecontroller.handlers.attackmonster.AttackMonsterProcessor;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GamePhaseEnums.BattlePhase;
-import model.enums.GameEnums.GamePhaseEnums.MainPhase;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.SelectedCardProp;

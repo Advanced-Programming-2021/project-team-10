@@ -10,7 +10,7 @@ public abstract class MonsterProcessor {
         this.processor = processor;
     }
 
-    protected MainPhase process(Game game ) {
+    protected MainPhase process(Game game) {
         if (processor != null) {
             return processor.process(game);
         }else{

@@ -8,7 +8,6 @@ import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
 public class DestroyAMagicCard extends ActionOfMagic {

@@ -1,14 +1,7 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import controller.gamecontrollers.GetStringInputFromView;
-import exceptions.CardNotFoundException;
 import model.cards.cardsActions.ActionOfMagic;
-import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;
-import model.enums.GameEnums.RequestingInput;
-import model.enums.GameEnums.SideOfFeature;
-import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
 public class ChangingEquipedMonsterAttack extends ActionOfMagic {

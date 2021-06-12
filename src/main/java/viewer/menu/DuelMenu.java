@@ -32,6 +32,8 @@ public class DuelMenu {
                 String outPut;
                 if ((outPut = controller.run(command)) != null) {
                     System.out.println(outPut);
+                } else {
+                    break;
                 }
             } else
                 System.out.println(Error.INVALID_COMMAND);

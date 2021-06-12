@@ -43,6 +43,22 @@ public class MagicCard extends Card {
         setMagicEffect(name);
     }
 
+    public MagicCard() {
+        super();
+    }
+
+    public static void setMagicCards(ArrayList<MagicCard> magicCards) {
+        MagicCard.magicCards = magicCards;
+        Card.addMagicsToCards(magicCards);
+    }
+
+    public static MagicCard getMagicCardByName(String name) {
+        for (MagicCard magicCard : magicCards) {
+            if (magicCard.name.equals(name)) return magicCard;
+        }
+        return null;
+    }
+
     private void setMagicEvents(String name) {
         if (name.equals("Monster Reborn")) {
             triggers.add(ManuallyActivation.getInstance());
@@ -152,22 +168,6 @@ public class MagicCard extends Card {
 //        if (name.equals("Negate Attack")) actionsOfMagic.add(EndBattlePhaseAction.getInstance());
     }
 
-    public MagicCard() {
-        super();
-    }
-
-    public static void setMagicCards(ArrayList<MagicCard> magicCards) {
-        MagicCard.magicCards = magicCards;
-        Card.addMagicsToCards(magicCards);
-    }
-
-    public static MagicCard getMagicCardByName(String name) {
-        for (MagicCard magicCard : magicCards) {
-            if (magicCard.name.equals(name)) return magicCard;
-        }
-        return null;
-    }
-
     @Override
     public void activeEffectsByEvent(Event event, Game game) {
         boolean shouldActiveEffects = false;
@@ -239,6 +239,7 @@ public class MagicCard extends Card {
         copy.name = this.name;
         copy.description = this.description;
         copy.price = this.price;
+        copy.ID = this.ID;
         //
 
         copy.setMagicSpeed(this.magicSpeed);

@@ -37,8 +37,13 @@ public class MonsterCard extends Card {
     public MonsterCard() {
     }
 
+    public static void setMonsterCards(ArrayList<MonsterCard> monsterCards) {
+        MonsterCard.monsterCards = monsterCards;
+        Card.addMonstersToCards(monsterCards);
+    }
+
     public void setDetails(String name, String level, String attribute, String race, String type,
-                                  String attack, String defence, String description, String price) {
+                           String attack, String defence, String description, String price) {
         setName(name);
         setDescription(description);
         setPrice(price);
@@ -59,11 +64,6 @@ public class MonsterCard extends Card {
                 "\nDEF: " + defence +
                 "\nDescription: " + description;
 
-    }
-
-    public static void setMonsterCards(ArrayList<MonsterCard> monsterCards) {
-        MonsterCard.monsterCards = monsterCards;
-        Card.addMonstersToCards(monsterCards);
     }
 
     public int getAttack() {
@@ -131,6 +131,7 @@ public class MonsterCard extends Card {
         copy.name = this.name;
         copy.description = this.description;
         copy.price = this.price;
+        copy.ID = this.ID;
         //
 
         copy.setAttack(this.attack);

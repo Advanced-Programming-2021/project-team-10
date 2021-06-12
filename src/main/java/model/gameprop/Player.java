@@ -9,16 +9,18 @@ public class Player {
     User user;
     PlayerBoard board;
     Deck deck;
+    int numberOfWinningRound;
 
     {
         playerLifePoint = 8000;
     }
 
-    public Player(User user) {
+    public Player(User user, int numberOfWinningRound) {
         setUser(user);
         board = new PlayerBoard();
         deck = user.getActiveDeck().getCopy();
         gameSetUp();
+        this.numberOfWinningRound = numberOfWinningRound;
     }
 
     public User getUser() {
@@ -50,10 +52,17 @@ public class Player {
     private void gameSetUp() {
         //Collections.shuffle(deck.getMainDeck());
         //Collections.shuffle(deck.getSideDeck());
-
         for (int i = 0; i < 5; i++) {
             board.getPlayerHand().add(deck.getMainDeck().get(i));
         }
         deck.getMainDeck().subList(0, 5).clear();
+    }
+
+    public int getNumberOfWinningRound() {
+        return numberOfWinningRound;
+    }
+
+    public void increaseWinningRound() {
+        numberOfWinningRound++;
     }
 }

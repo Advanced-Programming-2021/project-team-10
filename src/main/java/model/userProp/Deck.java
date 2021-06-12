@@ -72,6 +72,7 @@ public class Deck {
 
     public Deck getCopy() { // Somehow "Prototype pattern" is implemented
         Deck copy = new Deck(this.name);
+        Deck.getAllDecks().remove(copy);
         copy.isDeckActivated = this.isDeckActivated;
 
         for (Card card : this.getMainDeck()) {

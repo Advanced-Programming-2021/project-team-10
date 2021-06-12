@@ -5,7 +5,6 @@ import model.events.eventChildren.ManuallyActivation;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
 public class Event {

@@ -10,9 +10,7 @@ import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
-import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 
 public class ActionOfMagic {

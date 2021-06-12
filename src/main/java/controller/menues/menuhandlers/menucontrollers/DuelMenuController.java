@@ -4,9 +4,9 @@ import com.sanityinc.jargs.CmdLineParser;
 import controller.menues.menuhandlers.duelmenuhandler.DuelChain;
 import model.enums.GameEnums.PlayerTurn;
 import model.enums.MenusMassages.Duel;
-import model.gameprop.gamemodel.Game;
 import model.gameprop.GameInProcess;
 import model.gameprop.Player;
+import model.gameprop.gamemodel.Game;
 import model.userProp.LoginUser;
 import model.userProp.User;
 import model.userProp.UserInfoType;
@@ -58,18 +58,18 @@ public class DuelMenuController {
         if ((error = chain.request(data)) != null) {
             return processAnswer(error, data);
         }
-        Player loggedInPlayer = new Player(LoginUser.getUser());
-        Player opponentPlayer = new Player(User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME));
+        Player loggedInPlayer = new Player(LoginUser.getUser(), 0 );
+        Player opponentPlayer = new Player(User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME),  0 );
         Game game = null;
         PlayerTurn firstPlayer = RockPaperScissorGame.run(LoginUser.getUser().getNickname(),
                 Objects.requireNonNull(User.getUserByUserInfo(secondPlayer, UserInfoType.USERNAME)).getNickname());
         switch (firstPlayer) {
             case PLAYER_ONE: {
-                game = new Game(loggedInPlayer, opponentPlayer);
+                game = new Game(loggedInPlayer, opponentPlayer, Integer.parseInt(rounds));
                 break;
             }
             case PLAYER_TWO: {
-                game = new Game(opponentPlayer, loggedInPlayer);
+                game = new Game(opponentPlayer, loggedInPlayer, Integer.parseInt(rounds));
             }
         }
         GameInProcess.setGame(game);

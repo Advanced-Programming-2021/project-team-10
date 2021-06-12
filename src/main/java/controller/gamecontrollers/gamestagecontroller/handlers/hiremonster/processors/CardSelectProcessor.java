@@ -1,7 +1,6 @@
 package controller.gamecontrollers.gamestagecontroller.handlers.hiremonster.processors;
 
 import controller.gamecontrollers.gamestagecontroller.handlers.hiremonster.MonsterProcessor;
-import model.cards.cardsProp.Card;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
 import model.enums.GameEnums.SideOfFeature;

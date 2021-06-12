@@ -116,8 +116,8 @@ public class DataBase {
 
 
         //User Json
-  /*      try {
-            String json = new String(Files.readAllBytes(Paths.get("Decks.Json")));
+      try {
+            String json = new String(Files.readAllBytes(Paths.get("jsonResources\\Decks.Json")));
             ArrayList<Deck> decks;
             decks = new Gson().fromJson(json,
                     new TypeToken<List<Deck>>() {
@@ -129,7 +129,7 @@ public class DataBase {
         }
 
         try {
-            String json = new String(Files.readAllBytes(Paths.get("Users.Json")));
+            String json = new String(Files.readAllBytes(Paths.get("jsonResources\\Users.Json")));
             ArrayList<User> decks;
             decks = new Gson().fromJson(json,
                     new TypeToken<List<User>>() {
@@ -138,6 +138,6 @@ public class DataBase {
             User.setAllUsers(decks);
         } catch (IOException e) {
             e.printStackTrace();
-     }  */
+     }
 }
 }
