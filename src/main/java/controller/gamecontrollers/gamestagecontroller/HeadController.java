@@ -2,7 +2,10 @@ package controller.gamecontrollers.gamestagecontroller;
 
 import com.sanityinc.jargs.CmdLineParser;
 import controller.gamecontrollers.GeneralController;
+import model.gameprop.existenceBasedObserver.ExistenceObserver;
 import viewer.Regex;
+
+import java.util.ArrayList;
 
 public class HeadController {
     DrawPhaseController drawPhaseController;
@@ -22,6 +25,11 @@ public class HeadController {
     }
 
     public String run(String command) throws CmdLineParser.OptionException {
+        ArrayList<ExistenceObserver> existenceObservers = ExistenceObserver.getExistenceObservers();
+        for (ExistenceObserver existenceObserver : existenceObservers) {
+            existenceObserver.update();
+        }
+
         if (isGeneralCommand(command)) return generalController.run(command);
         else if (isSideStageCommand(command)) return sideStageController.run(command);
         else {

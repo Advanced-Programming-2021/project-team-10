@@ -27,7 +27,7 @@ public class DrawPhaseController extends GeneralController {
         Game game = GameInProcess.getGame();
         Player player = game.getPlayer(SideOfFeature.CURRENT);
         ArrayList<Card> hand = player.getBoard().getPlayerHand();
-        if (!game.isPlayerDrawInThisTurn()) {
+        if (!game.isPlayerDrawInThisTurn() && player.isAllowedToDraw) {
             if (hand.size() < 6) {
                 Deck playerDeck = player.getDeck();
                 Card newCard = playerDeck.getMainDeck().get(0);

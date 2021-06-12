@@ -1,6 +1,6 @@
 package model.cards.cardsProp;
 
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 import model.cards.cardsActions.magicActionChildren.*;
 import model.cards.cardsEnum.Magic.MagicAttribute;
 import model.cards.cardsEnum.Magic.MagicSpeed;
@@ -21,7 +21,7 @@ public class MagicCard extends Card {
         magicCards = new ArrayList<>();
     }
 
-    private final ArrayList<ActionOfMagic> actionsOfMagic;
+    private final ArrayList<Action> actionsOfMagic;
     private final ArrayList<Event> sideEvents;
     private final ArrayList<Event> triggers;
     private MagicSpeed magicSpeed;
@@ -152,6 +152,22 @@ public class MagicCard extends Card {
         if (name.equals("Call of the Haunted")) {
             actionsOfMagic.add(new SummonMonsterFromOwnGraveYardAction());
         }
+        if (name.equals("Change of Heart")) {
+            actionsOfMagic.add(new ChangeTeamOfMonsterCard());
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Time Seal")) {
+            actionsOfMagic.add(new AvoidOpponentsCardDraw(2));
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Pot Of Greed")) {
+            actionsOfMagic.add(new DrawCardFromTopOfDeck(2));
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Terraforming")) {
+            actionsOfMagic.add(new TerraformingAction());
+            triggers.add(ManuallyActivation.getInstance());
+        }
 //        if (name.equals("Magic Jammer") || name.equals("Magic Cylinder"))
 //            actionsOfMagic.add(StoppingActivationAction.getInstance());
 //        if (name.equals("Advanced Ritual Art")) actionsOfMagic.add(RitualSummonAction.getInstance());
@@ -164,7 +180,6 @@ public class MagicCard extends Card {
 //        if (name.equals("Spell Absorption")) actionsOfMagic.add(ChangingLifePointAction.getInstance());
 //        if (name.equals("Magnum Shield") || name.equals("United We Stand") || name.equals("Sword of Dark Destruction") || name.equals("Umiiruka") || name.equals("Forest") || name.equals("Yami"))
 //            actionsOfMagic.add(ChangeDefenceOfMonsterCard.getInstance());
-//        if (name.equals("Time Seal")) actionsOfMagic.add(AvoidOpponentsCardDraw.getInstance());
 //        if (name.equals("Negate Attack")) actionsOfMagic.add(EndBattlePhaseAction.getInstance());
     }
 
@@ -178,7 +193,7 @@ public class MagicCard extends Card {
             }
         }
         if (shouldActiveEffects) {
-            for (ActionOfMagic actionOfMagic : actionsOfMagic) {
+            for (Action actionOfMagic : actionsOfMagic) {
                 actionOfMagic.active(game);
             }
         }
@@ -227,7 +242,7 @@ public class MagicCard extends Card {
         setMagicEffect(name);
     }
 
-    public ArrayList<ActionOfMagic> getActionsOfMagic() {
+    public ArrayList<Action> getActionsOfMagic() {
         return actionsOfMagic;
     }
 

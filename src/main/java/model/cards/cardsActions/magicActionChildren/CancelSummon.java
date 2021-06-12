@@ -1,8 +1,8 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 
-public class CancelSummon extends ActionOfMagic {
+public class CancelSummon extends Action {
     {
         name = this.getClass().getSimpleName();
     }

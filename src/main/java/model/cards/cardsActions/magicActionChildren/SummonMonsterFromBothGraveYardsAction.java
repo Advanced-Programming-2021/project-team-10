@@ -3,14 +3,14 @@ package model.cards.cardsActions.magicActionChildren;
 import controller.gamecontrollers.GeneralController;
 import controller.gamecontrollers.GetStringInputFromView;
 import exceptions.CardNotFoundException;
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.gamemodel.Game;
 
-public class SummonMonsterFromBothGraveYardsAction extends ActionOfMagic {
+public class SummonMonsterFromBothGraveYardsAction extends Action {
     {
         name = this.getClass().getSimpleName();
     }
@@ -21,7 +21,7 @@ public class SummonMonsterFromBothGraveYardsAction extends ActionOfMagic {
         PlayerBoard opponentPlayerBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         GeneralController.getInstance().showGraveYard(game, "--current");
         GeneralController.getInstance().showGraveYard(game, "--opponent");
-        String cardToSummon = GetStringInputFromView.getInputFromController(RequestingInput.FROM_GRAVEYARD);
+        String cardToSummon = GetStringInputFromView.getInputFromView(RequestingInput.FROM_GRAVEYARD);
         MonsterCard summonedMonster;
         try {
             summonedMonster = opponentPlayerBoard.getGraveYard().getMonsterCardFromGraveyardByName(cardToSummon);

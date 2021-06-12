@@ -13,14 +13,14 @@ import model.enums.GameEnums.SideOfFeature;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.gamemodel.Game;
 
-public class ActionOfMagic {
+public class Action {
     protected String name;
     protected boolean isActivatedBefore;
 
     public void active(Game game) {
     }
 
-    public static MonsterCard equipAMonsterWithSpell(ActionOfMagic action, Game game) { // Because of Polymorphism and JSON problems the best approach was this way!!!
+    public static MonsterCard equipAMonsterWithSpell(Action action, Game game) { // Because of Polymorphism and JSON problems the best approach was this way!!!
 
         MonsterCard equipedMonster;
 
@@ -52,7 +52,7 @@ public class ActionOfMagic {
 
 
         if (equipedMonster == null) {
-            String nameOfMonster = GetStringInputFromView.getInputFromController(RequestingInput.SET_EQUIPED_MONSTER);
+            String nameOfMonster = GetStringInputFromView.getInputFromView(RequestingInput.SET_EQUIPED_MONSTER);
             PlayerBoard currentPlayerboard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
             try {
                 equipedMonster = currentPlayerboard.getMonsterCardByName(nameOfMonster);

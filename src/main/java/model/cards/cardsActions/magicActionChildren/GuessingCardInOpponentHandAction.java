@@ -1,7 +1,8 @@
 package model.cards.cardsActions.magicActionChildren;
 
+
 import controller.gamecontrollers.GetStringInputFromView;
-import model.cards.cardsActions.ActionOfMagic;
+import model.cards.cardsActions.Action;
 import model.cards.cardsProp.Card;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
@@ -14,14 +15,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class GuessingCardInOpponentHandAction extends ActionOfMagic {
+public class GuessingCardInOpponentHandAction extends Action {
     {
         name = this.getClass().getSimpleName();
     }
 
     @Override
     public void active(Game game) {
-        String name = GetStringInputFromView.getInputFromController(RequestingInput.GUESS_CARD);
+        String name = GetStringInputFromView.getInputFromView(RequestingInput.GUESS_CARD);
         boolean isCardInOpponentHand = false;
         PlayerBoard opponentBoard = game.getPlayer(SideOfFeature.OPPONENT).getBoard();
         for (Card card : opponentBoard.getPlayerHand()) {

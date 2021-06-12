@@ -13,9 +13,9 @@ public class ChangeTeamForOneTurn extends TurnObserver{
 
     public ChangeTeamForOneTurn(Card card, Player actionActivator, Player opponent) {
         super();
-        setActionActivator(actionActivator);
-        setCard(card);
-        setOpponent(opponent);
+        this.setActionActivator(actionActivator);
+        this.setCard(card);
+        this.setOpponent(opponent);
         this.remainedTurns = 1;
     }
 

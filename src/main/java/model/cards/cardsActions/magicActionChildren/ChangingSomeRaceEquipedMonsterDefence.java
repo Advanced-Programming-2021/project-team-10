@@ -1,12 +1,19 @@
 package model.cards.cardsActions.magicActionChildren;
 
-import model.cards.cardsActions.ActionOfMagic;
+import controller.gamecontrollers.GetStringInputFromView;
+import model.cards.cardsActions.Action;
+import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;
+import model.enums.GameEnums.RequestingInput;
+import model.enums.GameEnums.SideOfFeature;
+import model.gameprop.Player;
+import model.gameprop.existenceBasedObserver.EquipCardObserver;
+import model.gameprop.existenceBasedObserver.ExistenceObserver;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
 
-public class ChangingSomeRaceEquipedMonsterDefence extends ActionOfMagic {
+public class ChangingSomeRaceEquipedMonsterDefence extends Action implements ChangingSomethingByEquipCard{
     private final ArrayList<String> typesToChangeDefence;
     private final int changeDefence;
     private final int addOrMinus;
@@ -28,13 +35,29 @@ public class ChangingSomeRaceEquipedMonsterDefence extends ActionOfMagic {
 
     @Override
     public void active(Game game) {
-        equipedMonster = ActionOfMagic.equipAMonsterWithSpell(this, game);
+        Player ownerOfCard = game.getPlayer(SideOfFeature.CURRENT);
+
+        MagicCard equipMagicCard = (MagicCard) game.getCardProp().getCard(); // the last selected Card is the spell Card!
+
+        equipedMonster = Action.equipAMonsterWithSpell(this, game);
+
         if (typesToChangeDefence.contains(equipedMonster.getRace().toString())) {
-            int defence = equipedMonster.getAttack();
-            defence += changeDefence * addOrMinus;
-            equipedMonster.setDefence(defence);
-            isActivatedBefore = true;
+           String result = change(changeDefence, equipedMonster, equipMagicCard, "Defence", ownerOfCard);
+
+           if (result.equals("Successful")) {
+               ArrayList<ExistenceObserver> existenceObservers = ExistenceObserver.getExistenceObservers();
+               EquipCardObserver lastObserver = (EquipCardObserver) existenceObservers.get(existenceObservers.size() - 1);
+               // it can be guaranteed that the last observer is related to this action!
+               lastObserver.setToRevertAction(this);
+
+               isActivatedBefore = true;
+           } else {
+               active(game);
+           }
+        } else {
+            GetStringInputFromView.getInputFromView(RequestingInput.ERROR_OF_INVALID_MONSTER_CARD_EQUIPPED);
+            active(game);
         }
-        isActivatedBefore = true;
     }
+
 }
