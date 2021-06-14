@@ -869,4 +869,7 @@ deck add-card --card Haniwa --deck thirdDeck
 deck add-card --card Haniwa --deck thirdDeck
 menu exit
 menu enter Duel menu
-duel --new --second-player Yaroo --rounds 1
+duel --new --second-player Yaroo --rounds 3
+rock
+paper
+START

@@ -7,7 +7,7 @@ public abstract class TurnObserver {
 
     static {
         turnObservers = new ArrayList<>();
-     }
+    }
 
     protected int remainedTurns;
 
@@ -20,6 +20,10 @@ public abstract class TurnObserver {
     }
 
     public void update() {
-         remainedTurns--;
-     }
+        remainedTurns--;
+    }
+
+    public static void clearTurnObserver() {
+        turnObservers.clear();
+    }
 }

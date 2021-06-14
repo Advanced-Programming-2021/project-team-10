@@ -19,6 +19,7 @@ import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
 import model.gameprop.gamemodel.Game;
+import org.jetbrains.annotations.NotNull;
 import viewer.game.BoardDrawer;
 
 public class GeneralController {
@@ -152,10 +153,11 @@ public class GeneralController {
         String output = process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName());
         if (game.getGameMainStage().equals(GameMainStage.DRAW_PHASE)) {
             String draw;
-            if (!game.isPlayerDrawInThisTurn())
-                if ((draw = drawController.draw()) != null)
+            if (!game.isPlayerDrawInThisTurn()) {
+                if ((draw = drawController.draw()) != null) {
                     return output + "\n" + draw;
-                else return output;
+                } else return output;
+            }
         }
         return process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName()) + "\n" + drawBoard(game);
     }
@@ -167,7 +169,9 @@ public class GeneralController {
             return winner.getUser().getNickname() +
                     "  WIN !!!! game Points -> " + game.getWinner().getNumberOfWinningRound() + " : " + game.getLooser().getNumberOfWinningRound();
         }
-        return "next ROUND";
+        @NotNull
+        String draw = DrawPhaseController.getInstance().draw();
+        return "round " + game.getRoundNumber() + "\n" + draw;
     }
 
     private String drawBoard(Game game) {
@@ -180,7 +184,7 @@ public class GeneralController {
         if (game.getGameSideStage().equals(GameSideStage.START_STAGE)) {
             if (command.equals("START")) {
                 game.setGameSideStage(GameSideStage.NONE);
-                return DrawPhaseController.getInstance().draw() + "\n" + drawBoard(game);
+                return DrawPhaseController.getInstance().draw() + " \n" + drawBoard(game);
             }
             return "invalid command to start game";
         } else if (game.getGameSideStage().equals(GameSideStage.NONE)) {

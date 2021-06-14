@@ -6,6 +6,7 @@ import model.gameprop.existenceBasedObserver.ExistenceObserver;
 import viewer.Regex;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class HeadController {
     DrawPhaseController drawPhaseController;
@@ -33,7 +34,7 @@ public class HeadController {
         if (isGeneralCommand(command)) return generalController.run(command);
         else if (isSideStageCommand(command)) return sideStageController.run(command);
         else {
-            return getCommandController(command).run(command);
+            return Objects.requireNonNull(getCommandController(command)).run(command);
         }
     }
 

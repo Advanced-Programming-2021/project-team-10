@@ -19,7 +19,7 @@ public abstract class ExistenceObserver {
     protected Card observedCard;
     protected Player ownerOfCard;
 
-    public ExistenceObserver(Card observedCard, Player ownerOfCard){
+    public ExistenceObserver(Card observedCard, Player ownerOfCard) {
         this.ownerOfCard = ownerOfCard;
         this.observedCard = observedCard;
 
@@ -28,6 +28,10 @@ public abstract class ExistenceObserver {
 
     public static ArrayList<ExistenceObserver> getExistenceObservers() {
         return existenceObservers;
+    }
+
+    public static void clearExistenceObserver() {
+        existenceObservers.clear();
     }
 
     public abstract void update();
@@ -44,7 +48,7 @@ public abstract class ExistenceObserver {
                     }
                 }
 
-            } else if (observedCard instanceof MagicCard){
+            } else if (observedCard instanceof MagicCard) {
                 MagicHouse[] magicHouses = ownerOfCard.getBoard().getMagicHouse();
 
                 for (MagicHouse magicHouse : magicHouses) {

@@ -10,6 +10,7 @@ import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
+import model.gameprop.existenceBasedObserver.ExistenceObserver;
 import model.gameprop.turnBasedObserver.TurnObserver;
 import model.userProp.Deck;
 
@@ -17,11 +18,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Game {
+    private final boolean isMatchFinished;
+    private final int numberOfGameRounds;
     private boolean isGameFinished;
-    private boolean isMatchFinished;
-    private int numberOfGameRounds;
     private int roundNumber;
-    private PlayerTurn turnOfGame;
     private Player firstPlayer;
     private Player secondPlayer;
     private Turn turn;
@@ -32,7 +32,6 @@ public class Game {
         roundNumber = 1;
         isGameFinished = false;
         isMatchFinished = false;
-        turnOfGame = PlayerTurn.PLAYER_ONE;
         gameMainStage = GameMainStage.DRAW_PHASE;
         gameSideStage = GameSideStage.START_STAGE;
     }
@@ -55,17 +54,22 @@ public class Game {
     public Player getPlayer(SideOfFeature turn) {
         switch (turn) {
             case CURRENT: {
-                if (this.turnOfGame.equals(PlayerTurn.PLAYER_ONE)) {
+                if (this.turn.getPlayerWithTurn() == (firstPlayer)) {
+                    System.out.println("current is : first player !");
                     return firstPlayer;
                 } else {
+                    System.out.println("current is : second player !");
                     return secondPlayer;
                 }
             }
             case OPPONENT: {
-                if (this.turnOfGame.equals(PlayerTurn.PLAYER_ONE)) {
-                    return secondPlayer;
-                } else
+                if (this.turn.getPlayerWithTurn() == (secondPlayer)) {
+                    System.out.println("opponent is : first player !");
                     return firstPlayer;
+                } else {
+                    System.out.println("opponent is : second player !");
+                    return secondPlayer;
+                }
             }
             default:
                 return null;
@@ -79,15 +83,6 @@ public class Game {
     public void setHiredMonster(MonsterHouse monsterHouse) {
         turn.setMonsterHouseOfHiredMonster(monsterHouse);
     }
-
-    public void changeTurn() {
-        if (turnOfGame.equals(PlayerTurn.PLAYER_ONE)) {
-            turnOfGame = PlayerTurn.PLAYER_TWO;
-        } else {
-            turnOfGame = PlayerTurn.PLAYER_ONE;
-        }
-    }
-
 
     private void setFirstPlayer(Player firstPlayer) {
         this.firstPlayer = firstPlayer;
@@ -124,7 +119,9 @@ public class Game {
     }
 
     public PlayerTurn getTurnOfGame() {
-        return turnOfGame;
+        if (turn.getPlayerWithTurn() == firstPlayer) {
+            return PlayerTurn.PLAYER_ONE;
+        } else return PlayerTurn.PLAYER_TWO;
     }
 
     public boolean isMatchFinished() {
@@ -132,26 +129,39 @@ public class Game {
     }
 
     public void finishMatch(PlayerTurn looserTurn) {
-        if (numberOfGameRounds == 1) {
+        switch (looserTurn) {
+            case PLAYER_ONE: {
+                secondPlayer.increaseWinningRound();
+                turn = new Turn(secondPlayer);
+                break;
+            }
+            case PLAYER_TWO: {
+                firstPlayer.increaseWinningRound();
+                turn = new Turn(firstPlayer);
+                break;
+            }
+        }
+        if (roundNumber == numberOfGameRounds) {
             finishGame(looserTurn);
         } else {
-            roundNumber++;
             firstPlayer = new Player(firstPlayer.getUser(), firstPlayer.getNumberOfWinningRound());
-            secondPlayer = new Player(secondPlayer.getUser(), firstPlayer.getNumberOfWinningRound());
+            secondPlayer = new Player(secondPlayer.getUser(), secondPlayer.getNumberOfWinningRound());
+            gameMainStage = GameMainStage.DRAW_PHASE;
+            TurnObserver.clearTurnObserver();
+            ExistenceObserver.clearExistenceObserver();
             //change card between decks
-
         }
+        roundNumber++;
+
     }
 
     public void finishGame(PlayerTurn looserTurn) {
         switch (looserTurn) {
             case PLAYER_ONE: {
-                secondPlayer.increaseWinningRound();
                 calculatePlayersBonus(secondPlayer, firstPlayer);
                 break;
             }
             case PLAYER_TWO:
-                firstPlayer.increaseWinningRound();
                 calculatePlayersBonus(firstPlayer, secondPlayer);
         }
 
@@ -189,16 +199,13 @@ public class Game {
     }
 
     private void resetLastTurnData() {
-        changeTurn();
-
         ArrayList<TurnObserver> turnObservers = TurnObserver.getTurnObservers();
         if (turnObservers != null) {
             for (TurnObserver turnObserver : turnObservers) {
                 turnObserver.update();
             }
         }
-
-        turn = new Turn(getPlayer(SideOfFeature.CURRENT));
+        turn = new Turn(getPlayer(SideOfFeature.OPPONENT));
     }
 
     public void setTributeSize(int numberOfCard) {
@@ -226,5 +233,9 @@ public class Game {
 
     public boolean isGameFinished() {
         return isGameFinished;
+    }
+
+    public int getRoundNumber() {
+        return roundNumber;
     }
 }

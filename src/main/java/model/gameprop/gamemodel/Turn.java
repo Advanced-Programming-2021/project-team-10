@@ -64,4 +64,7 @@ public class Turn {
         return typeOfHighLevelMonsterHire;
     }
 
+    public Player getPlayerWithTurn() {
+        return playerWithTurn;
+    }
 }
