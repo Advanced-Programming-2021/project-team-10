@@ -1,12 +1,13 @@
 package model.gameprop.gamemodel;
 
+import model.enums.GameEnums.PlayerTurn;
 import model.enums.GameEnums.TypeOfHire;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
 
 public class Turn {
-    Player playerWithTurn;
+    PlayerTurn playerWithTurn;
     TypeOfHire typeOfHighLevelMonsterHire;
     MonsterHouse monsterHouseOfHiredMonster;
     SelectedCardProp selectedCardProp;
@@ -36,7 +37,7 @@ public class Turn {
         this.selectedCardProp = selectedCardProp;
     }
 
-    protected Turn(Player playerWithTurn) {
+    protected Turn(PlayerTurn playerWithTurn) {
         this.playerWithTurn = playerWithTurn;
     }
 
@@ -64,7 +65,7 @@ public class Turn {
         return typeOfHighLevelMonsterHire;
     }
 
-    public Player getPlayerWithTurn() {
+    public PlayerTurn getPlayerWithTurn() {
         return playerWithTurn;
     }
 }

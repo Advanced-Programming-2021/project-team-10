@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="Gson deck and users">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="add java fx">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manualTestCase/gameTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/manualTestCase/gameTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/HeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/HeadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/existenceBasedObserver/ExistenceObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/existenceBasedObserver/ExistenceObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/DrawPhaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/DrawPhaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/gamemodel/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/gamemodel/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/gamemodel/Turn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/gamemodel/Turn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/gameprop/turnBasedObserver/TurnObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/gameprop/turnBasedObserver/TurnObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ImportScanner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/DataBase.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,14 +222,7 @@
       <workItem from="1622182697391" duration="1391000" />
       <workItem from="1622256365746" duration="597000" />
       <workItem from="1623552815586" duration="1278000" />
-      <workItem from="1623698045011" duration="7512000" />
-    </task>
-    <task id="LOCAL-00021" summary="change jupiter version">
-      <created>1619211640817</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1619211640817</updated>
+      <workItem from="1623698045011" duration="9583000" />
     </task>
     <task id="LOCAL-00022" summary="change jupiter version">
       <created>1619237677120</created>
@@ -557,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621882927205</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="add java fx">
+      <created>1623711157413</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1623711157413</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +567,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="show card added and some clean code changes" />
     <MESSAGE value="entery of the game" />
     <MESSAGE value="edit register menu login messages" />
     <MESSAGE value="edit game models and enums" />
@@ -602,7 +591,8 @@
     <MESSAGE value="game added as an argument to actions" />
     <MESSAGE value="user Gson" />
     <MESSAGE value="Gson deck and users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gson deck and users" />
+    <MESSAGE value="add java fx" />
+    <option name="LAST_COMMIT_MESSAGE" value="add java fx" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

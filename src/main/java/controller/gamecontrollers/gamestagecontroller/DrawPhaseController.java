@@ -33,7 +33,7 @@ public class DrawPhaseController extends GeneralController {
                 Card newCard = playerDeck.getMainDeck().get(0);
                 playerDeck.removeCardFromMainDeck(newCard);
                 game.setPlayerDrawInTurn();
-                game.getPlayer(SideOfFeature.CURRENT).getBoard().getPlayerHand().add(newCard);
+               player.getBoard().getPlayerHand().add(newCard);
                return process(DrawPhase.ADD_NEW_CARD.toString(), newCard.getName());
             }
         }

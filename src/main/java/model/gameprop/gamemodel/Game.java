@@ -39,7 +39,7 @@ public class Game {
     public Game(Player firstPlayer, Player secondPlayer, int numberOfRounds) {
         setFirstPlayer(firstPlayer);
         setSecondPlayer(secondPlayer);
-        turn = new Turn(firstPlayer);
+        turn = new Turn(PlayerTurn.PLAYER_ONE);
         this.numberOfGameRounds = numberOfRounds;
     }
 
@@ -54,20 +54,16 @@ public class Game {
     public Player getPlayer(SideOfFeature turn) {
         switch (turn) {
             case CURRENT: {
-                if (this.turn.getPlayerWithTurn() == (firstPlayer)) {
-                    System.out.println("current is : first player !");
+                if (this.turn.getPlayerWithTurn() == (PlayerTurn.PLAYER_ONE)) {
                     return firstPlayer;
                 } else {
-                    System.out.println("current is : second player !");
                     return secondPlayer;
                 }
             }
             case OPPONENT: {
-                if (this.turn.getPlayerWithTurn() == (secondPlayer)) {
-                    System.out.println("opponent is : first player !");
+                if (this.turn.getPlayerWithTurn() == (PlayerTurn.PLAYER_TWO)) {
                     return firstPlayer;
                 } else {
-                    System.out.println("opponent is : second player !");
                     return secondPlayer;
                 }
             }
@@ -119,9 +115,7 @@ public class Game {
     }
 
     public PlayerTurn getTurnOfGame() {
-        if (turn.getPlayerWithTurn() == firstPlayer) {
-            return PlayerTurn.PLAYER_ONE;
-        } else return PlayerTurn.PLAYER_TWO;
+        return turn.getPlayerWithTurn();
     }
 
     public boolean isMatchFinished() {
@@ -132,12 +126,12 @@ public class Game {
         switch (looserTurn) {
             case PLAYER_ONE: {
                 secondPlayer.increaseWinningRound();
-                turn = new Turn(secondPlayer);
+                turn = new Turn(PlayerTurn.PLAYER_TWO);
                 break;
             }
             case PLAYER_TWO: {
                 firstPlayer.increaseWinningRound();
-                turn = new Turn(firstPlayer);
+                turn = new Turn(PlayerTurn.PLAYER_TWO);
                 break;
             }
         }
@@ -205,7 +199,10 @@ public class Game {
                 turnObserver.update();
             }
         }
-        turn = new Turn(getPlayer(SideOfFeature.OPPONENT));
+        if (turn.getPlayerWithTurn() == PlayerTurn.PLAYER_ONE) {
+            turn = new Turn(PlayerTurn.PLAYER_TWO);
+        }
+        else turn = new Turn(PlayerTurn.PLAYER_ONE);
     }
 
     public void setTributeSize(int numberOfCard) {
