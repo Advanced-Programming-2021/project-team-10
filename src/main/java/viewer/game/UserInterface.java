@@ -6,27 +6,60 @@ import model.gameprop.BoardProp.GameHouse;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.gamemodel.Game;
 import model.gameprop.Player;
+import model.gameprop.gamemodel.Game;
 
-public class BoardDrawer {
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class UserInterface {
 
     Game game;
-    public BoardDrawer(Game game){
+    Player opponentPlayer;
+    Player currentPlayer;
+
+    public UserInterface(Game game) {
         this.game = game;
+        currentPlayer = game.getPlayer(SideOfFeature.CURRENT);
+        opponentPlayer = game.getPlayer(SideOfFeature.OPPONENT);
     }
 
     public String drawBoard() {
         StringBuilder mapDisplay = new StringBuilder();
-        Player opponentPlayer = game.getPlayer(SideOfFeature.OPPONENT);
-        Player currentPlayer = game.getPlayer(SideOfFeature.CURRENT);
-        drawOpponentPlayerBoard(mapDisplay, opponentPlayer);
+        drawOpponentPlayerBoard(mapDisplay);
         mapDisplay.append("\n--------------------------");
-        drawCurrentPlayerBoard(mapDisplay, currentPlayer);
+        drawCurrentPlayerBoard(mapDisplay);
         return mapDisplay.toString();
     }
 
-    private void drawOpponentPlayerBoard(StringBuilder mapDisplay, Player opponentPlayer) {
+    public String showSideDeck(Player player) {
+        StringBuilder sideDeckDisplay = new StringBuilder();
+        sideDeckDisplay.append("Player : ").append(player.getUser().getNickname()).append("\n---------------------------------" +
+                "\nPlayer Side deck\n");
+        AtomicInteger counter = new AtomicInteger(1);
+        player.getDeck().getSideDeck().forEach((Card card) -> {
+                    sideDeckDisplay.append(counter.get()).append(" ) ").append(card.getName()).append("\n");
+                    counter.addAndGet(1);
+                }
+        );
+        sideDeckDisplay.append("---------------------------------\n").
+                append("# Show Main Deck\n").
+                append("\t# Switch <SideDeck Card Num> -> <MaiDeck Card Num>\n").
+                append("\t\t# Finish"
+                );
+        return sideDeckDisplay.toString();
+    }
+
+    public String showMainDeck(Player player) {
+        StringBuilder mainDeckDisplay = new StringBuilder();
+        AtomicInteger counter = new AtomicInteger(1);
+        player.getDeck().getMainDeck().forEach((Card card) -> {
+            mainDeckDisplay.append(counter.get()).append(" ) ").append(card.getName()).append("\n");
+            counter.addAndGet(1);
+        });
+        return mainDeckDisplay.toString();
+    }
+
+    private void drawOpponentPlayerBoard(StringBuilder mapDisplay) {
         mapDisplay.append(opponentPlayer.getUser().getNickname()).append(" : ").
                 append(opponentPlayer.getPlayerLifePoint()).append("\n");
 
@@ -50,7 +83,7 @@ public class BoardDrawer {
                 append(board.getFieldHouse().getState());
     }
 
-    private void drawCurrentPlayerBoard(StringBuilder mapDisplay, Player currentPlayer) {
+    private void drawCurrentPlayerBoard(StringBuilder mapDisplay) {
         MagicHouse[] magicHouses = currentPlayer.getBoard().getMagicHouse();
         MonsterHouse[] monsterHouses = currentPlayer.getBoard().getMonsterHouse();
         PlayerBoard board = currentPlayer.getBoard();
@@ -80,4 +113,5 @@ public class BoardDrawer {
             mapDisplay.append("\t").append(house[i - 1].getState());
         }
     }
+
 }

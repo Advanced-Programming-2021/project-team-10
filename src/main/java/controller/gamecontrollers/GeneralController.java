@@ -19,8 +19,7 @@ import model.gameprop.GameInProcess;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
 import model.gameprop.gamemodel.Game;
-import org.jetbrains.annotations.NotNull;
-import viewer.game.BoardDrawer;
+import viewer.game.UserInterface;
 
 public class GeneralController {
 
@@ -168,15 +167,19 @@ public class GeneralController {
             Player winner = game.getWinner();
             return winner.getUser().getNickname() +
                     "  WIN !!!! game Points -> " + game.getWinner().getNumberOfWinningRound() + " : " + game.getLooser().getNumberOfWinningRound();
+        } else {
+            return drawSideDeck(game, game.getPlayer(SideOfFeature.CURRENT));
         }
-        @NotNull
-        String draw = DrawPhaseController.getInstance().draw();
-        return "round " + game.getRoundNumber() + "\n" + draw;
     }
 
     private String drawBoard(Game game) {
-        BoardDrawer drawer = new BoardDrawer(game);
+        UserInterface drawer = new UserInterface(game);
         return drawer.drawBoard();
+    }
+
+    private String drawSideDeck(Game game, Player player) {
+        UserInterface drawer = new UserInterface(game);
+        return drawer.showSideDeck(player);
     }
 
     public String run(String command) throws CmdLineParser.OptionException {
@@ -201,6 +204,7 @@ public class GeneralController {
                 return showSelectedCard(game);
                 // show card detail
             } else if (command.equals("surrender")) {
+                // loose one round
                 return surrender(game);
             } else if (command.equals("next phase")) {
                 return nextPhase(game);

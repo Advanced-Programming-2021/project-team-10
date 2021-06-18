@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Game {
-    private final boolean isMatchFinished;
     private final int numberOfGameRounds;
     private boolean isGameFinished;
+    private boolean isMatchFinished;
     private int roundNumber;
     private Player firstPlayer;
     private Player secondPlayer;
@@ -39,7 +39,7 @@ public class Game {
     public Game(Player firstPlayer, Player secondPlayer, int numberOfRounds) {
         setFirstPlayer(firstPlayer);
         setSecondPlayer(secondPlayer);
-        turn = new Turn(PlayerTurn.PLAYER_ONE);
+        turn = new Turn(PlayerTurn.PLAYER_ONE, true);
         this.numberOfGameRounds = numberOfRounds;
     }
 
@@ -126,12 +126,12 @@ public class Game {
         switch (looserTurn) {
             case PLAYER_ONE: {
                 secondPlayer.increaseWinningRound();
-                turn = new Turn(PlayerTurn.PLAYER_TWO);
+                turn = new Turn(PlayerTurn.PLAYER_TWO, false);
                 break;
             }
             case PLAYER_TWO: {
                 firstPlayer.increaseWinningRound();
-                turn = new Turn(PlayerTurn.PLAYER_TWO);
+                turn = new Turn(PlayerTurn.PLAYER_TWO, false);
                 break;
             }
         }
@@ -141,12 +141,11 @@ public class Game {
             firstPlayer = new Player(firstPlayer.getUser(), firstPlayer.getNumberOfWinningRound());
             secondPlayer = new Player(secondPlayer.getUser(), secondPlayer.getNumberOfWinningRound());
             gameMainStage = GameMainStage.DRAW_PHASE;
+            gameSideStage = GameSideStage.EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_ONE;
             TurnObserver.clearTurnObserver();
             ExistenceObserver.clearExistenceObserver();
-            //change card between decks
         }
         roundNumber++;
-
     }
 
     public void finishGame(PlayerTurn looserTurn) {
@@ -200,9 +199,8 @@ public class Game {
             }
         }
         if (turn.getPlayerWithTurn() == PlayerTurn.PLAYER_ONE) {
-            turn = new Turn(PlayerTurn.PLAYER_TWO);
-        }
-        else turn = new Turn(PlayerTurn.PLAYER_ONE);
+            turn = new Turn(PlayerTurn.PLAYER_TWO, false);
+        } else turn = new Turn(PlayerTurn.PLAYER_ONE, false);
     }
 
     public void setTributeSize(int numberOfCard) {
@@ -217,7 +215,7 @@ public class Game {
         turn.setTypeOfHighLevelMonsterHire(typeOfMonsterHire);
     }
 
-    public void moveCardFromHandToDeck(Card card) {
+    public void moveCardFromDeckToHand(Card card) {
         Player player = GameInProcess.getGame().getPlayer(SideOfFeature.CURRENT);
         Deck deck = player.getDeck();
         ArrayList<Card> hand = player.getBoard().getPlayerHand();
@@ -230,6 +228,10 @@ public class Game {
 
     public boolean isGameFinished() {
         return isGameFinished;
+    }
+
+    public boolean isFirstTurnOfTheGame() {
+        return turn.isFirstTurn();
     }
 
     public int getRoundNumber() {

@@ -1,6 +1,6 @@
 package controller.gamecontrollers.gamestagecontroller.handlers.hiremonster;
 
-import model.enums.GameEnums.GamePhaseEnums.MainPhase;
+import model.enums.GameEnums.TypeOfHire;
 import model.gameprop.gamemodel.Game;
 
 public abstract class MonsterProcessor {
@@ -10,9 +10,9 @@ public abstract class MonsterProcessor {
         this.processor = processor;
     }
 
-    protected MainPhase process(Game game) {
+    protected String process(Game game, TypeOfHire type) {
         if (processor != null) {
-            return processor.process(game);
+            return processor.process(game, type);
         }else{
             return null;
         }

@@ -5,6 +5,7 @@ import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.GamePhaseEnums.BattlePhase;
 import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
+import model.enums.GameEnums.gamestage.GameMainStage;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
@@ -21,6 +22,9 @@ public class AttackProcessor extends AttackMonsterProcessor {
         MonsterHouse offensiveCardPlace = (MonsterHouse) offensive.getCardPlace();
         Player opponent = game.getPlayer(SideOfFeature.OPPONENT);
         Player current = game.getPlayer(SideOfFeature.CURRENT);
+
+        if (game.getGameMainStage() != GameMainStage.BATTLE_PHASE) return BattlePhase.ATTACK_NOT_IN_BATTLE_PHASE;
+
         offensiveCardPlace.setMonsterAttacked();
 
         if (target.getState().equals(MonsterHouseVisibilityState.OO)) {

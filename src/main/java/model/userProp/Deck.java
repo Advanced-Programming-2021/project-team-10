@@ -16,9 +16,9 @@ public class Deck {
     }
 
     private final ArrayList<Integer> mainDeck;
+    private final ArrayList<Integer> sideDeck;
     private String name;
     private String ID;
-    private final ArrayList<Integer> sideDeck;
     private boolean isDeckActivated;
 
     {
@@ -99,7 +99,12 @@ public class Deck {
     }
 
     public void removeCardFromMainDeck(Card card) {
-        this.mainDeck.remove(card.getID());
+        for (Integer integer : this.mainDeck) {
+            if (integer == card.getID()) {
+                mainDeck.remove(integer);
+                break;
+            }
+        }
     }
 
     public void removeCardFromSideDeck(Card card) {
@@ -149,4 +154,5 @@ public class Deck {
     public String getID() {
         return ID;
     }
+
 }

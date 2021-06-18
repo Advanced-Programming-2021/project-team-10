@@ -18,4 +18,5 @@ public class ActiveEffectChain {
     public String request(Game game) {
         return processor.process(game);
     }
+
 }

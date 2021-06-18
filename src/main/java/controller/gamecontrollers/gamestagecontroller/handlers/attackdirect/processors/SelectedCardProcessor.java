@@ -4,6 +4,7 @@ import controller.gamecontrollers.gamestagecontroller.handlers.attackdirect.Atta
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GamePhaseEnums.BattlePhase;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
+import model.enums.GameEnums.gamestage.GameMainStage;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
@@ -13,7 +14,7 @@ public class SelectedCardProcessor extends AttackDirectProcessor {
         super(processor);
     }
 
-    public String process(SelectedCardProp cardProp, Player target) {
+    public String process(SelectedCardProp cardProp, Player target, boolean firstTurnOfTheGame, GameMainStage stage) {
         if (cardProp == null) return BattlePhase.NO_CARD_SELECTED_YET.toString();
 
         if (!cardProp.getLocation().equals(CardLocation.MONSTER_ZONE)) {
@@ -25,6 +26,6 @@ public class SelectedCardProcessor extends AttackDirectProcessor {
         MonsterHouse monsterHouse = (MonsterHouse) cardProp.getCardPlace();
         if (monsterHouse.isMonsterAttacked()) return BattlePhase.ALREADY_ATTACK.toString();
 
-        return super.process(cardProp, target);
+        return super.process(cardProp, target, firstTurnOfTheGame , stage);
     }
 }

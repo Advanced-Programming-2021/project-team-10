@@ -394,12 +394,15 @@ menu exit
 menu enter Deck menu
 deck create thirdDeck
 deck set-active thirdDeck
+deck add-card --card Monster Reborn --deck thirdDeck
+deck add-card --card Wattkid --deck thirdDeck
+deck add-card --card Axe Raider --deck thirdDeck
+deck add-card --card Battle OX --deck thirdDeck
+deck add-card --card Wattkid --deck thirdDeck
+deck add-card --card Wattkid --deck thirdDeck
 deck add-card --card Yami --deck thirdDeck
 deck add-card --card Yami --deck thirdDeck
 deck add-card --card Yami --deck thirdDeck
-deck add-card --card Wattkid --deck thirdDeck
-deck add-card --card Wattkid --deck thirdDeck
-deck add-card --card Wattkid --deck thirdDeck
 deck add-card --card Black Pendant --deck thirdDeck
 deck add-card --card Black Pendant --deck thirdDeck
 deck add-card --card Black Pendant --deck thirdDeck
@@ -420,8 +423,6 @@ deck add-card --card Crab Turtle --deck thirdDeck
 deck add-card --card Crab Turtle --deck thirdDeck
 deck add-card --card Axe Raider --deck thirdDeck
 deck add-card --card Axe Raider --deck thirdDeck
-deck add-card --card Axe Raider --deck thirdDeck
-deck add-card --card Battle OX --deck thirdDeck
 deck add-card --card Battle OX --deck thirdDeck
 deck add-card --card Battle OX --deck thirdDeck
 deck add-card --card Beast King Barbaros --deck thirdDeck
@@ -436,6 +437,12 @@ deck add-card --card Hero of the east --deck thirdDeck
 deck add-card --card Haniwa --deck thirdDeck
 deck add-card --card Haniwa --deck thirdDeck
 deck add-card --card Haniwa --deck thirdDeck
+deck add-card --card Negate Attack --deck thirdDeck
+deck add-card --card Negate Attack --deck thirdDeck
+deck add-card --card Negate Attack --deck thirdDeck
+deck add-card --card Terraforming --deck thirdDeck --side
+deck add-card --card Terraforming --deck thirdDeck --side
+deck add-card --card Terraforming --deck thirdDeck --side
 menu exit
 user logout
 user login --username Arash --password Yadegari
@@ -825,12 +832,15 @@ menu exit
 menu enter Deck menu
 deck create thirdDeck
 deck set-active thirdDeck
+deck add-card --card Monster Reborn --deck thirdDeck
+deck add-card --card Wattkid --deck thirdDeck
+deck add-card --card Axe Raider --deck thirdDeck
+deck add-card --card Battle OX --deck thirdDeck
+deck add-card --card Wattkid --deck thirdDeck
+deck add-card --card Wattkid --deck thirdDeck
 deck add-card --card Yami --deck thirdDeck
 deck add-card --card Yami --deck thirdDeck
 deck add-card --card Yami --deck thirdDeck
-deck add-card --card Wattkid --deck thirdDeck
-deck add-card --card Wattkid --deck thirdDeck
-deck add-card --card Wattkid --deck thirdDeck
 deck add-card --card Black Pendant --deck thirdDeck
 deck add-card --card Black Pendant --deck thirdDeck
 deck add-card --card Black Pendant --deck thirdDeck
@@ -851,8 +861,6 @@ deck add-card --card Crab Turtle --deck thirdDeck
 deck add-card --card Crab Turtle --deck thirdDeck
 deck add-card --card Axe Raider --deck thirdDeck
 deck add-card --card Axe Raider --deck thirdDeck
-deck add-card --card Axe Raider --deck thirdDeck
-deck add-card --card Battle OX --deck thirdDeck
 deck add-card --card Battle OX --deck thirdDeck
 deck add-card --card Battle OX --deck thirdDeck
 deck add-card --card Beast King Barbaros --deck thirdDeck
@@ -867,9 +875,37 @@ deck add-card --card Hero of the east --deck thirdDeck
 deck add-card --card Haniwa --deck thirdDeck
 deck add-card --card Haniwa --deck thirdDeck
 deck add-card --card Haniwa --deck thirdDeck
+deck add-card --card Negate Attack --deck thirdDeck
+deck add-card --card Negate Attack --deck thirdDeck
+deck add-card --card Negate Attack --deck thirdDeck
+deck add-card --card Terraforming --deck thirdDeck --side
+deck add-card --card Terraforming --deck thirdDeck --side
+deck add-card --card Terraforming --deck thirdDeck --side
 menu exit
 menu enter Duel menu
 duel --new --second-player Yaroo --rounds 3
 rock
 paper
 START
+select --hand 1
+next phase
+next phase
+set
+select --hand 1
+summon
+next phase
+next phase
+next phase
+next phase
+select --hand 1
+next phase
+next phase
+set
+select --hand 3
+summon
+next phase
+select --monster 1
+attack 1
+next phase
+select --spell 1
+active effect

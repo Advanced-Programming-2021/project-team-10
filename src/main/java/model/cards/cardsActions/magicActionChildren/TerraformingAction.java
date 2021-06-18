@@ -44,7 +44,7 @@ public class TerraformingAction extends Action {
 
             for (Card card : mainDeck) { // actual process of Action...
                 if (card.getName().equals(selectedName)) {
-                    GameInProcess.getGame().moveCardFromHandToDeck(card);
+                    GameInProcess.getGame().moveCardFromDeckToHand(card);
                 }
             }
         }

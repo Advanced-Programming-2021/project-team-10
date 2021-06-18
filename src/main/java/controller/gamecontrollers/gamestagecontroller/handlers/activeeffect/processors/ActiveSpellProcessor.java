@@ -34,6 +34,7 @@ public class ActiveSpellProcessor extends ActiveEffectProcessor {
                         if (house.getMagicCard() == null){
                             house.setMagicCard(magicCard);
                             house.setState(MagicHouseVisibilityState.O);
+                            break;
                         }
                     }
                 }

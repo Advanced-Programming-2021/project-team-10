@@ -20,6 +20,7 @@ public enum MainPhase {
     ALREADY_IN_WANTED_POS("already in wanted position"),
     POS_CHANGE_BEFORE("position of this monster  change before "),
     MONSTER_CHANGE_POS("monster card position changed successfully"),
+    CANT_SET_MONSTER_INSTEAD_OF_SPELL("you must select a Spell card"),
     WRONG_LOCATION_FOR_CHANGE("you can't change this card position");
     String messageToString;
 

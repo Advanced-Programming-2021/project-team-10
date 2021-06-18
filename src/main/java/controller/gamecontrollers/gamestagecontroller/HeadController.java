@@ -4,6 +4,7 @@ import com.sanityinc.jargs.CmdLineParser;
 import controller.gamecontrollers.GeneralController;
 import model.gameprop.existenceBasedObserver.ExistenceObserver;
 import viewer.Regex;
+import viewer.game.UserInterface;
 
 import java.util.ArrayList;
 import java.util.Objects;

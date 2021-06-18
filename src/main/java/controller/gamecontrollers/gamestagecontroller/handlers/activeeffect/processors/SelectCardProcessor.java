@@ -30,7 +30,7 @@ public class SelectCardProcessor extends ActiveEffectProcessor {
         }
         MagicCard card = (MagicCard) cardProp.getCard();
         if (card.getMagicSpeed().equals(MagicSpeed.LIMITED) &&
-                (!game.getGameMainStage().equals(GameMainStage.FIRST_MAIN_PHASE) ||
+                (!game.getGameMainStage().equals(GameMainStage.FIRST_MAIN_PHASE) &&
                         !game.getGameMainStage().equals(GameMainStage.SECOND_MAIN_PHASE))) {
             return General.SPELL_ACTIVATE_NOT_IN_MAIN_PHASE.toString();
         }

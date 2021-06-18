@@ -3,7 +3,6 @@ package model.gameprop.gamemodel;
 import model.enums.GameEnums.PlayerTurn;
 import model.enums.GameEnums.TypeOfHire;
 import model.gameprop.BoardProp.MonsterHouse;
-import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
 
 public class Turn {
@@ -13,20 +12,27 @@ public class Turn {
     SelectedCardProp selectedCardProp;
     int tributeNumber;
     boolean isCardDraw;
+    boolean isFirstTurn;
 
     {
+        isFirstTurn = false;
         typeOfHighLevelMonsterHire = null;
         tributeNumber = 0;
         isCardDraw = false;
         monsterHouseOfHiredMonster = null;
     }
 
-    public void setTributeNumber(int tributeNumber) {
-        this.tributeNumber = tributeNumber;
+    protected Turn(PlayerTurn playerWithTurn, boolean firstTurn) {
+        this.playerWithTurn = playerWithTurn;
+        this.isFirstTurn = firstTurn;
     }
 
     public int getTributeNumber() {
         return tributeNumber;
+    }
+
+    public void setTributeNumber(int tributeNumber) {
+        this.tributeNumber = tributeNumber;
     }
 
     public SelectedCardProp getSelectedCardProp() {
@@ -35,10 +41,6 @@ public class Turn {
 
     public void setSelectedCardProp(SelectedCardProp selectedCardProp) {
         this.selectedCardProp = selectedCardProp;
-    }
-
-    protected Turn(PlayerTurn playerWithTurn) {
-        this.playerWithTurn = playerWithTurn;
     }
 
     public boolean isCardDraw() {
@@ -57,15 +59,19 @@ public class Turn {
         this.monsterHouseOfHiredMonster = monsterHouseOfHiredMonster;
     }
 
-    public void setTypeOfHighLevelMonsterHire(TypeOfHire typeOfHighLevelMonsterHire) {
-        this.typeOfHighLevelMonsterHire = typeOfHighLevelMonsterHire;
-    }
-
     public TypeOfHire getTypeOfHighLevelMonsterHire() {
         return typeOfHighLevelMonsterHire;
     }
 
+    public void setTypeOfHighLevelMonsterHire(TypeOfHire typeOfHighLevelMonsterHire) {
+        this.typeOfHighLevelMonsterHire = typeOfHighLevelMonsterHire;
+    }
+
     public PlayerTurn getPlayerWithTurn() {
         return playerWithTurn;
+    }
+
+    public boolean isFirstTurn() {
+        return isFirstTurn;
     }
 }

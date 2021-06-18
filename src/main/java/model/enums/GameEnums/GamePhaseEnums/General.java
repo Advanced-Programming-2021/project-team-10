@@ -6,7 +6,7 @@ public enum General {
     MAGIC_SPELL_SPEED_2("cant active magic card with spell 2 from your hand !!!! set them first"),
     CANT_ACTIVE_OPPONENT_CARD("cant active opponent card"),
     SELECT_CARD_MESSAGE("card selected"),
-    SPELL_ACTIVATE_NOT_IN_MAIN_PHASE("you can’t activate an effect on this turn"),
+    SPELL_ACTIVATE_NOT_IN_MAIN_PHASE("you can’t activate an effect on this stage"),
     NOT_SPELL_CARD("you can only active spell cards"),
     NO_CARD_SELECT("no card selected yet"),
     NEXT_PHASE_MESSAGE("phase: StAgE"),

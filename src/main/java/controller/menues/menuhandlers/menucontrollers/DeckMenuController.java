@@ -131,7 +131,7 @@ public class DeckMenuController {
             DeckMenuDisplay.display(Error.NOT_FOUND_CARD_NAME_IN_COLLECTION, cardName);
         } else if (selectedDeck == null) {
             DeckMenuDisplay.display(Error.NOT_FOUND_DECK_NAME, deckName);
-        } else if (selectedDeck.getMainDeck().size() > 15) {
+        } else if (selectedDeck.getSideDeck().size() > 15) {
             DeckMenuDisplay.display(Error.FULL_SIDE_DECK);
         } else if (selectedDeck.numOfCardOccurrence(cardName, "both decks") == 3) {
             DeckMenuDisplay.display(Error.NUMBER_LIMITATION_PASSED, cardName, deckName);

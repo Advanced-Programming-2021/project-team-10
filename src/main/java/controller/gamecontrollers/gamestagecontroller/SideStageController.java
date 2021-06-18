@@ -10,9 +10,10 @@ import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.enums.GameEnums.gamestage.GameSideStage;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
-import model.gameprop.gamemodel.Game;
 import model.gameprop.GameInProcess;
+import model.gameprop.gamemodel.Game;
 import viewer.Regex;
+import viewer.game.UserInterface;
 
 public class SideStageController {
 
@@ -70,14 +71,22 @@ public class SideStageController {
                         if (type == TypeOfHire.SUMMON) {
                             game.setGameSideStage(GameSideStage.NONE);
                             return MainPhase.SUMMONED_SUCCESSFULLY.toString();
-                        }
-                        else {
+                        } else {
                             game.setGameSideStage(GameSideStage.NONE);
                             return MainPhase.SET_SUCCESSFULLY.toString();
                         }
                     }
                 }
+            case EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_ONE:
+                UserInterface userInterface = new UserInterface(game);
+                if (command.equals("Finish")) {
+                    game.setGameSideStage(GameSideStage.EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_TWO);
+                    return userInterface.showSideDeck(game.getPlayer(SideOfFeature.OPPONENT));
+                } else if (command.equals("Show Main Deck")) {
+                    return userInterface.showMainDeck(game.getPlayer(SideOfFeature.CURRENT));
+                } else {
 
+                }
         }
         return null;
 

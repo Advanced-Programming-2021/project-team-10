@@ -15,6 +15,8 @@ public enum BattlePhase {
     CANT_ATTACK_WRONG_lOC("can't attack with this card"),
     EMPTY_LOC_TO_ATTACK("there is no card in this position"),
     CANT_ATTACK_DIRECT("you can't attack directly"),
+    CANT_ATTACK_ON_FIRST_TURN("can't attack on first turn"),
+    ATTACK_NOT_IN_BATTLE_PHASE("you must attack in battle phase only"),
     NO_CARD_SELECTED_YET("no card selected yet");
 
 

@@ -61,13 +61,14 @@ public class MagicCard extends Card {
 
     private void setMagicEvents(String name) {
         if (name.equals("Monster Reborn")) {
-            triggers.add(ManuallyActivation.getInstance());
+
         }
     }
 
     private void setMagicEffect(String name) {
         if (name.equals("Monster Reborn")) {
             actionsOfMagic.add(new SummonMonsterFromBothGraveYardsAction());
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Torrential Tribute")) {
             ArrayList<MonsterCard> monsterCards = new ArrayList<>();
@@ -192,6 +193,7 @@ public class MagicCard extends Card {
                 break;
             }
         }
+        System.out.println(shouldActiveEffects);
         if (shouldActiveEffects) {
             for (Action actionOfMagic : actionsOfMagic) {
                 actionOfMagic.active(game);
@@ -205,6 +207,7 @@ public class MagicCard extends Card {
                 "Name: " + name +
                         "\n" + typeOfMagic.toString() +
                         "\nType: " + magicAttribute +
+                        "\nSpeed: " + magicSpeed.toString() +
                         "\nDescription: " + description;
     }
 

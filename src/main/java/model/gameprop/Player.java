@@ -1,5 +1,6 @@
 package model.gameprop;
 
+import model.cards.cardsProp.Card;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.userProp.Deck;
 import model.userProp.User;
@@ -56,7 +57,11 @@ public class Player {
         for (int i = 0; i < 5; i++) {
             board.getPlayerHand().add(deck.getMainDeck().get(i));
         }
-        deck.getMainDeck().subList(0, 5).clear();
+
+        for (int i = 0 ; i < 5 ; i++){
+            deck.removeCardFromMainDeck(deck.getMainDeck().get(i));
+        }
+
     }
 
     public int getNumberOfWinningRound() {
