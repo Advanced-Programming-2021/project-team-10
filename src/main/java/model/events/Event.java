@@ -10,6 +10,10 @@ import model.gameprop.gamemodel.Game;
 public class Event {
     protected String name;
 
+    public String getName() {
+        return name;
+    }
+
     public void activeEffects(Game game) {
         PlayerBoard currentPlayerBoard = game.getPlayer(SideOfFeature.CURRENT).getBoard();
         if (this instanceof ManuallyActivation) {
