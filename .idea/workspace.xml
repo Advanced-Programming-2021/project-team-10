@@ -260,14 +260,7 @@
       <workItem from="1623552815586" duration="1278000" />
       <workItem from="1623698045011" duration="11553000" />
       <workItem from="1623891499215" duration="19374000" />
-      <workItem from="1624037441775" duration="6393000" />
-    </task>
-    <task id="LOCAL-00023" summary="set magic and monsters card and enum">
-      <created>1619304079536</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1619304079536</updated>
+      <workItem from="1624037441775" duration="13263000" />
     </task>
     <task id="LOCAL-00024" summary="fix some of warnings">
       <created>1619308771651</created>
@@ -585,7 +578,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623720620942</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="fix set and attack of cards">
+      <created>1624044369079</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1624044369080</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +605,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="edit register menu login messages" />
     <MESSAGE value="edit game models and enums" />
     <MESSAGE value="working on GeneralCommands" />
     <MESSAGE value="polymorphism in enums" />
@@ -630,7 +629,8 @@
     <MESSAGE value="Gson deck and users" />
     <MESSAGE value="add java fx" />
     <MESSAGE value="fix turn changing bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix turn changing bug" />
+    <MESSAGE value="fix set and attack of cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix set and attack of cards" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

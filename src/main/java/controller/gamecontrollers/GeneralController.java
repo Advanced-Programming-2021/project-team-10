@@ -12,6 +12,7 @@ import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.enums.GameEnums.gamestage.GameMainStage;
 import model.enums.GameEnums.gamestage.GameSideStage;
+import model.events.eventChildren.ActivationInOpponentTurn;
 import model.gameprop.BoardProp.GraveYard;
 import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.MonsterHouse;
@@ -157,6 +158,10 @@ public class GeneralController {
                     return output + "\n" + draw;
                 } else return output;
             }
+        } else if (game.getGameMainStage().equals(GameMainStage.FIRST_MAIN_PHASE) ||
+                game.getGameMainStage().equals(GameMainStage.SECOND_MAIN_PHASE) ||
+                game.getGameMainStage().equals(GameMainStage.BATTLE_PHASE)) {
+            ActivationInOpponentTurn.getInstance().activeEffects(game);
         }
         return process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName()) + "\n" + drawBoard(game);
     }
