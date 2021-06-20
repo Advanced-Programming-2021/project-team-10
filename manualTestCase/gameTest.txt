@@ -873,3 +873,10 @@ duel --new --second-player Yaroo --rounds 3
 rock
 paper
 START
+select --hand 2
+next phase
+next phase
+set
+select --hand 2
+summon
+select --spell 1
