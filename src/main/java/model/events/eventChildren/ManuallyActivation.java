@@ -9,6 +9,8 @@ public class ManuallyActivation extends Event {
         name = this.getClass().getSimpleName();
     }
 
+    private ManuallyActivation() {}
+
     public static ManuallyActivation getInstance() {
         if (instance == null) {
             instance = new ManuallyActivation();

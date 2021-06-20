@@ -9,6 +9,8 @@ import model.cards.cardsEnum.Monster.MonsterRace;
 import model.enums.GameEnums.SideOfFeature;
 import model.events.Event;
 import model.events.eventChildren.ManuallyActivation;
+import model.events.eventChildren.MonsterSummon;
+import model.events.eventChildren.OpponentMonsterWantsToAttack;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
@@ -41,6 +43,7 @@ public class MagicCard extends Card {
         setMagicSpeed(MagicSpeed.setSpeed(speed));
         magicCards.add(this);
         setMagicEffect(name);
+        setMagicEvents(name);
     }
 
     public MagicCard() {
@@ -61,7 +64,61 @@ public class MagicCard extends Card {
 
     private void setMagicEvents(String name) {
         if (name.equals("Monster Reborn")) {
-
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Raigeki")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Harpie’s Feather Duster")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Dark Hole")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Mystical space typhoon")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Yami")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Forest")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Closed Forest")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Umiiruka")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Sword of Dark Destruction")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Black Pendant")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Mirror Force")) {
+            triggers.add(OpponentMonsterWantsToAttack.getInstance());
+        }
+        if (name.equals("Mind Crush")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Torrential Tribute")) {
+            triggers.add(MonsterSummon.getInstance());
+        }
+        if (name.equals("Call of the Haunted")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Change of Heart")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Time Seal")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Pot Of Greed")) {
+            triggers.add(ManuallyActivation.getInstance());
+        }
+        if (name.equals("Terraforming")) {
+            triggers.add(ManuallyActivation.getInstance());
         }
     }
 
@@ -69,10 +126,6 @@ public class MagicCard extends Card {
         if (name.equals("Monster Reborn")) {
             actionsOfMagic.add(new SummonMonsterFromBothGraveYardsAction());
             triggers.add(ManuallyActivation.getInstance());
-        }
-        if (name.equals("Torrential Tribute")) {
-            ArrayList<MonsterCard> monsterCards = new ArrayList<>();
-            ArrayList<MagicCard> magicCards = new ArrayList<>();
         }
         if (name.equals("Raigeki")) {
             actionsOfMagic.add(new DestroyAllOpponentMonsters());
@@ -243,6 +296,7 @@ public class MagicCard extends Card {
         setDescription(description);
         setPrice(price);
         setMagicEffect(name);
+//        setMagicEvents(name);
     }
 
     public ArrayList<Action> getActionsOfMagic() {

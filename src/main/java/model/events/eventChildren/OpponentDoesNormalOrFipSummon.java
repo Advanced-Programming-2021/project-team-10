@@ -1,7 +1,13 @@
 package model.events.eventChildren;
 
-public class OpponentDoesNormalOrFipSummon {
+import model.events.Event;
+
+public class OpponentDoesNormalOrFipSummon extends Event {
     private static OpponentDoesNormalOrFipSummon instance;
+
+    {
+        name = this.getClass().getSimpleName();
+    }
 
     private OpponentDoesNormalOrFipSummon() {
     }
