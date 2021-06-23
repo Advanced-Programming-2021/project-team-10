@@ -66,7 +66,7 @@ public class RegisterMenuController {
             return processOutPut(Error.INVALID_USERNAME.toString(), username);
         }
         if (null != User.getUserByUserInfo(nickname, UserInfoType.NICKNAME)) {
-            return processOutPut(Error.INVALID_USERNAME.toString(), nickname);
+            return processOutPut(Error.INVALID_NICKNAME.toString(), nickname);
         }
         new User(username, nickname, password);
         return Register.SUCCESSFULLY_USER_CREATE.toString();
