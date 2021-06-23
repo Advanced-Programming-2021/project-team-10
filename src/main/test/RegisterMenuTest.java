@@ -1,11 +1,15 @@
 import com.sanityinc.jargs.CmdLineParser;
 import controller.menues.menuhandlers.menucontrollers.RegisterMenuController;
+import model.userProp.LoginUser;
 import model.userProp.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class RegisterMenuTest {
@@ -15,6 +19,7 @@ public class RegisterMenuTest {
     void initialize() {
         registerMenuController = RegisterMenuController.getInstance();
         User.setAllUsers(new ArrayList<>());
+        LoginUser.setUser(null);
     }
 
     @Test
@@ -48,7 +53,6 @@ public class RegisterMenuTest {
         boolean firstUserCreation = resultFirst.equals("user created successfully!");
         boolean secondUserCreation = resultToBeTested.equals("user with username yaroo already exists");
 
-        Assertions.assertTrue(firstUserCreation);
         Assertions.assertTrue(secondUserCreation);
     }
 
@@ -125,6 +129,22 @@ public class RegisterMenuTest {
     }
 
     @Test
+    @DisplayName("Login twice before logging out the first user")
+    void loginTwice(){
+        String loggingInUser2 = null;
+        try {
+            registerMenuController.run("user create --username man --nickname kaftarbaz --password 1234"); // successful
+            registerMenuController.run("user create --username too --nickname random --password 1234"); // successful
+            registerMenuController.run("user login --username man --password 1234");
+            loggingInUser2 = registerMenuController.run("user login --username too --password 1234");
+        } catch (CmdLineParser.OptionException e) {
+            e.printStackTrace();
+        }
+
+        Assertions.assertEquals(loggingInUser2, "another user has login already");
+    }
+
+    @Test
     @DisplayName("Show current menu")
     void showMenu() {
         String resultCommand = null;
@@ -139,12 +159,36 @@ public class RegisterMenuTest {
         Assertions.assertTrue(shownCorrectly);
     }
 
+
+    @Test
+    @DisplayName("Logout successfully")
+    void logoutSuccessful() {
+        String resultCreation = null;
+        String resultLogin = null;
+        String resultLogout = null;
+        try {
+            resultCreation = registerMenuController.run("user create --username yaroo --nickname kaftarbaz --password 1234");
+            resultLogin = registerMenuController.run("user login --username yaroo --password 1234");
+            resultLogout = registerMenuController.run("user logout");
+        } catch (CmdLineParser.OptionException e) {
+            e.printStackTrace();
+        }
+
+        boolean resultCreationBoolean = resultCreation.equals("user created successfully!");
+        boolean resultLoginBoolean = resultLogin.equals("user logged in successfully!");
+        boolean resultLogoutBoolean = resultLogout .equals("user logged out successfully!");
+
+        Assertions.assertTrue(resultCreationBoolean);
+        Assertions.assertTrue(resultLoginBoolean);
+        Assertions.assertTrue(resultLogoutBoolean);
+    }
+
     @Test
     @DisplayName("Logout before logging in(unsuccessful)")
     void logoutBeforeLogin() {
-        String resultLogoutWithoutCreation = null;
 
         //Not create user
+        String resultLogoutWithoutCreation = null;
         try {
             resultLogoutWithoutCreation = registerMenuController.run("user logout");
         } catch (CmdLineParser.OptionException e) {
@@ -156,6 +200,108 @@ public class RegisterMenuTest {
         Assertions.assertTrue(resultBoolean);
 
         //Create user / Not log in
+        String resultCreation = null;
+        String resultLogout = null;
+        try {
+            resultCreation = registerMenuController.run("user create --username yaroo --nickname kaftarbaz --password 1234");
+            resultLogout = registerMenuController.run("user logout");
+        } catch (CmdLineParser.OptionException e) {
+            e.printStackTrace();
+        }
+
+        boolean resultCreationBoolean = resultCreation.equals("user created successfully!");
+        boolean resultLogoutBoolean = resultLogout .equals("no user is logged in now");
+
+        Assertions.assertTrue(resultCreationBoolean);
+        Assertions.assertTrue(resultLogoutBoolean);
+    }
+
+    @Test
+    @DisplayName("Entering main menu before login and account creation(unsuccessful)")
+    void enterMenuWithoutLogin() {
+        //Not creating user
+        String resultEnterMenu = null;
+        try {
+            resultEnterMenu = registerMenuController.run("menu enter Main menu");
+        } catch (CmdLineParser.OptionException e) {
+            e.printStackTrace();
+        }
+
+        boolean resultBoolean = resultEnterMenu.equals("please login first");
+
+        Assertions.assertTrue(resultBoolean);
+
+        //Creating user / Not logging in
+        String resultCreation = null;
+        try {
+            resultCreation = registerMenuController.run("user create --username yaroo --nickname kaftarbaz --password 1234");
+            resultEnterMenu = registerMenuController.run("menu enter Main menu");
+        } catch (CmdLineParser.OptionException e) {
+            e.printStackTrace();
+        }
+
+        boolean resultCreationBoolean = resultCreation.equals("user created successfully!");
+        boolean resultEnterMenuBoolean = resultEnterMenu.equals("please login first");
+
+        Assertions.assertTrue(resultCreationBoolean);
+        Assertions.assertTrue(resultEnterMenuBoolean);
+    }
+
+
+    @Test
+    @DisplayName("Enter menu successful")
+    void enterMenuSuccessful() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        String resultCreation = null;
+        String resultLogin = null;
+        String resultEnterMenu = null;
+        try {
+            resultCreation = registerMenuController.run("user create --username yaroo --nickname kaftarbaz --password 1234");
+            resultLogin = registerMenuController.run("user login --username yaroo --password 1234");
+            System.setIn(new ByteArrayInputStream("user logout\n".getBytes())); // simulating input
+            resultEnterMenu = registerMenuController.run("menu enter Main menu");
+        } catch (CmdLineParser.OptionException e) {
+            e.printStackTrace();
+        }
+
+        boolean resultCreationBoolean = resultCreation.equals("user created successfully!");
+        boolean resultLoginBoolean = resultLogin.equals("user logged in successfully!");
+        boolean resultEnterMenuBoolean = resultEnterMenu.equals("enter Main menu successfully");
+
+        Assertions.assertTrue(resultCreationBoolean);
+        Assertions.assertTrue(resultLoginBoolean);
+        Assertions.assertTrue(resultEnterMenuBoolean);
+        Assertions.assertEquals("you entered Main menu successfully\r\nUser logout successfully\r\n", outContent.toString());
+    }
+
+    @Test
+    @DisplayName("Not Identifying which menu to enter")
+    void notIdentifyingTargetMenu() {
+        String resultEnterMenu = null;
+        try {
+            registerMenuController.run("user create --username yaroo --nickname kaftarbaz --password 1234");
+            registerMenuController.run("user login --username yaroo --password 1234");
+            resultEnterMenu = registerMenuController.run("menu enter Some random menu");
+        } catch (CmdLineParser.OptionException e) {
+            e.printStackTrace();
+        }
+
+        Assertions.assertNull(resultEnterMenu);
+    }
+
+    @Test
+    @DisplayName("Not identifying the command")
+    void notIdentifyingCommand() {
+        String resultEnterMenu = null;
+        try {
+            Assertions.assertNull(registerMenuController.run(""));
+            Assertions.assertNull(registerMenuController.run("ye dastoor ke jozv dastoorat nist!"));
+        } catch (CmdLineParser.OptionException e) {
+            e.printStackTrace();
+        }
 
     }
+
 }

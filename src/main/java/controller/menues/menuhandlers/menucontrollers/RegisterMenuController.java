@@ -34,7 +34,7 @@ public class RegisterMenuController {
             if (user.isPasswordMatch(password)) {
                 if (LoginUser.getUser() == null) {
                     LoginUser.setUser(user);
-                    return Register.SUCCESSFULLY_LOGIN.toString();
+                    return Register.SUCCESSFULLY_LOGIN.getRegisterMessage();
                 } else {
                     return Error.INVALID_LOGIN.toString();
                 }
@@ -69,7 +69,7 @@ public class RegisterMenuController {
             return processOutPut(Error.INVALID_NICKNAME.toString(), nickname);
         }
         new User(username, nickname, password);
-        return Register.SUCCESSFULLY_USER_CREATE.toString();
+        return Register.SUCCESSFULLY_USER_CREATE.getRegisterMessage();
     }
 
     public String logout() {
@@ -77,7 +77,7 @@ public class RegisterMenuController {
             return Error.INVALID_LOGOUT.toString();
         } else {
             LoginUser.setUser(null);
-            return Register.SUCCESSFULLY_LOGOUT.toString();
+            return Register.SUCCESSFULLY_LOGOUT.getRegisterMessage();
         }
     }
 
@@ -101,7 +101,7 @@ public class RegisterMenuController {
             return login(parser.getOptionValue(password),
                     parser.getOptionValue(username));
         } else if (command.startsWith("menu show")) {
-            return Register.CURRENT_MENU.toString();
+            return Register.CURRENT_MENU.getRegisterMessage();
         } else if (command.startsWith("user logout")) {
             return logout();
         } else if (command.startsWith("menu enter")) {
