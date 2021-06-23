@@ -3,6 +3,7 @@ package controller.gamecontrollers.gamestagecontroller.handlers.attackdirect;
 import model.enums.GameEnums.gamestage.GameMainStage;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
+import model.gameprop.gamemodel.Game;
 
 public abstract class AttackDirectProcessor {
     AttackDirectProcessor processor;
@@ -11,9 +12,9 @@ public abstract class AttackDirectProcessor {
         this.processor = processor;
     }
 
-    public String process(SelectedCardProp cardProp, Player target, boolean firstTurnOfTheGame, GameMainStage stage) {
+    public String process(Game game) {
         if (processor != null) {
-            return processor.process(cardProp  ,target, firstTurnOfTheGame, stage);
+            return processor.process(game);
         } else return null;
     }
 }

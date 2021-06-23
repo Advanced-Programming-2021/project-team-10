@@ -3,7 +3,7 @@ package model.cards.cardsProp;
 import model.cards.cardsActions.Action;
 import model.cards.cardsActions.magicActionChildren.*;
 import model.cards.cardsEnum.Magic.MagicAttribute;
-import model.cards.cardsEnum.Magic.MagicSpeed;
+import model.cards.cardsEnum.Magic.RestrictionTypeInAdding;
 import model.cards.cardsEnum.Magic.MagicType;
 import model.cards.cardsEnum.Monster.MonsterRace;
 import model.enums.GameEnums.SideOfFeature;
@@ -13,7 +13,6 @@ import model.events.eventChildren.MonsterSummon;
 import model.events.eventChildren.OpponentMonsterWantsToAttack;
 import model.gameprop.gamemodel.Game;
 
-import java.nio.file.OpenOption;
 import java.util.ArrayList;
 
 
@@ -26,7 +25,7 @@ public class MagicCard extends Card {
 
     private final ArrayList<Action> actionsOfMagic;
     private Event trigger;
-    private MagicSpeed magicSpeed;
+    private RestrictionTypeInAdding restrictionTypeInAdding;
     private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
 
@@ -34,11 +33,11 @@ public class MagicCard extends Card {
         actionsOfMagic = new ArrayList<>();
     }
 
-    public MagicCard(String name, String typeOfMagic, String magicAttribute, String description, String speed, String price) {
+    public MagicCard(String name, String typeOfMagic, String magicAttribute, String description, String typeOfRestriction, String price) {
         super(name, description, price);
         setTypeOfMagic(MagicType.setType(typeOfMagic));
         setMagicAttribute(MagicAttribute.setAttribute(magicAttribute));
-        setMagicSpeed(MagicSpeed.setSpeed(speed));
+        setMagicRestriction(RestrictionTypeInAdding.setSpeed(typeOfRestriction));
         magicCards.add(this);
         setMagicEffect(name);
         setMagicEvents(name);
@@ -61,62 +60,69 @@ public class MagicCard extends Card {
     }
 
     private void setMagicEvents(String name) {
-        if (name.equals("Monster Reborn")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Raigeki")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Harpie’s Feather Duster")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Dark Hole")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Mystical space typhoon")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Yami")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Forest")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Closed Forest")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Umiiruka")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Sword of Dark Destruction")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Black Pendant")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Mirror Force")) {
-            trigger = OpponentMonsterWantsToAttack.getInstance();
-        }
-        if (name.equals("Mind Crush")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Torrential Tribute")) {
-            trigger = MonsterSummon.getInstance();
-        }
-        if (name.equals("Call of the Haunted")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Change of Heart")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Time Seal")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Pot Of Greed")) {
-            trigger = ManuallyActivation.getInstance();
-        }
-        if (name.equals("Terraforming")) {
-            trigger = ManuallyActivation.getInstance();
+        switch (name) {
+            // trap :
+
+            // field
+            case "Forest":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            // field
+            case "Closed Forest":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            //field
+            case "Umiiruka":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Monster Reborn":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Rage":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Harpie’s Feather Duster":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Dark Hole":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Mystical space typhoon":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Yami":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Sword of Dark Destruction":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Black Pendant":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Mirror Force":
+                trigger = OpponentMonsterWantsToAttack.getInstance();
+                break;
+            case "Mind Crush":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Torrential Tribute":
+                trigger = MonsterSummon.getInstance();
+                break;
+            case "Call of the Haunted":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Change of Heart":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Time Seal":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Pot Of Greed":
+                trigger = ManuallyActivation.getInstance();
+                break;
+            case "Terraforming":
+                trigger = ManuallyActivation.getInstance();
+                break;
         }
     }
 
@@ -252,7 +258,7 @@ public class MagicCard extends Card {
                 "Name: " + name +
                         "\n" + typeOfMagic.toString() +
                         "\nType: " + magicAttribute +
-                        "\nSpeed: " + magicSpeed.toString() +
+                        "\nSpeed: " + restrictionTypeInAdding.toString() +
                         "\nDescription: " + description;
     }
 
@@ -272,19 +278,19 @@ public class MagicCard extends Card {
         this.typeOfMagic = typeOfMagic;
     }
 
-    public MagicSpeed getMagicSpeed() {
-        return magicSpeed;
+    public RestrictionTypeInAdding getMagicRestrictionType() {
+        return restrictionTypeInAdding;
     }
 
-    public void setMagicSpeed(MagicSpeed magicSpeed) {
-        this.magicSpeed = magicSpeed;
+    public void setMagicRestriction(RestrictionTypeInAdding restrictionTypeInAdding) {
+        this.restrictionTypeInAdding = restrictionTypeInAdding;
     }
 
     public void setDetails(String name, String typeOfMagic, String magicAttribute, String description, String speed, String price) {
         setName(name);
         setTypeOfMagic(MagicType.setType(typeOfMagic));
         setMagicAttribute(MagicAttribute.setAttribute(magicAttribute));
-        setMagicSpeed(MagicSpeed.setSpeed(speed));
+        setMagicRestriction(RestrictionTypeInAdding.setSpeed(speed));
         setDescription(description);
         setPrice(price);
         setMagicEffect(name);
@@ -306,7 +312,7 @@ public class MagicCard extends Card {
         copy.ID = this.ID;
         //
 
-        copy.setMagicSpeed(this.magicSpeed);
+        copy.setMagicRestriction(this.restrictionTypeInAdding);
         copy.setTypeOfMagic(this.typeOfMagic);
         copy.setMagicAttribute(this.magicAttribute);
 

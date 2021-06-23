@@ -18,14 +18,15 @@ public class AttackMonsterChain {
         processor = new SelectedCardProcessor(new AttackProcessor(null));
     }
 
-    public String request(SelectedCardProp cardProp, MonsterHouse monsterHouse, Game game) {
+    public String request(MonsterHouse monsterHouse, Game game) {
+        SelectedCardProp cardProp = game.getCardProp();
         MonsterCard attacker = null;
         MonsterCard defence = null;
         if (cardProp != null && monsterHouse != null) {
             attacker = (MonsterCard) cardProp.getCard();
             defence = monsterHouse.getMonsterCard();
         }
-        String message = processor.process(cardProp, monsterHouse, game).toString();
+        String message = processor.process(monsterHouse, game).toString();
 
         if (attacker != null && defence != null) {
             message = modifier(message, defence, attacker);

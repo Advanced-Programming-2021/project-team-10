@@ -22,14 +22,15 @@ public class BattlePhaseController extends GeneralController {
 
     public String run(String command) {
         Game game = GameInProcess.getGame();
+        String output = null;
         if (command.equals("attack direct")) {
-            return attackDirect(game);
+            output = attackDirect(game);
         } else if (command.startsWith("attack")) {
             int address = Character.getNumericValue(command.charAt(7));
-            return attackMonsterHouse(game,
+            output = attackMonsterHouse(game,
                     game.getPlayer(SideOfFeature.OPPONENT).getBoard().getMonsterHouse()[address - 1]);
         }
-        return null;
+        return processAnswer(game, output);
     }
 
 
@@ -39,13 +40,13 @@ public class BattlePhaseController extends GeneralController {
         if (target.getState().equals(MonsterHouseVisibilityState.DH)) {
             stringBuilder.append("the hidden defence revealed : ").append(target.getMonsterCard().getName()).append("\n");
         }
-        stringBuilder.append(chain.request(game.getCardProp(), target, game));
+        stringBuilder.append(chain.request(target, game));
         game.setCardProp(null);
         return stringBuilder.toString();
     }
 
     private String attackDirect(Game game) {
         AttackDirectChain chain = new AttackDirectChain();
-        return chain.request(game.getCardProp(), game.getPlayer(SideOfFeature.OPPONENT), game.isFirstTurnOfTheGame(), game.getGameMainStage());
+        return chain.request(game);
     }
 }

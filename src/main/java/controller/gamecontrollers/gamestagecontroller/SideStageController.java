@@ -1,5 +1,8 @@
 package controller.gamecontrollers.gamestagecontroller;
 
+import com.sanityinc.jargs.CmdLineParser;
+import controller.gamecontrollers.GeneralController;
+import model.cards.cardsProp.Card;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
@@ -12,8 +15,13 @@ import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
+import model.userProp.Deck;
 import viewer.Regex;
 import viewer.game.UserInterface;
+
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.regex.Matcher;
 
 public class SideStageController {
 
@@ -77,7 +85,7 @@ public class SideStageController {
                         }
                     }
                 }
-            case EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_ONE:
+            case EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_ONE: {
                 UserInterface userInterface = new UserInterface(game);
                 if (command.equals("Finish")) {
                     game.setGameSideStage(GameSideStage.EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_TWO);
@@ -87,6 +95,41 @@ public class SideStageController {
                 } else {
 
                 }
+            }
+            case EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_TWO: {
+                UserInterface userInterface = new UserInterface(game);
+                if (command.equals("Finish")) {
+                    game.setGameSideStage(GameSideStage.START_STAGE);
+                    try {
+                        String drawCard = Objects.requireNonNull(GeneralController.getInstance()).run("START");
+                        return "ROUND " + game.getRoundNumber() + "\n" + drawCard;
+                    } catch (CmdLineParser.OptionException e) {
+                        e.printStackTrace();
+                    }
+
+                } else if (command.equals("Show Main Deck")) {
+                    return userInterface.showMainDeck(game.getPlayer(SideOfFeature.OPPONENT));
+                } else if (command.matches(Regex.sideStageCommand[4])) {
+                    Matcher matcher = Regex.getMatcher(command, Regex.sideStageCommand[4]);
+                    matcher.find();
+                    int mainDeckCardNum = Integer.parseInt(matcher.group(1)) - 1;
+                    int sideDeckCardNum = Integer.parseInt(matcher.group(2)) - 1;
+                    Deck deck = game.getPlayer(SideOfFeature.OPPONENT).getDeck();
+                    ArrayList<Card> mainDeck = deck.getMainDeck();
+                    ArrayList<Card> sideDeck = deck.getSideDeck();
+
+                    if (mainDeck.size() < mainDeckCardNum + 1) {
+                        return SidePhase.INVALID_CARD_NUM_FROM_MAIN_DECK.toString();
+                    } else if (sideDeck.size() < sideDeckCardNum + 1) {
+                        return SidePhase.INVALID_CARD_NUM_FROM_SIDE_DECK.toString();
+                    }
+
+                    deck.switchCardBetweenMainDeckAndSideDeck(mainDeckCardNum, sideDeckCardNum);
+
+
+                    return userInterface.showMainDeck(game.getPlayer(SideOfFeature.OPPONENT));
+                }
+            }
         }
         return null;
 

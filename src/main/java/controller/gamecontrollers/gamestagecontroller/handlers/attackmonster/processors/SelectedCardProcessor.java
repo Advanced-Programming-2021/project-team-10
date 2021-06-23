@@ -13,13 +13,14 @@ public class SelectedCardProcessor extends AttackMonsterProcessor {
         super(processor);
     }
 
-    public BattlePhase process(SelectedCardProp offensive, MonsterHouse target, Game game) {
+    public BattlePhase process(MonsterHouse target, Game game) {
+        SelectedCardProp offensive = game.getCardProp();
         if (offensive == null)
             return BattlePhase.NO_CARD_SELECTED_YET;
         if (!offensive.getLocation().equals(CardLocation.MONSTER_ZONE)) {
             return BattlePhase.CANT_ATTACK_WRONG_lOC;
         }
-        if (!offensive.getCardPlace().getState().equals(MonsterHouseVisibilityState.OO)){
+        if (!offensive.getCardPlace().getState().equals(MonsterHouseVisibilityState.OO)) {
             return BattlePhase.CANT_ATTACK_IN_DEFENCE;
         }
         MonsterHouse offensiveCardPlace = (MonsterHouse) offensive.getCardPlace();
@@ -30,7 +31,7 @@ public class SelectedCardProcessor extends AttackMonsterProcessor {
         if (target.getState().equals(MonsterHouseVisibilityState.E))
             return BattlePhase.EMPTY_LOC_TO_ATTACK;
 
-        return super.process(offensive, target, game);
+        return super.process(target, game);
 
     }
 }
