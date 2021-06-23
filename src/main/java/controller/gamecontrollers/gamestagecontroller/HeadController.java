@@ -10,11 +10,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class HeadController {
-    private static ArrayList<ExistenceObserver> existenceObserversToDelete;
-
-    static {
-
-    }
     DrawPhaseController drawPhaseController;
     SideStageController sideStageController;
     MainPhaseController mainPhaseController;
