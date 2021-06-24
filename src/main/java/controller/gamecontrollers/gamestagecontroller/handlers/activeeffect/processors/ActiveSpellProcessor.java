@@ -1,7 +1,8 @@
 package controller.gamecontrollers.gamestagecontroller.handlers.activeeffect.processors;
 
 import controller.gamecontrollers.gamestagecontroller.handlers.activeeffect.ActiveEffectProcessor;
-import model.cards.cardsEnum.Magic.MagicSpeed;
+import model.cards.cardsEnum.Magic.MagicAttribute;
+import model.cards.cardsEnum.Magic.MagicType;
 import model.cards.cardsProp.MagicCard;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GamePhaseEnums.General;
@@ -22,16 +23,15 @@ public class ActiveSpellProcessor extends ActiveEffectProcessor {
     public String process(Game game) {
         SelectedCardProp cardProp = game.getCardProp();
         MagicCard magicCard = (MagicCard) cardProp.getCard();
-        if (cardProp.getLocation().equals(CardLocation.PLAYER_HAND)) {
-            if (magicCard.getMagicSpeed().equals(MagicSpeed.UNLIMITED))
+        if (cardProp.getLocation().equals(CardLocation.PLAYER_HAND)) {//activation of magic from hand
+            if (!(magicCard.getTypeOfMagic() == MagicType.SPELL && magicCard.getMagicAttribute() != MagicAttribute.QUICK_PLAY)) {
                 return General.MAGIC_SPELL_SPEED_2.toString();
-            else {
+            } else {
                 if (game.getPlayer(SideOfFeature.CURRENT).getBoard().numberOfFullHouse("spell") == 5) {
                     return General.SPELL_CARD_ZONE_FULL.toString();
-                }
-                else{
+                } else {
                     for (MagicHouse house : game.getPlayer(SideOfFeature.CURRENT).getBoard().getMagicHouse()) {
-                        if (house.getMagicCard() == null){
+                        if (house.getMagicCard() == null) {
                             house.setMagicCard(magicCard);
                             house.setState(MagicHouseVisibilityState.O);
                             break;
@@ -40,7 +40,7 @@ public class ActiveSpellProcessor extends ActiveEffectProcessor {
                 }
             }
         }
-        ManuallyActivation.getInstance().activeEffects(game);
+        ManuallyActivation.getInstance().activeEffects(game); //activation of magic from board ( magic houses and field house)
         return General.SPELL_ACTIVATED_SUCCESSFULLY.toString();
     }
 }

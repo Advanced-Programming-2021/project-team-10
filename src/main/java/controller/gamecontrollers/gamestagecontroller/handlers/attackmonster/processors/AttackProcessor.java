@@ -16,7 +16,8 @@ public class AttackProcessor extends AttackMonsterProcessor {
         super(processor);
     }
 
-    public BattlePhase process(SelectedCardProp offensive, MonsterHouse target, Game game) {
+    public BattlePhase process(MonsterHouse target, Game game) {
+        SelectedCardProp offensive = game.getCardProp();
         MonsterCard offensiveCard = (MonsterCard) offensive.getCard();
         MonsterCard targetCard = target.getMonsterCard();
         MonsterHouse offensiveCardPlace = (MonsterHouse) offensive.getCardPlace();
@@ -27,8 +28,16 @@ public class AttackProcessor extends AttackMonsterProcessor {
 
         offensiveCardPlace.setMonsterAttacked();
 
+        int practicalAttackForOffensive = offensiveCard.getAttack() +
+                ((MonsterHouse) offensive.getCardPlace()).getAdditionalAttack();
+        int practicalAttackForTarget = targetCard.getAttack() +
+                target.getAdditionalAttack();
+        int practicalDefenceForTarget = targetCard.getDefence() +
+                target.getAdditionalDefence();
+
         if (target.getState().equals(MonsterHouseVisibilityState.OO)) {
-            int attackDifference = offensiveCard.getAttack() - targetCard.getAttack();
+
+            int attackDifference = practicalAttackForOffensive - practicalAttackForTarget;
             if (attackDifference > 0) {
                 successfulAttackToOffensiveMonster(target, targetCard, opponent, attackDifference);
                 return BattlePhase.SUCCESSFUL_ATTACK_OFFENSIVE_TARGET;
@@ -40,7 +49,7 @@ public class AttackProcessor extends AttackMonsterProcessor {
                 return BattlePhase.DEFEAT_ATTACK_OO_TARGET;
             }
         } else {
-            int damageAmount = offensiveCard.getAttack() - targetCard.getDefence();
+            int damageAmount = practicalAttackForOffensive - practicalDefenceForTarget;
             if (damageAmount > 0) {
                 target.setMonsterCard(null);
                 opponent.getBoard().getGraveYard().addCardToGraveYard(offensiveCard);
@@ -48,8 +57,7 @@ public class AttackProcessor extends AttackMonsterProcessor {
             } else if (damageAmount == 0) {
                 target.setState(MonsterHouseVisibilityState.DO);
                 return BattlePhase.NO_CARD_ELIMINATE;
-            }
-            else {
+            } else {
                 current.changePlayerLifePoint(damageAmount * -1);
                 return BattlePhase.DEFEAT_ATTACK_ON_DEFENCE_UNKNOWN;
             }

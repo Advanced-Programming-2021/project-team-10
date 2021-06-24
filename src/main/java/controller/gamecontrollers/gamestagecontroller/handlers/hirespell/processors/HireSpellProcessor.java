@@ -1,11 +1,14 @@
 package controller.gamecontrollers.gamestagecontroller.handlers.hirespell.processors;
 
 import controller.gamecontrollers.gamestagecontroller.handlers.hirespell.SpellProcessor;
+import model.cards.cardsEnum.Magic.MagicAttribute;
 import model.cards.cardsProp.MagicCard;
+import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
 import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
 import model.gameprop.BoardProp.MagicHouse;
+import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.gamemodel.Game;
 
 public class HireSpellProcessor extends SpellProcessor {
@@ -15,13 +18,18 @@ public class HireSpellProcessor extends SpellProcessor {
 
     public String process(Game game) {
         MagicCard magicCard = (MagicCard) game.getCardProp().getCard();
-        for (MagicHouse magicHouse : game.getPlayer(SideOfFeature.CURRENT).getBoard().getMagicHouse()) {
+        PlayerBoard board = game.getPlayer(SideOfFeature.CURRENT).getBoard();
+        if (magicCard.getMagicAttribute() == MagicAttribute.FIELD) {
+            MagicCard previousFieldSpell = board.getFieldHouse().getMagicCard();
+            MagicHouse magicHouse = board.getFieldHouse();
+            if (previousFieldSpell != null) {
+                board.moveCardToGraveYard(1, CardLocation.FIELD_ZONE);
+            }
+            return placeCardInBoard(game, magicCard, magicHouse);
+        }
+        for (MagicHouse magicHouse : board.getMagicHouse()) {
             if (magicHouse.getMagicCard() == null) {
-                magicHouse.setMagicCard(magicCard);
-                magicHouse.setState(MagicHouseVisibilityState.H);
-                game.setCardProp(null);
-                game.getPlayer(SideOfFeature.CURRENT).getBoard().getPlayerHand().remove(magicCard);
-                return MainPhase.SET_SUCCESSFULLY.toString();
+                return placeCardInBoard(game, magicCard, magicHouse);
             }
         }
         try {
@@ -30,5 +38,13 @@ public class HireSpellProcessor extends SpellProcessor {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private String placeCardInBoard(Game game, MagicCard magicCard, MagicHouse magicHouse) {
+        magicHouse.setMagicCard(magicCard);
+        magicHouse.setState(MagicHouseVisibilityState.H);
+        game.setCardProp(null);
+        game.getPlayer(SideOfFeature.CURRENT).getBoard().getPlayerHand().remove(magicCard);
+        return MainPhase.SET_SUCCESSFULLY.toString();
     }
 }

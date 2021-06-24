@@ -12,9 +12,9 @@ public abstract class AttackMonsterProcessor {
         this.processor = processor;
     }
 
-    protected BattlePhase process(SelectedCardProp offensive, MonsterHouse target, Game game) {
+    protected BattlePhase process(MonsterHouse target, Game game) {
         if (processor != null)
-            return processor.process(offensive, target, game);
+            return processor.process(target, game);
         else return null;
     }
 }

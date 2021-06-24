@@ -12,7 +12,8 @@ public class SelectCardProcessor extends FlipSummonProcessor {
         super(processor);
     }
 
-    public MainPhase process(SelectedCardProp cardProp, Game game) {
+    public MainPhase process(Game game) {
+        SelectedCardProp cardProp = game.getCardProp();
         if (cardProp == null)
             return MainPhase.NO_CARD_SELECTED_YET;
 
@@ -26,6 +27,6 @@ public class SelectCardProcessor extends FlipSummonProcessor {
             return MainPhase.CANT_FLIP_SUMMON_THIS_CARD;
 
 
-        return super.process(cardProp, game);
+        return super.process(game);
     }
 }

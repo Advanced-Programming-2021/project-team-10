@@ -5,6 +5,7 @@ import controller.gamecontrollers.gamestagecontroller.handlers.attackdirect.proc
 import model.enums.GameEnums.gamestage.GameMainStage;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
+import model.gameprop.gamemodel.Game;
 
 public class AttackDirectChain {
     AttackDirectProcessor processor;
@@ -16,7 +17,7 @@ public class AttackDirectChain {
         processor = new SelectedCardProcessor(new AttackProcessor(null));
     }
 
-    public String request(SelectedCardProp cardProp, Player target, boolean firstTurnOfTheGame, GameMainStage stage){
-       return processor.process(cardProp , target, firstTurnOfTheGame, stage);
+    public String request(Game game){
+       return processor.process(game);
     }
 }

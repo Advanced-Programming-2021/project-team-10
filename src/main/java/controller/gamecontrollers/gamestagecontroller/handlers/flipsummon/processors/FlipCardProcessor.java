@@ -13,7 +13,8 @@ public class FlipCardProcessor extends FlipSummonProcessor {
         super(processor);
     }
 
-    public MainPhase process(SelectedCardProp cardProp, Game game) {
+    public MainPhase process(Game game) {
+        SelectedCardProp cardProp = game.getCardProp();
         MonsterHouse flipCardHouse = (MonsterHouse) cardProp.getCardPlace();
         flipCardHouse.setState(MonsterHouseVisibilityState.OO);
         game.setHiredMonster(flipCardHouse);

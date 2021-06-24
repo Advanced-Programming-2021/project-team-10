@@ -11,9 +11,9 @@ public abstract class FlipSummonProcessor {
         this.processor = processor;
     }
 
-    public MainPhase process(SelectedCardProp cardProp, Game game) {
+    public MainPhase process(Game game) {
         if (processor != null)
-            return processor.process(cardProp, game);
+            return processor.process(game);
         else return null;
     }
 }

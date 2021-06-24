@@ -31,24 +31,25 @@ public class MainPhaseController extends GeneralController {
 
     public String run(String command) throws CmdLineParser.OptionException {
         Game game = GameInProcess.getGame();
+        String output = null;
         if (game.getGameSideStage().equals(GameSideStage.NONE)) {
             if (game.getGameMainStage().equals(GameMainStage.FIRST_MAIN_PHASE) ||
                     game.getGameMainStage().equals(GameMainStage.SECOND_MAIN_PHASE)) {
                 if (command.equals("summon")) {
-                    return hireCard(game, TypeOfHire.SUMMON);
+                    output = hireCard(game, TypeOfHire.SUMMON);
                 } else if (command.equals("set")) {
-                    return hireCard(game, TypeOfHire.SET);
+                    output = hireCard(game, TypeOfHire.SET);
                 } else if (command.startsWith("set --position")) {
                     MonsterHouse hiredMonsterHouse = game.getHiredMonster();
-                    return changePosition(game.getCardProp(), command, hiredMonsterHouse);
+                    output = changePosition(game.getCardProp(), command, hiredMonsterHouse);
                 } else if (command.equals("flip-summon")) {
-                    return flipSummon(game);
+                    output = flipSummon(game);
                 }
             } else {
-                return "you can’t do this action in this phase";
+                output = "you can’t do this action in this phase";
             }
-        } else return "back to game first";
-        return null;
+        } else output = "back to game first";
+        return processAnswer(game, output);
     }
 
     private String hireCard(Game game, TypeOfHire type) {
@@ -60,10 +61,10 @@ public class MainPhaseController extends GeneralController {
             if ((answerToRequest = chain.request(game, type)) != null) {
                 return answerToRequest;
             }
-        }else if (cardProp.getCard() instanceof MagicCard){
+        } else if (cardProp.getCard() instanceof MagicCard) {
             if (type != TypeOfHire.SET) return MainPhase.CANT_SUMMON_MAGIC.toString();
             HireSpellChain chain = new HireSpellChain();
-            if ((answerToRequest = chain.request(game))  != null){
+            if ((answerToRequest = chain.request(game)) != null) {
                 return answerToRequest;
             }
         }
@@ -82,7 +83,7 @@ public class MainPhaseController extends GeneralController {
 
     private String flipSummon(Game game) {
         FlipSummonChain chain = new FlipSummonChain();
-        return chain.request(game.getCardProp(), game).toString();
+        return chain.request(game).toString();
     }
 
 }
