@@ -32,8 +32,10 @@ public class MagicCard extends Card {
     private RestrictionTypeInAdding restrictionTypeInAdding;
     private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
+    private boolean isActivated;
 
     {
+        isActivated = false;
         actionsOfMagic = new ArrayList<>();
         triggers = new ArrayList<>();
     }
@@ -70,9 +72,6 @@ public class MagicCard extends Card {
 
     private void setMagicEvents(String name) {
         switch (name) {
-            // trap :
-
-            // field
             case "Forest":
             case "Closed Forest":
             case "Monster Reborn":
@@ -220,13 +219,15 @@ public class MagicCard extends Card {
                 break;
             }
         }
+
         if (event instanceof ActivationInOpponentTurn) {
             String answer = GetStringInputFromView.getInputFromView(RequestingInput.DOES_PLAYER_WANT_TO_ACTIVE_SPELL, this.name);
             while (true) {
                 switch (answer.toLowerCase(Locale.ROOT)) {
                     case "yes": {
+                        isActivated = true;
                         activeActions(game, shouldActiveEffects);
-                       return;
+                        return;
                     }
                     case "no": {
                         return;
@@ -238,6 +239,7 @@ public class MagicCard extends Card {
             }
 
         }
+        isActivated = true;
         activeActions(game, shouldActiveEffects);
     }
 
@@ -324,5 +326,13 @@ public class MagicCard extends Card {
         copy.setMagicAttribute(this.magicAttribute);
 
         return copy;
+    }
+
+    public boolean isActivated() {
+        return isActivated;
+    }
+
+    public void setActivated(boolean activated) {
+        isActivated = activated;
     }
 }

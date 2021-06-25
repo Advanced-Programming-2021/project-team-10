@@ -35,13 +35,17 @@ public final class Regex {
             "export card .+"
     };
 
+    // -> main menu commands
+    public static String moneyCheat = "cheat code: increase money -> (?<amount>\\d+)";
+
     // -> fixed commands
     public static String[] otherCommands = new String[]{
             "user logout",
             "menu exit",
             "menu show-current",
             "menu enter.+"
-    };
+};
+
     // -> all commands
     public static String[][] registerCommands = new String[][]{
             userCreateCommand,
@@ -113,7 +117,9 @@ public final class Regex {
 
     //GamePlay -> general commands
     public static String[] generalCommands = new String[]{
-            "cheat code : make me winner",
+            "cheat code: winner",
+            "cheat code: draw",
+            "cheat code: increase LP -> (?<amount>\\d{1,})",
             "surrender",
             "active effect",
             "card show --selected",
