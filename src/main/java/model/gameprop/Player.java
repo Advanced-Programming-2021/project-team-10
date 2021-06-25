@@ -37,6 +37,10 @@ public class Player {
         return this.playerLifePoint;
     }
 
+    public void setPlayerLifePoint(int playerLifePoint) {
+        this.playerLifePoint = playerLifePoint;
+    }
+
     public Deck getDeck() {
         return deck;
     }
