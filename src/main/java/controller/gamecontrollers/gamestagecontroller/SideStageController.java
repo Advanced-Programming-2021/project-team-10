@@ -16,6 +16,8 @@ import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
 import model.userProp.Deck;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import viewer.Regex;
 import viewer.game.UserInterface;
 
@@ -88,24 +90,25 @@ public class SideStageController {
             case EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_ONE: {
                 UserInterface userInterface = new UserInterface(game);
                 if (command.equals("Finish")) {
-                    game.setGameSideStage(GameSideStage.EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_TWO);
-                    return userInterface.showSideDeck(game.getPlayer(SideOfFeature.OPPONENT));
+                    return finishChangeForPlayerOne(game, userInterface);
                 } else if (command.equals("Show Main Deck")) {
                     return userInterface.showMainDeck(game.getPlayer(SideOfFeature.CURRENT));
-                } else {
+                } else if (command.matches(Regex.sideStageCommand[4])) {
+                    Matcher matcher = Regex.getMatcher(command, Regex.sideStageCommand[4]);
+                    matcher.find();
+                    int mainDeckCardNum = Integer.parseInt(matcher.group(1)) - 1;
+                    int sideDeckCardNum = Integer.parseInt(matcher.group(2)) - 1;
+                    Deck deck = game.getPlayer(SideOfFeature.CURRENT).getDeck();
 
+                    String probableError = switchCard(mainDeckCardNum, sideDeckCardNum, deck);
+                    if (probableError != null) return probableError;
+                    else return finishChangeForPlayerOne(game, userInterface);
                 }
             }
             case EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_TWO: {
                 UserInterface userInterface = new UserInterface(game);
                 if (command.equals("Finish")) {
-                    game.setGameSideStage(GameSideStage.START_STAGE);
-                    try {
-                        String drawCard = Objects.requireNonNull(GeneralController.getInstance()).run("START");
-                        return "ROUND " + game.getRoundNumber() + "\n" + drawCard;
-                    } catch (CmdLineParser.OptionException e) {
-                        e.printStackTrace();
-                    }
+                    return finishChangeForPlayerTwo(game);
 
                 } else if (command.equals("Show Main Deck")) {
                     return userInterface.showMainDeck(game.getPlayer(SideOfFeature.OPPONENT));
@@ -115,23 +118,54 @@ public class SideStageController {
                     int mainDeckCardNum = Integer.parseInt(matcher.group(1)) - 1;
                     int sideDeckCardNum = Integer.parseInt(matcher.group(2)) - 1;
                     Deck deck = game.getPlayer(SideOfFeature.OPPONENT).getDeck();
-                    ArrayList<Card> mainDeck = deck.getMainDeck();
-                    ArrayList<Card> sideDeck = deck.getSideDeck();
 
-                    if (mainDeck.size() < mainDeckCardNum + 1) {
-                        return SidePhase.INVALID_CARD_NUM_FROM_MAIN_DECK.toString();
-                    } else if (sideDeck.size() < sideDeckCardNum + 1) {
-                        return SidePhase.INVALID_CARD_NUM_FROM_SIDE_DECK.toString();
-                    }
-
-                    deck.switchCardBetweenMainDeckAndSideDeck(mainDeckCardNum, sideDeckCardNum);
-
-
-                    return userInterface.showMainDeck(game.getPlayer(SideOfFeature.OPPONENT));
+                    String probableError = switchCard(mainDeckCardNum, sideDeckCardNum, deck);
+                    if (probableError != null) return probableError;
+                    else return finishChangeForPlayerTwo(game);
                 }
             }
         }
         return null;
 
+    }
+
+    private @NotNull String finishChangeForPlayerTwo(Game game) {
+        game.setGameSideStage(GameSideStage.START_STAGE);
+        String outPut = "";
+        try {
+            String drawCard = Objects.requireNonNull(GeneralController.getInstance()).run("START");
+            outPut = "ROUND " + game.getRoundNumber() + "\n" + drawCard;
+        } catch (CmdLineParser.OptionException e) {
+            e.printStackTrace();
+        }
+        return outPut;
+    }
+
+    private String finishChangeForPlayerOne(Game game, UserInterface userInterface) {
+        game.setGameSideStage(GameSideStage.EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_TWO);
+        return userInterface.showSideDeck(game.getPlayer(SideOfFeature.OPPONENT));
+    }
+
+    @Nullable
+    private String switchCard(int mainDeckCardNum, int sideDeckCardNum, Deck deck) {
+        ArrayList<Card> mainDeck = deck.getMainDeck();
+        ArrayList<Card> sideDeck = deck.getSideDeck();
+
+        String error = checkForError(mainDeckCardNum, sideDeckCardNum, mainDeck, sideDeck);
+        if (error != null) return error;
+
+        deck.switchCardBetweenMainDeckAndSideDeck(mainDeckCardNum, sideDeckCardNum);
+        return null;
+    }
+
+    @Nullable
+    private String checkForError(int mainDeckCardNum, int sideDeckCardNum, ArrayList<Card> mainDeck, ArrayList<Card> sideDeck) {
+        String error = null;
+        if (mainDeck.size() < mainDeckCardNum + 1) {
+            error = SidePhase.INVALID_CARD_NUM_FROM_MAIN_DECK.toString();
+        } else if (sideDeck.size() < sideDeckCardNum + 1) {
+            error = SidePhase.INVALID_CARD_NUM_FROM_SIDE_DECK.toString();
+        }
+        return error;
     }
 }

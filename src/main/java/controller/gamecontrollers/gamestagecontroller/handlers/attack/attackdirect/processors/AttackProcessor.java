@@ -1,6 +1,6 @@
-package controller.gamecontrollers.gamestagecontroller.handlers.attackdirect.processors;
+package controller.gamecontrollers.gamestagecontroller.handlers.attack.attackdirect.processors;
 
-import controller.gamecontrollers.gamestagecontroller.handlers.attackdirect.AttackDirectProcessor;
+import controller.gamecontrollers.gamestagecontroller.handlers.attack.attackdirect.AttackDirectProcessor;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.GamePhaseEnums.BattlePhase;
 import model.enums.GameEnums.SideOfFeature;

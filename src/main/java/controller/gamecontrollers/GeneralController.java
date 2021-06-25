@@ -4,6 +4,7 @@ import com.sanityinc.jargs.CmdLineParser;
 import controller.gamecontrollers.gamestagecontroller.DrawPhaseController;
 import controller.gamecontrollers.gamestagecontroller.handlers.activeeffect.ActiveEffectChain;
 import model.cards.cardsProp.Card;
+import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GameError;
 import model.enums.GameEnums.GamePhaseEnums.General;
@@ -123,27 +124,47 @@ public class GeneralController {
     }
 
     private String showSelectedCard(Game game) {
+
         SelectedCardProp cardProp = game.getCardProp();
-        if (cardProp == null) return General.NO_CARD_SELECTED.toString();
-        if (cardProp.getSide().equals(SideOfFeature.OPPONENT)) {
+        String output;
+
+        if (cardProp == null) output = General.NO_CARD_SELECTED.toString();
+        else if (cardProp.getSide().equals(SideOfFeature.OPPONENT)) {
             if (cardProp.getLocation().equals(CardLocation.SPELL_ZONE)) {
                 MagicHouse magicHouse = (MagicHouse) cardProp.getCardPlace();
                 if (magicHouse.getState().equals(MagicHouseVisibilityState.H)) {
-                    return GameError.INVALID_SHOW_CARD_REQUEST.toString();
+                    output = GameError.INVALID_SHOW_CARD_REQUEST.toString();
                 } else {
-                    return cardProp.getCard().getCardDetail();
+                    output = cardProp.getCard().getCardDetail();
                 }
             } else {
                 MonsterHouse monsterHouse = (MonsterHouse) cardProp.getCardPlace();
                 if (monsterHouse.getState().equals(MonsterHouseVisibilityState.DH)) {
-                    return GameError.INVALID_SHOW_CARD_REQUEST.toString();
+                    output = GameError.INVALID_SHOW_CARD_REQUEST.toString();
                 } else {
-                    return cardProp.getCard().getCardDetail();
+                    output = cardProp.getCard().getCardDetail();
+                    if (cardProp.getCard() instanceof MonsterCard) {
+                        monsterHouse = (MonsterHouse) cardProp.getCardPlace();
+                        int additionalAttack = monsterHouse.getAdditionalAttack();
+                        int additionalDefence = monsterHouse.getAdditionalDefence();
+                        return output + "\n additional Attack : "
+                                + additionalAttack
+                                + "\n additional Defence : " + additionalDefence;
+                    }
                 }
             }
         } else {
-            return cardProp.getCard().getCardDetail();
-        }
+            output = cardProp.getCard().getCardDetail();
+            if (cardProp.getCard() instanceof MonsterCard) {
+                MonsterHouse monsterHouse = (MonsterHouse) cardProp.getCardPlace();
+                int additionalAttack = monsterHouse.getAdditionalAttack();
+                int additionalDefence = monsterHouse.getAdditionalDefence();
+                return output + "\n additional Attack : "
+                        + additionalAttack
+                        + "\n additional Defence : " + additionalDefence;
+            }
+
+        } return output;
     }
 
     public String nextPhase(Game game) {
@@ -197,8 +218,7 @@ public class GeneralController {
             if (command.equals("START")) {
                 game.setGameSideStage(GameSideStage.NONE);
                 output = DrawPhaseController.getInstance().draw(false) + " \n" + drawBoard(game);
-            }
-            else output = "invalid command to start game";
+            } else output = "invalid command to start game";
         } else if (game.getGameSideStage().equals(GameSideStage.NONE)) {
             if (command.startsWith("select -d")) {
                 output = deSelectCard(game);

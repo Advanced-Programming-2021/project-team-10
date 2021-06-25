@@ -5,7 +5,7 @@ import controller.gamecontrollers.GeneralController;
 import controller.gamecontrollers.gamestagecontroller.handlers.changeposition.ChangePosChain;
 import controller.gamecontrollers.gamestagecontroller.handlers.flipsummon.FlipSummonChain;
 import controller.gamecontrollers.gamestagecontroller.handlers.hiremonster.HireMonsterChain;
-import controller.gamecontrollers.gamestagecontroller.handlers.hirespell.HireSpellChain;
+import controller.gamecontrollers.gamestagecontroller.handlers.hirespell.SetSpellChain;
 import model.cards.cardsProp.MagicCard;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.GamePhaseEnums.MainPhase;
@@ -63,7 +63,7 @@ public class MainPhaseController extends GeneralController {
             }
         } else if (cardProp.getCard() instanceof MagicCard) {
             if (type != TypeOfHire.SET) return MainPhase.CANT_SUMMON_MAGIC.toString();
-            HireSpellChain chain = new HireSpellChain();
+            SetSpellChain chain = new SetSpellChain();
             if ((answerToRequest = chain.request(game)) != null) {
                 return answerToRequest;
             }
@@ -75,15 +75,15 @@ public class MainPhaseController extends GeneralController {
     private String changePosition(SelectedCardProp cardProp, String command, MonsterHouse hiredMonsterHouse) {
         ChangePosChain chain = new ChangePosChain();
         if (command.contains("attack")) {
-            return chain.request(cardProp, WantedPos.ATTACK, hiredMonsterHouse).toString();
+            return chain.request(cardProp, WantedPos.ATTACK, hiredMonsterHouse);
         } else {
-            return chain.request(cardProp, WantedPos.DEFENCE, hiredMonsterHouse).toString();
+            return chain.request(cardProp, WantedPos.DEFENCE, hiredMonsterHouse);
         }
     }
 
     private String flipSummon(Game game) {
         FlipSummonChain chain = new FlipSummonChain();
-        return chain.request(game).toString();
+        return chain.request(game);
     }
 
 }

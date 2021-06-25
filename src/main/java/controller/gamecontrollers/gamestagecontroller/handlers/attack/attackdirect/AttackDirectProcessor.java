@@ -1,8 +1,5 @@
-package controller.gamecontrollers.gamestagecontroller.handlers.attackdirect;
+package controller.gamecontrollers.gamestagecontroller.handlers.attack.attackdirect;
 
-import model.enums.GameEnums.gamestage.GameMainStage;
-import model.gameprop.Player;
-import model.gameprop.SelectedCardProp;
 import model.gameprop.gamemodel.Game;
 
 public abstract class AttackDirectProcessor {

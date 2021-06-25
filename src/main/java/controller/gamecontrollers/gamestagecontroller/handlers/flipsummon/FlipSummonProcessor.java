@@ -11,7 +11,7 @@ public abstract class FlipSummonProcessor {
         this.processor = processor;
     }
 
-    public MainPhase process(Game game) {
+    public String process(Game game) {
         if (processor != null)
             return processor.process(game);
         else return null;

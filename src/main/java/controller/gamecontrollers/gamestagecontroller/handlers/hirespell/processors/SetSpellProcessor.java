@@ -11,8 +11,8 @@ import model.gameprop.BoardProp.MagicHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.gamemodel.Game;
 
-public class HireSpellProcessor extends SpellProcessor {
-    public HireSpellProcessor(SpellProcessor processor) {
+public class SetSpellProcessor extends SpellProcessor {
+    public SetSpellProcessor(SpellProcessor processor) {
         super(processor);
     }
 
@@ -20,10 +20,10 @@ public class HireSpellProcessor extends SpellProcessor {
         MagicCard magicCard = (MagicCard) game.getCardProp().getCard();
         PlayerBoard board = game.getPlayer(SideOfFeature.CURRENT).getBoard();
         if (magicCard.getMagicAttribute() == MagicAttribute.FIELD) {
-            MagicCard previousFieldSpell = board.getFieldHouse().getMagicCard();
             MagicHouse magicHouse = board.getFieldHouse();
+            MagicCard previousFieldSpell = magicHouse.getMagicCard();
             if (previousFieldSpell != null) {
-                board.moveCardToGraveYard(1, CardLocation.FIELD_ZONE);
+                board.moveCardToGraveYard(0, CardLocation.FIELD_ZONE);
             }
             return placeCardInBoard(game, magicCard, magicHouse);
         }

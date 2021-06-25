@@ -1,10 +1,9 @@
 package controller.gamecontrollers.gamestagecontroller;
 
 import controller.gamecontrollers.GeneralController;
-import controller.gamecontrollers.gamestagecontroller.handlers.attackdirect.AttackDirectChain;
-import controller.gamecontrollers.gamestagecontroller.handlers.attackmonster.AttackMonsterChain;
+import controller.gamecontrollers.gamestagecontroller.handlers.attack.attackdirect.AttackDirectChain;
+import controller.gamecontrollers.gamestagecontroller.handlers.attack.attackmonster.AttackMonsterChain;
 import model.enums.GameEnums.SideOfFeature;
-import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.GameInProcess;
 import model.gameprop.gamemodel.Game;
@@ -37,9 +36,7 @@ public class BattlePhaseController extends GeneralController {
     private String attackMonsterHouse(Game game, MonsterHouse target) {
         AttackMonsterChain chain = new AttackMonsterChain();
         StringBuilder stringBuilder = new StringBuilder();
-        if (target.getState().equals(MonsterHouseVisibilityState.DH)) {
-            stringBuilder.append("the hidden defence revealed : ").append(target.getMonsterCard().getName()).append("\n");
-        }
+
         stringBuilder.append(chain.request(target, game));
         game.setCardProp(null);
         return stringBuilder.toString();
