@@ -228,6 +228,14 @@ public class Game {
         turn.setTributeNumber(numberOfCard);
     }
 
+    public boolean isHiredMonsterRitual() {
+        return turn.isHiredMonsterRitual;
+    }
+
+    public void setHiredMonsterRitual(boolean isMonsterRitual) {
+        turn.setHiredMonsterRitual(isMonsterRitual);
+    }
+
     public TypeOfHire getTypeOfMonsterHire() {
         return turn.getTypeOfHighLevelMonsterHire();
     }

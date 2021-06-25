@@ -2,12 +2,13 @@ package model.gameprop;
 
 import model.gameprop.BoardProp.PlayerBoard;
 import model.userProp.Deck;
+import model.userProp.FatherUser;
 import model.userProp.User;
 
 public class Player {
     public boolean isAllowedToDraw;
     public int playerLifePoint;
-    User user;
+    FatherUser user;
     PlayerBoard board;
     Deck deck;
     int numberOfWinningRound;
@@ -17,7 +18,7 @@ public class Player {
         playerLifePoint = 8000;
     }
 
-    public Player(User user, int numberOfWinningRound) {
+    public Player(FatherUser user, int numberOfWinningRound) {
         setUser(user);
         board = new PlayerBoard();
         deck = user.getActiveDeck().getCopy();
@@ -25,11 +26,11 @@ public class Player {
         this.numberOfWinningRound = numberOfWinningRound;
     }
 
-    public User getUser() {
+    public FatherUser getUser() {
         return user;
     }
 
-    private void setUser(User user) {
+    private void setUser(FatherUser user) {
         this.user = user;
     }
 

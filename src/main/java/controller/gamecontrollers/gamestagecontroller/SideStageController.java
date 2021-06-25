@@ -51,6 +51,7 @@ public class SideStageController {
                         if (card == null) {
                             return SidePhase.INVALID_ADDRESS.toString();
                         } else {
+                            if (game.isHiredMonsterRitual()) board.removeRitualSummonCard();
                             board.moveCardToGraveYard(cardAddress, CardLocation.MONSTER_ZONE);
                         }
                     } else
@@ -64,6 +65,7 @@ public class SideStageController {
                         if (cardOne == null || cardTwo == null) {
                             return SidePhase.INVALID_ADDRESS.toString();
                         } else {
+                            if (game.isHiredMonsterRitual()) board.removeRitualSummonCard();
                             board.moveCardToGraveYard(cardOneAddress, CardLocation.MONSTER_ZONE);
                             board.moveCardToGraveYard(cardTwoAddress, CardLocation.MONSTER_ZONE);
                         }
@@ -88,45 +90,55 @@ public class SideStageController {
                     }
                 }
             case EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_ONE: {
-                UserInterface userInterface = new UserInterface(game);
-                if (command.equals("Finish")) {
-                    return finishChangeForPlayerOne(game, userInterface);
-                } else if (command.equals("Show Main Deck")) {
-                    return userInterface.showMainDeck(game.getPlayer(SideOfFeature.CURRENT));
-                } else if (command.matches(Regex.sideStageCommand[4])) {
-                    Matcher matcher = Regex.getMatcher(command, Regex.sideStageCommand[4]);
-                    matcher.find();
-                    int mainDeckCardNum = Integer.parseInt(matcher.group(1)) - 1;
-                    int sideDeckCardNum = Integer.parseInt(matcher.group(2)) - 1;
-                    Deck deck = game.getPlayer(SideOfFeature.CURRENT).getDeck();
-
-                    String probableError = switchCard(mainDeckCardNum, sideDeckCardNum, deck);
-                    if (probableError != null) return probableError;
-                    else return finishChangeForPlayerOne(game, userInterface);
-                }
+                return processExChangeForPlayerOneRequest(command, game);
             }
             case EX_CHANGE_WITH_SIDE_DECK_FOR_PLAYER_TWO: {
-                UserInterface userInterface = new UserInterface(game);
-                if (command.equals("Finish")) {
-                    return finishChangeForPlayerTwo(game);
-
-                } else if (command.equals("Show Main Deck")) {
-                    return userInterface.showMainDeck(game.getPlayer(SideOfFeature.OPPONENT));
-                } else if (command.matches(Regex.sideStageCommand[4])) {
-                    Matcher matcher = Regex.getMatcher(command, Regex.sideStageCommand[4]);
-                    matcher.find();
-                    int mainDeckCardNum = Integer.parseInt(matcher.group(1)) - 1;
-                    int sideDeckCardNum = Integer.parseInt(matcher.group(2)) - 1;
-                    Deck deck = game.getPlayer(SideOfFeature.OPPONENT).getDeck();
-
-                    String probableError = switchCard(mainDeckCardNum, sideDeckCardNum, deck);
-                    if (probableError != null) return probableError;
-                    else return finishChangeForPlayerTwo(game);
-                }
+                return processExChangeForPlayerTwoRequest(command, game);
             }
         }
         return null;
 
+    }
+
+    private String processExChangeForPlayerOneRequest(String command, Game game) {
+        UserInterface userInterface = new UserInterface(game);
+        if (command.equals("Finish")) {
+            return finishChangeForPlayerOne(game, userInterface);
+        } else if (command.equals("Show Main Deck")) {
+            return userInterface.showMainDeck(game.getPlayer(SideOfFeature.CURRENT));
+        } else if (command.matches(Regex.sideStageCommand[4])) {
+            Matcher matcher = Regex.getMatcher(command, Regex.sideStageCommand[4]);
+            matcher.find();
+            int mainDeckCardNum = Integer.parseInt(matcher.group(1)) - 1;
+            int sideDeckCardNum = Integer.parseInt(matcher.group(2)) - 1;
+            Deck deck = game.getPlayer(SideOfFeature.CURRENT).getDeck();
+
+            String probableError = switchCard(mainDeckCardNum, sideDeckCardNum, deck);
+            if (probableError != null) return probableError;
+            else return finishChangeForPlayerOne(game, userInterface);
+        }
+        return null;
+    }
+
+    private String processExChangeForPlayerTwoRequest(String command, Game game) {
+        UserInterface userInterface = new UserInterface(game);
+        if (command.equals("Finish")) {
+            return finishChangeForPlayerTwo(game);
+
+        } else if (command.equals("Show Main Deck")) {
+            return userInterface.showMainDeck(game.getPlayer(SideOfFeature.OPPONENT));
+        } else if (command.matches(Regex.sideStageCommand[4])) {
+            Matcher matcher = Regex.getMatcher(command, Regex.sideStageCommand[4]);
+            matcher.find();
+            int mainDeckCardNum = Integer.parseInt(matcher.group(1)) - 1;
+            int sideDeckCardNum = Integer.parseInt(matcher.group(2)) - 1;
+            Deck deck = game.getPlayer(SideOfFeature.OPPONENT).getDeck();
+
+            String probableError = switchCard(mainDeckCardNum, sideDeckCardNum, deck);
+            if (probableError != null) return probableError;
+            else return finishChangeForPlayerTwo(game);
+        }
+        return null;
     }
 
     private @NotNull String finishChangeForPlayerTwo(Game game) {

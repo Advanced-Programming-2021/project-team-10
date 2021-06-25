@@ -28,13 +28,14 @@ public class MagicCard extends Card {
     }
 
     private final ArrayList<Action> actionsOfMagic;
-    private Event trigger;
+    private final ArrayList<Event> triggers;
     private RestrictionTypeInAdding restrictionTypeInAdding;
     private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
 
     {
         actionsOfMagic = new ArrayList<>();
+        triggers = new ArrayList<>();
     }
 
     public MagicCard(String name, String typeOfMagic, String magicAttribute, String description, String typeOfRestriction, String price) {
@@ -69,63 +70,29 @@ public class MagicCard extends Card {
 
             // field
             case "Forest":
-                trigger = ManuallyActivation.getInstance();
-                break;
-            // field
             case "Closed Forest":
-                trigger = ManuallyActivation.getInstance();
-                break;
-            //field
-            case "Umiiruka":
-                trigger = ManuallyActivation.getInstance();
-                break;
             case "Monster Reborn":
-                trigger = ManuallyActivation.getInstance();
-                break;
+            case "Umiiruka":
             case "Rage":
-                trigger = ManuallyActivation.getInstance();
-                break;
             case "Harpie’s Feather Duster":
-                trigger = ManuallyActivation.getInstance();
-                break;
             case "Dark Hole":
-                trigger = ManuallyActivation.getInstance();
-                break;
             case "Mystical space typhoon":
-                trigger = ManuallyActivation.getInstance();
-                break;
             case "Yami":
-                trigger = ManuallyActivation.getInstance();
-                break;
             case "Sword of Dark Destruction":
-                trigger = ManuallyActivation.getInstance();
-                break;
             case "Black Pendant":
-                trigger = ManuallyActivation.getInstance();
+            case "Mind Crush":
+            case "Call of the Haunted":
+            case "Change of Heart":
+            case "Time Seal":
+            case "Pot Of Greed":
+            case "Terraforming":
+                triggers.add(ManuallyActivation.getInstance());
                 break;
             case "Mirror Force":
-                trigger = OpponentMonsterWantsToAttack.getInstance();
-                break;
-            case "Mind Crush":
-                trigger = ManuallyActivation.getInstance();
+                triggers.add(OpponentMonsterWantsToAttack.getInstance());
                 break;
             case "Torrential Tribute":
-                trigger = MonsterSummon.getInstance();
-                break;
-            case "Call of the Haunted":
-                trigger = ManuallyActivation.getInstance();
-                break;
-            case "Change of Heart":
-                trigger = ManuallyActivation.getInstance();
-                break;
-            case "Time Seal":
-                trigger = ManuallyActivation.getInstance();
-                break;
-            case "Pot Of Greed":
-                trigger = ManuallyActivation.getInstance();
-                break;
-            case "Terraforming":
-                trigger = ManuallyActivation.getInstance();
+                triggers.add(MonsterSummon.getInstance());
                 break;
         }
     }
@@ -242,7 +209,13 @@ public class MagicCard extends Card {
 
     @Override
     public void activeEffectsByEvent(Event event, Game game) {
-        boolean shouldActiveEffects = eventEquals(trigger, event);
+        boolean shouldActiveEffects = false;
+        for (Event trigger : triggers) {
+            if (eventEquals(trigger, event)) {
+                shouldActiveEffects = true;
+                break;
+            }
+        }
         if (event instanceof ActivationInOpponentTurn) {
             String answer = GetStringInputFromView.getInputFromView(RequestingInput.DOES_PLAYER_WANT_TO_ACTIVE_SPELL, this.name);
             while (true) {
