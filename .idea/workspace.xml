@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="fix triggers">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsonResources/MagicCard.json" beforeDir="false" afterPath="$PROJECT_DIR$/jsonResources/MagicCard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manualTestCase/gameTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/manualTestCase/gameTest.txt" afterDir="false" />
+    <list default="true" id="45f87b1a-8403-4c06-b2b2-57ebfe555883" name="Default Changelist" comment="fix some bug">
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GeneralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GetStringInputFromView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/gamecontrollers/GetStringInputFromView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromBothGraveYardsAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsActions/magicActionChildren/SummonMonsterFromBothGraveYardsAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/cards/cardsProp/MagicCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/events/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/RequestingInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameEnums/RequestingInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/game/GetStringInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/game/GetStringInput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +73,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/Viewer" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../chess" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -84,6 +86,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="ReaderModeSettings">
@@ -115,6 +118,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="untitled" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -122,15 +134,6 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="project-team-10" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -226,27 +229,10 @@
       <workItem from="1623698045011" duration="11553000" />
       <workItem from="1623891499215" duration="19374000" />
       <workItem from="1624037441775" duration="6393000" />
-    </task>
-    <task id="LOCAL-00024" summary="fix some of warnings">
-      <created>1619308771651</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1619308771651</updated>
-    </task>
-    <task id="LOCAL-00025" summary="fix some bugs in main menu and change accessibleness of some contents">
-      <created>1619312049679</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1619312049679</updated>
-    </task>
-    <task id="LOCAL-00026" summary="clean">
-      <created>1619327375448</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1619327375448</updated>
+      <workItem from="1624409275332" duration="8381000" />
+      <workItem from="1624494698649" duration="14967000" />
+      <workItem from="1624561770711" duration="6706000" />
+      <workItem from="1624647550847" duration="14346000" />
     </task>
     <task id="LOCAL-00027" summary="clean">
       <created>1619328708612</created>
@@ -549,7 +535,28 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۷۲" />
       <updated>1624094852114</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="field card are set&#10;switch card between round is done &#10;point calculator is updated &#10;finishing game condition is set">
+      <created>1624512033221</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1624512033221</updated>
+    </task>
+    <task id="LOCAL-00074" summary="field card are set&#10;switch card between round is done &#10;point calculator is updated &#10;finishing game condition is set">
+      <created>1624653543845</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1624653543846</updated>
+    </task>
+    <task id="LOCAL-00075" summary="fix some bug">
+      <created>1624663627161</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1624663627161</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,8 +576,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="edit game models and enums" />
-    <MESSAGE value="working on GeneralCommands" />
     <MESSAGE value="polymorphism in enums" />
     <MESSAGE value="polymorphism in enums and Fix raw use of enums" />
     <MESSAGE value="completing general command" />
@@ -594,7 +599,9 @@
     <MESSAGE value="add java fx" />
     <MESSAGE value="fix turn changing bug" />
     <MESSAGE value="fix triggers" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix triggers" />
+    <MESSAGE value="field card are set&#10;switch card between round is done &#10;point calculator is updated &#10;finishing game condition is set" />
+    <MESSAGE value="fix some bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix some bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -602,11 +609,15 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/controller/gamecontrollers/gamestagecontroller/handlers/changeposition/processors/SelectedCardProcessor.java</url>
           <line>15</line>
-          <properties class="controller.gamecontrollers.gamestagecontroller.handlers.changeposition.processors.SelectedCardProcessor">
+          <properties class="controller.gamecontrollers.gamestagecontroller.handlers.changeposition.processors.SelectedCardProcessor" method="process">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.ConcurrentModificationException" package="java.util" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -615,6 +626,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Main_java$Main.ic" NAME="Main Coverage Results" MODIFIED="1620630295245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Main_java$Main.ic" NAME="Main Coverage Results" MODIFIED="1621126449663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

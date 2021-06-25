@@ -1,13 +1,12 @@
 package model.gameprop;
 
-import model.cards.cardsProp.Card;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.userProp.Deck;
 import model.userProp.FatherUser;
 import model.userProp.User;
 
 public class Player {
-    public  boolean isAllowedToDraw;
+    public boolean isAllowedToDraw;
     public int playerLifePoint;
     FatherUser user;
     PlayerBoard board;
@@ -59,7 +58,7 @@ public class Player {
             board.getPlayerHand().add(deck.getMainDeck().get(i));
         }
 
-        for (int i = 0 ; i < 5 ; i++){
+        for (int i = 0; i < 5; i++) {
             deck.removeCardFromMainDeck(deck.getMainDeck().get(i));
         }
 

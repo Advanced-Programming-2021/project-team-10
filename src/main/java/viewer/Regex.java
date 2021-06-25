@@ -129,6 +129,9 @@ public final class Regex {
     public static String[] sideStageCommand = new String[]{
             "T:\\d$",
             "T1:\\d T2:\\d$",
+            "Finish",
+            "Show Main Deck",
+            "Switch (\\d+) -> (\\d+)"
     };
 
     //GamePlay -> draw phaseCommands -> nothing special
