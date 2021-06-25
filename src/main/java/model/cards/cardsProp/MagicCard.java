@@ -59,6 +59,10 @@ public class MagicCard extends Card {
         Card.addMagicsToCards(magicCards);
     }
 
+    public static ArrayList<MagicCard> getMagicCards() {
+        return magicCards;
+    }
+
     public static MagicCard getMagicCardByName(String name) {
         for (MagicCard magicCard : magicCards) {
             if (magicCard.name.equals(name)) return magicCard;

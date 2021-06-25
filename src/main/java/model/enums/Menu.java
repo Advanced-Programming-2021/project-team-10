@@ -7,5 +7,6 @@ public enum Menu {
     DECK_MENU,
     USER_PROFILE_MENU,
     START_DUEL,
-    SHOP_MENU
+    SHOP_MENU,
+    IMPORT_EXPORT_MENU
 }

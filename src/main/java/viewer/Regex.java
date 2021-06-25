@@ -29,6 +29,12 @@ public final class Regex {
             "user login --password .+ --username .+"
     };
 
+    // -> Import Export
+    public static String[] importExportCommand = new String[]{
+            "import card .+",
+            "export card .+"
+    };
+
     // -> main menu commands
     public static String moneyCheat = "cheat code: increase money -> (?<amount>\\d+)";
 
