@@ -191,19 +191,7 @@ public class MagicCard extends Card {
         if (name.equals("Terraforming")) {
             actionsOfMagic.add(new TerraformingAction());
         }
-//        if (name.equals("Magic Jammer") || name.equals("Magic Cylinder"))
-//            actionsOfMagic.add(StoppingActivationAction.getInstance());
-//        if (name.equals("Advanced Ritual Art")) actionsOfMagic.add(RitualSummonAction.getInstance());
-//        if (name.equals("Ring of Defense") || name.equals("Negate Attack"))
-//            actionsOfMagic.add(MakeDamageZero.getInstance());
-//        if (name.equals("Trap Hole") || name.equals("Twin Twisters"))
-//            ;
-//        if (name.equals("Magnum Shield") || name.equals("United We Stand"))
-//            actionsOfMagic.add(ChangingMonsterAttackAction.getInstance());
-//        if (name.equals("Spell Absorption")) actionsOfMagic.add(ChangingLifePointAction.getInstance());
-//        if (name.equals("Magnum Shield") || name.equals("United We Stand") || name.equals("Sword of Dark Destruction") || name.equals("Umiiruka") || name.equals("Forest") || name.equals("Yami"))
-//            actionsOfMagic.add(ChangeDefenceOfMonsterCard.getInstance());
-//        if (name.equals("Negate Attack")) actionsOfMagic.add(EndBattlePhaseAction.getInstance());
+
     }
 
     @Override

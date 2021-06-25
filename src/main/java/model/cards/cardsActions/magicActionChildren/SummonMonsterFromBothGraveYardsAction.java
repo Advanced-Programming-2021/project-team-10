@@ -38,7 +38,7 @@ public class SummonMonsterFromBothGraveYardsAction extends Action {
                 currentPlayerBoard.summonMonster(summonedMonster);
                 currentPlayerBoard.getGraveYard().removeCardFromGraveYard(summonedMonster);
             } catch (CardNotFoundException cardNotFoundException) {
-                cardNotFoundException.printStackTrace();
+                System.out.println(cardNotFoundException.getMessage());
                 active(game);
             }
         }

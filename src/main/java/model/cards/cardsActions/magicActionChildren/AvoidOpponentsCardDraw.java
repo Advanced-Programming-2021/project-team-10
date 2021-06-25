@@ -23,6 +23,7 @@ public class AvoidOpponentsCardDraw extends Action {
 
     @Override
     public void active(Game game) {
+
         Player opponent = game.getPlayer(SideOfFeature.OPPONENT);
 
         opponent.isAllowedToDraw = false;

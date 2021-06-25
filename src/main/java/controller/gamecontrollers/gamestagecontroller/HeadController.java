@@ -27,8 +27,10 @@ public class HeadController {
     public String run(String command) throws CmdLineParser.OptionException {
         ArrayList<ExistenceObserver> existenceObservers = ExistenceObserver.getExistenceObservers();
 
-        for (int i = existenceObservers.size() - 1; i == 0; i--) {
-            existenceObservers.get(i).update();
+        if (existenceObservers != null && existenceObservers.size() > 0) {
+            for (int i = existenceObservers.size() - 1; i == 0; i--) {
+                existenceObservers.get(i).update();
+            }
         }
 
         if (isGeneralCommand(command)) return generalController.run(command);

@@ -4,6 +4,7 @@ import model.cards.cardsActions.Action;
 import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
+import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.gameprop.Player;
@@ -22,9 +23,7 @@ public class ChangeTeamOfMonsterCard extends Action {
         Player opponentPlayer = game.getPlayer(SideOfFeature.OPPONENT);
 
         PlayerBoard oppoBoard = opponentPlayer.getBoard();
-        if (oppoBoard.numberOfFullHouse("monster") == 0) {
-
-        } else {
+        if (oppoBoard.numberOfFullHouse("monster") != 0) {
 
             MonsterHouse[] oppoPlayerMonsterHouses = oppoBoard.getMonsterHouse();
             MonsterHouse[] currPlayerMonsterHouses = currentPlayer.getBoard().getMonsterHouse();
@@ -43,6 +42,7 @@ public class ChangeTeamOfMonsterCard extends Action {
                     for (MonsterHouse monsterHouse : currPlayerMonsterHouses) { // setting the card at the first empty monsterHouse
                         if (monsterHouse.getMonsterCard() == null) {
                             monsterHouse.setMonsterCard(card);
+                            monsterHouse.setState(MonsterHouseVisibilityState.OO);
                         }
                     }
 
