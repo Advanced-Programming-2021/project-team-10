@@ -30,6 +30,7 @@ public class DataBase {
     public void restoreDate() {
         ArrayList<MonsterCard> monsterCards = new ArrayList<>();
         ArrayList<MagicCard> magicCards = new ArrayList<>();
+        loadUsers();
         try {
             String json = new String(Files.readAllBytes(Paths.get("jsonResources\\MagicCard.json")));
             magicCards = new Gson().fromJson(json,
@@ -139,5 +140,33 @@ public class DataBase {
 //                }
 //            }
 //        }
+    }
+
+    private void loadUsers() {
+        //User Json
+        String json;
+        try {
+            json = new String(Files.readAllBytes(Paths.get("jsonResources\\Decks.Json")));
+            ArrayList<Deck> decks;
+            decks = new Gson().fromJson(json,
+                    new TypeToken<List<Deck>>() {
+                    }.getType()
+            );
+            Deck.setAllDecks(decks);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            json = new String(Files.readAllBytes(Paths.get("jsonResources\\Users.Json")));
+            ArrayList<User> users;
+            users = new Gson().fromJson(json,
+                    new TypeToken<List<User>>() {
+                    }.getType()
+            );
+            User.setAllUsers(users);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
