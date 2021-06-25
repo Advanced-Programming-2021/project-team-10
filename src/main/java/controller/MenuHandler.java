@@ -58,6 +58,9 @@ public class MenuHandler {
             ShopMenu shopMenu = ShopMenu.getInstance();
             ShopMenuDisplay.display(ShopMessages.SUCCESSFULLY_ENTER_MENU);
             shopMenu.run();
+        } else if (menu == Menu.IMPORT_EXPORT_MENU) {
+            ImportExportMenu importExportMenu = ImportExportMenu.getInstance();
+            importExportMenu.run();
         } else if (menu == Menu.START_DUEL) {
             DuelMenu duelMenu = DuelMenu.getInstance();
             duelMenu.run();

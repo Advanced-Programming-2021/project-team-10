@@ -31,6 +31,8 @@ public class MainMenuController {
             MenuHandler.changeMenu(Menu.USER_PROFILE_MENU);
         } else if (menuName.equals("Shop menu")) {
             MenuHandler.changeMenu(Menu.SHOP_MENU);
+        } else if (menuName.equals("Import/Export menu")) {
+            MenuHandler.changeMenu(Menu.IMPORT_EXPORT_MENU);
         } else if (MenuHandler.isMenuExist(menuName)) {
             MainMenuDisplay.display(Error.INVALID_NAVIGATION);
         } else {

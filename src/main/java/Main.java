@@ -2,6 +2,7 @@ import com.sanityinc.jargs.CmdLineParser;
 import model.DataBase;
 import viewer.menu.RegisterMenu;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Main {

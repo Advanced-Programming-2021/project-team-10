@@ -29,6 +29,12 @@ public final class Regex {
             "user login --password .+ --username .+"
     };
 
+    // -> Import Export
+    public static String[] importExportCommand = new String[]{
+            "import card .+",
+            "export card .+"
+    };
+
     // -> fixed commands
     public static String[] otherCommands = new String[]{
             "user logout",

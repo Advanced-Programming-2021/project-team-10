@@ -42,6 +42,10 @@ public class MonsterCard extends Card {
         Card.addMonstersToCards(monsterCards);
     }
 
+    public static List<MonsterCard> getMonsterCards() {
+        return monsterCards;
+    }
+
     public void setDetails(String name, String level, String attribute, String race, String type,
                            String attack, String defence, String description, String price) {
         setName(name);
