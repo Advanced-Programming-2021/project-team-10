@@ -128,12 +128,12 @@ public class DataBase {
 //
 //                try {
 //                    json = new String(Files.readAllBytes(Paths.get("jsonResources\\Users.Json")));
-//                    ArrayList<User> decks;
-//                    decks = new Gson().fromJson(json,
+//                    ArrayList<User> users;
+//                    users = new Gson().fromJson(json,
 //                            new TypeToken<List<User>>() {
 //                            }.getType()
 //                    );
-//                    User.setAllUsers(decks);
+//                    User.setAllUsers(users);
 //                } catch (IOException e) {
 //                    e.printStackTrace();
 //                }

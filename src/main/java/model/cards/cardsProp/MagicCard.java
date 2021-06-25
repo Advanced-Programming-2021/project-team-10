@@ -25,13 +25,14 @@ public class MagicCard extends Card {
     }
 
     private final ArrayList<Action> actionsOfMagic;
-    private Event trigger;
+    private ArrayList<Event> triggers;
     private MagicSpeed magicSpeed;
     private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
 
     {
         actionsOfMagic = new ArrayList<>();
+        triggers = new ArrayList<>();
     }
 
     public MagicCard(String name, String typeOfMagic, String magicAttribute, String description, String speed, String price) {
@@ -62,61 +63,61 @@ public class MagicCard extends Card {
 
     private void setMagicEvents(String name) {
         if (name.equals("Monster Reborn")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Raigeki")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Harpie’s Feather Duster")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Dark Hole")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Mystical space typhoon")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Yami")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Forest")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Closed Forest")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Umiiruka")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Sword of Dark Destruction")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Black Pendant")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Mirror Force")) {
-            trigger = OpponentMonsterWantsToAttack.getInstance();
+            triggers.add(OpponentMonsterWantsToAttack.getInstance());
         }
         if (name.equals("Mind Crush")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Torrential Tribute")) {
-            trigger = MonsterSummon.getInstance();
+            triggers.add(MonsterSummon.getInstance());
         }
         if (name.equals("Call of the Haunted")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Change of Heart")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Time Seal")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Pot Of Greed")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
         if (name.equals("Terraforming")) {
-            trigger = ManuallyActivation.getInstance();
+            triggers.add(ManuallyActivation.getInstance());
         }
     }
 
@@ -232,7 +233,13 @@ public class MagicCard extends Card {
 
     @Override
     public void activeEffectsByEvent(Event event, Game game) {
-        boolean shouldActiveEffects = eventEquals(trigger, event);
+        boolean shouldActiveEffects = false;
+        for (Event trigger : triggers) {
+            if (eventEquals(trigger, event)) {
+                shouldActiveEffects = true;
+                break;
+            }
+        }
         if (shouldActiveEffects) {
             for (Action actionOfMagic : actionsOfMagic) {
                 actionOfMagic.active(game);
