@@ -28,7 +28,7 @@ public class MagicCard extends Card {
     }
 
     private final ArrayList<Action> actionsOfMagic;
-    private ArrayList<Event> triggers;
+    private final ArrayList<Event> triggers;
     private RestrictionTypeInAdding restrictionTypeInAdding;
     private MagicAttribute magicAttribute;
     private MagicType typeOfMagic;
