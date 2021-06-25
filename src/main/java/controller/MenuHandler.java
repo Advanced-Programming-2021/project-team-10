@@ -33,7 +33,7 @@ public class MenuHandler {
     public static void changeMenu(Menu menu) throws CmdLineParser.OptionException, IOException {
         if (menu == Menu.REGISTER_MENU) {
             RegisterMenu registerMenu = RegisterMenu.getInstance();
-            System.out.println(Register.SUCCESSFULLY_ENTER_MENU.toString());
+            System.out.println(Register.SUCCESSFULLY_ENTER_MENU.getRegisterMessage());
             registerMenu.run();
         }
         else if (menu == Menu.MAIN_MENU) {
