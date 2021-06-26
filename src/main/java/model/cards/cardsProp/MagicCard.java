@@ -1,19 +1,23 @@
 package model.cards.cardsProp;
 
+import controller.gamecontrollers.GetStringInputFromView;
 import model.cards.cardsActions.Action;
 import model.cards.cardsActions.magicActionChildren.*;
 import model.cards.cardsEnum.Magic.MagicAttribute;
-import model.cards.cardsEnum.Magic.RestrictionTypeInAdding;
 import model.cards.cardsEnum.Magic.MagicType;
+import model.cards.cardsEnum.Magic.RestrictionTypeInAdding;
 import model.cards.cardsEnum.Monster.MonsterRace;
+import model.enums.GameEnums.RequestingInput;
 import model.enums.GameEnums.SideOfFeature;
 import model.events.Event;
+import model.events.eventChildren.ActivationInOpponentTurn;
 import model.events.eventChildren.ManuallyActivation;
 import model.events.eventChildren.MonsterSummon;
 import model.events.eventChildren.OpponentMonsterWantsToAttack;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class MagicCard extends Card {
@@ -239,6 +243,28 @@ public class MagicCard extends Card {
     @Override
     public void activeEffectsByEvent(Event event, Game game) {
         boolean shouldActiveEffects = eventEquals(trigger, event);
+        if (event instanceof ActivationInOpponentTurn) {
+            String answer = GetStringInputFromView.getInputFromView(RequestingInput.DOES_PLAYER_WANT_TO_ACTIVE_SPELL, this.name);
+            while (true) {
+                switch (answer.toLowerCase(Locale.ROOT)) {
+                    case "yes": {
+                        activeActions(game, shouldActiveEffects);
+                       return;
+                    }
+                    case "no": {
+                        return;
+                    }
+                    default: {
+                        answer = GetStringInputFromView.getInputFromView(RequestingInput.INVALID_ANSWER);
+                    }
+                }
+            }
+
+        }
+        activeActions(game, shouldActiveEffects);
+    }
+
+    private void activeActions(Game game, boolean shouldActiveEffects) {
         if (shouldActiveEffects) {
             for (Action actionOfMagic : actionsOfMagic) {
                 actionOfMagic.active(game);
@@ -247,8 +273,12 @@ public class MagicCard extends Card {
     }
 
     private boolean eventEquals(Event firstEvent, Event secondEvent) {
-        if (firstEvent instanceof ManuallyActivation && secondEvent instanceof ManuallyActivation) return true;
-        if (firstEvent instanceof OpponentMonsterWantsToAttack && secondEvent instanceof OpponentMonsterWantsToAttack) return true;
+        if (firstEvent instanceof ActivationInOpponentTurn && secondEvent instanceof ActivationInOpponentTurn)
+            return true;
+        if (firstEvent instanceof ManuallyActivation && secondEvent instanceof ManuallyActivation)
+            return true;
+        if (firstEvent instanceof OpponentMonsterWantsToAttack && secondEvent instanceof OpponentMonsterWantsToAttack)
+            return true;
         return firstEvent instanceof MonsterSummon && secondEvent instanceof MonsterSummon;
     }
 
