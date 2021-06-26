@@ -23,14 +23,20 @@ public class Event {
         } else if (this instanceof ActivationInOpponentTurn) {
             //ASK PLAYER FOR ACTIVATION OR NOT
             for (MagicHouse magicHouse : opponentPlayerBoard.getMagicHouse()) {
-                magicHouse.getMagicCard().activeEffectsByEvent(this, game);
+                if (magicHouse.getMagicCard() != null) {
+                    magicHouse.getMagicCard().activeEffectsByEvent(this, game);
+                }
             }
         } else {
             for (MonsterHouse monsterHouse : currentPlayerBoard.getMonsterHouse()) {
-                monsterHouse.getMonsterCard().activeEffectsByEvent(this, game);
+                if (monsterHouse.getMonsterCard() != null) {
+                    monsterHouse.getMonsterCard().activeEffectsByEvent(this, game);
+                }
             }
             for (MagicHouse magicHouse : currentPlayerBoard.getMagicHouse()) {
-                magicHouse.getMagicCard().activeEffectsByEvent(this, game);
+                if (magicHouse.getMagicCard() != null) {
+                    magicHouse.getMagicCard().activeEffectsByEvent(this, game);
+                }
             }
         }
     }
