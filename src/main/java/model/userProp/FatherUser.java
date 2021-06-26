@@ -1,6 +1,6 @@
 package model.userProp;
 
-public class FatherUser {
+public abstract class FatherUser {
     protected int score;
     protected Deck activeDeck;
     protected String nickname;

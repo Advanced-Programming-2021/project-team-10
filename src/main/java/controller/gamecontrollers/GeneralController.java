@@ -144,7 +144,7 @@ public class GeneralController {
                     output = GameError.INVALID_SHOW_CARD_REQUEST.toString();
                 } else {
                     output = cardProp.getCard().getCardDetail();
-                    if (cardProp.getCard() instanceof MonsterCard) {
+                    if (cardProp.getCard() instanceof MonsterCard && cardProp.getLocation() == CardLocation.MONSTER_ZONE) {
                         monsterHouse = (MonsterHouse) cardProp.getCardPlace();
                         int additionalAttack = monsterHouse.getAdditionalAttack();
                         int additionalDefence = monsterHouse.getAdditionalDefence();
@@ -156,7 +156,7 @@ public class GeneralController {
             }
         } else {
             output = cardProp.getCard().getCardDetail();
-            if (cardProp.getCard() instanceof MonsterCard) {
+            if (cardProp.getCard() instanceof MonsterCard && cardProp.getLocation() == CardLocation.MONSTER_ZONE) {
                 MonsterHouse monsterHouse = (MonsterHouse) cardProp.getCardPlace();
                 int additionalAttack = monsterHouse.getAdditionalAttack();
                 int additionalDefence = monsterHouse.getAdditionalDefence();
@@ -165,7 +165,8 @@ public class GeneralController {
                         + "\n additional Defence : " + additionalDefence;
             }
 
-        } return output;
+        }
+        return output;
     }
 
     public String nextPhase(Game game) {

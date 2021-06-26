@@ -879,21 +879,3 @@ paper
 START
 next phase
 next phase
-select --hand 3
-set
-select --hand 1
-set
-select --hand 1
-set
-select --hand 1
-set
-select --hand 1
-set
-select --hand 1
-set
-next phase
-next phase
-next phase
-next phase
-next phase
-next phase

@@ -141,7 +141,6 @@ public class Deck {
                 }
             }
         }
-
         return mainDeckCounter + sideDeckCounter; // in "single deck" situations, one of the counters would automatically be zero.
     }
 

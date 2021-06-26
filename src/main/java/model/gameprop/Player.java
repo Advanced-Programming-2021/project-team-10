@@ -1,9 +1,9 @@
 package model.gameprop;
 
+import model.cards.cardsProp.Card;
 import model.gameprop.BoardProp.PlayerBoard;
 import model.userProp.Deck;
 import model.userProp.FatherUser;
-import model.userProp.User;
 
 public class Player {
     public boolean isAllowedToDraw;
@@ -53,7 +53,9 @@ public class Player {
     }
 
     private void gameSetUp() {
-        //Collections.shuffle(deck.getMainDeck());
+        for (Card card : deck.getMainDeck()) {
+            System.out.println(card.getName());
+        }
         for (int i = 0; i < 5; i++) {
             board.getPlayerHand().add(deck.getMainDeck().get(i));
         }

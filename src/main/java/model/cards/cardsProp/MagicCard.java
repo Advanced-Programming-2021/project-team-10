@@ -66,9 +66,6 @@ public class MagicCard extends Card {
 
     private void setMagicEvents(String name) {
         switch (name) {
-            // trap :
-
-            // field
             case "Forest":
             case "Closed Forest":
             case "Monster Reborn":
