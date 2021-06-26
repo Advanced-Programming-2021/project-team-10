@@ -32,6 +32,7 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultToBeTested != null;
         boolean firstUserCreation = resultToBeTested.equals("user created successfully!");
 
         Assertions.assertTrue(firstUserCreation);
@@ -50,7 +51,7 @@ public class RegisterMenuTest {
         }
 
 
-        boolean firstUserCreation = resultFirst.equals("user created successfully!");
+        assert resultToBeTested != null;
         boolean secondUserCreation = resultToBeTested.equals("user with username yaroo already exists");
 
         Assertions.assertTrue(secondUserCreation);
@@ -68,7 +69,9 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultFirst != null;
         boolean firstUserCreation = resultFirst.equals("user created successfully!");
+        assert resultToBeTested != null;
         boolean secondUserCreation = resultToBeTested.equals("user with nickname kaftarbaz already exists");
 
         Assertions.assertTrue(firstUserCreation);
@@ -87,7 +90,9 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert creatingUserResult != null;
         boolean userCreated = creatingUserResult.equals("user created successfully!");
+        assert resultToBeTested != null;
         boolean userUnableToLogin = resultToBeTested.equals("user logged in successfully!");
 
         Assertions.assertTrue(userCreated);
@@ -104,6 +109,7 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultToBeTested != null;
         boolean userUnableToLogin = resultToBeTested.equals("Username and password didn't match!");
 
         Assertions.assertTrue(userUnableToLogin);
@@ -121,7 +127,9 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert creatingUserResult != null;
         boolean userCreated = creatingUserResult.equals("user created successfully!");
+        assert resultToBeTested != null;
         boolean userUnableToLogin = resultToBeTested.equals("Username and password didn't match!");
 
         Assertions.assertTrue(userCreated);
@@ -154,6 +162,7 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultCommand != null;
         boolean shownCorrectly = resultCommand.equals("Login Menu");
 
         Assertions.assertTrue(shownCorrectly);
@@ -174,8 +183,11 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultCreation != null;
         boolean resultCreationBoolean = resultCreation.equals("user created successfully!");
+        assert resultLogin != null;
         boolean resultLoginBoolean = resultLogin.equals("user logged in successfully!");
+        assert resultLogout != null;
         boolean resultLogoutBoolean = resultLogout .equals("user logged out successfully!");
 
         Assertions.assertTrue(resultCreationBoolean);
@@ -195,6 +207,7 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultLogoutWithoutCreation != null;
         boolean resultBoolean = resultLogoutWithoutCreation.equals("no user is logged in now");
 
         Assertions.assertTrue(resultBoolean);
@@ -209,7 +222,9 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultCreation != null;
         boolean resultCreationBoolean = resultCreation.equals("user created successfully!");
+        assert resultLogout != null;
         boolean resultLogoutBoolean = resultLogout .equals("no user is logged in now");
 
         Assertions.assertTrue(resultCreationBoolean);
@@ -227,6 +242,7 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultEnterMenu != null;
         boolean resultBoolean = resultEnterMenu.equals("please login first");
 
         Assertions.assertTrue(resultBoolean);
@@ -240,6 +256,7 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultCreation != null;
         boolean resultCreationBoolean = resultCreation.equals("user created successfully!");
         boolean resultEnterMenuBoolean = resultEnterMenu.equals("please login first");
 
@@ -266,8 +283,11 @@ public class RegisterMenuTest {
             e.printStackTrace();
         }
 
+        assert resultCreation != null;
         boolean resultCreationBoolean = resultCreation.equals("user created successfully!");
+        assert resultLogin != null;
         boolean resultLoginBoolean = resultLogin.equals("user logged in successfully!");
+        assert resultEnterMenu != null;
         boolean resultEnterMenuBoolean = resultEnterMenu.equals("enter Main menu successfully");
 
         Assertions.assertTrue(resultCreationBoolean);
@@ -294,7 +314,6 @@ public class RegisterMenuTest {
     @Test
     @DisplayName("Not identifying the command")
     void notIdentifyingCommand() {
-        String resultEnterMenu = null;
         try {
             Assertions.assertNull(registerMenuController.run(""));
             Assertions.assertNull(registerMenuController.run("ye dastoor ke jozv dastoorat nist!"));
