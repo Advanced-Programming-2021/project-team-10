@@ -150,16 +150,24 @@ public class PlayerBoard {
                 return true;
             }
         }
-        for (MonsterHouse house : monsterHouse) {
-            if (house.getMonsterCard().getName().equals("Advanced Ritual Art")) {
-                return true;
-            }
-        }
         for (MagicHouse house : magicHouse) {
             if (house.getMagicCard().getName().equals("Advanced Ritual Art")) {
                 return true;
             }
         }
         return false;
+    }
+
+    public void removeRitualSummonCard() {
+        for (int i = 0; i < playerHand.size(); i++) {
+            if (playerHand.get(i).getName().equals("Advanced Ritual Art")) {
+                moveCardToGraveYard(i, CardLocation.PLAYER_HAND);
+            }
+        }
+        for (int i = 0; i < magicHouse.length; i++) {
+            if (magicHouse[i].getMagicCard().getName().equals("Advanced Ritual Art")) {
+                moveCardToGraveYard(i, CardLocation.SPELL_ZONE);
+            }
+        }
     }
 }

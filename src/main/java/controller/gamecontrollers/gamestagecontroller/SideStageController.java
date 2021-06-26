@@ -51,6 +51,7 @@ public class SideStageController {
                         if (card == null) {
                             return SidePhase.INVALID_ADDRESS.toString();
                         } else {
+                            if (game.isHiredMonsterRitual()) board.removeRitualSummonCard();
                             board.moveCardToGraveYard(cardAddress, CardLocation.MONSTER_ZONE);
                         }
                     } else
@@ -64,6 +65,7 @@ public class SideStageController {
                         if (cardOne == null || cardTwo == null) {
                             return SidePhase.INVALID_ADDRESS.toString();
                         } else {
+                            if (game.isHiredMonsterRitual()) board.removeRitualSummonCard();
                             board.moveCardToGraveYard(cardOneAddress, CardLocation.MONSTER_ZONE);
                             board.moveCardToGraveYard(cardTwoAddress, CardLocation.MONSTER_ZONE);
                         }
