@@ -23,6 +23,7 @@ public class ActiveSpellProcessor extends ActiveEffectProcessor {
     public String process(Game game) {
         SelectedCardProp cardProp = game.getCardProp();
         MagicCard magicCard = (MagicCard) cardProp.getCard();
+        if (((MagicCard) cardProp.getCard()).isActivated()) return General.IS_ACTIVATED_BEFORE.toString();
         if (cardProp.getLocation().equals(CardLocation.PLAYER_HAND)) {//activation of magic from hand
             if (magicCard.getTypeOfMagic() != MagicType.SPELL || magicCard.getMagicAttribute() == MagicAttribute.QUICK_PLAY) {
                 return General.MAGIC_SPELL_SPEED_2.toString();
@@ -43,6 +44,7 @@ public class ActiveSpellProcessor extends ActiveEffectProcessor {
                             if (house.getMagicCard() == null) {
                                 game.getPlayer(SideOfFeature.CURRENT).getBoard().getPlayerHand().remove(cardProp.getCard());
                                 setCardOnBoard(game, magicCard, house);
+                                magicCard.setActivated(true);
                                 break;
                             }
                         }
@@ -50,7 +52,10 @@ public class ActiveSpellProcessor extends ActiveEffectProcessor {
                 }
             }
         }
+
         ManuallyActivation.getInstance().activeEffects(game);//activation of magic from board ( magic houses and field house)
+        magicCard.setActivated(true);
+        ((MagicHouse) cardProp.getCardPlace()).setState(MagicHouseVisibilityState.O);
         game.setCardProp(null);
         return General.SPELL_ACTIVATED_SUCCESSFULLY.toString();
     }
@@ -63,7 +68,6 @@ public class ActiveSpellProcessor extends ActiveEffectProcessor {
             game.getPlayer(SideOfFeature.CURRENT).getBoard().moveCardToGraveYard(magicCard);
         } else {
             house.setMagicCard(magicCard);
-            house.setState(MagicHouseVisibilityState.O);
         }
 
     }
