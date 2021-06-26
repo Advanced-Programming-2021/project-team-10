@@ -143,4 +143,23 @@ public class PlayerBoard {
         }
         throw new CardNotFoundException("monster card not found!");
     }
+
+    public boolean doesRitualCardAvailable() {
+        for (Card card : getPlayerHand()) {
+            if (card.getName().equals("Advanced Ritual Art")) {
+                return true;
+            }
+        }
+        for (MonsterHouse house : monsterHouse) {
+            if (house.getMonsterCard().getName().equals("Advanced Ritual Art")) {
+                return true;
+            }
+        }
+        for (MagicHouse house : magicHouse) {
+            if (house.getMagicCard().getName().equals("Advanced Ritual Art")) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

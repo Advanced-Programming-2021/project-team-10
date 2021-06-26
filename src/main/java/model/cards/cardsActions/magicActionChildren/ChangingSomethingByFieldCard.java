@@ -53,9 +53,9 @@ public interface ChangingSomethingByFieldCard {
             for (MonsterHouse monsterHouse : monsterHouses) {
                 if (monsterHouse.getHaveBeenImpactedByField()) { // it should be reverted!
                     if (whichPower.equals("Defence")) {
-                        monsterHouse.setAdditionalDefence(monsterHouse.getAdditionalDefence() + revertValue);
+                        monsterHouse.setAdditionalDefence(monsterHouse.getAdditionalDefence() - revertValue);
                     } else if (whichPower.equals("Attack")) {
-                        monsterHouse.setAdditionalAttack(monsterHouse.getAdditionalAttack() + revertValue);
+                        monsterHouse.setAdditionalAttack(monsterHouse.getAdditionalAttack() - revertValue);
                     }
 
                 }
