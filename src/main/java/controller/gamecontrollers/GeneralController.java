@@ -8,6 +8,7 @@ import model.cards.cardsProp.MonsterCard;
 import model.enums.GameEnums.CardLocation;
 import model.enums.GameEnums.GameError;
 import model.enums.GameEnums.GamePhaseEnums.General;
+import model.enums.GameEnums.PlayerTurn;
 import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.cardvisibility.MagicHouseVisibilityState;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
@@ -22,6 +23,9 @@ import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
 import model.gameprop.gamemodel.Game;
 import viewer.game.UserInterface;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GeneralController {
 
@@ -183,13 +187,18 @@ public class GeneralController {
         } else if (game.getGameMainStage().equals(GameMainStage.FIRST_MAIN_PHASE) ||
                 game.getGameMainStage().equals(GameMainStage.SECOND_MAIN_PHASE) ||
                 game.getGameMainStage().equals(GameMainStage.BATTLE_PHASE)) {
-            ActivationInOpponentTurn.getInstance().activeEffects(game);
+           // ActivationInOpponentTurn.getInstance().activeEffects(game);
         }
         return process(General.NEXT_PHASE_MESSAGE.toString(), game.getGameMainStage().getPhaseName()) + "\n" + drawBoard(game);
     }
 
     public String finishRound(Game game) {
         GameInProcess.getGame().finishRound(game.getTurnOfGame());
+        return roundOrGameResults(game);
+    }
+
+
+    private String roundOrGameResults(Game game) {
         if (game.isGameFinished()) {
             Player winner = game.getWinner();
             return winner.getUser().getNickname() +
@@ -243,7 +252,7 @@ public class GeneralController {
                 output = drawBoard(game);
             } else if (command.equals("active effect")) {
                 output = activeEffect(game);
-            } else if (command.startsWith("cheat code : ")) {
+            } else if (command.startsWith("cheat code: ")) {
                 output = runCheatCode(command);
             }
         } else output = "back to game first";
@@ -264,14 +273,49 @@ public class GeneralController {
     }
 
     private String runCheatCode(String cheatCode) {
-        /* 1) win a game
-         * 2) increase money
-         * 3) increase health
-         * 4) choose additional card -> draw */
+        // increase money is implemented in main menu!
         if (cheatCode.contains("winner")) {
-            return null;
-        } else
-            return null;
+            Game game = GameInProcess.getGame();
+            PlayerTurn playerTurn = game.getTurnOfGame();
+
+            if (playerTurn.equals(PlayerTurn.PLAYER_ONE)) {
+                game.finishRound(PlayerTurn.PLAYER_TWO);
+            } else if (playerTurn.equals(PlayerTurn.PLAYER_TWO)) {
+                game.finishRound(PlayerTurn.PLAYER_ONE);
+            }
+
+            return roundOrGameResults(game);
+        } else if (cheatCode.contains("draw")) {
+            return DrawPhaseController.getInstance().draw(true);
+        } else if (cheatCode.contains("increase LP")) {
+            String regex = "cheat code: increase LP -> (?<amount>\\d+)";
+
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(cheatCode);
+
+            String output;
+            if (matcher.matches()) {
+                String amount = matcher.group("amount");
+                int amountInt = Integer.parseInt(amount);
+
+                Game game = GameInProcess.getGame();
+                Player currPlayer = game.getPlayer(SideOfFeature.CURRENT);
+
+                int LPAfterIncrease = currPlayer.getPlayerLifePoint() + amountInt;
+                if (LPAfterIncrease <= 8000) {
+                    currPlayer.setPlayerLifePoint(LPAfterIncrease);
+                    output = "Your LP increased by " + amountInt + " and now is " + currPlayer.getPlayerLifePoint();
+                } else {
+                    output = "cheat denied! Don't be greedy :) Maximum possible LP is 8000!";
+                }
+            } else {
+                output = "cheat denied! You were close :) but the format wasn't completely true!";
+            }
+
+            return output;
+        } else {
+            return "cheat denied! Cheat with such pattern doesn't exist!";
+        }
     }
 
     protected String processAnswer(Game game, String rawOutPut) {
