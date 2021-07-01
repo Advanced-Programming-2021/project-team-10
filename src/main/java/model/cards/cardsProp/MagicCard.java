@@ -14,9 +14,12 @@ import model.events.eventChildren.ActivationInOpponentTurn;
 import model.events.eventChildren.ManuallyActivation;
 import model.events.eventChildren.MonsterSummon;
 import model.events.eventChildren.OpponentMonsterWantsToAttack;
+import model.gameprop.Player;
 import model.gameprop.gamemodel.Game;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -92,7 +95,7 @@ public class MagicCard extends Card {
                 triggers.add(ManuallyActivation.getInstance());
                 break;
             case "Mirror Force":
-                triggers.add(OpponentMonsterWantsToAttack.getInstance());
+                triggers.add(ActivationInOpponentTurn.getInstance());
                 break;
             case "Torrential Tribute":
                 triggers.add(MonsterSummon.getInstance());
@@ -101,7 +104,7 @@ public class MagicCard extends Card {
     }
 
     private void setMagicEffect(String name) {
-        if (name.equals("Monster Reborn")) {
+        if (name.equals("Monster Reborn")) { // checked! / warning: NullPointerException when graveyard empty!
             actionsOfMagic.add(new SummonMonsterFromBothGraveYardsAction());
         }
         if (name.equals("Raigeki")) {
@@ -171,7 +174,7 @@ public class MagicCard extends Card {
         if (name.equals("Black Pendant")) {
             actionsOfMagic.add(new ChangingEquipedMonsterAttack(500, 1));
         }
-        if (name.equals("Mirror Force")) {
+        if (name.equals("Mirror Force")) { //checked!
             actionsOfMagic.add(new DestroyAllOpponentAttackingMonsters());
         }
         if (name.equals("Mind Crush")) {
@@ -183,13 +186,13 @@ public class MagicCard extends Card {
         if (name.equals("Call of the Haunted")) {
             actionsOfMagic.add(new SummonMonsterFromOwnGraveYardAction());
         }
-        if (name.equals("Change of Heart")) {
+        if (name.equals("Change of Heart")) { //checked!
             actionsOfMagic.add(new ChangeTeamOfMonsterCard());
         }
-        if (name.equals("Time Seal")) {
+        if (name.equals("Time Seal")) { // checked!
             actionsOfMagic.add(new AvoidOpponentsCardDraw(2));
         }
-        if (name.equals("Pot Of Greed")) {
+        if (name.equals("Pot of Greed")) {
             actionsOfMagic.add(new DrawCardFromTopOfDeck(2));
         }
         if (name.equals("Terraforming")) {
@@ -214,7 +217,14 @@ public class MagicCard extends Card {
                 switch (answer.toLowerCase(Locale.ROOT)) {
                     case "yes": {
                         isActivated = true;
+
+                        // note: Traps somehow change the turn in current players play time!
+                        swapPlayersVirtually(game); // OPPONENT -> CURRENT & vice versa
+
                         activeActions(game, shouldActiveEffects);
+
+                        swapPlayersVirtually(game); // Reverting players to original references!
+
                         return;
                     }
                     case "no": {
@@ -229,6 +239,20 @@ public class MagicCard extends Card {
         }
         isActivated = true;
         activeActions(game, shouldActiveEffects);
+    }
+
+    private void swapPlayersVirtually(Game game) {
+        Player firstPlayer = game.getFirstPlayer();
+        Player secondPlayer = game.getSecondPlayer();
+
+        List<Player> toSwap = new ArrayList<>();
+        toSwap.add(firstPlayer);
+        toSwap.add(secondPlayer);
+
+        Collections.swap(toSwap, 0, 1);
+
+        game.setFirstPlayer(toSwap.get(0));
+        game.setSecondPlayer(toSwap.get(1));
     }
 
     private void activeActions(Game game, boolean shouldActiveEffects) {

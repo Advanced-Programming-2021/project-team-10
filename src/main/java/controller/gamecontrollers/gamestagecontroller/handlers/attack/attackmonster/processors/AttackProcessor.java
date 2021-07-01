@@ -6,6 +6,7 @@ import model.enums.GameEnums.GamePhaseEnums.BattlePhase;
 import model.enums.GameEnums.SideOfFeature;
 import model.enums.GameEnums.cardvisibility.MonsterHouseVisibilityState;
 import model.enums.GameEnums.gamestage.GameMainStage;
+import model.events.eventChildren.ActivationInOpponentTurn;
 import model.gameprop.BoardProp.MonsterHouse;
 import model.gameprop.Player;
 import model.gameprop.SelectedCardProp;
@@ -17,9 +18,15 @@ public class AttackProcessor extends AttackMonsterProcessor {
     }
 
     public String process(MonsterHouse target, Game game) {
+        ActivationInOpponentTurn.getInstance().activeEffects(game);
+
         SelectedCardProp offensive = game.getCardProp();
         MonsterCard offensiveCard = (MonsterCard) offensive.getCard();
         MonsterCard targetCard = target.getMonsterCard();
+        if (offensiveCard == null || targetCard == null) {
+            return "Successfully activated trap!";
+        } // case if an effect gets activated!
+
         MonsterHouse offensiveCardPlace = (MonsterHouse) offensive.getCardPlace();
         Player opponent = game.getPlayer(SideOfFeature.OPPONENT);
         Player current = game.getPlayer(SideOfFeature.CURRENT);
@@ -28,7 +35,6 @@ public class AttackProcessor extends AttackMonsterProcessor {
             return BattlePhase.ATTACK_NOT_IN_BATTLE_PHASE.toString();
 
         offensiveCardPlace.setMonsterAttacked();
-
         int practicalAttackForOffensive = offensiveCard.getAttack() +
                 ((MonsterHouse) offensive.getCardPlace()).getAdditionalAttack();
         int practicalAttackForTarget = targetCard.getAttack() +

@@ -25,8 +25,6 @@ public class SelectCardProcessor extends ActiveEffectProcessor {
         }
         if (cardProp.getCard() instanceof MagicCard) {
             MagicCard card = (MagicCard) cardProp.getCard();
-            if (!card.getTypeOfMagic().equals(MagicType.SPELL))
-                return General.NOT_SPELL_CARD.toString();
         }
         MagicCard card = (MagicCard) cardProp.getCard();
         if ((card.getTypeOfMagic() == MagicType.SPELL && card.getMagicAttribute() != MagicAttribute.QUICK_PLAY) &&

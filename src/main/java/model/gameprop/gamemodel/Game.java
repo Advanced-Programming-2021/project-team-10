@@ -86,11 +86,19 @@ public class Game {
         turn.setMonsterHouseOfHiredMonster(monsterHouse);
     }
 
-    private void setFirstPlayer(Player firstPlayer) {
+    public Player getFirstPlayer() {
+        return firstPlayer;
+    }
+
+    public void setFirstPlayer(Player firstPlayer) {
         this.firstPlayer = firstPlayer;
     }
 
-    private void setSecondPlayer(Player secondPlayer) {
+    public Player getSecondPlayer() {
+        return secondPlayer;
+    }
+
+    public void setSecondPlayer(Player secondPlayer) {
         this.secondPlayer = secondPlayer;
     }
 
