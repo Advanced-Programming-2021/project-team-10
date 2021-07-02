@@ -90,7 +90,7 @@ public class MagicCard extends Card {
             case "Call of the Haunted":
             case "Change of Heart":
             case "Time Seal":
-            case "Pot Of Greed":
+            case "Pot of Greed":
             case "Terraforming":
                 triggers.add(ManuallyActivation.getInstance());
                 break;
