@@ -394,8 +394,8 @@ menu exit
 menu enter Deck menu
 deck create thirdDeck
 deck set-active thirdDeck
-deck add-card --card Time Seal --deck thirdDeck
-deck add-card --card Monster Reborn --deck thirdDeck
+deck add-card --card Pot of Greed --deck thirdDeck
+deck add-card --card Wattkid --deck thirdDeck
 deck add-card --card Closed Forest --deck thirdDeck
 deck add-card --card Mirror Force --deck thirdDeck
 deck add-card --card Black Pendant --deck thirdDeck
